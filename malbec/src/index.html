@@ -117,13 +117,6 @@ section{padding:clamp(80px,12vw,160px) 0;position:relative}
 
 /* menu */
 .mhead{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:44px}
-.dest{display:grid;grid-template-columns:auto 1fr;gap:0;border:3px solid var(--ink);border-radius:26px;overflow:hidden;background:var(--paper);box-shadow:10px 10px 0 var(--red);margin-bottom:64px;max-width:780px}
-.dest img{width:clamp(160px,28vw,300px);height:100%;object-fit:cover;border-right:3px solid var(--ink)}
-.dest div{padding:26px 28px;align-self:center}
-.dest .tag{display:inline-block;background:var(--red);color:var(--cream);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;padding:5px 12px;border-radius:100px;margin-bottom:14px}
-.dest h3{font-size:clamp(1.7rem,3.4vw,2.6rem);color:var(--red)}
-.dest p{margin-top:10px;color:var(--mute);max-width:320px}
-.dest a{display:inline-block;margin-top:16px;font-weight:700;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid var(--red);padding-bottom:2px}
 .ctrl{position:sticky;top:64px;z-index:40;background:var(--cream);padding:14px 0 16px;margin-bottom:26px;border-bottom:1.5px solid var(--line)}
 .tabs{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;padding-bottom:2px}
 .tabs::-webkit-scrollbar{display:none}
@@ -137,16 +130,29 @@ section{padding:clamp(80px,12vw,160px) 0;position:relative}
 .grp h3{font-size:clamp(1.5rem,2.8vw,2.1rem);margin:38px 0 18px;display:flex;align-items:center;gap:16px;color:var(--red)}
 .grp h3::after{content:"";flex:1;height:2px;background:var(--ink);opacity:.2}
 .grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.it{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:20px 22px;display:grid;grid-template-columns:1fr auto;gap:6px 16px;transition:transform .45s var(--ease),box-shadow .45s var(--ease);animation:pop .7s var(--ease) both;animation-delay:var(--d,0s)}
+.dsthead{margin-bottom:6px}
+.dst{display:flex;gap:22px;overflow-x:auto;scroll-snap-type:x mandatory;padding:10px 12px 28px;margin:0 -12px 46px;scrollbar-width:thin;scrollbar-color:var(--red) transparent}
+.dc{flex:0 0 min(330px,78vw);scroll-snap-align:start;border:3px solid var(--ink);border-radius:24px;overflow:hidden;background:var(--paper);box-shadow:8px 8px 0 var(--red);display:flex;flex-direction:column;transition:transform .45s var(--ease)}
+.dc:hover{transform:translate(-4px,-4px) rotate(-.6deg)}
+.dc img{width:100%;height:200px;object-fit:cover;border-bottom:3px solid var(--ink)}
+.dc div{padding:18px 20px 22px}
+.dc h3{font-size:1.5rem;color:var(--red);line-height:1.05}
+.dc p{color:var(--mute);font-size:.9rem;margin-top:8px}
+.dc a{display:inline-block;margin-top:14px;font-weight:700;font-size:.74rem;letter-spacing:.14em;text-transform:uppercase;border-bottom:2px solid var(--red);padding-bottom:2px}
+.it{background:var(--paper);border:2px solid var(--ink);border-radius:20px;padding:18px 18px 16px 22px;display:flex;gap:16px;align-items:stretch;transition:transform .45s var(--ease),box-shadow .45s var(--ease);animation:pop .7s var(--ease) both;animation-delay:var(--d,0s)}
 .it:hover{transform:translate(-4px,-4px);box-shadow:7px 7px 0 var(--red)}
-@keyframes pop{from{opacity:0;transform:translateY(22px)}}
-.it h4{font-family:var(--disp);font-weight:800;font-size:1.22rem;line-height:1.15;letter-spacing:-.01em}
-.it .pr{font-family:var(--disp);font-weight:900;font-size:1.5rem;color:var(--red);white-space:nowrap;text-align:right}
-.it .ds{grid-column:1/-1;color:var(--mute);font-size:.9rem;line-height:1.45}
-.it .ft{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:6px}
+.it .bd{flex:1;min-width:0;display:flex;flex-direction:column;gap:6px}
+.it .tp{display:flex;justify-content:space-between;gap:14px;align-items:flex-start}
+.it h4{font-family:var(--disp);font-weight:800;font-size:1.2rem;line-height:1.15;letter-spacing:-.01em}
+.it .pr{font-family:var(--disp);font-weight:900;font-size:1.45rem;color:var(--red);white-space:nowrap;text-align:right;line-height:1.1}
+.it .pr small{display:block;font-family:var(--sans);font-weight:500;font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--mute)}
+.it .ds{color:var(--mute);font-size:.9rem;line-height:1.45}
+.it .ft{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:auto;padding-top:8px}
 .it .tg span{font-size:.64rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;background:var(--cream2);border-radius:100px;padding:4px 10px;margin-right:6px}
-.it .pd{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--red);border-bottom:2px solid transparent;transition:.3s;margin-left:auto}
+.it .pd{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--red);border-bottom:2px solid transparent;transition:.3s;margin-left:auto;white-space:nowrap}
 .it .pd:hover{border-color:var(--red)}
+.it .th{width:108px;height:108px;flex:none;border-radius:14px;border:2px solid var(--ink);object-fit:cover;align-self:flex-start}
+@keyframes pop{from{opacity:0;transform:translateY(22px)}}
 .pend{display:grid;grid-template-columns:200px 1fr;gap:34px;align-items:center;border:2px dashed var(--ink);border-radius:26px;padding:34px;animation:pop .7s var(--ease) both}
 .pend .ill{width:160px;height:200px;margin-inline:auto}
 .pend h3{font-size:2rem}
@@ -203,9 +209,9 @@ footer p{margin-top:12px;opacity:.85;font-size:.86rem;letter-spacing:.1em}
   .wrap{width:calc(100% - 32px)}
   .info dl div{grid-template-columns:1fr;gap:2px}
   .btn{padding:14px 22px}.wm{right:8px;bottom:8px}
-  .dest{grid-template-columns:1fr}.dest img{width:100%;height:190px;border-right:0;border-bottom:3px solid var(--ink)}
   .pend{grid-template-columns:1fr;padding:24px;text-align:center}.pend p{margin-inline:auto}
   .ctrl{top:56px}
+  .it .th{width:88px;height:88px}.it{padding:16px 14px 14px 18px}
   .brand span{font-size:1.3rem}
 }
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}.rv,.draw{opacity:1;transform:none;clip-path:none}.hero p.sub,.cta,.chips,.shot{opacity:1;transform:none}.hero h1 .ln>span{transform:none}}
@@ -266,17 +272,15 @@ footer p{margin-top:12px;opacity:.85;font-size:.86rem;letter-spacing:.1em}
     <a class="btn fill rv" href="#" id="menuBtn" style="--d:.2s">Cardápio completo ↗</a>
   </div>
 
-  <div class="dest rv">
-    <img src="img/temaki.jpg" alt="Temaki Filadélfia">
-    <div><span class="tag">Destaque do cardápio</span><h3>Temaki Filadélfia</h3><p>Cubos de salmão, arroz, cream cheese. Finalizado com cebolinha.</p><a href="#" data-wa="Olá! Gostaria de pedir um Temaki Filadélfia.">Pedir agora →</a></div>
-  </div>
+  <div class="eyebrow dsthead rv">Destaques da casa</div>
+  <div class="dst rv" id="dst"></div>
 
   <div class="ctrl">
     <div class="tabs" id="tabs"></div>
     <label class="search"><svg viewBox="0 0 24 24" fill="none" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" placeholder="Buscar no cardápio" aria-label="Buscar no cardápio" autocomplete="off"></label>
   </div>
   <div id="menu"></div>
-  <p class="note">Valores conforme o cardápio de delivery do Malbec, sujeitos a alteração. Sushi, à la carte, porções e pizzas: peça o cardápio completo pelo WhatsApp.</p>
+  <p class="note">Valores conforme o cardápio de delivery do Malbec, sujeitos a alteração. Pizzas: o valor final depende do sabor escolhido.</p>
 </div></section>
 
 <section class="quote">
@@ -324,7 +328,18 @@ fix();
 const mb=$('#menuBtn');mb.href=MENU_URL||wa('Olá! Gostaria de ver o cardápio do Malbec.');mb.target='_blank';mb.rel='noopener';
 $('#y').textContent=new Date().getFullYear();
 
-// ---- dados do cardápio (itens: [nome, preço, descrição, tags]) ----
+// ---- dados do cardápio: [nome, preço, descrição, tags, foto, "a partir de"] ----
+const IMG={cabare:'img/t_cabare.jpg',smirnoff:'img/t_smirnoff.jpg',caju:'img/t_caju.jpg',brutal:'img/t_brutal.jpg',absolut:'img/t_absolut.jpg',
+ taca:'img/t_taca.jpg',reservadosuave:'img/t_reservadosuave.jpg',casillero:'img/t_casillero.jpg',almanegra:'img/t_almanegra.jpg',luigi:'img/t_luigi.jpg',catena:'img/t_catena.jpg',
+ picanha:'img/t_picanha.jpg',filemignon:'img/t_filemignon.jpg',parmfile:'img/t_parmfile.jpg',parmtilapia:'img/t_parmtilapia.jpg',batatacarneseca:'img/t_batatacarneseca.jpg',strogcarne:'img/t_strogcarne.jpg',
+ bcheddar:'img/t_bcheddar.jpg',bmalbec:'img/t_bmalbec.jpg',pantanal:'img/t_pantanal.jpg',piscina:'img/t_piscina.jpg',pantaneiro:'img/t_pantaneiro.jpg',bpremium:'img/t_bpremium.jpg',bsalmao:'img/t_bsalmao.jpg',
+ batatamalbec:'img/d_batatamalbec.jpg'};
+const DEST=[
+ ['Temaki Filadélfia','Cubos de salmão, arroz, cream cheese. Finalizado com cebolinha.','img/d_filadelfia.jpg'],
+ ['Temaki de Salmão','Cubos de salmão, arroz. Finalizado com gergelim.','img/d_temakisalmao.jpg'],
+ ['Temaki Dragon Skin','Pele de salmão grelhada batida com cream cheese, cebolinha, arroz. Finalizado com tarê e crispy de couve.','img/d_dragon.jpg'],
+ ['Batata Malbec c/ Cheddar e Bacon','Com cheddar e bacon, 500g.',IMG.batatamalbec]
+];
 const CATS=[
  {id:'cerv',name:'Chopp e Cervejas',groups:[
   {t:'Cervejas Long Neck',items:[
@@ -347,21 +362,106 @@ const CATS=[
   {t:'Cervejas Lata',items:[
    ['Amstel Lata 269ml',6],
    ['Heineken Puro Malte Lata 269ml',8,'Lager puro malte, sabor equilibrado e refrescância.'],
-   ['Skol Lata 269ml',6],
-   ['Brahma Lata 269ml',6],
-   ['Antarctica Lata 269ml',6]
+   ['Skol Lata 269ml',6],['Brahma Lata 269ml',6],['Antarctica Lata 269ml',6]
   ]}
  ]},
- {id:'drinks',name:'Drinks e Doses',pend:true,ill:'glass',h:'Drinks e doses',p:'Estamos preparando esta seção. Pergunte ao nosso time o que está saindo hoje.'},
- {id:'vinhos',name:'Carta de Vinhos',pend:true,ill:'wine',h:'Carta de vinhos',p:'Estamos preparando esta seção. Peça a carta atualizada pelo WhatsApp.'}
+ {id:'drinks',name:'Drinks e Doses',groups:[{t:'Drinks',items:[
+   ['Ice Cabaré Limão 275ml',12,'',[],IMG.cabare],
+   ['Ice Smirnoff 275ml',10,'',[],IMG.smirnoff],
+   ['Ice Caju 275ml',10,'Crystal Ice Caju: drink leve e refrescante, com vodca, saquê e suco natural de caju.',[],IMG.caju],
+   ['Brutal Fruit 275ml',12,'Brutal Fruit Spritzer: bebida mista gaseificada, lançada pela Ambev, que combina infusão de fruta.',[],IMG.brutal],
+   ['Absolut Sprite Lata 269ml',13,'O sabor premium da vodka Absolut com a refrescância do Sprite, numa bebida leve.',[],IMG.absolut]
+ ]}]},
+ {id:'vinhos',name:'Carta de Vinhos',groups:[{t:'Carta de Vinhos',items:[
+   ['Taça Vinho Suave 150ml',20,'',[],IMG.taca],
+   ['Taça Vinho Seco 150ml',20,'',[],IMG.taca],
+   ['Vinho Reservado Suave 750ml',50,'Levemente estruturado e suave, com taninos macios e acidez equilibrada.',[],IMG.reservadosuave],
+   ['Casillero del Diablo 750ml',130,'',[],IMG.casillero],
+   ['Alma Negra 750ml',260,'O Alma Negra 2020 é um blend intrigante que combina diferentes variedades de uvas.',[],IMG.almanegra],
+   ['Vinho Luigi Bosca Malbec Tinto 750ml',200,'Um típico Malbec argentino, que agrada a todos. Camadas de aromas, de frutos vermelhos maduros.',[],IMG.luigi],
+   ['Vinho D.V Catena 750ml',230,'Assinado pela prestigiada vinícola Catena Zapata, um verdadeiro deleite para os apreciadores de tintos.',[],IMG.catena],
+   ['Vinho La Linda Malbec 750ml',230,'A queridinha dos brasileiros: aromas refinados, frutado e suculento.'],
+   ['Vinho Cordero con Piel de Lobo Malbec 2024 750ml',230,'Produzido com a uva Malbec, cultivada entre 750 e 1.000 metros de altitude.'],
+   ['Vinho Reservado 750ml',60,'Concha y Toro Reservado Cabernet Sauvignon, um clássico vinho tinto chileno de corpo médio.'],
+   ['Vinho Los Intocables Malbec 2021 750ml',260,'Explosão de frutas em boca, equilíbrio excepcional, potência, personalidade marcante e taninos.'],
+   ['Vinho Angelica Zapata 750ml',330,'Malbec geralmente considerado um vinho de alta qualidade.'],
+   ['Vinho Susana Balbo Signature 750ml',345,'Um dos Malbecs mais reconhecidos da vinícola, de Paraje Altamira, Valle de Uco, em Mendoza.']
+ ]}]},
+ {id:'semalcool',name:'Bebidas sem Álcool',pend:true,ill:'glass',h:'Bebidas sem álcool',p:'Estamos atualizando esta seção. Peça a lista completa pelo WhatsApp.'},
+ {id:'pizzas',name:'Pizzas',groups:[
+  {t:'Pizzas Grande',items:[
+   ['Pizza Grande 2 Sabores (8 fatias)',58,'Escolha os sabores desejados nos opcionais! Os preços estão à frente de cada sabor!',[],'',1],
+   ['Pizza Grande Salgada 1 Sabor (8 fatias)',58,'Escolha os sabores desejados nos opcionais! Os preços estão à frente de cada sabor!',[],'',1],
+   ['Pizza Grande Doce 1 Sabor (8 fatias)',58,'Escolha os sabores desejados nos opcionais! Os preços estão à frente de cada sabor!',[],'',1]]},
+  {t:'Pizzas Pequena',items:[
+   ['Pizza Pequena Salgada 1 Sabor (4 fatias)',42,'Escolha o sabor desejado nos opcionais! Os preços estão à frente de cada sabor!',[],'',1],
+   ['Pizza Pequena Doce 1 Sabor (4 fatias)',45,'Escolha o sabor desejado nos opcionais! Os preços estão à frente de cada sabor!',[],'',1]]}
+ ]},
+ {id:'burguer',name:'Burguer',groups:[{t:'Burguers',items:[
+   ['Burguer Cheddar',29,'Pão brioche, hambúrguer e queijo cheddar.',[],IMG.bcheddar],
+   ['Burguer Malbec',29,'Pão brioche, hambúrguer e queijo muçarela.',[],IMG.bmalbec],
+   ['Pantanal Selvagem',46,'Pão brioche, carne seca desfiada, hambúrguer, bacon, ovo, catupiry especial e muçarela ou cheddar.',[],IMG.pantanal],
+   ['Piscina Cheddar Malbec',48,'Pão brioche, hambúrguer e queijo cheddar, mergulhado no delicioso creme de cheddar com farofa de bacon.',[],IMG.piscina],
+   ['Burguer Malbec Pantaneiro',42,'Pão brioche, carne seca desfiada, cream cheese, dobro de muçarela e banana da terra frita.',[],IMG.pantaneiro],
+   ['Malbec Premium',40,'Pão brioche, carne seca desfiada, catupiry especial, muçarela, cebola roxa, tomate, alface ou rúcula.',[],IMG.bpremium],
+   ['Burguer Salmão',36,'Pão brioche, hambúrguer de salmão, cream cheese, muçarela, cebola roxa, tomate, alface.',[],IMG.bsalmao],
+   ['Burguer Salada',32,'Pão brioche, hambúrguer, muçarela, alface, tomate e picles.'],
+   ['Burguer Filézinho 3 Queijos',40,'Pão brioche, maionese especial, filé mignon, dobro de muçarela, provolone e catupiry.'],
+   ['Burguer Malbec Picanha',53,'Pão brioche, picanha fatiada, muçarela, cebola roxa, tomate e alface.']
+ ]}]},
+ {id:'pratos',name:'Pratos e Batatas Recheadas',groups:[
+  {t:'Executivo Individual',items:[
+   ['Picanha (Individual)',65,'Picanha 200g, arroz, vinagrete e batata frita.',[],IMG.picanha],
+   ['Filé Mignon (Individual)',60,'Filé mignon 200g, arroz, salada e batata frita.',[],IMG.filemignon]]},
+  {t:'À Parmegiana Individual',items:[
+   ['Parmegiana Filé Mignon (Individual)',65,'Acompanha arroz e batata palha.',[],IMG.parmfile],
+   ['Parmegiana Filé de Tilápia ao Molho Pantaneiro',62,'Filé de tilápia ao molho pantaneiro com banana da terra. Acompanha arroz e batata palha.',[],IMG.parmtilapia]]},
+  {t:'Batatas Recheadas',items:[
+   ['Batata c/ Carne Seca',35,'Batata, muçarela, carne seca desfiada cremosa, banana-da-terra e cebolinha.',[],IMG.batatacarneseca],
+   ['Batata Strogonoff Carne',35,'Batata, muçarela, requeijão cremoso, carne, champignon e batata palha.',[],IMG.strogcarne],
+   ['Batata Strogonoff Frango',35,'Batata, muçarela, strogonoff de frango, champignon, requeijão cremoso e batata palha.'],
+   ['Batata c/ Frango Desfiado',35,'Batata, muçarela, frango desfiado, requeijão cremoso e batata palha.'],
+   ['Pastel Salmão',15]]}
+ ]},
+ {id:'porcoes',name:'Porções e Acompanhamentos',groups:[
+  {t:'Porções',items:[
+   ['Porção de Filé Mignon Acebolado (Grande)',120,'Carne em tiras acebolada, coberta com muçarela, batata frita e pimenta biquinho.'],
+   ['Porção de Picanha Acebolada (Grande)',130,'Picanha em tiras com cebola, pimenta biquinho e batata frita.'],
+   ['Porção de Tilápia Malbec',73,'Filé de tilápia em tiras, empanado com farinha panko e molho Ary.'],
+   ['Porção Mix de Frios',68,'Azeitona, ovos de codorna, muçarela, presunto e salame italiano.'],
+   ['Porção de Salame',43,'Acompanha limão.'],
+   ['Porção Mandioca Frita',33,'400g'],
+   ['Porção Parmê Fritas',63,'Batata frita servida com parmegiana de tiras de filé mignon e generosa camada de muçarela.'],
+   ['Porção Parmê Fritas c/ Bacon',63,'Batata frita servida com parmegiana de tiras de filé mignon ao molho branco, muçarela e bacon.'],
+   ['Palitinho de Salmão 10 unid.',40,'Salmão empanado e frito. Acompanha molho sweet chilli.'],
+   ['Porção de Calabresa',45,'Acompanha pão fatiado grande, 400g.'],
+   ['Porção Torresmo G',39],
+   ['Porção de Batata Tradicional',38,'500g'],
+   ['Batata Malbec Premium',56,'Batata 500g, calabresa, bacon e muçarela.'],
+   ['Batata Malbec c/ Muçarela e Bacon',48,'500g de batata frita, muçarela e bacon.'],
+   ['Batata Malbec c/ Cheddar e Bacon',48,'Com cheddar e bacon, 500g.',[],IMG.batatamalbec],
+   ['Porção de Borda de Chocolate em Petisco',35],
+   ['Porção de Borda de Doce de Leite em Petisco',35],
+   ['Porção de Borda de Chocolate Branco em Petisco',35],
+   ['Porção de Borda de Goiabada em Petisco',35],
+   ['Porção de Borda de Catupiry em Petisco',32],
+   ['Porção de Borda de Cheddar em Petisco',32]]},
+  {t:'Acompanhamentos',items:[
+   ['Adicional de Arroz',12,'Porção de arroz branco.'],
+   ['Adicional de Maionese',3],
+   ['Adicional de Molho Ary',4],
+   ['Adicional Molho Sweet Chilli',4,'Molho agridoce picante, produzido na casa.']]}
+ ]},
+ {id:'japonesa',name:'Comida Japonesa',pend:true,ill:'plates',h:'Comida japonesa',p:'Combinados, sashimis, temakis e muito mais. Peça o cardápio completo pelo WhatsApp.'}
 ];
 const BRL=v=>'R$ '+v.toFixed(2).replace('.',',');
 const esc=s=>s.replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
 let cur='cerv';
 const tabs=$('#tabs'),menu=$('#menu'),q=$('#q');
 tabs.innerHTML=CATS.map(c=>`<button class="tab${c.id===cur?' on':''}" data-id="${c.id}">${c.name}</button>`).join('');
+$('#dst').innerHTML=DEST.map(d=>`<article class="dc"><img src="${d[2]}" alt="${esc(d[0])}" loading="lazy"><div><h3>${esc(d[0])}</h3><p>${esc(d[1])}</p><a href="${wa('Olá! Gostaria de pedir: '+d[0])}" target="_blank" rel="noopener">Pedir agora →</a></div></article>`).join('');
 const norm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
-function card(it,i){const [n,p,d,t]=it;return `<article class="it" style="--d:${Math.min(i,10)*.04}s"><h4>${esc(n)}</h4><div class="pr">${BRL(p)}</div>${d?`<p class="ds">${esc(d)}</p>`:''}<div class="ft"><div class="tg">${(t||[]).map(x=>`<span>${x}</span>`).join('')}</div><a class="pd" href="${wa('Olá! Gostaria de pedir: '+n)}" target="_blank" rel="noopener">Pedir +</a></div></article>`}
+function card(it,i){const [n,p,d,t,im,from]=it;return `<article class="it" style="--d:${Math.min(i,10)*.04}s"><div class="bd"><div class="tp"><h4>${esc(n)}</h4><div class="pr">${from?'<small>a partir de</small>':''}${BRL(p)}</div></div>${d?`<p class="ds">${esc(d)}</p>`:''}<div class="ft"><div class="tg">${(t||[]).map(x=>`<span>${x}</span>`).join('')}</div><a class="pd" href="${wa('Olá! Gostaria de pedir: '+n)}" target="_blank" rel="noopener">Pedir +</a></div></div>${im?`<img class="th" src="${im}" alt="${esc(n)}" loading="lazy">`:''}</article>`}
 function render(){
  const term=norm(q.value.trim());
  if(term){

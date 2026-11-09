@@ -11,7 +11,7 @@ def embed(m):
     data = base64.b64encode(f.read_bytes()).decode()
     return f"data:{mime[f.suffix]};base64,{data}"
 
-out = re.sub(r"img/([a-z0-9]+\.(?:png|jpg))", embed, html)
+out = re.sub(r"img/([a-z0-9_]+\.(?:png|jpg))", embed, html)
 (root / "index.html").write_text(out, encoding="utf-8")
 with zipfile.ZipFile(root / "malbec-previa-codrian.zip", "w", zipfile.ZIP_DEFLATED) as z:
     z.write(root / "index.html", "index.html")
