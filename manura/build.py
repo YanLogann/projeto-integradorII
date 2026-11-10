@@ -12,6 +12,9 @@ def photo(name):
 def png(name):
     return 'data:image/png;base64,'+base64.b64encode(open(f'img/{name}.png','rb').read()).decode()
 out=re.sub(r'\{\{img:(\w+)\}\}',lambda m:photo(m.group(1)),src)
-out=out.replace('{{logow}}',png('logow')).replace('{{logo}}',png('logo'))
+lw,lh,*_=open('img/logo-path.txt').read().split('\n')[0].split()
+lp=open('img/logo-path.txt').read().split('\n',1)[1]
+font='data:font/woff2;base64,'+base64.b64encode(open('fonts/bricolage.woff2','rb').read()).decode()
+out=out.replace('{{LW}}',lw).replace('{{LH}}',lh).replace('{{LPATH}}',lp).replace('{{font}}',font)
 open('Manura-Churrascaria-PREVIA.html','w',encoding='utf-8').write(out)
 print(len(out)//1024,'KB')

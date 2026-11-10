@@ -3,435 +3,439 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Manura Churrascaria — Churrasco e Cozinha Árabe desde 1987</title>
-<meta name="description" content="Manura Churrascaria e Cozinha Árabe. Rodízio, buffet e pratos árabes no centro de Campo Grande, MS. Desde 1987.">
+<title>Manura Churrascaria e Cozinha Árabe — Campo Grande, MS, desde 1987</title>
+<meta name="description" content="Churrasco e cozinha árabe no centro de Campo Grande: rodízio e buffet no almoço, desde 1987. Nota 4,8 no Google.">
 <meta name="theme-color" content="#6b1f1d">
-<link rel="icon" href="{{logo}}">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-/* Paleta extraída da logo: vinho #6b1f1d, vermelho das artes #b3201f, branco e cinza-espeto */
+@font-face{font-family:'Bricolage Grotesque';font-style:normal;font-weight:200 800;font-display:swap;src:url({{font}}) format('woff2')}
 :root{
-  --bg:#fbf7f1; --bg2:#f3eadf; --paper:#fff; --ink:#2b1412; --mute:#7b645e;
-  --wine:#6b1f1d; --red:#b3201f; --red2:#d23b32; --star:#f4b400; --skew:#8a8f96;
-  --line:rgba(107,31,29,.13);
+  --bg:#f2f1ef; --field:#e3e0dd; --ink:#241210; --soft:#6f5a55;
+  --wine:#6b1f1d; --deep:#2c0e0d; --accent:#b3201f; --white:#fff; --star:#f4b400;
+  --m:clamp(20px,2.2vw,32px);
+  --step-small:15px;
+  --step-body:18px;
+  --step-lead:26px;
+  --step-head:40px;
   --ease:cubic-bezier(.22,1,.36,1);
-  --head:'Fredoka','Nunito','Trebuchet MS',system-ui,sans-serif; --sans:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+  --f:'Bricolage Grotesque','Arial Black','Helvetica Neue',system-ui,sans-serif;
 }
-.dark{--bg:#2c0e0d;--bg2:#3a1412;--paper:#451a17;--ink:#fbf3ea;--mute:#d4b9b0;--line:rgba(255,255,255,.14)}
 *{box-sizing:border-box;margin:0;padding:0}
-html{overflow-x:clip;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-img{display:block;max-width:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--bg);color:var(--ink);font-family:var(--f);font-size:var(--step-body);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:clip}
+img,svg{display:block;max-width:100%}
+.mono svg,.f-mono svg{max-width:none}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
-.wrap{width:min(1200px,100% - 40px);margin-inline:auto}
-h1,h2,h3{font-family:var(--head);font-weight:600;line-height:1.05;letter-spacing:-.01em}
+::selection{background:var(--accent);color:#fff}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+.dark :focus-visible,.hero :focus-visible{outline-color:#fff}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+h1,h2,h3{font-weight:800;letter-spacing:-.035em;line-height:.9}
+.small{font-size:var(--step-small)}
+.soft{color:var(--soft)}
+section,footer{position:relative;overflow-x:clip}
 main{overflow-x:clip}
-section{padding:clamp(72px,10vw,130px) 0;position:relative;overflow-x:clip;background:var(--bg);color:var(--ink)}
-section.alt{background:var(--bg2)}
-.eyebrow{font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;color:var(--red);font-weight:600;display:flex;align-items:center;gap:.7rem}
-.dark .eyebrow{color:#ff8f80}
-/* ornamento espeto, da logo: -=== */
-.eyebrow::before{content:"";width:34px;height:8px;background:
-  linear-gradient(var(--skew),var(--skew)) 0 50%/100% 2px no-repeat,
-  linear-gradient(var(--skew),var(--skew)) 100% 50%/6px 8px no-repeat;border-radius:2px}
-.h2{font-size:clamp(2.1rem,5vw,3.6rem);margin:.9rem 0 1rem}
-.lead{color:var(--mute);font-size:clamp(1rem,1.6vw,1.15rem);max-width:56ch}
 
-#bar{position:fixed;top:0;left:0;height:4px;width:0;background:linear-gradient(90deg,var(--wine),var(--red2));z-index:100}
-nav{position:fixed;inset:12px 0 auto;z-index:90;display:flex;justify-content:center;padding:0 12px;transition:transform .5s var(--ease)}
-nav.hide{transform:translateY(-120%)}
-.nav-in{display:flex;align-items:center;gap:4px;width:min(1000px,100%);padding:7px 7px 7px 20px;border-radius:999px;background:rgba(255,255,255,.82);backdrop-filter:saturate(180%) blur(18px);-webkit-backdrop-filter:saturate(180%) blur(18px);border:1px solid var(--line);box-shadow:0 10px 40px -14px rgba(107,31,29,.35);color:#2b1412}
-.logo{margin-right:auto;display:flex;align-items:center}
-.logo img{height:36px;width:auto}
-.nav-in a.l{padding:8px 14px;border-radius:999px;font-size:.88rem;font-weight:500;color:#4a2c29;transition:.3s}
-.nav-in a.l:hover,.nav-in a.l.on{background:rgba(179,32,31,.1);color:var(--red)}
-.btn{display:inline-flex;align-items:center;gap:.6rem;padding:14px 26px;border-radius:999px;font-weight:600;font-size:.95rem;transition:transform .4s var(--ease),box-shadow .4s,background .3s;position:relative;overflow:hidden;white-space:nowrap}
-.btn.p{background:linear-gradient(135deg,var(--red2),var(--red));color:#fff;box-shadow:0 12px 28px -10px rgba(179,32,31,.7)}
-.btn.p:hover{transform:translateY(-2px) scale(1.02);box-shadow:0 20px 40px -12px rgba(179,32,31,.8)}
-.btn.g{border:1.5px solid var(--wine);color:var(--wine);background:transparent}
-.dark .btn.g{border-color:rgba(255,255,255,.5);color:#fff}
-.btn.g:hover{background:var(--wine);color:#fff;transform:translateY(-2px)}
-.btn.sm{padding:10px 20px;font-size:.85rem}
-.btn.p::after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent 30%,rgba(255,255,255,.4),transparent 70%);transform:translateX(-120%);transition:transform .8s var(--ease)}
-.btn.p:hover::after{transform:translateX(120%)}
-.burger{display:none;width:44px;height:44px;border-radius:50%;background:rgba(179,32,31,.1);place-items:center}
-.burger i{display:block;width:18px;height:2px;background:var(--wine);margin:4px auto;transition:.4s var(--ease)}
-.burger.x i:first-child{transform:translateY(3px) rotate(45deg)}.burger.x i:last-child{transform:translateY(-3px) rotate(-45deg)}
-#menu{position:fixed;inset:0;z-index:80;background:rgba(251,247,241,.97);backdrop-filter:blur(20px);display:flex;flex-direction:column;justify-content:center;gap:8px;padding:30px;opacity:0;pointer-events:none;transition:opacity .4s}
-#menu.open{opacity:1;pointer-events:auto}
-#menu a{font-family:var(--head);font-size:2.4rem;font-weight:600;color:var(--wine);transform:translateY(20px);opacity:0;transition:.6s var(--ease)}
-#menu.open a{transform:none;opacity:1}
-#menu.open a:nth-child(2){transition-delay:.06s}#menu.open a:nth-child(3){transition-delay:.12s}#menu.open a:nth-child(4){transition-delay:.18s}#menu.open a:nth-child(5){transition-delay:.24s}
+/* botão: um só formato, retangular */
+.btn{display:inline-flex;align-items:center;gap:.7rem;padding:16px 26px;background:var(--accent);color:#fff;font-weight:600;font-size:18px;transition:transform .35s var(--ease),background .25s}
+.btn:hover{transform:translateY(-3px);background:#c8302b}
+.btn:active{transform:translateY(0) scale(.98)}
+.btn .ar{display:inline-block;transition:transform .35s var(--ease)}
+.btn:hover .ar{transform:translateX(5px)}
+.link{font-weight:500;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px;text-decoration-color:transparent;transition:text-decoration-color .3s}
+.link:hover{text-decoration-color:currentColor}
 
-/* hero */
-.hero{min-height:100svh;display:grid;align-items:center;padding:120px 0 70px;overflow:hidden;isolation:isolate;position:relative;background:var(--bg)}
-.blob{position:absolute;border-radius:50%;filter:blur(70px);z-index:-1;animation:drift 14s ease-in-out infinite}
-.blob.a{width:520px;height:520px;right:-120px;top:-80px;background:rgba(210,59,50,.28)}
-.blob.b{width:420px;height:420px;left:-140px;bottom:-60px;background:rgba(244,180,0,.22);animation-delay:-6s}
-@keyframes drift{50%{transform:translate(30px,-30px) scale(1.08)}}
-.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(30px,5vw,80px);align-items:center}
-.pill{display:inline-flex;align-items:center;gap:.6rem;padding:8px 16px 8px 12px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.82rem;font-weight:500;box-shadow:0 6px 20px -10px rgba(107,31,29,.3)}
-.dot{width:8px;height:8px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 0 rgba(34,197,94,.6);animation:pulse 2s infinite}
-.dot.off{background:#ef4444;animation:none}
-@keyframes pulse{70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}}
-.hero h1{font-size:clamp(2.7rem,7.2vw,5.8rem);margin:1.4rem 0 1.4rem;font-weight:700;color:var(--wine)}
-.hero h1 em{font-style:normal;color:var(--red2);position:relative}
-.hero h1 em::after{content:"";position:absolute;left:0;right:0;bottom:.04em;height:.12em;border-radius:99px;background:var(--star);transform:scaleX(0);transform-origin:left;animation:ul 1s var(--ease) 1.4s forwards}
-@keyframes ul{to{transform:none}}
-.word{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.1em}
-.word>span{display:inline-block;transform:translateY(110%);animation:up 1s var(--ease) forwards;animation-delay:calc(var(--i)*.09s + .2s)}
-@keyframes up{to{transform:none}}
-.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:2rem}
-.hero-card{position:relative;aspect-ratio:4/5;border-radius:40px;overflow:hidden;box-shadow:0 50px 90px -30px rgba(107,31,29,.6),0 0 0 8px #fff;transition:transform .2s;will-change:transform}
-.hero-card img{width:100%;height:112%;object-fit:cover;position:absolute;top:-6%}
-.float{position:absolute;z-index:3;padding:14px 18px;border-radius:20px;background:#fff;color:var(--ink);box-shadow:0 18px 40px -16px rgba(107,31,29,.5);animation:fl 6s ease-in-out infinite;font-size:.85rem;font-weight:500}
-.float b{display:block;font-family:var(--head);font-size:1.6rem;line-height:1;color:var(--red)}
-.float.a{left:-24px;bottom:12%}.float.b{right:-14px;top:9%;animation-delay:-3s}
-@keyframes fl{50%{transform:translateY(-12px)}}
-.stars{color:var(--star);letter-spacing:.15em}
-.scroll-hint{position:absolute;bottom:22px;left:50%;width:22px;height:36px;border:1.5px solid rgba(107,31,29,.4);border-radius:12px;transform:translateX(-50%)}
-.scroll-hint::after{content:"";position:absolute;left:50%;top:7px;width:3px;height:7px;border-radius:2px;background:var(--wine);transform:translateX(-50%);animation:sc 1.8s infinite}
-@keyframes sc{0%{opacity:0;transform:translate(-50%,0)}30%{opacity:1}100%{opacity:0;transform:translate(-50%,12px)}}
+/* ============ HERO ============ */
+.hero{height:100svh;min-height:660px;color:#fff;display:grid;grid-template-rows:auto 1fr auto;padding:22px var(--m) 18px;isolation:isolate;overflow:hidden;background:var(--deep)}
+.hero-bg{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:50% 45%;animation:kb 24s ease-out forwards;transform-origin:60% 40%}
+@keyframes kb{from{transform:scale(1.12)}to{transform:scale(1.0)}}
+.scrim{position:absolute;inset:0;z-index:-1;background:rgba(20,8,6,.46)}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:24px;font-size:15px}
+.top .addr{max-width:26ch;line-height:1.35;opacity:.92}
+.top nav{display:flex;gap:26px;flex-wrap:wrap;justify-content:flex-end}
+.top nav a{font-weight:500;padding:4px 0;text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:6px;text-decoration-color:transparent;transition:text-decoration-color .3s}
+.top nav a:hover,.top nav a.on{text-decoration-color:currentColor}
+.mid{align-self:center;display:flex;flex-direction:column;gap:26px;align-items:flex-start;max-width:44ch}
+.mid p{font-size:var(--step-lead);line-height:1.3;font-weight:500}
+.status{display:inline-flex;align-items:center;gap:.6rem;font-size:15px;font-weight:500}
+.dot{width:10px;height:10px;border-radius:50%;background:#4ade80;animation:pulse 2s infinite}
+.dot.off{background:#f87171;animation:none}
+@keyframes pulse{50%{opacity:.35}}
+.mono{overflow:hidden;padding-top:6px}
+.mono h1{margin:0;line-height:0}
+.mono svg{width:100%;height:auto;fill:#fff;transform:translateY(105%);animation:rise 1.2s var(--ease) .15s forwards}
+@keyframes rise{to{transform:none}}
+.mid>*{opacity:0;transform:translateY(18px);animation:fade .9s var(--ease) forwards}
+.mid>*:nth-child(1){animation-delay:.9s}.mid>*:nth-child(2){animation-delay:1.0s}.mid>*:nth-child(3){animation-delay:1.1s}
+@keyframes fade{to{opacity:1;transform:none}}
 
-.marq{overflow:hidden;padding:20px 0;background:var(--wine);color:#fff}
-.marq-t{display:flex;gap:48px;width:max-content;animation:mq 38s linear infinite;font-family:var(--head);font-size:clamp(1.2rem,2.6vw,1.7rem);font-weight:500}
-.marq-t span::after{content:"";display:inline-block;margin-left:48px;width:30px;height:8px;vertical-align:middle;background:linear-gradient(#cfd3d8,#cfd3d8) 0 50%/100% 2px no-repeat,linear-gradient(#cfd3d8,#cfd3d8) 100% 50%/6px 8px no-repeat}
+/* ============ SOBRE ============ */
+.pad{padding:clamp(100px,14vw,220px) var(--m)}
+.about{display:grid;grid-template-columns:34% 1fr;gap:0}
+.about .facts{display:grid;gap:22px;align-content:start;padding-right:32px;font-size:var(--step-small)}
+.about .facts dt{color:var(--soft)}
+.about .facts dd{font-size:15px;font-weight:600;margin-top:2px}
+.about .lede{font-size:var(--step-lead);line-height:1.32;font-weight:500;max-width:30em;letter-spacing:-.01em}
+.about .rec{margin-top:clamp(64px,9vw,120px);display:grid;grid-template-columns:34% 1fr 1fr;gap:0 48px;font-size:var(--step-small)}
+.about .rec h2{font-size:15px;letter-spacing:0;line-height:1.3;font-weight:800}
+.rec2{display:grid;grid-template-columns:1fr 1fr;gap:32px 48px;margin-top:clamp(64px,9vw,120px)}
+.about ul{list-style:none;font-size:15px}
+.about li{display:flex;justify-content:space-between;gap:16px;padding:6px 0}
+.about li span:last-child{color:var(--soft)}
+
+/* ============ LISTA / ALMOÇO ============ */
+.lunch{display:grid;grid-template-columns:1fr minmax(0,620px);gap:clamp(32px,6vw,96px);align-items:start;padding:clamp(80px,12vw,180px) var(--m);background:var(--bg)}
+.lunch .pic{position:sticky;top:20px;height:calc(100svh - 40px);min-height:460px;overflow:hidden}
+.lunch .pic img{width:100%;height:100%;object-fit:cover}
+.lunch .col{container-type:inline-size}
+.giant{font-size:29cqw;line-height:.8;font-weight:800;letter-spacing:-.06em;margin-bottom:26px;white-space:nowrap}
+.lunch .sub{font-size:var(--step-body);margin-bottom:28px;max-width:34em}
+details{background:var(--field);margin-bottom:6px}
+summary{list-style:none;display:flex;justify-content:space-between;align-items:center;height:60px;padding:0 20px;font-size:18px;font-weight:600;cursor:pointer;transition:background .25s}
+summary::-webkit-details-marker{display:none}
+summary:hover{background:#d8d4d0}
+summary i{font-style:normal;font-size:26px;line-height:1;transition:transform .4s var(--ease)}
+details[open] summary i{transform:rotate(45deg)}
+details .body{padding:6px 20px 22px;display:grid;gap:14px;font-size:18px}
+details .body div{display:flex;justify-content:space-between;gap:20px}
+details .body div span:last-child{color:var(--soft);text-align:right}
+
+/* ============ PRINTS / GALERIA ============ */
+.prints{background:var(--field);min-height:100svh;display:grid;place-items:center;padding:clamp(90px,10vw,140px) var(--m);position:relative;overflow:hidden}
+.prints h2{font-size:clamp(88px,15vw,230px);line-height:.84;letter-spacing:-.05em;text-align:center;color:var(--wine);position:relative;z-index:1}
+.print{position:absolute;width:clamp(150px,22vw,330px);aspect-ratio:3/4;border:8px solid #fff;background:#fff;z-index:2;transition:transform .35s var(--ease),z-index 0s}
+.print img{width:100%;height:100%;object-fit:cover}
+.print:hover{transform:rotate(0) scale(1.04)!important;z-index:5}
+.p1{left:3%;top:9%;transform:rotate(-7deg)}
+.p2{right:4%;top:14%;transform:rotate(6deg)}
+.p3{left:38%;bottom:-6%;width:clamp(120px,16vw,240px);transform:rotate(-3deg)}
+.prints .cap{position:absolute;left:var(--m);bottom:24px;z-index:3;font-size:18px;max-width:30ch;font-weight:500}
+
+/* ============ PROVA ============ */
+.band{background:var(--wine);color:#fff;height:34vh;min-height:200px;display:flex;align-items:center;overflow:hidden}
+.band .track{display:flex;gap:.5em;width:max-content;font-size:clamp(46px,8vw,128px);font-weight:800;letter-spacing:-.04em;line-height:1;white-space:nowrap;animation:mq 46s linear infinite}
+.band .track span{display:inline-flex;align-items:center;gap:.5em}
+.band .track span::after{content:"";width:.28em;height:.28em;border-radius:50%;background:var(--star)}
 @keyframes mq{to{transform:translateX(-50%)}}
+.proof-s{padding:28px var(--m) clamp(80px,10vw,150px);display:flex;justify-content:space-between;gap:32px;align-items:flex-start;flex-wrap:wrap}
+.proof-s h2{font-size:var(--step-head);max-width:16em;line-height:1}
+.proof-s p{font-size:18px;max-width:34em;margin-top:14px}
 
-.rv{opacity:0;transform:translateY(40px);filter:blur(6px);transition:opacity 1s var(--ease),transform 1s var(--ease),filter 1s var(--ease);transition-delay:var(--d,0s)}
-.rv.in{opacity:1;transform:none;filter:none}
-.rv.l{transform:translateX(-50px)}.rv.r{transform:translateX(50px)}.rv.z{transform:scale(.92)}
-.rv.l.in,.rv.r.in,.rv.z.in{transform:none}
+/* ============ CONTATO ============ */
+.contact{background:var(--deep);color:#fff;display:grid;grid-template-rows:auto auto auto;padding:clamp(64px,8vw,120px) var(--m) 28px}
+.c-top{display:flex;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.c-top h2{font-size:var(--step-lead);font-weight:600;letter-spacing:-.01em;line-height:1.25;max-width:20em}
+.live{width:min(420px,100%)}
+.live .now{font-size:var(--step-lead);font-weight:800;letter-spacing:-.02em;line-height:1.1}
+.live .now small{display:block;font-size:15px;font-weight:500;letter-spacing:0;opacity:.8;margin-top:4px}
+.ruler{position:relative;height:18px;margin:18px 0 8px;background:rgba(255,255,255,.14)}
+.ruler .open{position:absolute;top:0;bottom:0;left:0;background:var(--accent);transition:width 1.4s var(--ease)}
+.ruler .cur{position:absolute;top:-6px;bottom:-6px;width:6px;background:#fff;left:0;transition:left 1.4s var(--ease)}
+.ticks{display:flex;justify-content:space-between;font-size:15px;opacity:.8}
+.hours{font-size:15px;display:grid;gap:4px;min-width:min(320px,100%)}
+.hours div{display:flex;justify-content:space-between;gap:16px}
+.hours .today{font-weight:800}
+.phone{display:block;font-size:clamp(44px,15.6vw,260px);font-weight:800;letter-spacing:-.05em;line-height:.85;white-space:nowrap;margin:clamp(72px,10vw,160px) 0 clamp(56px,7vw,110px);transition:color .3s}
+.phone:hover{color:#ff8f80}
+.c-bot{display:flex;justify-content:space-between;gap:24px;flex-wrap:wrap;font-size:15px}
+.c-bot nav{display:flex;gap:24px}
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
-.stat{background:var(--paper);border:1px solid var(--line);border-radius:28px;padding:clamp(24px,4vw,40px) 20px;text-align:center;box-shadow:0 20px 40px -28px rgba(107,31,29,.4);transition:transform .5s var(--ease)}
-.stat:hover{transform:translateY(-6px)}
-.stat b{display:block;font-family:var(--head);font-size:clamp(2.2rem,5vw,3.6rem);font-weight:700;color:var(--red)}
-.stat span{color:var(--mute);font-size:.88rem}
+/* ============ RODAPÉ ============ */
+footer{background:var(--wine);color:#fff;display:grid;grid-template-rows:auto auto auto;gap:clamp(72px,10vw,160px);padding:clamp(48px,6vw,80px) var(--m) 18px}
+.f-cols{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;font-size:var(--step-small);line-height:1.5}
+.f-cols b{display:block;font-weight:600}
+.f-cols span{opacity:.78;display:block}
+.f-mono svg{width:100%;height:auto;fill:#fff}
+.f-legal{margin-top:20px;font-size:15px;opacity:.78;display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
 
-.two{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
-.xp{position:relative;border-radius:34px;overflow:hidden;min-height:540px;display:flex;align-items:flex-end;padding:32px;isolation:isolate;color:#fff}
-.xp img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform 1.4s var(--ease)}
-.xp:hover img{transform:scale(1.07)}
-.xp::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(44,14,13,0) 35%,rgba(44,14,13,.92))}
-.xp h3{font-size:clamp(1.8rem,3.4vw,2.6rem);margin-bottom:.5rem}
-.xp p{color:#f1ddd5;max-width:40ch}
-.tag{display:inline-block;margin-bottom:14px;padding:6px 14px;border-radius:999px;background:var(--red);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;font-weight:600}
-
-.cuts-h{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
-.arrows{display:flex;gap:10px}
-.arrows button{width:52px;height:52px;border-radius:50%;border:1.5px solid rgba(255,255,255,.35);font-size:1.2rem;transition:.3s}
-.arrows button:hover{background:var(--red);border-color:var(--red);transform:scale(1.06)}
-.rail{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;padding:40px 0 20px;margin-inline:calc((100vw - min(1200px,100vw - 40px))/-2);padding-inline:calc((100vw - min(1200px,100vw - 40px))/2);scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.rail::-webkit-scrollbar{display:none}
-.cut{flex:0 0 min(320px,78vw);scroll-snap-align:start;border-radius:28px;overflow:hidden;background:var(--paper);border:1px solid var(--line);transition:transform .5s var(--ease),border-color .3s}
-.cut:hover{transform:translateY(-8px);border-color:var(--red2)}
-.cut .im{aspect-ratio:4/5;overflow:hidden}.cut img{width:100%;height:100%;object-fit:cover;transition:transform 1s var(--ease)}.cut:hover img{transform:scale(1.08)}
-.cut div.t{padding:20px 22px 24px}.cut h3{font-size:1.4rem;margin-bottom:6px}.cut p{color:var(--mute);font-size:.92rem}
-
-.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:210px;gap:14px;margin-top:48px}
-.bento figure{position:relative;border-radius:28px;overflow:hidden;box-shadow:0 20px 40px -26px rgba(107,31,29,.5)}
-.bento figure:nth-child(1){grid-column:span 2;grid-row:span 2}
-.bento figure:nth-child(4){grid-row:span 2}
-.bento figure:nth-child(5){grid-column:span 2}
-.bento img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease)}
-.bento figure:hover img{transform:scale(1.08)}
-.bento figcaption{position:absolute;left:0;right:0;bottom:0;padding:40px 20px 16px;background:linear-gradient(transparent,rgba(44,14,13,.88));font-family:var(--head);font-size:1.15rem;color:#fff;font-weight:500}
-
-.quote{text-align:center;background:radial-gradient(70% 120% at 50% 0,rgba(210,59,50,.4),transparent),var(--bg)}
-.quote .qlogo{height:70px;margin:0 auto 24px;width:auto}
-.quote p{font-family:var(--head);font-size:clamp(1.6rem,4vw,2.8rem);max-width:22ch;margin:0 auto;line-height:1.2;font-weight:500}
-.quote .btn{margin-top:36px}
-
-.info{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:48px}
-.box{background:var(--paper);border:1px solid var(--line);border-radius:32px;padding:clamp(24px,4vw,40px);box-shadow:0 24px 50px -34px rgba(107,31,29,.5)}
-.box h3{font-size:1.6rem;margin-bottom:1.2rem;color:var(--wine)}
-.row{display:flex;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
-.row:last-of-type{border:0}.row span:first-child{color:var(--mute)}
-.row.today{font-weight:600;color:var(--red)}.row.today span:first-child{color:var(--red)}
-.mapph{border-radius:22px;min-height:260px;margin-top:18px;background:repeating-linear-gradient(45deg,#f3eadf 0 14px,#efe3d5 14px 28px);display:grid;place-items:center;text-align:center;padding:20px;border:1.5px dashed rgba(107,31,29,.3)}
-
-footer{padding:60px 0 40px;background:var(--wine);color:#f1ddd5;font-size:.9rem}
-.f{display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap}
-.f img{height:46px;margin-bottom:14px}
-
-/* avaliações */
+/* ============ AVALIAÇÕES ============ */
 #view-rev{display:none}
 body.rev #view-home{display:none}body.rev #view-rev{display:block}
-.rev-hero{padding:170px 0 90px;text-align:center;position:relative;overflow:hidden;isolation:isolate;background:radial-gradient(50% 70% at 50% 0,rgba(210,59,50,.5),transparent),var(--bg);color:var(--ink)}
-.score{font-family:var(--head);font-weight:700;font-size:clamp(6rem,22vw,13rem);line-height:.9;letter-spacing:-.04em;color:#fff;text-shadow:0 10px 60px rgba(210,59,50,.6)}
-.big-stars{display:flex;gap:6px;justify-content:center;margin:14px 0 10px}
-.big-stars svg{width:clamp(28px,6vw,44px);height:auto;fill:var(--star);opacity:0;transform:scale(.3) rotate(-30deg);animation:pop .7s var(--ease) forwards;animation-delay:calc(var(--i)*.12s + .3s);filter:drop-shadow(0 0 12px rgba(244,180,0,.6))}
+.r-hero{background:var(--wine);color:#fff;min-height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding:22px var(--m) 24px}
+.r-hero .top nav a{color:#fff}
+.r-hero h1{font-size:clamp(150px,44vw,720px);line-height:.78;letter-spacing:-.07em;align-self:center;margin-left:-.04em}
+.r-hero .row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap}
+.r-hero .row p{font-size:var(--step-lead);font-weight:500;max-width:24em;line-height:1.25}
+.stars{display:flex;gap:6px}
+.stars svg{width:clamp(26px,3.6vw,48px);fill:var(--star);opacity:0;transform:scale(.4) rotate(-25deg);animation:pop .7s var(--ease) forwards;animation-delay:calc(var(--i)*.1s + .6s)}
 @keyframes pop{to{opacity:1;transform:none}}
-.g-badge{display:inline-flex;align-items:center;gap:10px;margin-top:18px;padding:10px 18px;border-radius:999px;background:#fff;color:#202124;font-weight:600;font-size:.9rem}
-.dist{display:grid;grid-template-columns:1fr 1.2fr;gap:clamp(30px,6vw,90px);align-items:center}
-.bars div{display:grid;grid-template-columns:30px 1fr 48px;gap:14px;align-items:center;margin:14px 0;font-size:.95rem;color:var(--mute)}
-.bars i{display:block;height:12px;border-radius:99px;background:rgba(107,31,29,.1);overflow:hidden}
-.bars i b{display:block;height:100%;width:0;border-radius:99px;background:linear-gradient(90deg,var(--red),var(--star));transition:width 1.6s var(--ease)}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
-.chip{padding:10px 18px;border-radius:999px;border:1px solid var(--line);background:#fff;font-size:.88rem;font-weight:500}
-.chip b{color:var(--star);margin-left:6px}
-.masonry{columns:3;column-gap:18px;margin-top:44px}
-.rcard{break-inside:avoid;margin-bottom:18px;padding:26px;border-radius:26px;background:var(--paper);border:1px solid var(--line);box-shadow:0 20px 40px -32px rgba(107,31,29,.6);transition:transform .5s var(--ease)}
-.rcard:hover{transform:translateY(-6px)}
-.rcard p{margin:14px 0 20px;font-size:.98rem}
-.who{display:flex;align-items:center;gap:12px;font-size:.88rem;font-weight:500}
-.av{width:40px;height:40px;border-radius:50%;display:grid;place-items:center;font-weight:700;color:#fff;background:linear-gradient(135deg,var(--red2),var(--wine))}
-.who small{display:block;color:var(--mute);font-weight:400}
-.note{margin-top:34px;text-align:center;font-size:.8rem;color:var(--mute)}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
-.tabs button{padding:10px 20px;border-radius:999px;border:1.5px solid var(--line);background:#fff;font-size:.88rem;font-weight:500;transition:.3s}
-.tabs button.on,.tabs button:hover{background:var(--wine);color:#fff;border-color:var(--wine)}
+.r-sec{padding:clamp(90px,12vw,190px) var(--m)}
+.r-sec h2{font-size:var(--step-head);max-width:15em;line-height:1}
+.dist{display:grid;grid-template-columns:34% 1fr;gap:32px;align-items:start}
+.bars{display:grid;gap:8px}
+.bars div{display:grid;grid-template-columns:40px 1fr 56px;gap:16px;align-items:center;font-size:18px;font-weight:600}
+.bars i{display:block;height:44px;background:var(--field)}
+.bars b{display:block;height:100%;width:0;background:var(--accent);transition:width 1.6s var(--ease)}
+.bars span:last-child{text-align:right;font-variant-numeric:tabular-nums}
+.sum{display:grid;grid-template-columns:34% 1fr;gap:32px}
+.sum p{font-size:var(--step-lead);line-height:1.32;font-weight:500;max-width:30em}
+.rtabs{display:flex;gap:8px;flex-wrap:wrap;margin:26px 0 8px}
+.rtabs button{padding:12px 20px;background:var(--field);font-size:18px;font-weight:600;transition:.25s}
+.rtabs button.on,.rtabs button:hover{background:var(--ink);color:#fff}
+.reviews{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,64px) clamp(32px,6vw,96px);margin-top:48px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.rv.in{opacity:1;transform:none}
+.rev q{display:block;quotes:none;font-size:var(--step-lead);line-height:1.28;font-weight:500;letter-spacing:-.01em}
+.rev .who{margin-top:16px;font-size:15px;display:flex;gap:12px;align-items:center}
+.rev .who .st{color:var(--star);letter-spacing:.1em}
+.note{margin-top:56px;font-size:15px;color:var(--soft);max-width:48em}
+.r-cta{background:var(--deep);color:#fff;padding:clamp(90px,12vw,190px) var(--m);display:flex;justify-content:space-between;align-items:flex-end;gap:32px;flex-wrap:wrap}
+.r-cta h2{font-size:clamp(48px,8vw,130px);letter-spacing:-.05em;line-height:.85;max-width:9em}
+
+/* reveal geral */
+.in-view{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease);transition-delay:var(--d,0s)}
+.in-view.in{opacity:1;transform:none}
 
 /* marca d'água CODRIAN */
-#wm{position:fixed;inset:0;z-index:9999;pointer-events:none;overflow:hidden;opacity:.16}
-#wm div{position:absolute;inset:-50%;display:grid;grid-template-columns:repeat(5,1fr);align-content:space-around;transform:rotate(-24deg);gap:80px 20px}
-#wm span{font:700 clamp(16px,2.4vw,28px)/1 var(--head);color:#fff;white-space:nowrap;letter-spacing:.3em;text-align:center;-webkit-text-stroke:1px rgba(0,0,0,.9);text-shadow:0 0 6px rgba(0,0,0,.8)}
-#wmb{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:10000;padding:8px 16px;border-radius:999px;background:#111;color:#fff;font:600 .72rem var(--sans);letter-spacing:.1em;pointer-events:none;box-shadow:0 6px 24px rgba(0,0,0,.4);white-space:nowrap}
-#wmb b{letter-spacing:.3em}
+#wm{position:fixed;inset:0;z-index:9999;pointer-events:none;overflow:hidden;opacity:.17}
+#wm div{position:absolute;inset:-50%;display:grid;grid-template-columns:repeat(5,1fr);align-content:space-around;transform:rotate(-24deg);gap:90px 20px}
+#wm span{font:800 clamp(16px,2.4vw,28px)/1 var(--f);color:#fff;white-space:nowrap;letter-spacing:.3em;text-align:center;-webkit-text-stroke:1px rgba(0,0,0,.9);text-shadow:0 0 6px rgba(0,0,0,.8)}
+#wmb{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:10000;padding:8px 16px;background:#111;color:#fff;font:600 15px var(--f);letter-spacing:.1em;pointer-events:none;white-space:nowrap}
+.clean #wm,.clean #wmb{display:none}
 
-@media (max-width:980px){
-  .hero-grid{grid-template-columns:1fr}.hero-card{max-width:460px;margin-inline:auto;width:100%}
-  .float.a{left:8px}.float.b{right:8px}
-  .two,.info,.dist{grid-template-columns:1fr}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .bento{grid-template-columns:repeat(2,1fr);grid-auto-rows:190px}
-  .bento figure:nth-child(1){grid-column:span 2}.bento figure:nth-child(5){grid-column:span 2}
-  .masonry{columns:2}
-  .nav-in a.l{display:none}.burger{display:grid}
+@media (max-width:900px){
+  .about,.dist,.sum{grid-template-columns:1fr}
+  .about .facts{grid-template-columns:1fr 1fr;padding:0 0 36px}
+  .about .rec{grid-template-columns:1fr;gap:32px}
+  .lunch{grid-template-columns:1fr}
+  .lunch .pic{position:relative;top:0;height:70svh;min-height:380px}
+  .reviews{grid-template-columns:1fr}
+  .f-cols{grid-template-columns:1fr 1fr;row-gap:32px}
+  .top .addr{display:none}
+  .top{justify-content:flex-end}
+  .top nav{gap:18px}
 }
-@media (max-width:560px){
-  .wrap{width:calc(100% - 32px)}
-  .masonry{columns:1}.xp{min-height:440px;padding:24px}
-  .btn{padding:13px 22px}.cta .btn{flex:1 1 100%;justify-content:center}
-  .nav-in .btn.sm{display:none}
-  .bento{grid-auto-rows:160px;gap:10px}
-  .scroll-hint{display:none}
-  .logo img{height:32px}
-  #wmb{font-size:.62rem;bottom:8px}
+@media (max-width:600px){
+  .mono svg{width:135%;margin-left:-17.5%}
+  .f-mono svg{width:135%;margin-left:-17.5%}
+  .mid{gap:20px;max-width:none;align-items:stretch}.mid p{font-size:26px}.mid .btn{justify-content:space-between}
+  details .body div{flex-direction:column;gap:2px}
+  details .body div span:last-child{text-align:left}
+  .prints{min-height:92svh}
+  .prints h2{font-size:23vw}
+  .p1{left:-2%;top:6%;width:46vw}.p2{right:-2%;top:12%;width:42vw}.p3{left:auto;right:4%;bottom:-2%;width:34vw}
+  .prints .cap{font-size:18px;left:var(--m);bottom:16px;max-width:12ch}
+  .phone{font-size:17vw;white-space:normal;line-height:.92}
+  .rec2{grid-template-columns:1fr}
+  .r-hero h1{font-size:62vw}
+  .bars div{grid-template-columns:32px 1fr 48px;gap:10px}
+  #wmb{font-size:12px;bottom:8px}
 }
-@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.rv{opacity:1;transform:none;filter:none}.word>span{transform:none}}
+@media (prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .mono svg,.mid>*{transform:none;opacity:1}.in-view,.rv{opacity:1;transform:none}.hero-bg img{animation:none}
+}
 </style>
 </head>
 <body>
-<div id="bar"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="mark" viewBox="0 0 {{LW}} {{LH}}"><path fill-rule="evenodd" d="{{LPATH}}"/></symbol></svg>
 
-<nav id="nav">
-  <div class="nav-in">
-    <a href="#/" class="logo" aria-label="Manura Churrascaria"><img src="{{logo}}" alt="Manura Churrascaria e Cozinha Árabe"></a>
-    <a class="l" href="#/cardapio">Experiência</a>
-    <a class="l" href="#/cortes">Cortes</a>
-    <a class="l" href="#/buffet">Buffet</a>
-    <a class="l" id="navrev" href="#/avaliacoes">Avaliações</a>
-    <a class="l" href="#/visite">Visite</a>
-    <a class="btn p sm" href="tel:+556733841464">Reservar</a>
-    <button class="burger" id="burger" aria-label="Abrir menu"><i></i><i></i></button>
-  </div>
-</nav>
-<div id="menu">
-  <a href="#/cardapio">Experiência</a><a href="#/cortes">Cortes</a><a href="#/buffet">Buffet</a><a href="#/avaliacoes">Avaliações</a><a href="#/visite">Visite</a>
-</div>
-
+<!-- ================= HOME ================= -->
 <main id="view-home">
 <header class="hero" id="top">
-  <div class="blob a"></div><div class="blob b"></div>
-  <div class="wrap hero-grid">
-    <div>
-      <span class="pill rv in"><span class="dot" id="dot"></span><span id="status">Verificando horário…</span></span>
-      <h1 aria-label="O sabor que Campo Grande aprendeu a amar">
-        <span class="word"><span style="--i:0">O</span></span>
-        <span class="word"><span style="--i:1">sabor</span></span>
-        <span class="word"><span style="--i:2">que</span></span><br>
-        <span class="word"><span style="--i:3"><em>Campo&nbsp;Grande</em></span></span><br>
-        <span class="word"><span style="--i:5">aprendeu</span></span>
-        <span class="word"><span style="--i:6">a</span></span>
-        <span class="word"><span style="--i:7">amar.</span></span>
-      </h1>
-      <p class="lead rv in" style="--d:.9s">Rodízio de cortes nobres, buffet farto e a tradição da cozinha árabe. Há mais de três décadas à mesa das famílias campo-grandenses — desde 1987.</p>
-      <div class="cta rv in" style="--d:1.1s">
-        <a class="btn p" href="tel:+556733841464">Reservar mesa <span>→</span></a>
-        <a class="btn g" href="#/avaliacoes"><span class="stars">★</span> Ver avaliações</a>
-      </div>
-    </div>
-    <div class="rv z in" style="--d:.5s;position:relative">
-      <div class="float a"><b>Desde</b>1987</div>
-      <div class="float b"><span class="stars">★★★★★</span><br><b style="display:inline;font-size:1.1rem">4,8</b> no Google</div>
-      <div class="hero-card" id="tilt"><img src="{{img:picanha}}" alt="Picanha no espeto sendo fatiada" data-par="0.06"></div>
-    </div>
+  <div class="hero-bg"><img src="{{img:picanha}}" alt="Corte de carne no espeto sendo fatiado com a faca da Manura" fetchpriority="high"></div>
+  <div class="scrim"></div>
+  <div class="top">
+    <p class="addr">Av. Mato Grosso, 579<br>Centro, Campo Grande, MS</p>
+    <nav aria-label="Principal"><a href="#/cardapio">Cardápio</a><a href="#/buffet">Buffet</a><a href="#/avaliacoes">Avaliações</a><a href="#/visite">Visite</a></nav>
   </div>
-  <div class="scroll-hint"></div>
+  <div class="mid">
+    <span class="status"><span class="dot" id="dot"></span><span id="status">Verificando horário…</span></span>
+    <p>Churrasco e cozinha árabe, desde 1987.</p>
+    <a class="btn" href="tel:+556733841464">Reservar mesa <span class="ar">→</span></a>
+  </div>
+  <div class="mono">
+    <h1><svg viewBox="0 0 {{LW}} {{LH}}" role="img" aria-label="Manura, churrascaria e cozinha árabe"><use href="#mark"/></svg></h1>
+  </div>
 </header>
 
-<div class="marq" aria-hidden="true"><div class="marq-t">
-  <span>Rodízio completo</span><span>Cozinha árabe</span><span>Buffet farto</span><span>Cortes nobres</span><span>Tradição desde 1987</span><span>Rodízio completo</span><span>Cozinha árabe</span><span>Buffet farto</span><span>Cortes nobres</span><span>Tradição desde 1987</span>
-</div></div>
-
-<section id="stats" class="alt"><div class="wrap">
-  <div class="stats">
-    <div class="stat rv" style="--d:0s"><b data-n="1987">0</b><span>ano de fundação</span></div>
-    <div class="stat rv" style="--d:.1s"><b data-n="2072" data-f="1">0</b><span>avaliações no Google (4,8★)</span></div>
-    <div class="stat rv" style="--d:.2s"><b data-n="36" data-s=" mil+">0</b><span>seguidores no Instagram</span></div>
-    <div class="stat rv" style="--d:.3s"><b data-n="7">0</b><span>dias por semana à sua mesa</span></div>
-  </div>
-</div></section>
-
-<section id="cardapio"><div class="wrap">
-  <div class="rv"><div class="eyebrow">A experiência</div>
-  <h2 class="h2">Duas cozinhas.<br>Uma só mesa.</h2>
-  <p class="lead">Do espeto direto no seu prato à tradição árabe feita com receita de família: aqui ninguém precisa escolher.</p></div>
-  <div class="two">
-    <article class="xp rv l"><img src="{{img:carne2}}" alt="" loading="lazy" style="object-position:center 40%"><div><span class="tag">Churrascaria</span><h3>Rodízio de verdade</h3><p>Cortes suculentos passando o almoço todo, fatiados na sua frente, no ponto que você pedir.</p></div></article>
-    <article class="xp rv r" style="--d:.15s"><img src="{{img:kibe}}" alt="" loading="lazy"><div><span class="tag">Prato árabe</span><h3>Sabores do Oriente</h3><p>Quibe, berinjela, pão sírio e a tradição árabe que Campo Grande aprendeu a pedir.</p></div></article>
-  </div>
-</div></section>
-
-<section id="cortes" class="dark"><div class="wrap">
-  <div class="cuts-h rv">
-    <div><div class="eyebrow">Do espeto ao prato</div><h2 class="h2" style="margin-bottom:0">Cortes que dispensam conversa</h2></div>
-    <div class="arrows"><button id="pv" aria-label="Anterior">←</button><button id="nx" aria-label="Próximo">→</button></div>
-  </div>
-  <div class="rail" id="rail">
-    <article class="cut"><div class="im"><img src="{{img:pato}}" alt="Corte fatiado na ponta da faca" loading="lazy"></div><div class="t"><h3>Fatiado na hora</h3><p>Do espeto para o seu prato, com a faca da casa.</p></div></article>
-    <article class="cut"><div class="im"><img src="{{img:carne2}}" alt="Carne assada no espeto" loading="lazy"></div><div class="t"><h3>Dourada na brasa</h3><p>Crosta crocante por fora, suculência por dentro.</p></div></article>
-    <article class="cut"><div class="im"><img src="{{img:heineken}}" alt="Carne no espeto com cerveja gelada" loading="lazy"></div><div class="t"><h3>Com cerveja gelada</h3><p>A dupla clássica de todo almoço de domingo.</p></div></article>
-    <article class="cut"><div class="im"><img src="{{img:carne3}}" alt="Carne no espeto" loading="lazy"></div><div class="t"><h3>Maciez de sobra</h3><p>Assada devagar para chegar no ponto certo.</p></div></article>
-    <article class="cut"><div class="im"><img src="{{img:presunto}}" alt="Presunto cru fatiado" loading="lazy"></div><div class="t"><h3>Frios e embutidos</h3><p>Entradas fartas para abrir o apetite.</p></div></article>
-  </div>
-</div></section>
-
-<section id="buffet"><div class="wrap">
-  <div class="rv"><div class="eyebrow">O buffet</div><h2 class="h2">Capriche no prato,<br>aproveite o sabor.</h2><p class="lead">Saladas frescas, queijos, frios, arroz e acompanhamentos que fazem do buffet um show à parte.</p></div>
-  <div class="bento">
-    <figure class="rv z"><img src="{{img:buffet}}" alt="Buffet de saladas e queijos" loading="lazy"><figcaption>Buffet completo</figcaption></figure>
-    <figure class="rv z" style="--d:.1s"><img src="{{img:jabuticaba}}" alt="Pérolas de frutas vermelhas" loading="lazy"><figcaption>Sobremesas</figcaption></figure>
-    <figure class="rv z" style="--d:.2s"><img src="{{img:pepino}}" alt="Salada de pepino temperada" loading="lazy"><figcaption>Saladas frescas</figcaption></figure>
-    <figure class="rv z" style="--d:.15s"><img src="{{img:quibe}}" alt="Quibe cru com hortelã" loading="lazy" style="object-position:center 70%"><figcaption>Quibe cru</figcaption></figure>
-    <figure class="rv z" style="--d:.25s"><img src="{{img:molho}}" alt="Molho vinagrete da casa" loading="lazy"><figcaption>Vinagrete da casa</figcaption></figure>
-    <figure class="rv z" style="--d:.3s"><img src="{{img:arroz}}" alt="Arroz com amêndoas e cebola crocante" loading="lazy"><figcaption>Arroz especial</figcaption></figure>
-  </div>
-</div></section>
-
-<section class="quote alt" id="prova"><div class="wrap rv">
-  <img class="qlogo" src="{{logo}}" alt="Manura">
-  <div class="stars" style="font-size:1.4rem">★★★★★</div>
-  <p style="margin-top:16px">Nota 4,8 em mais de 2 mil avaliações. Quem prova, volta.</p>
-  <a class="btn p" href="#/avaliacoes">Ler avaliações dos clientes →</a>
-</div></section>
-
-<section id="visite"><div class="wrap">
-  <div class="rv"><div class="eyebrow">Visite</div><h2 class="h2">No coração de Campo Grande.</h2></div>
-  <div class="info">
-    <div class="box rv l"><h3>Horário de atendimento</h3>
-      <div class="row" data-d="1"><span>Segunda a Sexta</span><span>11:00 – 14:00</span></div>
-      <div class="row" data-d="0"><span>Sábado, Domingo e feriados</span><span>11:00 – 15:00</span></div>
-      <p style="margin-top:20px;color:var(--mute);font-size:.9rem">Ligue e reserve sua mesa para grupos e confraternizações.</p>
-      <a class="btn p" style="margin-top:22px" href="tel:+556733841464">📞 (67) 3384-1464</a>
-    </div>
-    <div class="box rv r" style="--d:.15s"><h3>Onde estamos</h3>
-      <p>Avenida Mato Grosso, 579<br>Centro — Campo Grande, MS</p>
-      <div class="mapph"><div><div style="font-size:2rem">📍</div><p style="color:var(--mute);margin:8px 0 14px;font-size:.9rem">Mapa do Google será incorporado aqui</p><a class="btn g sm" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=Manura+Churrascaria+Campo+Grande">Abrir no Google Maps</a></div></div>
+<section class="pad" id="sobre">
+  <div class="about">
+    <dl class="facts in-view">
+      <div><dt>Desde</dt><dd>1987</dd></div>
+      <div><dt>Endereço</dt><dd>Av. Mato Grosso, 579</dd></div>
+      <div><dt>Mesa posta</dt><dd>Só no almoço</dd></div>
+    </dl>
+    <div>
+      <h2 class="sr">Sobre a Manura</h2>
+      <p class="lede in-view" style="--d:.1s">Desde 1987 a Manura abre as portas na Avenida Mato Grosso para um almoço que junta duas cozinhas. De um lado, o rodízio de carnes macias e saborosas, cordeiro entre elas, fatiadas na sua frente. Do outro, pratos árabes de alta qualidade, um buffet farto, sobremesas e uma equipe que atende rápido e sem pressa de ir embora.</p>
     </div>
   </div>
-</div></section>
+  <div class="about" style="margin-top:0">
+    <div></div>
+    <div class="rec2 in-view">
+      <div><h3 style="font-size:15px;letter-spacing:0;line-height:1.3;margin-bottom:10px">Cozinha árabe</h3><ul><li><span>Quibe cru</span><span>com hortelã</span></li><li><span>Berinjela</span><span>assada</span></li><li><span>Pão sírio</span><span>com azeite</span></li><li><span>Presunto cru</span><span>fatiado</span></li></ul></div>
+      <div><h3 style="font-size:15px;letter-spacing:0;line-height:1.3;margin-bottom:10px">Buffet</h3><ul><li><span>Saladas</span><span>do dia</span></li><li><span>Queijos e frios</span><span>à vontade</span></li><li><span>Arroz especial</span><span>com amêndoas</span></li><li><span>Vinagrete</span><span>da casa</span></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<section class="lunch" id="cardapio">
+  <div class="pic in-view"><img src="{{img:pato}}" alt="Corte com capa de gordura sendo fatiado na ponta do espeto" loading="lazy"></div>
+  <div class="col">
+    <h2 class="giant" aria-label="Almoço">almoço</h2>
+    <p class="sub">O que chega à mesa entre 11h e 14h, de segunda a sexta, e até as 15h aos sábados, domingos e feriados.</p>
+    <details open><summary>Rodízio <i>+</i></summary><div class="body"><div><span>Cortes nobres no espeto</span><span>fatiados na mesa</span></div><div><span>Cordeiro</span><span>macio e saboroso</span></div><div><span>Carnes do dia</span><span>no ponto que você pedir</span></div></div></details>
+    <details><summary>Cozinha árabe <i>+</i></summary><div class="body"><div><span>Quibe cru</span><span>com hortelã</span></div><div><span>Berinjela</span><span>assada</span></div><div><span>Pão sírio</span><span>com azeite e especiarias</span></div></div></details>
+    <details><summary>Buffet <i>+</i></summary><div class="body" id="buffet"><div><span>Saladas e legumes</span><span>pepino temperado e mais</span></div><div><span>Queijos e frios</span><span>presunto cru, parmesão</span></div><div><span>Arroz especial</span><span>amêndoas e cebola frita</span></div><div><span>Vinagrete da casa</span><span>azeite e ervas</span></div></div></details>
+    <details><summary>Sobremesas <i>+</i></summary><div class="body"><div><span>Doces do dia</span><span>elogiados nas avaliações</span></div><div><span>Frutas vermelhas</span><span>em calda</span></div></div></details>
+    <details><summary>Bebidas <i>+</i></summary><div class="body"><div><span>Cerveja gelada</span><span>para acompanhar o rodízio</span></div></div></details>
+  </div>
+</section>
+
+<section class="prints" id="galeria">
+  <h2>Capriche<br>no prato</h2>
+  <figure class="print p1" data-sp="-.04"><img src="{{img:buffet}}" alt="Buffet com saladas, queijos e frios" loading="lazy"></figure>
+  <figure class="print p2" data-sp=".05"><img src="{{img:jabuticaba}}" alt="Frutas vermelhas em calda no buffet" loading="lazy"></figure>
+  <figure class="print p3" data-sp="-.02"><img src="{{img:kibe}}" alt="Quibe, berinjela e pão sírio" loading="lazy"></figure>
+  <p class="cap">Aproveite o sabor: buffet farto, saladas frescas e a cozinha árabe na mesma fila.</p>
+</section>
+
+<section id="avaliacoes" aria-label="Avaliações">
+  <div class="band" aria-hidden="true"><div class="track" id="track"></div></div>
+  <div class="proof-s">
+    <div class="in-view"><h2>Nota 4,8 no Google.</h2><p>São 2.072 avaliações. Estes são os elogios que mais se repetem entre quem já almoçou aqui.</p></div>
+    <a class="btn in-view" style="--d:.1s" href="#/avaliacoes">Ler as avaliações <span class="ar">→</span></a>
+  </div>
+</section>
+
+<section class="contact" id="visite">
+  <div class="c-top">
+    <h2 class="in-view">Reserve mesa para o seu grupo.</h2>
+    <div class="live in-view" style="--d:.1s" id="live">
+      <div class="now" id="now">…<small id="nowsub"></small></div>
+      <div class="ruler" aria-hidden="true"><div class="open" id="ropen"></div><div class="cur" id="rcur"></div></div>
+      <div class="ticks" aria-hidden="true"><span>11h</span><span>12h</span><span>13h</span><span>14h</span><span>15h</span></div>
+    </div>
+  </div>
+  <a class="phone" href="tel:+556733841464" aria-label="Ligar para (67) 3384-1464">(67) 3384-1464</a>
+  <div class="c-bot">
+    <p>Av. Mato Grosso, 579<br>Centro, Campo Grande, MS</p>
+    <div class="hours"><div data-d="1"><span>Segunda a sexta</span><span>11h às 14h</span></div><div data-d="0"><span>Sábado, domingo e feriados</span><span>11h às 15h</span></div></div>
+    <nav><a class="link" href="https://www.google.com/maps/search/?api=1&query=Manura+Churrascaria+Campo+Grande" target="_blank" rel="noopener">Google Maps</a><a class="link" href="https://www.instagram.com/manurachurrascaria" target="_blank" rel="noopener">Instagram</a></nav>
+  </div>
+</section>
 </main>
 
+<!-- ================= AVALIAÇÕES ================= -->
 <main id="view-rev">
-  <header class="rev-hero dark"><div class="wrap">
-    <div class="eyebrow" style="justify-content:center">Avaliações Google Maps</div>
-    <div class="score" id="score" data-v="4.8">0,0</div>
-    <div class="big-stars" id="bigstars"></div>
-    <p class="lead" style="margin:0 auto;color:#f1ddd5">Baseado em <b id="total" style="color:#fff">2.072</b> avaliações de quem já sentou à mesa da Manura.</p>
-    <div class="g-badge"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.2 5.5-4.7 7.2l7.6 5.9c4.4-4.1 6.9-10.1 6.9-17.6z"/><path fill="#FBBC05" d="M10.5 28.7a14.5 14.5 0 010-9.4l-7.9-6.1a24 24 0 000 21.6l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Avaliações no Google</div>
-  </div></header>
+  <header class="r-hero">
+    <div class="top"><a href="#/" class="link" style="font-weight:800;font-size:18px">← Manura</a>
+      <nav aria-label="Principal"><a href="#/cardapio">Cardápio</a><a href="#/buffet">Buffet</a><a href="#/avaliacoes" class="on">Avaliações</a><a href="#/visite">Visite</a></nav></div>
+    <h1><span id="score">4,8</span><span class="sr"> no Google, em 2.072 avaliações da Manura</span></h1>
+    <div class="row"><p>Nota média de <b>2.072 avaliações</b> no Google Maps. Quem almoça na Manura costuma voltar.</p><div class="stars" id="bigstars" aria-hidden="true"></div></div>
+  </header>
 
-  <section><div class="wrap dist">
-    <div class="rv l"><div class="eyebrow">Excelência comprovada</div><h2 class="h2">Notas que falam<br>por nós.</h2><p class="lead">Segundo o resumo do Google Maps, os frequentadores dizem que o rodízio é <b style="color:var(--wine)">excelente</b>, com ampla variedade de carnes macias e saborosas — incluindo cordeiro — e uma surpreendente seleção de pratos árabes de alta qualidade.</p>
-      <div class="chips"><span class="chip">Rodízio excelente<b>★</b></span><span class="chip">Carnes macias<b>★</b></span><span class="chip">Cordeiro<b>★</b></span><span class="chip">Pratos árabes<b>★</b></span><span class="chip">Equipe atenciosa<b>★</b></span><span class="chip">Serviço rápido<b>★</b></span><span class="chip">Sobremesas<b>★</b></span><span class="chip">Estacionamento<b>★</b></span></div></div>
-    <div class="bars rv r" id="bars"></div>
-  </div></section>
+  <section class="r-sec">
+    <div class="dist">
+      <h2 class="rv">Como as notas se distribuem</h2>
+      <div class="bars rv" style="--d:.1s" id="bars"></div>
+    </div>
+  </section>
 
-  <section class="alt" style="padding-top:60px"><div class="wrap">
-    <div class="tabs" id="tabs"><button class="on" data-f="all">Todas</button><button data-f="carne">Carne</button><button data-f="atend">Atendimento</button><button data-f="arabe">Cozinha árabe</button><button data-f="buffet">Buffet</button></div>
-    <div class="masonry" id="masonry"></div>
-    <p class="note">Nota (4,8) e total (2.072) conforme o perfil da Manura no Google Maps; barras de distribuição aproximadas. Os depoimentos abaixo são ilustrativos nesta prévia e serão substituídos pelos reais.</p>
-    <div style="text-align:center;margin-top:40px"><a class="btn p" href="https://www.google.com/maps/search/?api=1&query=Manura+Churrascaria+Campo+Grande" target="_blank" rel="noopener">Avaliar no Google Maps →</a></div>
-  </div></section>
+  <section class="r-sec" style="padding-top:0">
+    <div class="sum">
+      <h2 class="rv">O que os frequentadores dizem</h2>
+      <div><p class="rv" style="--d:.1s">O rodízio é excelente, com ampla variedade de carnes macias e saborosas, incluindo cordeiro, e uma surpreendente seleção de pratos árabes de alta qualidade. Destacam a equipe atenciosa e eficiente, o serviço rápido, as sobremesas deliciosas e o estacionamento conveniente.</p><p class="small soft rv" style="margin-top:18px;--d:.15s">Resumo conforme o perfil da Manura no Google Maps.</p></div>
+    </div>
+  </section>
+  <div class="band" aria-hidden="true"><div class="track" id="track2"></div></div>
+
+  <section class="r-sec">
+    <h2 class="rv">Depoimentos</h2>
+    <div class="rtabs rv" id="tabs"><button class="on" data-f="all">Todos</button><button data-f="carne">Carne</button><button data-f="atend">Atendimento</button><button data-f="arabe">Cozinha árabe</button><button data-f="buffet">Buffet</button></div>
+    <div class="reviews" id="reviews"></div>
+    <p class="note">Nesta prévia, os depoimentos são ilustrativos e serão substituídos pelos comentários reais do Google Maps. A nota 4,8 e o total de 2.072 avaliações são os do perfil; a distribuição entre as estrelas é aproximada.</p>
+  </section>
+
+  <section class="r-cta">
+    <h2 class="rv">Já almoçou aqui?</h2>
+    <a class="btn rv" style="--d:.1s" href="https://www.google.com/maps/search/?api=1&query=Manura+Churrascaria+Campo+Grande" target="_blank" rel="noopener">Avaliar no Google Maps <span class="ar">→</span></a>
+  </section>
 </main>
 
-<footer><div class="wrap f">
-  <div><a href="#/"><img src="{{logow}}" alt="Manura Churrascaria e Cozinha Árabe"></a><p>Av. Mato Grosso, 579 — Centro, Campo Grande/MS<br>(67) 3384-1464</p></div>
-  <div style="text-align:right"><p><a href="https://www.instagram.com/manurachurrascaria" target="_blank" rel="noopener">@manurachurrascaria</a></p><p style="margin-top:8px">© 1987–<span id="yr"></span> Manura Churrascaria</p></div>
-</div></footer>
+<footer>
+  <div class="f-cols">
+    <div><b>Manura</b><span>Churrascaria e cozinha árabe</span><span>Desde 1987</span></div>
+    <div><b>Endereço</b><span>Av. Mato Grosso, 579</span><span>Centro, Campo Grande, MS</span></div>
+    <div><b>Navegue</b><a class="link" href="#/cardapio">Cardápio</a><br><a class="link" href="#/avaliacoes">Avaliações</a><br><a class="link" href="#/visite">Visite</a></div>
+    <div><b>Almoço</b><span>Seg a sex, 11h às 14h</span><span>Sáb, dom e feriados, 11h às 15h</span><a class="link" href="tel:+556733841464">(67) 3384-1464</a></div>
+  </div>
+  <div>
+    <div class="f-mono"><svg viewBox="0 0 {{LW}} {{LH}}" role="img" aria-label="Manura"><use href="#mark"/></svg></div>
+    <div class="f-legal"><span>© 1987–<span id="yr"></span> Manura Churrascaria</span><a class="link" href="https://www.instagram.com/manurachurrascaria" target="_blank" rel="noopener">@manurachurrascaria</a></div>
+  </div>
+</footer>
 
 <div id="wm" aria-hidden="true"><div id="wmg"></div></div>
-<div id="wmb"><b>CODRIAN</b> · VERSÃO DE PRÉVIA · NÃO PUBLICAR</div>
+<div id="wmb">CODRIAN · VERSÃO DE PRÉVIA · NÃO PUBLICAR</div>
 
 <script>
-/* ===== CONFIG: nota e total reais (Google Maps). Depoimentos = ilustrativos ===== */
-const RATING = {score:4.8, total:"2.072", dist:[85,11,2,1,1]}; // dist: % APROXIMADO das barras
-const REVIEWS = [
- {n:"Mariana S.",s:5,t:"Melhor rodízio do centro! A picanha chega no ponto certo e o atendimento é impecável. Já virou tradição de domingo em família.",tag:"carne",w:"há 2 semanas"},
- {n:"Carlos E.",s:5,t:"Comida árabe maravilhosa, o quibe é o melhor que já comi. Buffet muito variado e tudo sempre fresquinho.",tag:"arabe",w:"há 1 mês"},
- {n:"Fernanda L.",s:5,t:"Garçons atenciosos e rápidos, mesmo com a casa cheia. Ambiente tradicional e acolhedor. Voltarei sempre!",tag:"atend",w:"há 3 semanas"},
- {n:"Ricardo M.",s:5,t:"Almoço de negócios perfeito: rápido, saboroso e com excelente custo-benefício.",tag:"atend",w:"há 2 meses"},
- {n:"Juliana P.",s:5,t:"O buffet de saladas e frios é um espetáculo à parte. Capricho em cada detalhe, até o vinagrete é especial.",tag:"buffet",w:"há 1 mês"},
- {n:"André T.",s:4,t:"Carnes suculentas e muita variedade. Aos domingos enche, vale chegar cedo. Vale cada centavo.",tag:"carne",w:"há 4 meses"},
- {n:"Patrícia R.",s:5,t:"Fui pela churrascaria e me apaixonei pela cozinha árabe. Combinação genial, sobremesas deliciosas.",tag:"arabe",w:"há 5 meses"},
- {n:"Lucas B.",s:5,t:"Tradição de mais de 30 anos que se sente em cada prato. Sabor de casa e carne de primeira.",tag:"carne",w:"há 6 meses"},
- {n:"Camila F.",s:5,t:"Levei toda a família no aniversário da minha mãe e fomos tratados como reis. Recomendo demais!",tag:"atend",w:"há 7 meses"}
+const RATING={score:'4,8',total:'2.072',dist:[85,11,2,1,1]};
+const PRAISE=['Rodízio excelente','Carnes macias','Cordeiro','Pratos árabes','Equipe atenciosa','Serviço rápido','Sobremesas','Estacionamento'];
+const REVIEWS=[
+ {n:'Mariana S.',s:5,t:'Melhor rodízio do centro! A picanha chega no ponto certo e o atendimento é impecável. Já virou tradição de domingo em família.',tag:'carne',w:'há 2 semanas'},
+ {n:'Carlos E.',s:5,t:'Comida árabe maravilhosa, o quibe é o melhor que já comi. Buffet muito variado e tudo sempre fresquinho.',tag:'arabe',w:'há 1 mês'},
+ {n:'Fernanda L.',s:5,t:'Garçons atenciosos e rápidos, mesmo com a casa cheia. Ambiente tradicional e acolhedor. Voltarei sempre!',tag:'atend',w:'há 3 semanas'},
+ {n:'Ricardo M.',s:5,t:'Almoço de negócios perfeito: rápido, saboroso e com excelente custo-benefício.',tag:'atend',w:'há 2 meses'},
+ {n:'Juliana P.',s:5,t:'O buffet de saladas e frios é um espetáculo à parte. Capricho em cada detalhe, até o vinagrete é especial.',tag:'buffet',w:'há 1 mês'},
+ {n:'André T.',s:4,t:'Carnes suculentas e muita variedade. Aos domingos enche, vale chegar cedo.',tag:'carne',w:'há 4 meses'},
+ {n:'Patrícia R.',s:5,t:'Fui pela churrascaria e me apaixonei pela cozinha árabe. Combinação genial, sobremesas deliciosas.',tag:'arabe',w:'há 5 meses'},
+ {n:'Camila F.',s:5,t:'Levei toda a família no aniversário da minha mãe e fomos tratados como reis. Recomendo demais!',tag:'atend',w:'há 7 meses'}
 ];
 const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const star='<svg viewBox="0 0 24 24"><path d="M12 2l3.1 6.3 6.9 1-5 4.9 1.2 6.8L12 17.8 5.8 21l1.2-6.8-5-4.9 6.9-1z"/></svg>';
-
+if(/clean/.test(location.search))document.documentElement.classList.add('clean');
 $('#wmg').innerHTML=Array(60).fill('<span>CODRIAN</span>').join('');
 $('#yr').textContent=new Date().getFullYear();
 
-(function(){const d=new Date(Date.now()-4*3600e3),wd=d.getUTCDay(),m=d.getUTCHours()*60+d.getUTCMinutes();
- const close=(wd>=1&&wd<=5)?14*60:15*60,open=m>=660&&m<close;
- $('#status').textContent=open?'Aberto agora · fecha às '+(close/60)+'h':'Fechado agora · abre às 11h';
- if(!open)$('#dot').classList.add('off');
- $$('.row[data-d]').forEach(r=>{const w=r.dataset.d==='1'?(wd>=1&&wd<=5):(wd===0||wd===6);if(w)r.classList.add('today')});
-})();
+/* faixa de elogios */
+const band=PRAISE.map(p=>`<span>${p}</span>`).join('');
+$('#track').innerHTML=band+band;$('#track2').innerHTML=band+band;
 
-let lastY=0;
-addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;
- $('#bar').style.width=(h>0?y/h*100:0)+'%';
- $('#nav').classList.toggle('hide',y>lastY&&y>400);lastY=y;
- const img=$('.hero-card img');if(img&&y<innerHeight)img.style.transform=`translateY(${y*.06}px) scale(${1+y*.0002})`;
-},{passive:true});
+/* a coisa viva: o almoço de hoje, em tempo real (hora de Campo Grande, UTC-4) */
+function lunch(){
+ const d=new Date(Date.now()-4*3600e3),wd=d.getUTCDay(),m=d.getUTCHours()*60+d.getUTCMinutes();
+ const wk=wd>=1&&wd<=5,open0=660,close=wk?840:900,isOpen=m>=open0&&m<close;
+ const h=n=>{const x=Math.floor(n/60),y=n%60;return y?x+'h'+String(y).padStart(2,'0'):x+'h'};
+ let main,sub;
+ if(isOpen){const left=close-m;main='Aberto agora';sub=`O almoço serve até ${h(close)}. Faltam ${Math.floor(left/60)?Math.floor(left/60)+'h ':''}${left%60}min.`}
+ else if(m<open0){const w=open0-m;main='Abre às 11h';sub=`Faltam ${Math.floor(w/60)?Math.floor(w/60)+'h ':''}${w%60}min para a mesa ser posta.`}
+ else{main='Fechado por hoje';sub=`O almoço de hoje terminou às ${h(close)}. Amanhã a partir das 11h.`}
+ $('#now').firstChild.textContent=main;$('#nowsub').textContent=sub;
+ $('#status').textContent=isOpen?'Aberto agora · almoço até '+h(close):(m<open0?'Abre hoje às 11h':'Almoço encerrado hoje');
+ $('#dot').classList.toggle('off',!isOpen);
+ const span=240; // 11h–15h
+ $('#ropen').style.width=((close-open0)/span*100)+'%';
+ $('#rcur').style.left='calc('+Math.max(0,Math.min(1,(m-open0)/span))*100+'% - 3px)';
+ $$('.hours [data-d]').forEach(r=>r.classList.toggle('today',(r.dataset.d==='1')===wk));
+}
+lunch();setInterval(lunch,30000);
 
-const t=$('#tilt');if(t&&matchMedia('(hover:hover)').matches){t.addEventListener('mousemove',e=>{const r=t.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;t.style.transform=`perspective(900px) rotateY(${x*10}deg) rotateX(${-y*10}deg)`});t.addEventListener('mouseleave',()=>t.style.transform='')}
+/* entradas ao rolar */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.15});
+const observe=()=>$$('.in-view:not(.in),.rv:not(.in)').forEach(e=>io.observe(e));
 
-const burger=$('#burger'),menu=$('#menu');
-burger.onclick=()=>{burger.classList.toggle('x');menu.classList.toggle('open')};
-menu.onclick=()=>{burger.classList.remove('x');menu.classList.remove('open')};
+/* prints se movem em velocidades diferentes */
+const prints=$$('.print');
+function par(){const s=$('.prints');if(!s||document.body.classList.contains('rev'))return;const r=s.getBoundingClientRect();if(r.bottom<0||r.top>innerHeight)return;
+ const k=(innerHeight/2-(r.top+r.height/2));prints.forEach(p=>{p.style.translate='0 '+(k*parseFloat(p.dataset.sp)*3)+'px'})}
+addEventListener('scroll',par,{passive:true});
 
-const io=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;e.target.classList.add('in');io.unobserve(e.target);
-  e.target.querySelectorAll?.('[data-n]').forEach(count);if(e.target.dataset.n)count(e.target)}),{threshold:.15});
-function count(el){if(el._c)return;el._c=1;const n=+el.dataset.n,s=el.dataset.s||'',t0=performance.now();
- (function f(t){const p=Math.min((t-t0)/1600,1),v=Math.round(n*(1-Math.pow(1-p,4)));el.textContent=(el.dataset.f?v.toLocaleString('pt-BR'):v)+(p===1?s:'');if(p<1)requestAnimationFrame(f)})(t0)}
-function observe(){$$('.rv:not(.in)').forEach(e=>io.observe(e))}
-
-const rail=$('#rail');$('#nx').onclick=()=>rail.scrollBy({left:340,behavior:'smooth'});$('#pv').onclick=()=>rail.scrollBy({left:-340,behavior:'smooth'});
-
+/* avaliações */
 $('#bigstars').innerHTML=Array.from({length:5},(_,i)=>star.replace('<svg','<svg style="--i:'+i+'"')).join('');
-$('#total').textContent=RATING.total;
 $('#bars').innerHTML=RATING.dist.map((p,i)=>`<div><span>${5-i}★</span><i><b data-w="${p}"></b></i><span>${p}%</span></div>`).join('');
-function drawReviews(f='all'){$('#masonry').innerHTML=REVIEWS.filter(r=>f==='all'||r.tag===f).map((r,i)=>`<article class="rcard rv" style="--d:${i*.06}s"><div class="stars">${'★'.repeat(r.s)}${'☆'.repeat(5-r.s)}</div><p>“${r.t}”</p><div class="who"><div class="av">${r.n[0]}</div><div>${r.n}<small>${r.w} · Google</small></div></div></article>`).join('');observe()}
-$('#tabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');drawReviews(b.dataset.f)};
-drawReviews();
+function draw(f='all'){$('#reviews').innerHTML=REVIEWS.filter(r=>f==='all'||r.tag===f).map((r,i)=>`<article class="rev rv" style="--d:${i*.06}s"><q>“${r.t}”</q><div class="who"><span class="st">${'★'.repeat(r.s)}</span><span>${r.n} · ${r.w}</span></div></article>`).join('');observe()}
+$('#tabs').onclick=e=>{const b=e.target.closest('button');if(!b)return;$$('#tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');draw(b.dataset.f)};
+draw();
 
-function route(){const h=location.hash||'#/';const isRev=h==='#/avaliacoes';
- document.body.classList.toggle('rev',isRev);$('#navrev').classList.toggle('on',isRev);
- if(isRev){scrollTo(0,0);
-  const sc=$('#score'),v=RATING.score,t0=performance.now();(function f(t){const p=Math.min((t-t0)/1800,1);sc.textContent=(v*(1-Math.pow(1-p,4))).toFixed(1).replace('.',',');if(p<1)requestAnimationFrame(f)})(t0);
-  setTimeout(()=>$$('#bars b').forEach(b=>b.style.width=b.dataset.w+'%'),300);
-  $$('#bigstars svg').forEach(s=>{s.style.animation='none';s.offsetWidth;s.style.animation=''});
- }else{const id=h.replace('#/','');const el=id&&document.getElementById(id);if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),30);else scrollTo(0,0)}
- observe()}
+function route(){const h=location.hash||'#/';const rev=h==='#/avaliacoes';
+ document.body.classList.toggle('rev',rev);
+ if(rev){scrollTo(0,0);setTimeout(()=>$$('#bars b').forEach(b=>b.style.width=b.dataset.w+'%'),400);
+  $$('#bigstars svg').forEach(s=>{s.style.animation='none';s.getBoundingClientRect();s.style.animation=''})}
+ else{const id=h.replace('#/','');const el=id&&document.getElementById(id);if(el)setTimeout(()=>el.scrollIntoView({behavior:'smooth'}),30);else scrollTo(0,0)}
+ observe();par()}
 addEventListener('hashchange',route);route();
 </script>
 </body>
