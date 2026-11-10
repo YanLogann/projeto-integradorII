@@ -1,11 +1,17 @@
-import base64,io,re,sys
-from PIL import Image,ImageFilter
+import base64,io,re,os
+from PIL import Image,ImageFilter,ImageEnhance
 src=open('index.src.html',encoding='utf-8').read()
-def enc(m):
-    im=Image.open(f'img/{m.group(1)}.jpg').convert('RGB')
-    im=im.resize((im.width*2,im.height*2),Image.LANCZOS).filter(ImageFilter.UnsharpMask(1.2,60,2))
-    b=io.BytesIO();im.save(b,'JPEG',quality=80,optimize=True)
+def photo(name):
+    p=f'src_img/sr/{name}.jpg'
+    im=Image.open(p if os.path.exists(p) else f'img/{name}.jpg').convert('RGB')
+    if im.width>1100: im=im.resize((1100,round(im.height*1100/im.width)),Image.LANCZOS)
+    im=ImageEnhance.Contrast(im).enhance(1.05);im=ImageEnhance.Color(im).enhance(1.06)
+    im=im.filter(ImageFilter.UnsharpMask(1.0,45,2))
+    b=io.BytesIO();im.save(b,'JPEG',quality=80,optimize=True,progressive=True)
     return 'data:image/jpeg;base64,'+base64.b64encode(b.getvalue()).decode()
-out=re.sub(r'\{\{img:(\w+)\}\}',enc,src)
+def png(name):
+    return 'data:image/png;base64,'+base64.b64encode(open(f'img/{name}.png','rb').read()).decode()
+out=re.sub(r'\{\{img:(\w+)\}\}',lambda m:photo(m.group(1)),src)
+out=out.replace('{{logow}}',png('logow')).replace('{{logo}}',png('logo'))
 open('Manura-Churrascaria-PREVIA.html','w',encoding='utf-8').write(out)
 print(len(out)//1024,'KB')
