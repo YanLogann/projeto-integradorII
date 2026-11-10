@@ -344,22 +344,22 @@ body.rev #view-home{display:none}body.rev #view-rev{display:block}
 <main id="view-rev">
   <header class="rev-hero"><div class="wrap">
     <div class="eyebrow" style="justify-content:center">Avaliações Google Maps</div>
-    <div class="score" id="score" data-v="4.7">0,0</div>
+    <div class="score" id="score" data-v="4.8">0,0</div>
     <div class="big-stars" id="bigstars"></div>
-    <p class="lead" style="margin:0 auto">Baseado em <b id="total" style="color:#fff">+2 mil</b> avaliações de quem já sentou à mesa da Manura.</p>
+    <p class="lead" style="margin:0 auto">Baseado em <b id="total" style="color:#fff">2.072</b> avaliações de quem já sentou à mesa da Manura.</p>
     <div class="g-badge"><svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9.1 3.6l6.8-6.8C35.8 2.4 30.3 0 24 0 14.6 0 6.5 5.4 2.6 13.2l7.9 6.1C12.4 13.6 17.7 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v9h12.7c-.6 3-2.2 5.5-4.7 7.2l7.6 5.9c4.4-4.1 6.9-10.1 6.9-17.6z"/><path fill="#FBBC05" d="M10.5 28.7a14.5 14.5 0 010-9.4l-7.9-6.1a24 24 0 000 21.6l7.9-6.1z"/><path fill="#34A853" d="M24 48c6.5 0 11.9-2.1 15.9-5.8l-7.6-5.9c-2.1 1.4-4.9 2.3-8.3 2.3-6.3 0-11.6-4.1-13.5-9.8l-7.9 6.1C6.5 42.6 14.6 48 24 48z"/></svg>Avaliações no Google</div>
   </div></header>
 
   <section style="padding-top:20px"><div class="wrap dist">
-    <div class="rv l"><div class="eyebrow">Excelência comprovada</div><h2 class="h2">Notas que falam<br>por nós.</h2><p class="lead">A maioria absoluta dos clientes avalia a Manura com nota máxima. Os elogios se repetem: carne, atendimento e variedade.</p>
-      <div class="chips"><span class="chip">Carne no ponto<b>★</b></span><span class="chip">Atendimento<b>★</b></span><span class="chip">Buffet variado<b>★</b></span><span class="chip">Cozinha árabe<b>★</b></span><span class="chip">Tradição<b>★</b></span></div></div>
+    <div class="rv l"><div class="eyebrow">Excelência comprovada</div><h2 class="h2">Notas que falam<br>por nós.</h2><p class="lead">Segundo o resumo do Google Maps, os frequentadores dizem que o rodízio é <b style="color:#fff">excelente</b>, com ampla variedade de carnes macias e saborosas — incluindo cordeiro — e uma surpreendente seleção de pratos árabes de alta qualidade.</p>
+      <div class="chips"><span class="chip">Rodízio excelente<b>★</b></span><span class="chip">Carnes macias<b>★</b></span><span class="chip">Cordeiro<b>★</b></span><span class="chip">Pratos árabes<b>★</b></span><span class="chip">Equipe atenciosa<b>★</b></span><span class="chip">Serviço rápido<b>★</b></span><span class="chip">Sobremesas<b>★</b></span><span class="chip">Estacionamento<b>★</b></span></div></div>
     <div class="bars rv r" id="bars"></div>
   </div></section>
 
   <section style="padding-top:0"><div class="wrap">
     <div class="tabs" id="tabs"><button class="on" data-f="all">Todas</button><button data-f="carne">Carne</button><button data-f="atend">Atendimento</button><button data-f="arabe">Cozinha árabe</button><button data-f="buffet">Buffet</button></div>
     <div class="masonry" id="masonry"></div>
-    <p class="note">Prévia de apresentação: nota, contagem e textos das avaliações são ilustrativos e serão substituídos pelos dados reais do perfil da Manura no Google Maps.</p>
+    <p class="note">Nota (4,8) e total (2.072) conforme o perfil da Manura no Google Maps; barras de distribuição aproximadas. Os depoimentos abaixo são ilustrativos nesta prévia e serão substituídos pelos reais.</p>
     <div style="text-align:center;margin-top:40px"><a class="btn p" href="https://www.google.com/maps/search/?api=1&query=Manura+Churrascaria+Campo+Grande" target="_blank" rel="noopener">Avaliar no Google Maps →</a></div>
   </div></section>
 </main>
@@ -374,7 +374,7 @@ body.rev #view-home{display:none}body.rev #view-rev{display:block}
 
 <script>
 /* ===== CONFIG: substituir por dados reais do Google Maps ===== */
-const RATING = {score:4.7, total:"+2 mil", dist:[78,14,5,2,1]}; // % de 5★..1★ (ilustrativo)
+const RATING = {score:4.8, total:"2.072", dist:[85,11,2,1,1]}; // nota e total: reais (Google Maps). dist: % APROXIMADO estimado das barras do print
 const REVIEWS = [ // ILUSTRATIVO — trocar pelas avaliações reais
  {n:"Mariana S.",s:5,t:"Melhor rodízio do centro! A picanha chega no ponto certo e o atendimento é impecável. Já virou tradição de domingo em família.",tag:"carne",w:"há 2 semanas"},
  {n:"Carlos E.",s:5,t:"Comida árabe maravilhosa, o quibe é o melhor que já comi. Buffet muito variado e tudo sempre fresquinho.",tag:"arabe",w:"há 1 mês"},
