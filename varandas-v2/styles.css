@@ -278,3 +278,11 @@ h3{font-size:clamp(1.375rem,1.1rem + 1vw,1.75rem);line-height:1.02}
   .day-copy{min-height:0}
   .chap{position:static;opacity:1;visibility:visible;transform:none;margin-top:36px}
 }
+
+@media (max-width:380px){
+  .hours td:nth-child(2){white-space:normal}
+  .hours td{padding:10px 10px;font-size:.9375rem}
+  .hours td:first-child{width:4.6em}
+  .about-panel h2{font-size:1.5rem}
+  .hero h1{font-size:1.55rem}
+}
