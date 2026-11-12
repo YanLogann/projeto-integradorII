@@ -5,8 +5,8 @@ HTML + CSS + JS puro, sem build e sem bibliotecas. Suba a pasta em qualquer hosp
 ## O que é exclusivo desta versão
 - **Hero**: o próprio símbolo isométrico da marca se monta peça por peça sobre linhas de projeto; o mouse separa as camadas ("Separar camadas" no toque). Ao lado, estimativa em 5 segundos (área → meses e relatórios), ligada ao simulador.
 - **"Sua semana"**: a mesma semana, sem gestão × com a MM (as ligações somem, sobra 1 reunião).
-- **A obra (rolagem)**: a página trava e a rolagem constrói a casa (1º telão com a casa modelo); semana, etapa, trilho e relatório nº acompanham.
-- **Simulador** (2º e último telão com a casa): área e padrão mudam a casa (1 a 3 pavimentos), o cronograma e a mensagem de WhatsApp. Play e arrastar de semanas.
+- **A obra (rolagem), em primeira pessoa**: a página trava e você vê a obra do nível dos olhos (1,65 m), na calçada em frente ao terreno, em perspectiva real. A câmera se aproxima conforme se rola; a casa nasce como projeto tracejado, sobe por etapa e acende na entrega. Tapume com a placa da MM, cones, operários, caçamba e pilha de areia somem perto da entrega. Semana, etapa, trilho e relatório nº acompanham.
+- **Simulador** (casa isométrica, vista de cima): área e padrão mudam a casa (1 a 3 pavimentos), o cronograma e a mensagem de WhatsApp. Play e arrastar de semanas.
 - **Casas modelo: um layout novo a cada 100 m²**, crescendo para os lados e não só para cima.
   - *Padrão alto:* térrea com garagem (100–199) → sobrado de vidro (200) → ala lateral com terraço e pérgola (300) → em L com pátio (400) → volume recuado + ala (500) → em U com pátio e piscina (600) → em U com 3º nível, coberturas verdes e gazebo (700+).
   - *Altíssimo padrão (marcar "Altíssimo" no simulador):* pavilhão com teto-jardim (100) → volume suspenso em balanço (200) → + pavilhão lateral (300) → + segundo pavilhão, em H (400) → pátio com piscina de borda infinita (500) → caixas suspensas sobre os pavilhões (600) → + pavilhão de hóspedes e monólito (700+).
