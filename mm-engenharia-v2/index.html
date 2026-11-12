@@ -596,6 +596,24 @@ dialog::backdrop{background:rgba(26,27,25,.7)}
   .hero h1{font-size:10.5vw;max-width:12ch}
 }
 
+/* Celular deitado / telas baixas */
+@media(max-height:520px) and (orientation:landscape){
+  .hero{min-height:100svh}
+  .hero-house{width:auto!important;height:78svh;right:2vw!important;top:64px!important;transform:none!important}
+  .hero-house svg{height:100%;width:auto}
+  .hero-body{padding-top:70px!important;max-width:52vw}
+  .hero h1{font-size:min(7.4vw,12svh)!important}
+  .hero-side p{display:none}
+  .hud{display:none}
+  .stage-house{width:auto!important;height:66svh;left:auto!important;right:1vw!important;top:calc(50% + 6px)!important;transform:translateY(-50%)!important}
+  .stage-house svg{height:100%;width:auto}
+  .hud-t{top:62px}.hud-t .wk{font-size:2.4rem}
+  .cards{width:min(46vw,420px)!important;left:var(--m);right:auto!important;bottom:62px!important}
+  .pcard{padding:12px 14px}.pcard h3{font-size:1.15rem!important;margin-bottom:6px}.pcard p{font-size:.78rem}.pcard ul,.pcard .tag{display:none}
+  .rail{bottom:14px}.rail-t{height:22px}
+  .sim-stage{aspect-ratio:1.8}
+}
+
 @media(hover:none){.hud .hint span{display:none}}
 </style>
 <noscript><style>.pre{display:none}.rv,.rv-img{opacity:1!important;transform:none!important;clip-path:none!important}.split .w>span{transform:none!important}.story{height:auto}.stage{position:static;height:auto}.pcard{position:static;opacity:1;transform:none;margin:12px var(--m)}.cards{position:static;width:auto}</style></noscript>
