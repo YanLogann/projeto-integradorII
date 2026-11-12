@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Varandas Bar e Restaurante · São Gabriel do Oeste, MS</title>
+<meta name="description" content="Comida boa em momentos especiais. Almoço, jantar, porções, chopp gelado e música ao vivo na Rua Paraná, 1999, em São Gabriel do Oeste. Reserve pelo WhatsApp.">
+<meta name="theme-color" content="#050403">
+<meta property="og:title" content="Varandas Bar e Restaurante · São Gabriel do Oeste">
+<meta property="og:description" content="Almoço, jantar, chopp gelado e música ao vivo. Escolha o horário e reserve pelo WhatsApp.">
+<meta property="og:type" content="restaurant">
+<!-- trocar por URL absoluta (1200x630) ao publicar -->
+<meta property="og:image" content="assets/logo-varandas.png">
+<link rel="icon" href="assets/logo-varandas.png">
+<link rel="preload" href="assets/fonts/jost-latin-700-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+<script>document.documentElement.classList.add('js')</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Varandas Bar e Restaurante","servesCuisine":["Brasileira","Churrasco","Porções"],"address":{"@type":"PostalAddress","streetAddress":"Rua Paraná, 1999","addressLocality":"São Gabriel do Oeste","addressRegion":"MS","postalCode":"79490-000","addressCountry":"BR"},"geo":{"@type":"GeoCoordinates","latitude":-19.3914662,"longitude":-54.5741309},"telephone":"+55 67 99910-2539","sameAs":["https://www.instagram.com/varandas.sgo","https://www.facebook.com/varandassgo/"],"hasMenu":"#cardapio"}
+</script>
+</head>
+<body>
+
+<header class="nav" id="nav">
+  <div class="nav-in">
+    <a class="brand" href="#topo" aria-label="Varandas, início"><img src="assets/logo-varandas.png" alt="" width="44" height="44"><span>Varandas</span></a>
+    <nav class="nav-links" id="navlinks" aria-label="Principal">
+      <a href="#dia">Um dia aqui</a>
+      <a href="#cardapio">Cardápio</a>
+      <a href="#reservar">Reservar</a>
+      <a href="#visite">Como chegar</a>
+    </nav>
+    <a class="btn btn-fill nav-cta" data-wa href="https://wa.me/5567999102539" target="_blank" rel="noopener">Pedir no WhatsApp</a>
+    <button class="burger" id="burger" aria-expanded="false" aria-controls="navlinks">Menu</button>
+  </div>
+</header>
+
+<main id="topo">
+
+<!-- ============ HERO: o anel aberto do letreiro ============ -->
+<section class="hero" aria-labelledby="h1">
+  <div class="hero-text">
+    <h1 id="h1" data-r>Comida boa em momentos especiais.</h1>
+    <p class="lead" data-r style="--i:1">Varandas, bar e restaurante no centro de São Gabriel do Oeste. Almoço, jantar, porções e chopp gelado, com música ao vivo nas noites de show.</p>
+    <div class="row" data-r style="--i:2">
+      <a class="btn btn-fill" data-wa href="https://wa.me/5567999102539" target="_blank" rel="noopener">Pedir no WhatsApp</a>
+      <a class="btn btn-ghost" href="#reservar">Reservar mesa</a>
+    </div>
+    <p class="live" data-r style="--i:3" aria-live="polite"><span class="dot" id="liveDot"></span><span id="liveText">Conferindo o horário…</span></p>
+  </div>
+
+  <div class="hero-art" aria-hidden="false">
+    <svg class="crescent" id="crescent" viewBox="0 0 1000 1000" aria-hidden="true">
+      <defs><mask id="cmask"><rect width="1000" height="1000" fill="#fff"/><circle cx="590" cy="470" r="400" fill="#000"/></mask></defs>
+      <circle cx="500" cy="500" r="490" fill="currentColor" mask="url(#cmask)"/>
+    </svg>
+    <div class="disc"><img src="assets/fachada-noite.png" alt="Fachada do Varandas à noite, com o letreiro luminoso em forma de C aberto" width="408" height="544" fetchpriority="high"></div>
+  </div>
+</section>
+
+<!-- ============ UM DIA NA VARANDA: cena que fixa e muda com a rolagem ============ -->
+<section class="day" id="dia" aria-labelledby="dayh">
+  <div class="day-track">
+    <div class="day-stage" id="dayStage" data-phase="0">
+      <div class="day-head">
+        <h2 id="dayh">Um dia na varanda, hora a hora.</h2>
+      </div>
+      <div class="day-dial"><div class="dial" id="dayDial" role="img" aria-label="Relógio de 24 horas com o horário de funcionamento destacado"></div></div>
+      <div class="day-copy" id="dayCopy" aria-live="polite">
+        <div class="chap" data-hour="11" data-phase="0">
+          <p class="chap-time">11h</p>
+          <h3>A varanda abre para o almoço.</h3>
+          <p>Prato do dia, churrasco e grelhados servidos até as 13h30. Aos sábados, feijoada.</p>
+        </div>
+        <div class="chap" data-hour="15" data-phase="1">
+          <p class="chap-time">15h</p>
+          <h3>A cozinha respira.</h3>
+          <p>Entre o almoço e o jantar o salão se prepara: mesas, gelo, chopp na temperatura certa.</p>
+        </div>
+        <div class="chap" data-hour="18" data-phase="2">
+          <p class="chap-time">18h</p>
+          <h3>O letreiro acende.</h3>
+          <p>O C aberto da fachada ilumina a Rua Paraná e o jantar começa: pratos, porções e espetadas.</p>
+        </div>
+        <div class="chap" data-hour="20.5" data-phase="3">
+          <p class="chap-time">20h30</p>
+          <h3>Chopp gelado na mesa.</h3>
+          <p>Porção para dividir, drinks da casa e a mesa cheia de gente que veio ficar.</p>
+        </div>
+        <div class="chap" data-hour="23" data-phase="4">
+          <p class="chap-time">23h</p>
+          <h3>Música ao vivo, até o último copo.</h3>
+          <p>Sextas e sábados a casa fecha às 23h30. A agenda dos shows sai no Instagram.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOBRE ============ -->
+<section class="sec about" aria-labelledby="aboutH">
+  <div class="about-panel">
+    <h2 id="aboutH" data-r>Uma varanda aberta no centro.</h2>
+    <div class="about-cols">
+      <div data-r style="--i:1">
+        <h3>Almoço, jantar e petisco</h3>
+        <p>O Varandas virou ponto de encontro em São Gabriel do Oeste: almoço do dia a dia, jantar em família ou aquela cerveja gelada com os amigos.</p>
+      </div>
+      <div data-r style="--i:2">
+        <h3>Feito para ficar</h3>
+        <p>Mesas amplas, plantas penduradas no ripado e um salão aberto para a rua. Dá para conversar em paz, e as crianças têm espaço.</p>
+      </div>
+    </div>
+    <a class="btn btn-fill about-btn" href="#cardapio" data-r style="--i:3">Ver o cardápio</a>
+    <div class="about-photo" data-r>
+      <img src="assets/fachada-noite.png" alt="Salão e fachada do Varandas à noite" width="408" height="544" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ============ CARDÁPIO ============ -->
+<section class="sec menu" id="cardapio" aria-labelledby="menuH">
+  <div class="menu-head">
+    <h2 id="menuH" data-r>Cardápio da casa.</h2>
+    <p class="lead" data-r style="--i:1">Os valores mudam conforme o dia. Chame no WhatsApp para saber o que está saindo hoje.</p>
+  </div>
+  <nav class="menu-jump" id="menuJump" aria-label="Categorias do cardápio"></nav>
+  <div id="menuBody"></div>
+  <p class="note">Cardápio de exemplo, a confirmar com a casa. Fotos dos pratos e valores entram na versão final.</p>
+</section>
+
+<!-- ============ RESERVAR: o relógio é o formulário ============ -->
+<section class="sec reserve" id="reservar" aria-labelledby="resH">
+  <div class="coupon">
+    <div class="coupon-left">
+      <h2 id="resH">Que horas você vem?</h2>
+      <p>Gire o relógio, escolha o dia e quantas pessoas. A reserva chega pronta no WhatsApp da casa.</p>
+      <form class="res-form" id="resForm" novalidate>
+        <label class="fld"><span class="vh">Seu nome</span><input id="rName" name="nome" type="text" placeholder="Seu nome" autocomplete="given-name"></label>
+        <label class="fld"><span class="vh">Dia</span><select id="rDay" name="dia"></select></label>
+        <div class="fld stepper" role="group" aria-label="Pessoas">
+          <button type="button" id="pMinus" aria-label="Menos uma pessoa">−</button>
+          <output id="pOut" aria-live="polite">2 pessoas</output>
+          <button type="button" id="pPlus" aria-label="Mais uma pessoa">+</button>
+        </div>
+        <p class="res-sum" id="resSum" aria-live="polite"></p>
+        <button class="submit" id="resGo" type="submit">Enviar pelo WhatsApp</button>
+      </form>
+    </div>
+    <div class="perf" aria-hidden="true"></div>
+    <div class="coupon-right">
+      <div class="dial dial-live" id="resDial" role="slider" tabindex="0" aria-label="Horário da reserva" aria-valuemin="0" aria-valuemax="23.5" aria-valuenow="20" aria-valuetext="20h"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NÚMEROS ============ -->
+<section class="sec stats" aria-labelledby="statH">
+  <h2 id="statH" data-r>A casa em números.</h2>
+  <div class="tiles">
+    <div class="tile t1" data-r>
+      <p class="fig" data-count="4.6" data-dec="1">4,6</p>
+      <p class="cap">nota no Google, em 378 avaliações</p>
+    </div>
+    <div class="tile t2" data-r style="--i:1">
+      <p class="fig" data-count="14.2" data-dec="1" data-suf=" mil">14,2 mil</p>
+      <p class="cap">seguidores no Instagram</p>
+    </div>
+    <div class="tile t3" data-r style="--i:2">
+      <p class="fig">1999</p>
+      <p class="cap">o número da porta, na Rua Paraná</p>
+    </div>
+  </div>
+  <p class="note">Nota e seguidores conforme consulta recente; confirmar com o cliente antes de publicar.</p>
+</section>
+
+<!-- ============ COMO CHEGAR ============ -->
+<section class="sec visit" id="visite" aria-labelledby="visH">
+  <div class="visit-grid">
+    <div>
+      <h2 id="visH" data-r>Venha para a varanda.</h2>
+      <p class="addr" data-r style="--i:1">Rua Paraná, 1999<br>Centro · São Gabriel do Oeste, MS</p>
+      <table class="hours" data-r style="--i:2" id="hoursTable"><caption class="vh">Horários de funcionamento</caption><tbody></tbody></table>
+      <div class="row" data-r style="--i:3">
+        <a class="btn btn-fill" href="https://maps.app.goo.gl/NKszMjLPiBRhca13A" target="_blank" rel="noopener">Abrir no mapa</a>
+        <a class="btn btn-ghost" href="https://www.instagram.com/varandas.sgo/" target="_blank" rel="noopener">@varandas.sgo</a>
+      </div>
+    </div>
+    <div class="map" data-r>
+      <iframe title="Mapa do Varandas Bar e Restaurante" src="https://www.google.com/maps?q=-19.3914662,-54.5741309&z=17&output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CTA ============ -->
+<a class="cta" data-wa href="https://wa.me/5567999102539" target="_blank" rel="noopener" aria-label="Pedir pelo WhatsApp">
+  <span class="cta-sent">Chame a casa no WhatsApp. Pedido, reserva ou dúvida, a resposta vem direto da cozinha.</span>
+  <svg class="cta-arrow" viewBox="0 0 48 48" aria-hidden="true"><path d="M12 36 36 12M16 12h20v20" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="square"/></svg>
+  <span class="cta-word">PEDIR</span>
+</a>
+
+</main>
+
+<footer class="foot">
+  <div class="foot-mark" aria-hidden="true" id="footMark"></div>
+  <div class="foot-grid">
+    <nav class="foot-cols" aria-label="Rodapé">
+      <a href="#dia">Um dia aqui</a><a href="#cardapio">Cardápio</a><a href="#reservar">Reservar</a><a href="#visite">Como chegar</a>
+      <a href="https://www.instagram.com/varandas.sgo/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/varandassgo/" target="_blank" rel="noopener">Facebook</a><a data-wa href="https://wa.me/5567999102539" target="_blank" rel="noopener">WhatsApp</a><a href="https://maps.app.goo.gl/NKszMjLPiBRhca13A" target="_blank" rel="noopener">Google Maps</a>
+    </nav>
+    <address>Varandas Bar e Restaurante<br>Rua Paraná, 1999, Centro<br>São Gabriel do Oeste, MS</address>
+  </div>
+  <div class="foot-last"><span>© Varandas Bar e Restaurante. Foto da fachada: acervo do cliente.</span><a class="btn btn-fill btn-sm" href="#topo">Voltar ao topo</a></div>
+</footer>
+
+<a class="preview-chip" href="https://wa.me/?text=Oi%2C%20Codrian!%20Vi%20a%20pr%C3%A9via%20do%20site%20do%20Varandas%20e%20quero%20um%20site%20assim." target="_blank" rel="noopener">Prévia Codrian</a>
+
+<script src="app.js"></script>
+</body>
+</html>
