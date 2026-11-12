@@ -191,9 +191,9 @@ p{margin:0}
 .hud .wk{font:300 clamp(2.4rem,5vw,4.4rem)/1 var(--display);letter-spacing:-.04em;font-variant-numeric:tabular-nums}
 .hud .wk small{font:500 var(--s-mono)/1 var(--mono);letter-spacing:.14em;color:var(--on-dark-soft);margin-left:8px;text-transform:uppercase}
 .hud .ph{font:500 var(--s-mono)/1.4 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--limestone)}
-.hud .hint{font:500 .66rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-soft);display:flex;gap:10px;align-items:center}
-.hud .hint button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--marfim);background:none;border:1px solid var(--line-d);padding:7px 12px;cursor:pointer;min-height:32px;transition:.25s}
-.hud .hint button:hover,.hud .hint button[aria-pressed=true]{background:var(--limestone);color:var(--carvao);border-color:var(--limestone)}
+.hcard .hint{font:500 .66rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--on-dark-soft);display:flex;gap:10px;align-items:center}
+.hcard .hint button{font:inherit;letter-spacing:inherit;text-transform:inherit;color:var(--marfim);background:none;border:1px solid var(--line-d);padding:7px 12px;cursor:pointer;min-height:32px;transition:.25s}
+.hcard .hint button:hover,.hcard .hint button[aria-pressed=true]{background:var(--limestone);color:var(--carvao);border-color:var(--limestone)}
 .hero-proof{margin-top:clamp(24px,4vh,40px);padding-top:18px;border-top:1px solid var(--line-d);display:flex;flex-wrap:wrap;gap:8px 44px;font-size:var(--s-small);color:var(--on-dark-soft)}
 .hero-proof strong{color:var(--marfim);font-weight:600}
 .coord{position:absolute;z-index:3;right:var(--mr);top:96px;text-align:right;font:500 .64rem/1.8 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--on-dark-soft);display:none}
@@ -560,7 +560,7 @@ dialog::backdrop{background:rgba(26,27,25,.7)}
   .hero-house{width:134vw;right:-27vw;top:64px;transform:none}
   .hero-body{padding-top:calc(64px + 100vw)}
   .hero h1{font-size:13.2vw}
-  .hud{justify-items:start;text-align:left}.hud .hint{display:none}
+  .hud{justify-items:start;text-align:left}.hcard .hint{display:none}
   .stats{grid-template-columns:repeat(3,1fr)!important}.stats b{font-size:2.6rem}.stats span{font-size:.74rem}
   .stage-house{left:-14vw!important;right:-14vw!important;top:30%!important}
   body.in-story .wa{display:none}
@@ -604,7 +604,7 @@ dialog::backdrop{background:rgba(26,27,25,.7)}
   .hero-body{padding-top:70px!important;max-width:52vw}
   .hero h1{font-size:min(7.4vw,12svh)!important}
   .hero-side p{display:none}
-  .hud{display:none}
+  .hcard{display:none}
   .stage-house{width:auto!important;height:66svh;left:auto!important;right:1vw!important;top:calc(50% + 6px)!important;transform:translateY(-50%)!important}
   .stage-house svg{height:100%;width:auto}
   .hud-t{top:62px}.hud-t .wk{font-size:2.4rem}
@@ -613,6 +613,30 @@ dialog::backdrop{background:rgba(26,27,25,.7)}
   .rail{bottom:14px}.rail-t{height:22px}
   .sim-stage{aspect-ratio:1.8}
 }
+
+.hcard{width:min(360px,100%);background:rgba(26,27,25,.66);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);border:1px solid var(--line-d);border-top:2px solid var(--limestone);padding:20px 22px 18px;display:grid;gap:12px}
+.hc-t{color:var(--limestone)}
+.hc-l{display:flex;justify-content:space-between;align-items:baseline;font-size:var(--s-small);color:var(--on-dark-soft)}
+.hc-l b{font:300 2rem/1 var(--display);letter-spacing:-.04em;color:var(--marfim)}
+.hcard input[type=range]::-webkit-slider-runnable-track{background:var(--marfim)}
+.hcard input[type=range]::-moz-range-track{background:var(--marfim)}
+.hcard input[type=range]::-webkit-slider-thumb{border-color:var(--marfim)}
+.hc-out{display:grid;grid-template-columns:1fr 1fr;gap:12px;border-top:1px solid var(--line-d);padding-top:12px}
+.hc-out b{display:block;font:300 2.6rem/1 var(--display);letter-spacing:-.05em}
+.hc-out span{font-size:.74rem;color:var(--on-dark-soft);line-height:1.3;display:block;margin-top:4px}
+.hcard .link{color:var(--limestone);font-size:var(--s-small)}
+
+/* hero: símbolo acima, cartão abaixo */
+.hero-house{width:min(50vw,860px)!important;right:1vw!important;top:34%!important;transform:translateY(-50%)!important}
+@media(max-width:1000px){.hero-house{width:92vw!important;right:-8vw!important;top:76px!important;transform:none!important}}
+@media(max-width:680px){.hero-house{width:108vw!important;right:-4vw!important;top:64px!important}}
+@media(max-height:520px) and (orientation:landscape){.hero-house{width:auto!important;height:78svh!important;right:2vw!important;top:64px!important}}
+
+.hero{--s-mega:clamp(3rem,7.2vw,7.4rem)}
+.hcard{padding:16px 20px 14px;gap:10px}
+.hc-out b{font-size:2.1rem}
+.hc-l b{font-size:1.7rem}
+.hcard .hint{justify-content:space-between}
 
 @media(hover:none){.hud .hint span{display:none}}
 </style>
@@ -671,9 +695,8 @@ dialog::backdrop{background:rgba(26,27,25,.7)}
 
   <!-- HERO -->
   <section class="hero blue" id="topo" aria-labelledby="h1" data-chap>
-    <div class="coord" aria-hidden="true">20°28′S · 54°37′W<br>Campo Grande, MS<br>Escala 1:200</div>
     <div class="hero-house" id="heroHouse" data-hv>
-      <svg id="heroSvg" role="img" aria-label="Casa em perspectiva isométrica sendo construída da fundação à entrega"></svg>
+      <svg id="heroSvg" role="img" aria-label="Símbolo isométrico da MM Engenharia se montando peça por peça"></svg>
     </div>
     <div class="hero-body wrap">
       <h1 id="h1" class="split" data-hero>Sua obra no prazo, <em>sem você</em> no canteiro.</h1>
@@ -685,10 +708,12 @@ dialog::backdrop{background:rgba(26,27,25,.7)}
             <a class="btn btn-ghost" href="#obra">Ver a obra subir</a>
           </div>
         </div>
-        <div class="hud">
-          <div class="wk" aria-hidden="true"><span id="hWeek">00</span><small>/ <span id="hWeeks">56</span> semanas</small></div>
-          <div class="ph" id="hPhase" aria-hidden="true">Projeto</div>
-          <div class="hint"><span>Mova o mouse sobre a casa</span><button type="button" id="explode" aria-pressed="false">Separar camadas</button></div>
+        <div class="hcard" data-ui>
+          <div class="mono hc-t">Estimativa em 5 segundos</div>
+          <label for="hArea" class="hc-l">Área da sua casa <b><output id="hAreaOut" for="hArea">320</output> m²</b></label>
+          <input type="range" id="hArea" min="120" max="800" step="10" value="320">
+          <div class="hc-out" aria-live="polite"><div><b class="num" id="hMeses">13</b><span>meses de obra</span></div><div><b class="num" id="hSem">56</b><span>relatórios semanais</span></div></div>
+          <div class="hint"><span>Mova o mouse sobre o símbolo</span><button type="button" id="explode" aria-pressed="false">Separar camadas</button></div>
         </div>
       </div>
       <p class="hero-proof">
@@ -866,7 +891,7 @@ dialog::backdrop{background:rgba(26,27,25,.7)}
             <div class="screen">
               <div class="sb"><span id="phClock">09:41</span><span>5G ▮▮▮</span></div>
               <div class="ph-top"><svg viewBox="208.54 105.00 62.93 56.45" fill="currentColor" aria-hidden="true"><use href="#sym-paths"/></svg><div><b>MM Engenharia</b><small id="phRep">Relatório nº 1 · semana 1</small></div></div>
-              <div class="ph-hero blue"><em>Exemplo ilustrativo</em><svg id="phSvg" aria-hidden="true"></svg></div>
+              <div class="ph-hero blue"><em>Avanço por etapa · exemplo ilustrativo</em><svg id="phSvg" aria-hidden="true"></svg></div>
               <div class="ph-body">
                 <div class="ph-row">
                   <div class="ring" id="ring"><b id="ringV">0%</b></div>
@@ -1191,9 +1216,10 @@ const mixc=(a,b,t)=>'rgb('+a.map((v,i)=>Math.round(v+(b[i]-v)*t)).join(',')+')';
 const MAT={
   conc:{t:'#B4B9B0',l:'#8E968F',r:'#727B75'},
   done:{t:'#F3F1EA',l:'#DAD6C8',r:'#A9AD9F'},
-  wood:{t:'#DCD2B0',l:'#C0B48E',r:'#9E9373'}
+  wood:{t:'#DCD2B0',l:'#C0B48E',r:'#9E9373'},
+  frame:{t:'#4A524F',l:'#2E3533',r:'#222927'}
 };
-const RAW={t:hx('#858D86'),l:hx('#69726C'),r:hx('#535B56')}, DONE={t:hx('#F3F1EA'),l:hx('#DAD6C8'),r:hx('#A9AD9F')};
+const RAW={t:hx('#858D86'),l:hx('#69726C'),r:hx('#535B56')}, DONE={t:hx('#F3F1EA'),l:hx('#DAD6C8'),r:hx('#A9AD9F')}, WOODC={t:hx('#DCD2B0'),l:hx('#C0B48E'),r:hx('#9E9373')};
 /* Etapas: mesmas janelas do cronograma de referência */
 const PH=[
   {n:'Fundação',s:0,w:.15},
@@ -1228,7 +1254,8 @@ function House(svg){
     const it={g,layer:o.layer,a:o.a||0,key:o.key!=null?o.key:o.z*1000+(o.off||0)+(o.x+o.w/2+o.y+o.d/2),_s:''};
     let lastZo=null;
     it.update=(e,zo)=>{
-      const sig=e.toFixed(3)+'|'+zo.toFixed(2)+'|'+(o.mat==='wall'?G.paint.toFixed(3):'')+'|'+G.ghost.toFixed(2);
+      const pw=o.mat==='wall'||o.mat==='wallw';
+      const sig=e.toFixed(3)+'|'+zo.toFixed(2)+'|'+(pw?G.paint.toFixed(3):'')+'|'+G.ghost.toFixed(2);
       if(sig===it._s)return; it._s=sig;
       const z0=o.z+zo, x=o.x,y=o.y,w=o.w,dd=o.d;
       if(lastZo!==zo){
@@ -1246,7 +1273,7 @@ function House(svg){
       fT.setAttribute('points',fmt([proj(x,y,z1),proj(x+w,y,z1),proj(x+w,y+dd,z1),proj(x,y+dd,z1)]));
       fL.setAttribute('points',fmt([proj(x,y+dd,z0),proj(x+w,y+dd,z0),proj(x+w,y+dd,z1),proj(x,y+dd,z1)]));
       fR.setAttribute('points',fmt([proj(x+w,y,z0),proj(x+w,y+dd,z0),proj(x+w,y+dd,z1),proj(x+w,y,z1)]));
-      if(o.mat==='wall'){const k=G.paint;fT.setAttribute('fill',mixc(RAW.t,DONE.t,k));fL.setAttribute('fill',mixc(RAW.l,DONE.l,k));fR.setAttribute('fill',mixc(RAW.r,DONE.r,k))}
+      if(pw){const k=G.paint,TG=o.mat==='wall'?DONE:WOODC;fT.setAttribute('fill',mixc(RAW.t,TG.t,k));fL.setAttribute('fill',mixc(RAW.l,TG.l,k));fR.setAttribute('fill',mixc(RAW.r,TG.r,k))}
       else{const m=MAT[o.mat];fT.setAttribute('fill',m.t);fL.setAttribute('fill',m.l);fR.setAttribute('fill',m.r)}
     };
     return it;
@@ -1348,7 +1375,7 @@ function House(svg){
         const px=x0+(w-.35)*i/(nx-1), py=y0+(dp-.35)*j/(ny-1);
         box({x:px,y:py,z:zb(f),w:.35,d:.35,h:3,mat:'conc',layer:2,a:f/F*.75+(idx++/(nx*ny))*.16,off:0});
       }
-      if(f<F-1)box({x:x0,y:y0,z:zb(f)+3,w:w,d:dp,h:.3,mat:'conc',layer:2,a:(f+.75)/F*.8,off:500});
+      if(f<F-1)box({x:x0,y:y0,z:zb(f)+3,w:w+1,d:dp+1.2,h:.3,mat:'conc',layer:2,a:(f+.75)/F*.8,off:0});
     }
     /* 3 · Alvenaria e cobertura */
     const FRL=f=>f===0?[[.08,.36],[.44,.92]]:[[.08,.4],[.5,.92]]; // parede frontal-esquerda (y1), ao longo de x
@@ -1358,28 +1385,33 @@ function House(svg){
       box({x:x0,y:y0,z:z,w:T,d:dp,h:3,mat:'wall',layer:3,a:A,off:100});
       box({x:x0+T,y:y0,z:z,w:w-T,d:T,h:3,mat:'wall',layer:3,a:A+.01,off:100});
       const wallLine=(axis,fr)=>{
-        const len=axis==='L'?w:dp-T;
-        const seg=(s,e,zz,hh,aa)=>{if(e-s<.05)return;axis==='L'?box({x:x0+s,y:y1-T,z:zz,w:e-s,d:T,h:hh,mat:'wall',layer:3,a:aa,off:100}):box({x:x1-T,y:y0+s,z:zz,w:T,d:e-s,h:hh,mat:'wall',layer:3,a:aa,off:100})};
+        const len=axis==='L'?w:dp-T, gl=f>=1, sill=gl?.12:.9;
+        const seg=(s,e,zz,hh,aa,mt)=>{if(e-s<.05)return;axis==='L'?box({x:x0+s,y:y1-T,z:zz,w:e-s,d:T,h:hh,mat:mt||'wall',layer:3,a:aa,off:100}):box({x:x1-T,y:y0+s,z:zz,w:T,d:e-s,h:hh,mat:mt||'wall',layer:3,a:aa,off:100})};
         let cur=0;
         fr.forEach((v,i)=>{
           const s=v[0]*len,e=v[1]*len,aa=A+.05+i*.03;
-          seg(cur,s,z,3,aa);seg(s,e,z,.9,aa+.02);seg(s,e,z+2.7,.3,aa+.02);
-          const zl=z+.9,zh=z+2.7;
+          seg(cur,s,z,3,aa,(axis==='R'&&f===0&&i===1)?'wallw':'wall');seg(s,e,z,sill,aa+.02);seg(s,e,z+2.7,.3,aa+.02);
+          const zl=z+sill,zh=z+2.7;
           const pts=axis==='L'?[[x0+s,y1,zl],[x0+e,y1,zl],[x0+e,y1,zh],[x0+s,y1,zh]]:[[x1,y0+s,zl],[x1,y0+e,zl],[x1,y0+e,zh],[x1,y0+s,zh]];
           const ck=z*1000+130+(axis==='L'?(x0+(s+e)/2+y1):(x1+y0+(s+e)/2));
           add(Quad({pts,fill:'#161B1A',layer:3,a:aa+.02,key:ck}));
-          // vidro (acabamentos)
-          const gm=.07; const pg=axis==='L'?[[x0+s+gm,y1,zl+gm],[x0+e-gm,y1,zl+gm],[x0+e-gm,y1,zh-gm],[x0+s+gm,y1,zh-gm]]:[[x1,y0+s+gm,zl+gm],[x1,y0+e-gm,zl+gm],[x1,y0+e-gm,zh-gm],[x1,y0+s+gm,zh-gm]];
+          const gm=gl?.02:.07; const pg=axis==='L'?[[x0+s+gm,y1,zl+gm],[x0+e-gm,y1,zl+gm],[x0+e-gm,y1,zh-gm],[x0+s+gm,y1,zh-gm]]:[[x1,y0+s+gm,zl+gm],[x1,y0+e-gm,zl+gm],[x1,y0+e-gm,zh-gm],[x1,y0+s+gm,zh-gm]];
           add(Quad({gid:gid.slice(2),pts:pg,fill:'url(#'+gid+')',stroke:'rgba(207,198,166,.65)',glass:true,layer:5,a:f/F*.6+.08+i*.06,key:ck+.5}));
+          if(gl){ // montantes da pele de vidro
+            const n=Math.max(2,Math.round((e-s)/2.3));
+            for(let k=0;k<=n;k++){const pp=s+(e-s)*k/n;
+              axis==='L'?box({x:x0+pp-.07,y:y1-.2,z:zl,w:.14,d:.22,h:zh-zl,mat:'frame',layer:5,a:f/F*.6+.14+k*.01,off:150}):box({x:x1-.22,y:y0+pp-.07,z:zl,w:.22,d:.14,h:zh-zl,mat:'frame',layer:5,a:f/F*.6+.14+k*.01,off:150});}
+          }
           cur=e;
         });
         seg(cur,len,z,3,A+.2);
       };
-      wallLine('L',FRL(f));wallLine('R',FRR(f));
+      const FG=f>=1;
+      wallLine('L',FG?[[.02,.98]]:FRL(f));wallLine('R',FG?[[.02,.98]]:FRR(f));
     }
     const zr=zb(F-1)+3;
-    box({x:x0,y:y0,z:zr,w:w+.8,d:dp+1,h:.3,mat:'conc',layer:3,a:.78,off:500});
-    [[x0,y0,w+.8,.2],[x0,y0+dp+.8,w+.8,.2],[x0,y0,.2,dp+1],[x0+w+.6,y0,.2,dp+1]].forEach((q,i)=>box({x:q[0],y:q[1],z:zr+.3,w:q[2],d:q[3],h:.55,mat:'done',layer:3,a:.9+i*.025,off:600}));
+    box({x:x0,y:y0,z:zr,w:w+1,d:dp+1.2,h:.3,mat:'conc',layer:3,a:.78,off:500});
+    [[x0,y0,w+1,.2],[x0,y0+dp+1,w+1,.2],[x0,y0,.2,dp+1.2],[x0+w+.8,y0,.2,dp+1.2]].forEach((q,i)=>box({x:q[0],y:q[1],z:zr+.3,w:q[2],d:q[3],h:.55,mat:'done',layer:3,a:.9+i*.025,off:600}));
     /* 4 · Instalações */
     let ai=0;
     for(let f=0;f<F;f++){
@@ -1396,7 +1428,8 @@ function House(svg){
       box({x:x1+.04,y:yy,z:zb(fb)+.25,w:.12,d:.14,h:2.5,mat:'wood',layer:5,a:.45+(ks++)*.012,off:300});
     }
     // piscina + deck
-    const px0=x0+1,px1=px0+Math.min(8,w*.55),py0=y1+2.4,py1=py0+4.4;
+    const px0=x0+1,px1=px0+Math.min(8,w*.55),py0=y1+3.8,py1=py0+4.4;
+    box({x:x0+.5,y:y1+1.4,z:0,w:Math.min(8,w*.55)+1.5,d:1.9,h:.14,mat:'wood',layer:5,a:.12,off:0});
     add(Quad({pts:[[px0-.5,py0-.5,0],[px1+.5,py0-.5,0],[px1+.5,py1+.5,0],[px0-.5,py1+.5,0]],fill:'#E9E5D6',layer:5,a:.25,key:-80}));
     add(Quad({pts:[[px0,py0,0],[px1,py0,0],[px1,py1,0],[px0,py1,0]],fill:'url(#'+wid+')',stroke:'rgba(240,239,235,.55)',layer:5,a:.35,key:-79}));
     // árvores
@@ -1508,39 +1541,65 @@ if('IntersectionObserver' in window&&!reduce){
   t();setInterval(t,20000);
 })();
 
-/* ================= HERO: casa em time-lapse ================= */
-const heroH=House($('#heroSvg'));
-const hWeek=$('#hWeek'),hWeeks=$('#hWeeks'),hPhase=$('#hPhase');
-function hud(p){hWeek.textContent=String(Math.round(p*S.weeks)).padStart(2,'0');hWeeks.textContent=S.weeks;hPhase.textContent=phName(p)}
-let heroDone=false, heroLift=0, heroLiftT=0;
-function startHero(){
-  if(reduce){heroH.setProgress(1);hud(1);heroDone=true;return}
-  const dur=5200,t0=performance.now();
-  function step(now){
-    const k=clamp((now-t0)/dur),p=easeIO(k);
-    heroH.setProgress(p);hud(p);
-    if(k<1)requestAnimationFrame(step);else{heroDone=true}
-  }
-  requestAnimationFrame(step);
+/* ================= HERO: o símbolo da marca se monta ================= */
+const symSvg=$('#heroSvg');
+const SYM=[
+  {d:'M 208.53 125.74 L 208.53 151.07 L 218.90 161.44 L 218.90 136.12 Z',f:'url(#sgF)',v:[-5,6],dp:.6},
+  {d:'M 224.44 115.37 L 208.53 125.75 L 218.90 136.12 L 234.81 125.75 Z',f:'#CFC6A6',o:.8,v:[-2,-13],dp:1},
+  {d:'M 250.72 104.99 L 234.81 115.37 L 245.18 125.75 L 261.09 115.37 Z',f:'#CFC6A6',o:.8,v:[2,-22],dp:1.5},
+  {d:'M 234.81 115.37 L 234.81 151.07 L 245.18 161.44 L 245.18 125.75 Z',f:'url(#sgF)',v:[0,3],dp:1.2},
+  {d:'M 261.09 115.37 L 261.09 151.07 L 271.46 161.44 L 271.46 125.75 Z',f:'url(#sgF)',v:[6,6],dp:1.8}
+];
+symSvg.setAttribute('viewBox','184 84 112 88');
+symSvg.innerHTML='<defs><linearGradient id="sgF" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#F6F4EE"/><stop offset="1" stop-color="#BFB99D"/></linearGradient></defs>';
+const symG=mk('g',{},symSvg);
+// linhas de construção a 30°
+const guide=mk('g',{opacity:0,stroke:'#CFC6A6','stroke-width':.18,'stroke-dasharray':'1 1.2',fill:'none'},symSvg);
+[[186,152.5,208.5,165.3],[271.5,165.3,294,152.5],[186,127,250.7,104.9],[294,107,261,125.8],[239.9,92,239.9,170]].forEach(l=>mk('line',{x1:l[0],y1:l[1],x2:l[2],y2:l[3]},guide));
+const gt=(x,y,t,an)=>{const n=mk('text',{x,y,fill:'#CFC6A6','font-size':2.1,'font-family':'JetBrains Mono,monospace','letter-spacing':'.25','text-anchor':an||'start'},guide);n.textContent=t};
+gt(187,150,'30°');gt(293,150,'30°','end');gt(241.5,90.6,'MM · EIXO DO PROJETO');gt(187,170,'ESC. 1:200');
+const ghosts=SYM.map(s=>mk('path',{d:s.d,fill:'none',stroke:'#CFC6A6','stroke-width':.25,'stroke-dasharray':'1 .9',opacity:.85},symG));
+const pieces=SYM.map(s=>{const p=mk('path',{d:s.d,fill:s.f,'fill-opacity':s.o||1,stroke:'rgba(26,27,25,.4)','stroke-width':.15,'stroke-linejoin':'round'},symG);return p});
+const hArea=$('#hArea'),hAreaOut=$('#hAreaOut');
+let symT0=null,symDone=reduce,symLift=0,symLiftT=0,px=0;
+function symRender(now){
+  const t=symT0==null?0:now-symT0;
+  const fl=symDone&&!reduce?Math.sin(now/1500):0;
+  pieces.forEach((p,i)=>{
+    const k=symDone?1:ease(clamp((t-i*180)/1100));
+    const e=1-k, s=SYM[i];
+    const ox=s.v[0]*symLift*1.1+px*s.dp*2.2, oy=s.v[1]*symLift*1.1-e*70+fl*s.dp*.5;
+    p.setAttribute('transform','translate('+ox.toFixed(2)+' '+oy.toFixed(2)+')');
+    p.setAttribute('opacity',k.toFixed(3));
+    ghosts[i].setAttribute('opacity',(.85*(1-k*.9)).toFixed(3));
+    ghosts[i].setAttribute('transform','translate('+(px*s.dp*.6).toFixed(2)+' 0)');
+  });
+  guide.setAttribute('opacity',symDone||t>1900?1:clamp((t-1500)/800).toFixed(2));
+  if(!symDone&&t>2800)symDone=true;
 }
-heroH.setProgress(0);hud(0);
+function symLoop(now){
+  symLift=lerp(symLift,symLiftT,.08);
+  symRender(now);
+  requestAnimationFrame(symLoop);
+}
+function startHero(){symT0=performance.now();if(reduce){symDone=true;symRender(symT0)}}
+if(reduce){symDone=true;symRender(0)}else requestAnimationFrame(symLoop);
 const heroBox=$('#heroHouse'), exBtn=$('#explode');
 let exOn=false;
-exBtn.addEventListener('click',()=>{exOn=!exOn;exBtn.setAttribute('aria-pressed',exOn);heroLiftT=exOn?1.4:0});
+exBtn.addEventListener('click',()=>{exOn=!exOn;exBtn.setAttribute('aria-pressed',exOn);symLiftT=exOn?1.2:0});
 if(fine&&!reduce){
   $('#topo').addEventListener('pointermove',e=>{
-    if(exOn)return;
     const r=heroBox.getBoundingClientRect();
+    px=clamp((e.clientX-r.left)/r.width,0,1)-.5;
+    if(exOn)return;
     const ins=e.clientX>r.left&&e.clientX<r.right&&e.clientY>r.top&&e.clientY<r.bottom;
-    heroLiftT=ins?clamp(1-(e.clientY-r.top)/r.height)*1.5:0;
+    symLiftT=ins?clamp(1-(e.clientY-r.top)/r.height)*1.2:0;
   });
-  $('#topo').addEventListener('pointerleave',()=>{if(!exOn)heroLiftT=0});
+  $('#topo').addEventListener('pointerleave',()=>{px=0;if(!exOn)symLiftT=0});
 }
-(function liftLoop(){
-  if(Math.abs(heroLift-heroLiftT)>.003){heroLift=lerp(heroLift,heroLiftT,.09);heroH.setLift(heroLift)}
-  heroH.tick();
-  requestAnimationFrame(liftLoop);
-})();
+function heroSync(){hArea.value=S.area;hAreaOut.textContent=S.area;$('#hMeses').textContent=S.months;$('#hSem').textContent=S.weeks}
+hArea.addEventListener('input',()=>{area.value=hArea.value;simCalc()});
+hArea.addEventListener('change',()=>{if(!simTracked){track('simulator_used',{area_m2:+hArea.value,origem:'hero'});simTracked=true}});
 
 /* ================= Semana: sem gestão × com a MM ================= */
 (function(){
@@ -1643,7 +1702,7 @@ progUpdate();
 })();
 
 /* ================= SIMULADOR ================= */
-const simH=House($('#simSvg')), phH=House($('#phSvg'));
+const simH=House($('#simSvg'));
 const area=$('#area'),areaOut=$('#areaOut'),gantt=$('#gantt'),wk=$('#wk'),playBtn=$('#play');
 const rows=PH.map(p=>{
   const row=d.createElement('div');row.className='g-row';
@@ -1674,8 +1733,7 @@ function simCalc(){
   rows.forEach((r,i)=>{const b=r.querySelector('.g-bar');b.style.left=(PH[i].s*100)+'%';b.style.width=(PH[i].w*100)+'%'});
   gantt.setAttribute('aria-label','Cronograma de referência para '+S.area+' metros quadrados: cerca de '+S.months+' meses, da fundação à entrega.');
   $('#simCta').href=wa('Olá, Mateus! Simulei uma casa de '+S.area+' m² (padrão '+(S.k>1?'altíssimo':'alto')+', cerca de '+S.months+' meses) no site e quero agendar o diagnóstico gratuito.');
-  $('#hWeeks').textContent=S.weeks;
-  phH.setArea(S.area);
+  heroSync();
   simRender();repRender();
 }
 let simTracked=false;
@@ -1707,6 +1765,24 @@ if('IntersectionObserver' in window&&!reduce){
 
 /* ================= RELATÓRIO (celular) ================= */
 const repWk=$('#repWk'),ring=$('#ring');
+const phSvg=$('#phSvg');phSvg.setAttribute('viewBox','0 0 300 118');
+const phBP=[],phBR=[],phL=[];
+mk('line',{x1:8,y1:96,x2:292,y2:96,stroke:'rgba(240,239,235,.35)','stroke-width':.8},phSvg);
+[['#CFC6A6',.4,'PREVISTO',180],['#CFC6A6',1,'REALIZADO',236]].forEach(l=>{mk('rect',{x:l[3],y:10,width:6,height:6,fill:l[0],'fill-opacity':l[1]},phSvg);mk('text',{x:l[3]+9,y:16,'font-size':6.5,fill:'#CFC6A6','font-family':'JetBrains Mono,monospace','letter-spacing':'.6'},phSvg).textContent=l[2]});
+PH.forEach((ph,i)=>{const x=16+i*47;
+  phBP.push(mk('rect',{x,y:96,width:16,height:0,fill:'#CFC6A6','fill-opacity':.4},phSvg));
+  phBR.push(mk('rect',{x:x+19,y:96,width:16,height:0,fill:'#CFC6A6'},phSvg));
+  phL.push(mk('text',{x:x+17.5,y:108,'text-anchor':'middle','font-size':6.5,fill:'#B9B7A6','font-family':'JetBrains Mono,monospace','letter-spacing':'.5'},phSvg));
+  phL[i].textContent=['FUND','ESTR','ALV','INST','ACAB','ENTR'][i];
+});
+function phChart(p){
+  PH.forEach((ph,i)=>{
+    const f=clamp((p-ph.s)/ph.w),hp=f*68,hr=f>0?clamp(hp+Math.sin(i*2.1+1)*(f<1?3.2:1.4),0,72):0;
+    phBP[i].setAttribute('y',(96-hp).toFixed(1));phBP[i].setAttribute('height',hp.toFixed(1));
+    phBR[i].setAttribute('y',(96-hr).toFixed(1));phBR[i].setAttribute('height',hr.toFixed(1));
+    phL[i].setAttribute('fill',(f>0&&f<1)?'#F0EFEB':'#B9B7A6');
+  });
+}
 const DEC=[
   ['Aprovar a topografia e o projeto de fundação.','Ver detalhes'],
   ['Aprovar a cotação de concreto e aço: 3 opções.','Ver opções'],
@@ -1721,7 +1797,7 @@ function repRender(){
   repWk.max=S.weeks;
   let w=+repWk.value;if(w>S.weeks){w=S.weeks;repWk.value=w}
   const p=clamp(w/S.weeks);
-  phH.setProgress(p);
+  phChart(p);
   $('#repWkOut').textContent=w+' de '+S.weeks;
   $('#phRep').textContent='Relatório nº '+w+' · semana '+w;
   const pct=Math.round(p*100),real=clamp(p*100+Math.sin(p*9)*1.3,0,100);

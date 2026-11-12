@@ -3,15 +3,15 @@
 HTML + CSS + JS puro, sem build e sem bibliotecas. Suba a pasta em qualquer hospedagem.
 
 ## O que é exclusivo desta versão
-- **Casa isométrica gerada no código**, a partir da geometria do símbolo da marca. Nasce como projeto (linhas tracejadas), sobe por etapa e acende as luzes na entrega.
-- **Hero**: time-lapse de 56 semanas em 5 s; o mouse separa as camadas da casa (botão "Separar camadas" para touch).
+- **Hero**: o próprio símbolo isométrico da marca se monta peça por peça sobre linhas de projeto; o mouse separa as camadas ("Separar camadas" no toque). Ao lado, estimativa em 5 segundos (área → meses e relatórios), ligada ao simulador.
 - **"Sua semana"**: a mesma semana, sem gestão × com a MM (as ligações somem, sobra 1 reunião).
-- **A obra (scroll)**: a página pina e a rolagem constrói a casa; semana, etapa, trilho e relatório nº acompanham.
-- **Simulador**: área e padrão mudam a casa (1 a 3 pavimentos), o cronograma e a mensagem de WhatsApp. Play/scrub de semanas.
-- **Relatório no celular**: tela ilustrativa por semana, com aprovação de compra clicável.
+- **A obra (rolagem)**: a página trava e a rolagem constrói a casa (1º telão com a casa modelo); semana, etapa, trilho e relatório nº acompanham.
+- **Simulador** (2º e último telão com a casa): área e padrão mudam a casa (1 a 3 pavimentos), o cronograma e a mensagem de WhatsApp. Play e arrastar de semanas.
+- **Casa modelo**: térreo com vãos e madeira, pavimentos superiores em pele de vidro com montantes, lajes em balanço, deque, piscina, árvores, luz âmbar na entrega.
+- **Relatório no celular**: gráfico de avanço previsto × realizado por etapa, com aprovação de compra clicável (dados fictícios, rotulados).
 - **Qual formato é o seu?**: escolha o momento e o plano indicado é destacado e vai na mensagem do WhatsApp.
-- Extras: preloader com o símbolo, cursor, botões magnéticos, crachá 3D do engenheiro, barra de progresso, navegação por capítulos, relógio de Campo Grande, FAQ animado.
-- Acessibilidade: `prefers-reduced-motion` (casa já pronta, sem animações), foco visível, `aria-live`, sem JS o conteúdo continua legível.
+- Extras: preloader, cursor, botões magnéticos, crachá 3D, navegação por capítulos, relógio de Campo Grande, FAQ animado.
+- Acessibilidade: `prefers-reduced-motion`, foco visível, `aria-live`, conteúdo legível sem JS.
 
 ## Antes de publicar
 1. `GTM_ID` e `LINKEDIN_PARTNER_ID` no início do `<script>` (só carregam após aceite de cookies, LGPD).
