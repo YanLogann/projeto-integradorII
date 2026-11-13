@@ -28,8 +28,8 @@ const Wipe: React.FC = () => {
   return (
     <svg width={W} height={H} style={{position: 'absolute', inset: 0}}>
       <g transform={`translate(${-500 + p * 2200} 0) skewX(-14)`}>
-        <rect x={0} y={-50} width={320} height={H + 100} fill={C.yellow} />
-        <rect x={-90} y={-50} width={60} height={H + 100} fill={C.coral} />
+        <rect x={0} y={-50} width={320} height={H + 100} fill={C.hi} />
+        <rect x={-90} y={-50} width={60} height={H + 100} fill={C.violet} />
       </g>
     </svg>
   );

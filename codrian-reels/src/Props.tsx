@@ -1,6 +1,7 @@
 import React from 'react';
 import {random} from 'remotion';
-import {C, W, H, BRAND} from './theme';
+import {C, W, H, FONT} from './theme';
+import {LOGO_D, LOGO_VB, DOT} from './logoPath';
 import {lerp, pop} from './anim';
 
 export const Office: React.FC<{frame: number; tint?: string; alarm?: boolean; dim?: boolean}> = ({frame, tint = C.wall, alarm = false, dim = false}) => (
@@ -11,13 +12,13 @@ export const Office: React.FC<{frame: number; tint?: string; alarm?: boolean; di
     <rect x={90} y={250} width={330} height={300} rx={20} fill="#1B2750" />
     <rect x={105} y={265} width={300} height={270} rx={12} fill={dim ? '#5F6C99' : '#7DD3FC'} />
     <path d="M105,535 L105,430 L150,430 L150,380 L210,380 L210,450 L260,450 L260,350 L320,350 L320,420 L405,420 L405,535Z" fill="#334155" />
-    <circle cx={350} cy={320} r={26} fill={C.yellow} />
+    <circle cx={350} cy={320} r={26} fill={'#FFD43B'} />
     {/* relógio */}
     <circle cx={760} cy={330} r={70} fill="#fff" stroke={C.ink} strokeWidth={10} />
     <path d="M760,330 L760,285" stroke={C.ink} strokeWidth={8} strokeLinecap="round" />
     <path d={`M760,330 L${760 + 35 * Math.cos(frame * 0.12)},${330 + 35 * Math.sin(frame * 0.12)}`} stroke={C.coral} strokeWidth={6} strokeLinecap="round" />
     {/* quadro */}
-    <rect x={560} y={440} width={120} height={90} rx={8} fill={C.yellow} />
+    <rect x={560} y={440} width={120} height={90} rx={8} fill={'#FFD43B'} />
     <path d="M575,515 L610,470 L635,500 L650,480 L668,515Z" fill={C.navy2} />
     {/* planta */}
     <rect x={930} y={1020} width={80} height={110} rx={12} fill="#9A5B34" />
@@ -67,29 +68,29 @@ export const MailApp: React.FC<{frame: number}> = ({frame}) => {
       <rect width={1000} height={1020} rx={36} fill="#fff" />
       <path d="M0,36 Q0,0 36,0 L964,0 Q1000,0 1000,36 L1000,110 L0,110Z" fill={C.navy2} />
       <circle cx={50} cy={55} r={12} fill={C.coral} />
-      <circle cx={88} cy={55} r={12} fill={C.yellow} />
+      <circle cx={88} cy={55} r={12} fill={'#FFD43B'} />
       <circle cx={126} cy={55} r={12} fill={C.green} />
-      <text x={190} y={72} fontFamily="Inter, Arial" fontWeight={900} fontSize={44} fill="#fff">
+      <text x={190} y={72} fontFamily={FONT} fontWeight={700} fontSize={44} fill="#fff">
         Cartinha
       </text>
       <rect x={640} y={30} width={300} height={50} rx={25} fill="#2C3A6B" />
-      <text x={670} y={65} fontFamily="Inter, Arial" fontWeight={700} fontSize={26} fill="#94A3B8">
+      <text x={670} y={65} fontFamily={FONT} fontWeight={700} fontSize={26} fill="#94A3B8">
         Buscar…
       </text>
       <rect x={0} y={110} width={250} height={910} fill="#EEF2FF" />
       {['Entrada', 'Enviados', 'Rascunhos', 'Lixeira'].map((t, i) => (
-        <text key={t} x={30} y={185 + i * 70} fontFamily="Inter, Arial" fontWeight={i === 0 ? 900 : 700} fontSize={32} fill={i === 0 ? C.navy : '#64748B'}>
+        <text key={t} x={30} y={185 + i * 70} fontFamily={FONT} fontWeight={i === 0 ? 900 : 700} fontSize={32} fill={i === 0 ? C.navy : '#64748B'}>
           {t}
         </text>
       ))}
       <rect x={160} y={150} width={70} height={40} rx={20} fill={C.coral} transform={`translate(${Math.sin(frame * 1.7) * 2} 0)`} />
-      <text x={195} y={180} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={26} fill="#fff">
+      <text x={195} y={180} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={26} fill="#fff">
         999+
       </text>
       {ROWS.map((t, i) => (
         <g key={t} transform={`translate(270 ${135 + i * 150})`}>
           <circle cx={50} cy={52} r={34} fill={['#F59E0B', '#06B6D4', '#EF4444', '#8B5CF6', '#10B981'][i]} />
-          <text x={110} y={52} fontFamily="Inter, Arial" fontWeight={900} fontSize={36} fill={C.ink}>
+          <text x={110} y={52} fontFamily={FONT} fontWeight={700} fontSize={36} fill={C.ink}>
             {t}
           </text>
           <rect x={110} y={72} width={360 - i * 20} height={16} rx={8} fill="#E2E8F0" />
@@ -99,24 +100,24 @@ export const MailApp: React.FC<{frame: number}> = ({frame}) => {
       {/* véu de carregamento */}
       <rect x={250} y={110} width={750} height={910} fill="#fff" opacity={0.78} />
       <Spinner x={625} y={500} r={80} frame={frame} />
-      <text x={625} y={660} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={44} fill={C.navy}>
+      <text x={625} y={660} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={44} fill={C.navy}>
         Carregando…
       </text>
       {frame >= 42 && (
         <g transform={`translate(500 560) scale(${dlg}) translate(-500 -300)`}>
           <rect x={150} y={150} width={700} height={400} rx={30} fill="#fff" stroke={C.ink} strokeWidth={8} />
           <path d="M150,180 Q150,150 180,150 L820,150 Q850,150 850,180 L850,240 L150,240Z" fill={C.coral} />
-          <text x={200} y={215} fontFamily="Inter, Arial" fontWeight={900} fontSize={48} fill="#fff">
+          <text x={200} y={215} fontFamily={FONT} fontWeight={700} fontSize={48} fill="#fff">
             ⚠ Erro
           </text>
-          <text x={500} y={330} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={40} fill={C.ink}>
+          <text x={500} y={330} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={40} fill={C.ink}>
             Cartinha não está
           </text>
-          <text x={500} y={385} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={40} fill={C.ink}>
+          <text x={500} y={385} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={40} fill={C.ink}>
             respondendo
           </text>
-          <rect x={360} y={440} width={280} height={70} rx={35} fill={click ? C.yellow : C.navy} />
-          <text x={500} y={490} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={36} fill={click ? C.navy : '#fff'}>
+          <rect x={360} y={440} width={280} height={70} rx={35} fill={click ? C.lime : C.navy} />
+          <text x={500} y={490} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={36} fill={click ? C.navy : '#fff'}>
             Aguardar
           </text>
         </g>
@@ -124,7 +125,7 @@ export const MailApp: React.FC<{frame: number}> = ({frame}) => {
       {frame >= 50 && (
         <g transform={`translate(${cx - 40} ${cy - 240})`}>
           <path d="M0,0 L0,70 L20,54 L34,86 L48,80 L34,50 L58,50Z" fill="#fff" stroke={C.ink} strokeWidth={4} />
-          {click && <circle cx={0} cy={0} r={30} fill="none" stroke={C.yellow} strokeWidth={6} />}
+          {click && <circle cx={0} cy={0} r={30} fill="none" stroke={C.lime} strokeWidth={6} />}
         </g>
       )}
     </g>
@@ -150,7 +151,7 @@ export const Mug: React.FC<{x: number; y: number; rot?: number; s?: number}> = (
     <path d="M45,-25 q48,5 40,40 q-8,30 -45,25" fill="none" stroke="#fff" strokeWidth={16} strokeLinecap="round" />
     <path d="M-50,-45 L50,-45 L40,45 Q0,62 -40,45Z" fill="#fff" stroke={C.ink} strokeWidth={5} strokeLinejoin="round" />
     <ellipse cx={0} cy={-45} rx={50} ry={12} fill="#6B3E26" />
-    <text x={0} y={25} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={30} fill={C.coral}>
+    <text x={0} y={25} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={30} fill={C.coral}>
       ♥
     </text>
   </g>
@@ -174,21 +175,65 @@ export const Burst: React.FC<{x: number; y: number; frame: number; color: string
   </g>
 );
 
-export const Wordmark: React.FC<{x: number; y: number; s?: number; dark?: boolean}> = ({x, y, s = 1, dark = false}) => (
-  <g transform={`translate(${x} ${y}) scale(${s})`}>
-    <rect x={-300} y={-80} width={160} height={160} rx={42} fill={C.yellow} />
-    <text x={-220} y={22} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={70} fill={C.navy}>
-      {BRAND.glyph}
-    </text>
-    <text x={-110} y={42} fontFamily="Inter, Arial" fontWeight={900} fontSize={150} fill={dark ? C.navy : '#fff'} letterSpacing={-4}>
-      {BRAND.name}
-    </text>
-  </g>
-);
+export const Logo: React.FC<{w?: number; dot?: string; ink?: string}> = ({w = 600, dot = C.lime, ink = C.white}) => {
+  const k = w / LOGO_VB.w;
+  const h = LOGO_VB.h * k;
+  return (
+    <g transform={`translate(${-w / 2} ${-h / 2}) scale(${k}) translate(${-LOGO_VB.x} ${-LOGO_VB.y})`}>
+      <path d={LOGO_D} fill={ink} />
+      <circle cx={DOT.cx} cy={DOT.cy} r={DOT.r} fill={dot} />
+    </g>
+  );
+};
+
+export const Ping: React.FC<{x: number; y: number; r: number; frame: number}> = ({x, y, r, frame}) => {
+  const pulse = (frame * 0.02) % 1;
+  return (
+    <g transform={`translate(${x} ${y})`}>
+      <circle r={r * 0.5} fill="url(#pg)" />
+      <defs>
+        <radialGradient id="pg">
+          <stop offset="0" stopColor={C.lime} stopOpacity={0.55} />
+          <stop offset="1" stopColor={C.lime} stopOpacity={0} />
+        </radialGradient>
+      </defs>
+      <circle r={r * 0.94} fill="none" stroke={C.hi} strokeOpacity={0.35} strokeWidth={3} />
+      <circle r={r * 0.62} fill="none" stroke={C.hi} strokeOpacity={0.7} strokeWidth={3} />
+      <circle r={r * 0.3} fill="none" stroke={C.lime} strokeOpacity={0.9} strokeWidth={4} />
+      <circle r={r * 0.12} fill={C.lime} />
+      <circle r={r * (0.12 + pulse * 0.9)} fill="none" stroke={C.lime} strokeWidth={3} opacity={1 - pulse} />
+    </g>
+  );
+};
+
+export const Net: React.FC<{frame: number}> = ({frame}) => {
+  const pts = Array.from({length: 46}).map((_, i) => ({
+    x: random('nx' + i) * W,
+    y: random('ny' + i) * H,
+    lime: i % 14 === 0,
+  }));
+  const lines: React.ReactNode[] = [];
+  pts.forEach((a, i) => {
+    const near = pts
+      .map((b, j) => ({j, d: (a.x - b.x) ** 2 + (a.y - b.y) ** 2}))
+      .filter((o) => o.j !== i)
+      .sort((u, v) => u.d - v.d)
+      .slice(0, 2);
+    near.forEach((o) => lines.push(<line key={i + '-' + o.j} x1={a.x} y1={a.y} x2={pts[o.j].x} y2={pts[o.j].y} stroke={C.violet} strokeOpacity={0.35} strokeWidth={2} />));
+  });
+  return (
+    <g opacity={0.8}>
+      {lines}
+      {pts.map((p, i) => (
+        <circle key={i} cx={p.x} cy={p.y} r={p.lime ? 5 + Math.sin(frame * 0.2 + i) * 1.5 : 3.5} fill={p.lime ? C.lime : C.hi} opacity={p.lime ? 1 : 0.7} />
+      ))}
+    </g>
+  );
+};
 
 export const Scream: React.FC<{x: number; y: number; s?: number; rot?: number}> = ({x, y, s = 1, rot = 0}) => (
   <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s})`}>
-    <circle r={100} fill={C.yellow} stroke={C.ink} strokeWidth={8} />
+    <circle r={100} fill={'#FFD43B'} stroke={C.ink} strokeWidth={8} />
     <path d="M-62,-48 Q-40,-62 -22,-48" stroke={C.ink} strokeWidth={8} fill="none" strokeLinecap="round" />
     <path d="M62,-48 Q40,-62 22,-48" stroke={C.ink} strokeWidth={8} fill="none" strokeLinecap="round" />
     <circle cx={-38} cy={-15} r={22} fill="#fff" stroke={C.ink} strokeWidth={5} />
@@ -221,7 +266,7 @@ export const Bubble: React.FC<{x: number; y: number; w: number; h: number; fill?
   </g>
 );
 
-export const Spark: React.FC<{x: number; y: number; frame: number; start: number; color?: string}> = ({x, y, frame, start, color = C.yellow}) => {
+export const Spark: React.FC<{x: number; y: number; frame: number; start: number; color?: string}> = ({x, y, frame, start, color = '#FFD43B'}) => {
   const t = frame - start;
   if (t < 0 || t > 14) return null;
   const p = t / 14;

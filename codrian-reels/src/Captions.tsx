@@ -25,7 +25,8 @@ const Cap1: React.FC<{cap: Cap; dur: number}> = ({cap, dur}) => {
           alignItems: 'center',
           textAlign: 'center',
           fontFamily: FONT,
-          fontWeight: 900,
+          fontWeight: 700,
+          letterSpacing: '-0.03em',
           fontSize: size,
           lineHeight: 1.06,
           transform: `scale(${1 - out * 0.4})`,
@@ -45,7 +46,7 @@ const Cap1: React.FC<{cap: Cap; dur: number}> = ({cap, dur}) => {
                   key={wi}
                   style={{
                     display: 'inline-block',
-                    color: hl ? C.yellow : cap.color ?? '#fff',
+                    color: hl ? C.hi : cap.color ?? C.white,
                     WebkitTextStroke: `${Math.round(size * 0.16)}px ${C.navy}`,
                     paintOrder: 'stroke fill',
                     transform: `scale(${Math.max(0, sc)}) rotate(${r}deg)`,
@@ -75,8 +76,8 @@ export const CAPS: Cap[] = [
   {t0: 18.5, t1: 19.8, text: '*…silêncio…*', size: 110},
   {t0: 19.8, t1: 20.8, text: '…e o e-mail?', size: 120},
   {t0: 20.8, t1: 21.8, text: '*Que e-mail?*', size: 130},
-  {t0: 22.3, t1: 26.0, text: 'Seu e-mail pode cair.', size: 92, y: 900},
-  {t0: 23.3, t1: 26.0, text: 'Seu cliente não precisa ficar sem te achar.', size: 84, y: 1170, color: '#fff'},
+  {t0: 22.3, t1: 26.0, text: 'Seu e-mail pode cair.', size: 92, y: 975},
+  {t0: 23.3, t1: 26.0, text: 'Seu cliente não precisa ficar sem te achar.', size: 84, y: 1215, color: '#fff'},
 ];
 
 export const Captions: React.FC = () => (

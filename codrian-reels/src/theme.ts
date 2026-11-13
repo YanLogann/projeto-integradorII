@@ -1,23 +1,28 @@
-// ===== MARCA CODRIAN (PROVISÓRIO) =====
-// Não consegui acessar o site/identidade da Codrian nesta sessão.
-// Troque as cores/fonte/nome abaixo e re-renderize: tudo no vídeo usa estes tokens.
+// ===== MARCA CODRIAN (ID Visual oficial: tokens.json do artefato "Codrian - ID Visual") =====
 export const C = {
-  navy: '#0B1020',
-  navy2: '#18213F',
-  yellow: '#FFD60A',
-  cyan: '#22D3EE',
-  coral: '#FF4D5E',
-  green: '#25D366',
-  white: '#FFFFFF',
+  navy: '#100c1c', // void  – fundo principal
+  navy2: '#271942', // deep – superfície
+  violet: '#6938e8',
+  hi: '#8b6cff', // violet-hi – destaque
+  lime: '#b7ff4a', // a faísca
+  white: '#f4f1ff', // ink
+  mist: '#cfc6ee',
+  muted: '#8e83b8',
+  yellow: '#8b6cff', // legado: destaque de palavra = violet-hi
+  cyan: '#8b6cff',
+  coral: '#FF4D5E', // só para erro/alarme (cor semântica fora da marca)
+  green: '#25D366', // cor do botão WhatsApp do site fictício do cliente
   paper: '#F4F6FB',
-  wall: '#2A3566',
-  floor: '#141B38',
+  wall: '#2b1d52',
+  floor: '#0c0916',
+  suit: '#3a2a73',
   skinA: '#F2B58A',
   skinB: '#C98B5E',
   skinC: '#8D5A3B',
-  ink: '#0B1020',
+  ink: '#100c1c',
 };
-export const FONT = 'Inter, "Inter Display", Arial, sans-serif';
+export const FONT = '"DM Sans", system-ui, sans-serif';
+export const PIXEL = '"Silkscreen", ui-monospace, monospace';
 export const BRAND = {name: 'codrian', handle: '@codrian', glyph: '</>'};
 export const W = 1080;
 export const H = 1920;

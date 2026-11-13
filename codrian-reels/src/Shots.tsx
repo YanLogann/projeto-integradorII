@@ -1,9 +1,9 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
-import {C, W, H, BRAND} from './theme';
+import {C, W, H, BRAND, FONT, PIXEL} from './theme';
 import {jitter, lerp, mouthFlap, pop} from './anim';
 import {Person} from './Person';
-import {AlarmOverlay, Bubble, Burst, Desk, Mug, Monitor, Office, Paper, Phone, Spark, Spinner, Steam, MailApp, Wordmark} from './Props';
+import {AlarmOverlay, Bubble, Burst, Desk, Mug, Monitor, Office, Paper, Phone, Spark, Spinner, Steam, MailApp, Logo, Net, Ping} from './Props';
 
 const Stage: React.FC<{zoom?: number; cx?: number; cy?: number; shake?: number; seed?: string; children: (f: number) => React.ReactNode}> = ({zoom = 1, cx = W / 2, cy = 700, shake = 0, seed = 'k', children}) => {
   const f = useCurrentFrame();
@@ -18,16 +18,16 @@ const Stage: React.FC<{zoom?: number; cx?: number; cy?: number; shake?: number; 
 };
 
 const boss = (f: number, extra: Partial<React.ComponentProps<typeof Person>> = {}) => ({
-  skin: C.skinB, hair: 'bald' as const, hairColor: '#3b2a20', shirt: C.navy2, jacket: true, tie: C.coral, mustache: true, ...extra,
+  skin: C.skinB, hair: 'bald' as const, hairColor: '#3b2a20', shirt: C.suit, jacket: true, tie: C.coral, mustache: true, ...extra,
 });
 const ana = (extra: Partial<React.ComponentProps<typeof Person>> = {}) => ({
-  skin: C.skinA, hair: 'bun' as const, hairColor: '#5B2A86', shirt: '#F59E0B', ...extra,
+  skin: C.skinA, hair: 'bun' as const, hairColor: '#2a1650', shirt: '#E8A33D', ...extra,
 });
 const beto = (extra: Partial<React.ComponentProps<typeof Person>> = {}) => ({
-  skin: C.skinC, hair: 'spiky' as const, hairColor: '#111827', shirt: '#10B981', glasses: false, ...extra,
+  skin: C.skinC, hair: 'spiky' as const, hairColor: '#111827', shirt: '#4B6FD6', glasses: false, ...extra,
 });
 const cara = (extra: Partial<React.ComponentProps<typeof Person>> = {}) => ({
-  skin: C.skinA, hair: 'short' as const, hairColor: '#7C3F12', shirt: '#14B8A6', hood: true, glasses: true, ...extra,
+  skin: C.skinA, hair: 'short' as const, hairColor: '#7C3F12', shirt: C.violet, hood: true, glasses: true, ...extra,
 });
 
 // 1) Tela travada (0–1.6s)
@@ -57,7 +57,7 @@ export const ShotOffice: React.FC = () => (
           <Person x={180} y={620} s={0.62} {...boss(f, {eyes: 'wide', mouth: 'shout', mouthOpen: mouthFlap(f), brows: 'angry', lArm: [-210, -20 + bob(0) * 40], rArm: [210, -20 - bob(0) * 40]})} />
           <Person x={420} y={680} s={0.62} {...ana({eyes: 'x', mouth: 'o', mouthOpen: mouthFlap(f), brows: 'worried', lArm: [-140, -80], rArm: [140, -80], sy: 1 + bob(1) * 0.04, sx: 1 - bob(1) * 0.04})} />
           <Person x={660} y={640} s={0.62} {...beto({eyes: 'wide', mouth: 'o', mouthOpen: mouthFlap(f + 3), brows: 'worried', lArm: [-200, -10 + bob(2) * 50], rArm: [200, -10 - bob(2) * 50]})} />
-          <Person x={900} y={690} s={0.62} {...cara({eyes: 'wide', mouth: 'worry', brows: 'worried', hood: false, shirt: '#8B5CF6', hair: 'long', hairColor: '#111827', glasses: false, lArm: [-120, 20], rArm: [120, 20]})} />
+          <Person x={900} y={690} s={0.62} {...cara({eyes: 'wide', mouth: 'worry', brows: 'worried', hood: false, shirt: '#D8CCFF', hair: 'long', hairColor: '#111827', glasses: false, lArm: [-120, 20], rArm: [120, 20]})} />
           {Array.from({length: 14}).map((_, i) => (
             <Paper key={i} frame={f + 40} i={i} />
           ))}
@@ -75,8 +75,8 @@ export const ShotBoss: React.FC = () => (
       const open = mouthFlap(f * 1.0);
       return (
         <g transform={`translate(540 640) scale(${z}) translate(-540 -640)`}>
-          <rect width={W} height={H} fill="#7F1D1D" />
-          <Burst x={540} y={640} frame={f} color="#EF4444" color2="#FCA5A5" />
+          <rect width={W} height={H} fill="#240d24" />
+          <Burst x={540} y={640} frame={f} color={C.coral} color2={C.hi} />
           <AlarmOverlay frame={f} />
           <Person x={540} y={640} s={2.25} {...boss(f, {eyes: 'wide', mouth: 'shout', mouthOpen: open, brows: 'angry', sx: 1 - open * 0.03, sy: 1 + open * 0.05, look: [0, 2]})} />
           {/* marca de raiva e vapor */}
@@ -98,8 +98,8 @@ export const ShotHug: React.FC = () => (
       const sob = Math.sin(f * 0.7);
       return (
         <g>
-          <Office frame={f} alarm tint="#3B2A66" />
-          <Burst x={540} y={650} frame={f} color="#C084FC" />
+          <Office frame={f} alarm tint={C.wall} />
+          <Burst x={540} y={650} frame={f} color={C.hi} />
           <Person
             x={540}
             y={600}
@@ -136,7 +136,7 @@ export const ShotHold: React.FC = () => (
       const droop = lerp(f, 0, 45, 0, 1);
       return (
         <g>
-          <Office frame={f} alarm tint="#274060" />
+          <Office frame={f} alarm tint="#241a45" />
           <Person
             x={470}
             y={640}
@@ -163,13 +163,13 @@ export const ShotHold: React.FC = () => (
           {[0, 1, 2].map((i) => {
             const ph = ((f * 0.03 + i / 3) % 1);
             return (
-              <text key={i} x={760 + Math.sin(ph * 9 + i) * 40} y={620 - ph * 360} fontFamily="Inter, Arial" fontWeight={900} fontSize={90} fill={C.yellow} opacity={1 - ph}>
+              <text key={i} x={760 + Math.sin(ph * 9 + i) * 40} y={620 - ph * 360} fontFamily={FONT} fontWeight={700} fontSize={90} fill={C.yellow} opacity={1 - ph}>
                 {i % 2 ? '♪' : '♫'}
               </text>
             );
           })}
           <Bubble x={330} y={250} w={560} h={160} fill="#fff" tail="b">
-            <text x={0} y={-12} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={44} fill={C.ink}>
+            <text x={0} y={-12} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={44} fill={C.ink}>
               Em espera
             </text>
             <rect x={-220} y={22} width={440} height={26} rx={13} fill="#E2E8F0" />
@@ -242,9 +242,9 @@ export const ShotCalm: React.FC = () => (
       const z = lerp(f, 0, 90, 1, 1.1);
       return (
         <g transform={`translate(540 650) scale(${z}) translate(-540 -650)`}>
-          <rect width={W} height={H} fill="#0F3D3E" />
-          <Burst x={540} y={620} frame={f * 0.4} color={C.cyan} color2="#5EEAD4" n={14} />
-          <circle cx={540} cy={620} r={460} fill="#0E8F7E" opacity={0.35} />
+          <rect width={W} height={H} fill={C.navy} />
+          <Burst x={540} y={620} frame={f * 0.4} color={C.hi} color2={C.violet} n={14} />
+          <circle cx={540} cy={620} r={460} fill={C.violet} opacity={0.4} />
           <Person
             x={540}
             y={620}
@@ -284,30 +284,30 @@ export const ShotPhone: React.FC = () => (
       const msg = pop(f, 74);
       return (
         <g>
-          <rect width={W} height={H} fill="#12304A" />
-          <Burst x={540} y={600} frame={f * 0.5} color={C.green} color2={C.cyan} n={16} />
+          <rect width={W} height={H} fill={C.navy} />
+          <Burst x={540} y={600} frame={f * 0.5} color={C.hi} color2={C.violet} n={16} />
           <Phone x={540 + vib.x} y={640 + vib.y} w={520} h={920} s={1}>
             {!showChat ? (
               <g>
                 <rect x={-260} y={-460} width={520} height={920} fill="#FFF7ED" />
                 <rect x={-260} y={-460} width={520} height={110} fill="#6F4E37" />
-                <text x={0} y={-385} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={40} fill="#fff">
+                <text x={0} y={-385} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={40} fill="#fff">
                   ☕ Café Boa Hora
                 </text>
                 <circle cx={0} cy={-170} r={120} fill="#F59E0B" />
                 <path d="M-60,-210 L60,-210 L45,-110 Q0,-90 -45,-110Z" fill="#fff" />
                 <ellipse cx={0} cy={-210} rx={60} ry={12} fill="#6B3E26" />
-                <text x={0} y={0} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={40} fill={C.ink}>
+                <text x={0} y={0} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={40} fill={C.ink}>
                   O melhor café
                 </text>
-                <text x={0} y={46} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={40} fill={C.ink}>
+                <text x={0} y={46} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={40} fill={C.ink}>
                   da cidade
                 </text>
                 <g transform={`translate(0 ${190}) scale(${pressed ? 0.94 : 1 + Math.sin(f * 0.25) * 0.02})`}>
                   <rect x={-215} y={-48} width={430} height={96} rx={48} fill={C.green} stroke={C.ink} strokeWidth={5} />
                   <circle cx={-150} cy={0} r={26} fill="#fff" />
                   <path d="M-160,-10 q10,24 28,22" stroke={C.green} strokeWidth={8} fill="none" strokeLinecap="round" />
-                  <text x={40} y={12} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={31} fill="#fff">
+                  <text x={40} y={12} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={31} fill="#fff">
                     Falar no WhatsApp
                   </text>
                 </g>
@@ -317,15 +317,15 @@ export const ShotPhone: React.FC = () => (
                 <rect x={-260} y={-460} width={520} height={920} fill="#ECE5DD" />
                 <rect x={-260} y={-460} width={520} height={110} fill="#128C7E" />
                 <circle cx={-195} cy={-405} r={32} fill="#F59E0B" />
-                <text x={-145} y={-392} fontFamily="Inter, Arial" fontWeight={900} fontSize={34} fill="#fff">
+                <text x={-145} y={-392} fontFamily={FONT} fontWeight={700} fontSize={34} fill="#fff">
                   Café Boa Hora
                 </text>
                 <g transform={`translate(70 -200) scale(${msg})`}>
                   <rect x={-210} y={-60} width={400} height={120} rx={28} fill="#DCF8C6" stroke={C.ink} strokeWidth={4} />
-                  <text x={-10} y={-8} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={34} fill={C.ink}>
+                  <text x={-10} y={-8} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={34} fill={C.ink}>
                     Oi, quero um
                   </text>
-                  <text x={-10} y={34} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={34} fill={C.ink}>
+                  <text x={-10} y={34} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={34} fill={C.ink}>
                     orçamento!
                   </text>
                 </g>
@@ -346,7 +346,7 @@ export const ShotPhone: React.FC = () => (
               <circle cx={0} cy={0} r={34} fill={C.skinA} />
             </g>
           )}
-          <Spark x={590} y={880} frame={f} start={tap} color={C.yellow} />
+          <Spark x={590} y={880} frame={f} start={tap} color={C.lime} />
           {f >= 74 && f < 84 && <circle cx={540} cy={640} r={lerp(f, 74, 84, 300, 700)} fill="none" stroke={C.green} strokeWidth={14} opacity={lerp(f, 74, 84, 0.9, 0)} />}
         </g>
       );
@@ -361,11 +361,11 @@ export const ShotSilence: React.FC = () => (
       const z = lerp(f, 0, 39, 1, 1.16);
       return (
         <g transform={`translate(540 650) scale(${z}) translate(-540 -650)`}>
-          <rect width={W} height={H} fill="#334155" />
-          <circle cx={540} cy={640} r={420} fill="#475569" />
+          <rect width={W} height={H} fill="#17122a" />
+          <circle cx={540} cy={640} r={420} fill="#2a2342" />
           <Person x={540} y={640} s={2.15} {...boss(f, {eyes: 'dot', mouth: 'flat', brows: 'flat', sweat: true, look: [f > 20 ? 14 : 0, 0], sy: 1 - lerp(f, 0, 39, 0, 0.03)})} />
           {[0, 1, 2].map((i) => (
-            <text key={i} x={120 + i * 300} y={300 + Math.sin(f * 0.2 + i) * 6} fontFamily="Inter, Arial" fontWeight={900} fontSize={52} fill="#94A3B8" opacity={0.7}>
+            <text key={i} x={120 + i * 300} y={300 + Math.sin(f * 0.2 + i) * 6} fontFamily={FONT} fontWeight={700} fontSize={52} fill={C.muted} opacity={0.8}>
               {i === 1 ? '…' : '·  ·  ·'}
             </text>
           ))}
@@ -382,8 +382,8 @@ export const ShotEmail: React.FC = () => (
       const z = lerp(f, 0, 30, 1, 1.08);
       return (
         <g transform={`translate(540 650) scale(${z}) translate(-540 -650)`}>
-          <rect width={W} height={H} fill="#3B2A66" />
-          <circle cx={540} cy={640} r={420} fill="#4C3A86" />
+          <rect width={W} height={H} fill={C.navy2} />
+          <circle cx={540} cy={640} r={420} fill="#3a2a73" />
           <Person
             x={540}
             y={640}
@@ -403,8 +403,8 @@ export const ShotWhat: React.FC = () => (
       const z = lerp(f, 0, 30, 1.0, 1.1);
       return (
         <g transform={`translate(540 650) scale(${z}) translate(-540 -650)`}>
-          <rect width={W} height={H} fill="#0F3D3E" />
-          <circle cx={540} cy={620} r={440} fill="#0E8F7E" opacity={0.5} />
+          <rect width={W} height={H} fill={C.navy} />
+          <circle cx={540} cy={620} r={440} fill={C.violet} opacity={0.45} />
           <Person
             x={540}
             y={620}
@@ -426,41 +426,43 @@ export const ShotWhat: React.FC = () => (
               ),
             })}
           />
-          <Spark x={800} y={360} frame={f} start={16} color={C.yellow} />
+          <Spark x={800} y={360} frame={f} start={16} color={C.lime} />
         </g>
       );
     }}
   </Stage>
 );
 
-// 12) Fechamento (21.8–26.0s)
+// 12) Fechamento (21.8–26.0s) — identidade oficial: void + rede + ping + logo
 export const ShotClose: React.FC = () => (
   <Stage zoom={1}>
     {(f) => {
-      const logo = pop(f, 6, 8, 160);
-      const bounce = 1 + Math.sin(f * 0.18) * 0.012;
+      const logo = pop(f, 8, 12, 120);
       const cta = pop(f, 78, 10, 200);
+      const sig = pop(f, 22, 14, 120);
+      const rings = [0, 1, 2].map((i) => ((f * 0.012 + i / 3) % 1));
       return (
         <g>
           <rect width={W} height={H} fill={C.navy} />
-          <g opacity={0.45}><Burst x={540} y={520} frame={f * 0.5} color={C.yellow} color2={C.cyan} n={20} /></g>
-          <circle cx={150} cy={1500} r={260} fill={C.navy2} />
-          <circle cx={980} cy={380} r={200} fill={C.navy2} />
-          <g transform={`translate(540 500) scale(${logo * bounce}) translate(-540 -500)`}>
-            <Wordmark x={445} y={500} s={1.0} />
+          <Net frame={f} />
+          <circle cx={540} cy={420} r={520} fill={C.violet} opacity={0.28} />
+          <Ping x={540} y={420} r={170} frame={f} />
+          <g transform={`translate(540 640) scale(${0.5 + 0.5 * logo})`} opacity={Math.min(1, logo)}>
+            <Logo w={640} />
           </g>
-          <text x={540} y={640} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={800} fontSize={38} fill="#CBD5E1" opacity={pop(f, 20)}>
-            Sites e landing pages para pequenos negócios
+          <text x={540} y={770} textAnchor="middle" fontFamily={FONT} fontWeight={500} fontSize={40} fill={C.mist} opacity={Math.min(1, sig)}>
+            Sites que colocam sua empresa no mapa.
           </text>
-          <text x={540} y={690} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={800} fontSize={34} fill={C.yellow} opacity={pop(f, 24)}>
-            São Gabriel do Oeste · Campo Grande · MS
+          <text x={540} y={830} textAnchor="middle" fontFamily={PIXEL} fontSize={26} letterSpacing="2" fill={C.muted} opacity={Math.min(1, sig)}>
+            SÃO GABRIEL DO OESTE · CAMPO GRANDE · MS
           </text>
           <g transform={`translate(540 1440) scale(${cta})`}>
-            <rect x={-420} y={-70} width={840} height={140} rx={70} fill={C.yellow} stroke="#fff" strokeWidth={0} />
-            <text x={0} y={22} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={56} fill={C.navy}>
+            <rect x={-420} y={-70} width={840} height={140} rx={70} fill={C.lime} />
+            <text x={0} y={22} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={58} fill={C.navy} letterSpacing="-1.5">
               Chama no direct: {BRAND.handle}
             </text>
           </g>
+          {void rings}
         </g>
       );
     }}

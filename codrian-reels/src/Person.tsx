@@ -1,5 +1,5 @@
 import React from 'react';
-import {C} from './theme';
+import {C, FONT} from './theme';
 
 export type PersonProps = {
   x: number;
@@ -156,7 +156,7 @@ export const Person: React.FC<PersonProps> = (p) => {
   return (
     <g transform={`translate(${x} ${y}) rotate(${rot}) scale(${s}) translate(0 520) scale(${sx} ${sy}) translate(0 -520)`}>
       {hairBack}
-      {p.hood && <ellipse cx={0} cy={175} rx={200} ry={95} fill="#0E8F7E" />}
+      {p.hood && <ellipse cx={0} cy={175} rx={200} ry={95} fill="#4a24b0" />}
       {/* torso */}
       <path d="M-165,640 L-165,235 Q-165,155 -90,150 L90,150 Q165,155 165,235 L165,640Z" fill={p.jacket ? C.navy2 : shirt} stroke={C.ink} strokeWidth={0} />
       <rect x={-36} y={90} width={72} height={90} fill={skinShade} />
@@ -172,7 +172,7 @@ export const Person: React.FC<PersonProps> = (p) => {
       {p.hood && (
         <g>
           <path d="M-30,215 L-36,320 M30,215 L36,320" stroke="#fff" strokeWidth={7} strokeLinecap="round" />
-          <text x={0} y={440} textAnchor="middle" fontFamily="Inter, Arial" fontWeight={900} fontSize={78} fill={C.yellow}>
+          <text x={0} y={440} textAnchor="middle" fontFamily={FONT} fontWeight={700} fontSize={78} fill={C.white}>
             {'</>'}
           </text>
         </g>
@@ -214,8 +214,8 @@ export const Person: React.FC<PersonProps> = (p) => {
         </g>
       )}
       {p.mid}
-      {p.lArm && <Arm side={-1} t={p.lArm} color={p.jacket ? C.navy2 : p.hood ? '#0E8F7E' : shirt} skin={skinShade} />}
-      {p.rArm && <Arm side={1} t={p.rArm} color={p.jacket ? C.navy2 : p.hood ? '#0E8F7E' : shirt} skin={skinShade} />}
+      {p.lArm && <Arm side={-1} t={p.lArm} color={p.jacket ? C.navy2 : p.hood ? '#4a24b0' : shirt} skin={skinShade} />}
+      {p.rArm && <Arm side={1} t={p.rArm} color={p.jacket ? C.navy2 : p.hood ? '#4a24b0' : shirt} skin={skinShade} />}
       {p.front}
     </g>
   );
