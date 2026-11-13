@@ -93,7 +93,7 @@ def notif(t0,k):
     add(t0+.2,tone(f,.25,.002,.1,'sin')*.3); add(t0+.28,tone(f*1.5,.3,.002,.12,'sin')*.25)
 # ---- linha do tempo v2 (segundos) ----
 for c in [2.6,6.0,10.9,16.0,19.8]: whoosh(c-.12)
-for c in [0.5,2.7,6.6,9.4,13.3,16.3,18.45,20.0,20.6]: pop(c,.3)
+for c in [0.5,2.7,6.6,10.0,13.3,16.3,18.45,20.0,20.6]: pop(c,.3)
 t=0.0
 d=tone(48,2.6,.8,3,'saw')*.0; 
 add(0.0,lp(tone(55,2.6,.6,9,'saw'),40)*.7)
@@ -111,7 +111,7 @@ riser(19.0,.8); brandsig(19.8); boom(19.8,.6)
 import os, subprocess
 VD=sys.argv[2] if len(sys.argv)>2 else None
 if VD and os.path.isdir(VD):
-    VO=[('r1',.45,1,.95,0),('r2',2.65,1,.95,0),('y1',6.1,1,.95,0),('r3',13.2,1,.95,0),('r4',16.15,1,.95,0),('y2',18.4,1,.95,0),('y3',20.4,1,.95,0)]
+    VO=[('r1',.45,1,.95,0),('r2',2.65,1,.95,0),('y1',6.1,1.1,.95,0),('r3',13.2,1,.95,0),('r4',16.15,1,.95,0),('y2',18.4,1,.95,0),('y3',20.4,1,.95,0)]
     vo=np.zeros(N)
     for name,t0,tempo,g,trim in VO:
         raw=subprocess.run(['ffmpeg','-loglevel','error','-i',f'{VD}/{name}.mp3','-af',f'atempo={tempo},silenceremove=start_periods=1:start_threshold=-45dB'+(f',atrim=0:{trim},afade=t=out:st={trim-.04}:d=0.04' if trim else ''),'-f','s16le','-ac','1','-ar',str(SR),'-'],capture_output=True).stdout
