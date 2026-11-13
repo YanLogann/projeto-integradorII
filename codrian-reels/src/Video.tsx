@@ -4,21 +4,17 @@ import {C, W, H, s2f} from './theme';
 import {Captions} from './Captions';
 import {Scrim, Grade, Beam, Shock, shakeAt} from './Fx';
 import * as S from './Shots';
+import * as S2m from './Shots2';
 
 export const CUTS: [number, number, React.FC][] = [
-  [0, 1.6, S.ShotScreen],
-  [1.6, 3.0, S.ShotOffice],
-  [3.0, 5.5, S.ShotBoss],
-  [5.5, 7.5, S.ShotHug],
-  [7.5, 9.0, S.ShotHold],
-  [9.0, 12.0, S.ShotEnter],
-  [12.0, 15.0, S.ShotCalm],
-  [15.0, 18.5, S.ShotPhone],
-  [18.5, 19.8, S.ShotSilence],
-  [19.8, 20.8, S.ShotEmail],
-  [20.8, 21.8, S.ShotWhat],
-  [21.8, 26.0, S.ShotClose],
+  [0, 2.6, S2m.S1],
+  [2.6, 6.0, S2m.S2],
+  [6.0, 10.9, S2m.S3],
+  [10.9, 16.0, S2m.S4],
+  [16.0, 19.8, S2m.S5],
+  [19.8, 26.0, S.ShotClose],
 ];
+
 export const Video: React.FC = () => {
   const f = useCurrentFrame();
   const sh = shakeAt(f);
@@ -31,6 +27,9 @@ export const Video: React.FC = () => {
           </Sequence>
         ))}
       </AbsoluteFill>
+      <Sequence from={0} durationInFrames={s2f(19.8)}>
+        <S2m.CallBar />
+      </Sequence>
       <Scrim />
       <Grade />
       <Beam />

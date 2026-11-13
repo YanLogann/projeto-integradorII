@@ -108,20 +108,15 @@ const Cap1: React.FC<{cap: Cap; dur: number}> = ({cap, dur}) => {
 };
 
 export const CAPS: Cap[] = [
-  {t0: 0.9, t1: 3.0, text: 'O *Outlook* caiu.', size: 132, slam: true, who: 'NARRADOR'},
-  {t0: 3.0, t1: 5.5, text: 'Eu preciso mandar o *orçamento!*', size: 108, who: 'CHEFE'},
-  {t0: 5.5, t1: 7.5, text: 'Não me deixa, *monitor!*', size: 112, who: 'COLEGA'},
-  {t0: 7.5, t1: 9.0, text: 'Sua ligação é *muito importante*…', size: 104, who: 'SUPORTE'},
-  {t0: 9.05, t1: 10.85, text: 'Até que… *ele.*', size: 112, who: 'NARRADOR', y: 1250},
-  {t0: 10.9, t1: 12.2, text: '*Calma.*', size: 160, who: 'CARA DO SITE', slam: true},
-  {t0: 12.2, t1: 15.2, text: 'O cliente que tem site chama no *WhatsApp.*', size: 100, who: 'CARA DO SITE'},
-  {t0: 15.2, t1: 17.4, text: 'Um toque no botão do site…', size: 100, y: 1330, who: 'NARRADOR'},
-  {t0: 17.4, t1: 18.5, text: 'Chegou *cliente!*', size: 124, y: 1330, slam: true, who: 'NARRADOR'},
-  {t0: 18.5, t1: 19.8, text: '…silêncio…', size: 110},
-  {t0: 19.8, t1: 20.8, text: '…e o e-mail?', size: 120, who: 'COLEGA'},
-  {t0: 20.8, t1: 21.8, text: '*Que e-mail?*', size: 132, who: 'CARA DO SITE', slam: true},
-  {t0: 22.2, t1: 26.0, text: 'Seu e-mail pode cair.', size: 92, y: 975},
-  {t0: 22.9, t1: 26.0, text: 'Seu cliente não precisa ficar sem te achar.', size: 84, y: 1215},
+  {t0: 0.5, t1: 2.6, text: 'O *Outlook* caiu.', size: 132, slam: true, y: 1390},
+  {t0: 2.7, t1: 6.0, text: 'Eu preciso mandar um *orçamento* agora!', size: 100, who: 'RODRIGO', y: 1390},
+  {t0: 6.2, t1: 10.0, text: 'Rodrigo… *respira.*', size: 118, who: 'YAN', y: 1390},
+  {t0: 10.1, t1: 12.2, text: 'Abre o *WhatsApp.*', size: 118, who: 'YAN', y: 1390},
+  {t0: 13.3, t1: 16.0, text: 'Chegou… *três* orçamentos.', size: 104, who: 'RODRIGO', y: 1390},
+  {t0: 16.3, t1: 18.3, text: 'E o e-mail?', size: 126, who: 'RODRIGO', y: 1390},
+  {t0: 18.45, t1: 19.8, text: '*Que e-mail?*', size: 140, who: 'YAN', slam: true, y: 1390},
+  {t0: 20.0, t1: 26.0, text: 'Seu e-mail pode cair.', size: 92, y: 975},
+  {t0: 20.6, t1: 26.0, text: 'Seu cliente não precisa ficar sem te achar.', size: 84, y: 1215},
 ];
 
 export const Captions: React.FC = () => (

@@ -22,7 +22,7 @@ export const Grade: React.FC = () => {
   );
 };
 
-const CUTS = [1.6, 3.0, 5.5, 7.5, 12.0, 15.0, 21.8].map(s2f);
+const CUTS = [2.6, 6.0, 10.9, 16.0, 19.8].map(s2f);
 export const Beam: React.FC = () => {
   const f = useCurrentFrame();
   const c = CUTS.find((w) => f >= w - 2 && f <= w + 8);
@@ -48,7 +48,7 @@ export const Beam: React.FC = () => {
   );
 };
 
-const HITS: [number, string][] = [[0.9, '#fff'], [3.0, C.coral], [21.8, C.lime]];
+const HITS: [number, string][] = [[0.5, '#fff'], [2.65, C.coral], [19.8, C.lime]];
 export const Shock: React.FC = () => {
   const f = useCurrentFrame();
   return (
@@ -84,7 +84,7 @@ export const Shock: React.FC = () => {
 
 // tremida global nos impactos
 export const shakeAt = (f: number) => {
-  const ev: [number, number][] = [[s2f(0.9), 18], [s2f(3.0), 22], [s2f(21.8), 10]];
+  const ev: [number, number][] = [[s2f(0.5), 18], [s2f(2.65), 22], [s2f(19.8), 10]];
   let a = 0;
   for (const [t, amp] of ev) {
     const l = f - t;
