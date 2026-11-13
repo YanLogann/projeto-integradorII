@@ -1,0 +1,7 @@
+node_modules/
+out/frames/
+out/stills/
+out/*.wav
+out/*.mp4
+out/chk/
+out/render.log
