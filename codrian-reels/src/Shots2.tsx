@@ -119,7 +119,7 @@ export const S3: React.FC = () => (
 );
 const Frame3: React.FC = () => {
   const f = useCurrentFrame();
-  const talk = f > 6 && f < 140;
+  const talk = f >= 21 && f < 130;
   return (
     <g>
       <rect width={W} height={H} fill={C.navy} />
@@ -206,16 +206,16 @@ export const S5: React.FC = () => (
 );
 const Frame5: React.FC = () => {
   const f = useCurrentFrame();
-  const rTalk = f >= 8 && f < 38; // 16.3–17.3
+  const rTalk = f >= 8 && f < 48;
   const yTalk = f >= 72 && f < 96; // 18.4–19.2
   const rAct = f < 60;
   return (
     <g>
       <rect width={W} height={H} fill={C.navy} />
       <circle cx={540} cy={800} r={560} fill={C.violet} opacity={0.22} />
-      <Avatar who="rodrigo" x={290} y={800} r={205} mood="confused" frame={f} talk={rTalk} glow={rTalk} dim={!rTalk && f > 40} />
+      <Avatar who="rodrigo" x={290} y={800} r={205} mood="confused" frame={f} talk={rTalk} glow={rTalk} dim={!rTalk && f > 48} />
       <Avatar who="yan" x={790} y={800} r={205} mood="deadpan" frame={f} talk={yTalk} glow={yTalk} dim={!yTalk && f < 70} />
-      {f >= 40 && f < 72 && (
+      {f >= 50 && f < 72 && (
         <text x={540} y={1060} textAnchor="middle" fontFamily={PIXEL} fontSize={30} letterSpacing="3" fill={C.muted} opacity={0.5 + 0.5 * Math.sin(f * 0.4)}>
           ...
         </text>
@@ -227,8 +227,8 @@ const Frame5: React.FC = () => {
 
 // ---- barra de ligação (persistente 0–19.8s) ----
 const SPEAK: Record<string, [number, number][]> = {
-  rodrigo: [[0.5, 2.07], [2.73, 5.05], [13.36, 15.6], [16.38, 17.2]],
-  yan: [[6.2, 10.95], [18.5, 19.2]],
+  rodrigo: [[0.55, 2.0], [2.75, 4.7], [13.36, 15.6], [16.27, 17.6]],
+  yan: [[6.7, 10.3], [18.46, 19.05]],
 };
 export const CallBar: React.FC = () => {
   const f = useCurrentFrame();

@@ -110,10 +110,10 @@ const Cap1: React.FC<{cap: Cap; dur: number}> = ({cap, dur}) => {
 export const CAPS: Cap[] = [
   {t0: 0.5, t1: 2.6, text: 'O *Outlook* caiu.', size: 132, slam: true, y: 1390},
   {t0: 2.7, t1: 6.0, text: 'Eu preciso mandar um *orçamento* agora!', size: 100, who: 'RODRIGO', y: 1390},
-  {t0: 6.2, t1: 10.0, text: 'Rodrigo… *respira.*', size: 118, who: 'YAN', y: 1390},
-  {t0: 10.1, t1: 12.2, text: 'Abre o *WhatsApp.*', size: 118, who: 'YAN', y: 1390},
+  {t0: 6.6, t1: 9.3, text: 'Rodrigo… *respira.*', size: 118, who: 'YAN', y: 1390},
+  {t0: 9.4, t1: 12.0, text: 'Abre o *WhatsApp.*', size: 118, who: 'YAN', y: 1390},
   {t0: 13.3, t1: 16.0, text: 'Chegou… *três* orçamentos.', size: 104, who: 'RODRIGO', y: 1390},
-  {t0: 16.3, t1: 18.3, text: 'E o e-mail?', size: 126, who: 'RODRIGO', y: 1390},
+  {t0: 16.3, t1: 18.3, text: 'Ué… e o e-mail?', size: 112, who: 'RODRIGO', y: 1390},
   {t0: 18.45, t1: 19.8, text: '*Que e-mail?*', size: 140, who: 'YAN', slam: true, y: 1390},
   {t0: 20.0, t1: 26.0, text: 'Seu e-mail pode cair.', size: 92, y: 975},
   {t0: 20.6, t1: 26.0, text: 'Seu cliente não precisa ficar sem te achar.', size: 84, y: 1215},
