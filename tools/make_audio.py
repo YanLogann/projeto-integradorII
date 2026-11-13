@@ -96,6 +96,20 @@ boom(0.9,.8); boom(3.0); rustle(3.0,9.0); boing(5.5); hold_music(7.5,9.0,.14)
 scratch(9.0); footsteps(9.3,7,.25); lofi(9.6,21.8,.2); sip(12.1)
 click(16.73); ding(17.47); crickets(18.55,19.8); boing(19.8,.3); ding(20.8,.3)
 riser(20.5,1.3); brandsig(21.8); boom(21.8,.6); lofi(22.2,26.0,.2); ding(24.4,.3)
+# ---- narração (ElevenLabs) com ducking da trilha ----
+import os, subprocess
+VD=sys.argv[2] if len(sys.argv)>2 else None
+if VD and os.path.isdir(VD):
+    VO=[('chefe',3.10,1.0,1.0),('colega1',5.70,1.0,1.0),('suporte',7.45,1.3,.9),('calma',10.40,1.0,1.0),('cliente',12.20,1.0,1.0),('email',19.90,1.0,1.0),('queemail',20.85,1.08,1.0),('fecha',22.35,1.0,.95)]
+    vo=np.zeros(N)
+    for name,t0,tempo,g in VO:
+        raw=subprocess.run(['ffmpeg','-loglevel','error','-i',f'{VD}/{name}.mp3','-af',f'atempo={tempo},silenceremove=start_periods=1:start_threshold=-45dB','-f','s16le','-ac','1','-ar',str(SR),'-'],capture_output=True).stdout
+        x=np.frombuffer(raw,dtype=np.int16).astype(float)/32768
+        x=x/ max(1e-6,np.max(np.abs(x)))*.9*g
+        i=int(t0*SR); j=min(N,i+len(x)); vo[i:j]+=x[:j-i]
+    act=lp(np.abs(vo),int(.12*SR)); act=np.clip(act*9,0,1); act=lp(act,int(.08*SR))
+    mix=mix/(np.max(np.abs(mix))/0.85)*(1-.62*act)*.8
+    mix=mix+vo
 # fade out e normalização
 fo=int(.4*SR); mix[-fo:]*=np.linspace(1,0,fo)
 mix/= (np.max(np.abs(mix))/0.85)

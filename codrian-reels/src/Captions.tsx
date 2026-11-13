@@ -111,7 +111,7 @@ export const CAPS: Cap[] = [
   {t0: 0.9, t1: 3.0, text: 'O *Outlook* caiu.', size: 132, slam: true},
   {t0: 3.0, t1: 5.5, text: 'Eu preciso mandar o *orçamento!*', size: 108, who: 'CHEFE'},
   {t0: 5.5, t1: 7.5, text: 'Não me deixa, *monitor!*', size: 112, who: 'COLEGA'},
-  {t0: 7.5, t1: 9.0, text: 'Sua ligação é *muito importante* para nós…', size: 92, who: 'SUPORTE'},
+  {t0: 7.5, t1: 9.0, text: 'Sua ligação é *muito importante*…', size: 104, who: 'SUPORTE'},
   {t0: 10.3, t1: 12.0, text: '*Calma.*', size: 160, who: 'CARA DO SITE', slam: true},
   {t0: 12.0, t1: 15.0, text: 'O cliente que tem site chama no *WhatsApp.*', size: 100, who: 'CARA DO SITE'},
   {t0: 15.0, t1: 17.4, text: 'Um toque no botão do site…', size: 100, y: 1330},
