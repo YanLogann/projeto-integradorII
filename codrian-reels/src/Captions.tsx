@@ -108,19 +108,20 @@ const Cap1: React.FC<{cap: Cap; dur: number}> = ({cap, dur}) => {
 };
 
 export const CAPS: Cap[] = [
-  {t0: 0.9, t1: 3.0, text: 'O *Outlook* caiu.', size: 132, slam: true},
+  {t0: 0.9, t1: 3.0, text: 'O *Outlook* caiu.', size: 132, slam: true, who: 'NARRADOR'},
   {t0: 3.0, t1: 5.5, text: 'Eu preciso mandar o *orçamento!*', size: 108, who: 'CHEFE'},
   {t0: 5.5, t1: 7.5, text: 'Não me deixa, *monitor!*', size: 112, who: 'COLEGA'},
   {t0: 7.5, t1: 9.0, text: 'Sua ligação é *muito importante*…', size: 104, who: 'SUPORTE'},
-  {t0: 10.3, t1: 12.0, text: '*Calma.*', size: 160, who: 'CARA DO SITE', slam: true},
-  {t0: 12.0, t1: 15.0, text: 'O cliente que tem site chama no *WhatsApp.*', size: 100, who: 'CARA DO SITE'},
-  {t0: 15.0, t1: 17.4, text: 'Um toque no botão do site…', size: 100, y: 1330},
-  {t0: 17.4, t1: 18.5, text: 'Chegou *cliente!*', size: 124, y: 1330, slam: true},
+  {t0: 9.05, t1: 10.85, text: 'Até que… *ele.*', size: 112, who: 'NARRADOR', y: 1250},
+  {t0: 10.9, t1: 12.2, text: '*Calma.*', size: 160, who: 'CARA DO SITE', slam: true},
+  {t0: 12.2, t1: 15.2, text: 'O cliente que tem site chama no *WhatsApp.*', size: 100, who: 'CARA DO SITE'},
+  {t0: 15.2, t1: 17.4, text: 'Um toque no botão do site…', size: 100, y: 1330, who: 'NARRADOR'},
+  {t0: 17.4, t1: 18.5, text: 'Chegou *cliente!*', size: 124, y: 1330, slam: true, who: 'NARRADOR'},
   {t0: 18.5, t1: 19.8, text: '…silêncio…', size: 110},
   {t0: 19.8, t1: 20.8, text: '…e o e-mail?', size: 120, who: 'COLEGA'},
   {t0: 20.8, t1: 21.8, text: '*Que e-mail?*', size: 132, who: 'CARA DO SITE', slam: true},
-  {t0: 22.3, t1: 26.0, text: 'Seu e-mail pode cair.', size: 92, y: 975},
-  {t0: 23.3, t1: 26.0, text: 'Seu cliente não precisa ficar sem te achar.', size: 84, y: 1215},
+  {t0: 22.2, t1: 26.0, text: 'Seu e-mail pode cair.', size: 92, y: 975},
+  {t0: 22.9, t1: 26.0, text: 'Seu cliente não precisa ficar sem te achar.', size: 84, y: 1215},
 ];
 
 export const Captions: React.FC = () => (

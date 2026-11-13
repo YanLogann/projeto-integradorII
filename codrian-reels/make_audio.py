@@ -88,7 +88,7 @@ def brandsig(t0,g=.3):  # assinatura sonora da marca: A5 E6 A6 E7 + escala desce
 
 # ---- linha do tempo (segundos), alinhada às cenas do vídeo ----
 for c in [1.6,3.0,5.5,7.5,12.0,15.0,21.8]: whoosh(c-.12)
-for c in [0.9,3.0,5.5,7.5,10.3,12.0,15.0,17.4,18.5,19.8,20.8,22.3,23.3]: pop(c,.4)
+for c in [0.9,3.0,5.5,7.5,10.9,12.2,15.2,17.4,18.5,19.8,20.8,22.2,22.9]: pop(c,.4)
 buzz(1.4); siren(1.6,9.0,.12)
 t=1.6
 while t<9.0: add(t,tone(55,.2,.005,.12,'sin')*.5); t+=.5
@@ -100,10 +100,10 @@ riser(20.5,1.3); brandsig(21.8); boom(21.8,.6); lofi(22.2,26.0,.2); ding(24.4,.3
 import os, subprocess
 VD=sys.argv[2] if len(sys.argv)>2 else None
 if VD and os.path.isdir(VD):
-    VO=[('chefe',3.10,1.0,1.0),('colega1',5.70,1.0,1.0),('suporte',7.45,1.3,.9),('calma',10.40,1.0,1.0),('cliente',12.20,1.0,1.0),('email',19.90,1.0,1.0),('queemail',20.85,1.08,1.0),('fecha',22.35,1.0,.95)]
+    VO=[('n_hook',.70,1.1,1.0,0),('chefe',3.05,1.0,1.0,0),('colega1',5.55,1.0,1.0,0),('suporte',7.50,1.0,.9,1.5),('n_chegou',9.05,1.35,1.0,0),('calma',10.15,1.0,1.0,0),('cliente',12.30,1.12,1.0,0),('n_toque',15.20,1.0,1.0,0),('n_cliente',17.50,1.2,1.0,0),('email',19.85,1.3,1.0,0),('queemail',20.98,1.15,1.0,0),('fecha',22.90,1.08,.95,0)]
     vo=np.zeros(N)
-    for name,t0,tempo,g in VO:
-        raw=subprocess.run(['ffmpeg','-loglevel','error','-i',f'{VD}/{name}.mp3','-af',f'atempo={tempo},silenceremove=start_periods=1:start_threshold=-45dB','-f','s16le','-ac','1','-ar',str(SR),'-'],capture_output=True).stdout
+    for name,t0,tempo,g,trim in VO:
+        raw=subprocess.run(['ffmpeg','-loglevel','error','-i',f'{VD}/{name}.mp3','-af',f'atempo={tempo},silenceremove=start_periods=1:start_threshold=-45dB'+(f',atrim=0:{trim},afade=t=out:st={trim-.04}:d=0.04' if trim else ''),'-f','s16le','-ac','1','-ar',str(SR),'-'],capture_output=True).stdout
         x=np.frombuffer(raw,dtype=np.int16).astype(float)/32768
         x=x/ max(1e-6,np.max(np.abs(x)))*.9*g
         i=int(t0*SR); j=min(N,i+len(x)); vo[i:j]+=x[:j-i]
