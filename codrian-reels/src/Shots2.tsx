@@ -227,7 +227,7 @@ const Frame5: React.FC = () => {
 
 // ---- barra de ligação (persistente 0–19.8s) ----
 const SPEAK: Record<string, [number, number][]> = {
-  rodrigo: [[0.55, 2.0], [2.75, 4.7], [13.36, 15.6], [16.27, 17.6]],
+  rodrigo: [[0.6, 2.25], [2.77, 4.85], [13.36, 15.9], [16.33, 17.6]],
   yan: [[6.7, 10.3], [18.46, 19.05]],
 };
 export const CallBar: React.FC = () => {
