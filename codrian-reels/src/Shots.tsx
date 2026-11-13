@@ -8,10 +8,15 @@ import {AlarmOverlay, Bubble, Burst, Desk, Mug, Monitor, Office, Paper, Phone, S
 const Stage: React.FC<{zoom?: number; cx?: number; cy?: number; shake?: number; seed?: string; children: (f: number) => React.ReactNode}> = ({zoom = 1, cx = W / 2, cy = 700, shake = 0, seed = 'k', children}) => {
   const f = useCurrentFrame();
   const j = shake ? jitter(f, shake, seed) : {x: 0, y: 0};
+  const push = 1 + f * 0.0011;
+  const sway = {x: Math.sin(f * 0.07) * 4, y: Math.cos(f * 0.052) * 4};
   return (
     <AbsoluteFill style={{background: C.navy}}>
       <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`}>
+        <defs><filter id="bl" x="-5%" y="-5%" width="110%" height="110%"><feGaussianBlur stdDeviation="7" /></filter></defs>
+        <g transform={`translate(${W / 2} ${H / 2}) scale(${push}) translate(${-W / 2 + sway.x} ${-H / 2 + sway.y})`}>
         <g transform={`translate(${cx} ${cy}) scale(${zoom}) translate(${-cx + j.x} ${-cy + j.y})`}>{children(f)}</g>
+        </g>
       </svg>
     </AbsoluteFill>
   );
@@ -98,7 +103,7 @@ export const ShotHug: React.FC = () => (
       const sob = Math.sin(f * 0.7);
       return (
         <g>
-          <Office frame={f} alarm tint={C.wall} />
+          <g filter="url(#bl)"><Office frame={f} alarm tint={C.wall} /></g>
           <Burst x={540} y={650} frame={f} color={C.hi} />
           <Person
             x={540}
@@ -136,7 +141,7 @@ export const ShotHold: React.FC = () => (
       const droop = lerp(f, 0, 45, 0, 1);
       return (
         <g>
-          <Office frame={f} alarm tint="#241a45" />
+          <g filter="url(#bl)"><Office frame={f} alarm tint="#241a45" /></g>
           <Person
             x={470}
             y={640}
@@ -194,7 +199,7 @@ export const ShotEnter: React.FC = () => (
       return (
         <g>
           <g transform={`translate(${bj.x} ${bj.y})`}>
-            <Office frame={f} alarm dim />
+            <g filter="url(#bl)"><Office frame={f} alarm dim /></g>
             <Desk y={1010} />
             {[150, 400, 820].map((px, i) => (
               <Person key={i} x={px} y={700} s={0.5} {...[boss(f, {eyes: 'wide', mouth: 'shout', mouthOpen: mouthFlap(f), brows: 'angry', lArm: [-200, -30], rArm: [200, -30]}), ana({eyes: 'x', mouth: 'o', mouthOpen: mouthFlap(f), brows: 'worried', lArm: [-130, 20], rArm: [130, 20]}), beto({eyes: 'dot', mouth: 'flat', brows: 'flat', rArm: [190, -40]})][i]} />

@@ -79,6 +79,9 @@ def tada(t0,g=.35):
     for n in [60,64,67,72]: add(t0,tone(midi(n),1.2,.01,.6,'tri')*g*.5)
     for n in [72,76,79,84]: add(t0+.18,tone(midi(n),1.4,.01,.7,'tri')*g*.5)
 
+def riser(t0,d,g=.35):
+    t=tt(d); f=200*np.exp(t/d*2.3); ph=2*np.pi*np.cumsum(f)/SR
+    add(t0,(np.sin(ph)*.5+lp(noise(d),3)*.8)*(t/d)**2*g)
 def brandsig(t0,g=.3):  # assinatura sonora da marca: A5 E6 A6 E7 + escala descendente
     for f in [880,1318.5,1760,2637]: add(t0,tone(f,2.2,.004,.9,'sin')*g*.45)
     for i,f in enumerate([1318.5,1174.7,1046.5,880,783.99,659.25,587.33]): add(t0+.05+i*.11,tone(f,.5,.003,.18,'sin')*g*.5)
@@ -89,10 +92,10 @@ for c in [0.9,3.0,5.5,7.5,10.3,12.0,15.0,17.4,18.5,19.8,20.8,22.3,23.3]: pop(c,.
 buzz(1.4); siren(1.6,9.0,.12)
 t=1.6
 while t<9.0: add(t,tone(55,.2,.005,.12,'sin')*.5); t+=.5
-boom(3.0); rustle(3.0,9.0); boing(5.5); hold_music(7.5,9.0,.14)
+boom(0.9,.8); boom(3.0); rustle(3.0,9.0); boing(5.5); hold_music(7.5,9.0,.14)
 scratch(9.0); footsteps(9.3,7,.25); lofi(9.6,21.8,.2); sip(12.1)
 click(16.73); ding(17.47); crickets(18.55,19.8); boing(19.8,.3); ding(20.8,.3)
-brandsig(21.8); lofi(22.2,26.0,.2); ding(24.4,.3)
+riser(20.5,1.3); brandsig(21.8); boom(21.8,.6); lofi(22.2,26.0,.2); ding(24.4,.3)
 # fade out e normalização
 fo=int(.4*SR); mix[-fo:]*=np.linspace(1,0,fo)
 mix/= (np.max(np.abs(mix))/0.85)
