@@ -66,14 +66,15 @@ void main(){
   float lum = dot(col, vec3(0.299, 0.587, 0.114));
   col = mix(col, vec3(lum)*vec3(0.82, 0.9, 1.15), uFreeze);
   // grade: blacks levantados para o 'void' da marca
-  col += vec3(0.020, 0.012, 0.034) * (1.0 - col);
+  col += vec3(0.0016, 0.0009, 0.0026) * (1.0 - col);   // piso de preto ≈ void #100C1C depois do gamma
   float v = smoothstep(0.95, 0.25, length(dir*vec2(0.85, 0.62)));
   col *= mix(1.0, v, uVig);
   col *= 0.96 + 0.04*sin(uv.y*1920.0*1.2);          // scanline sutil
-  col += (hash21(uv*vec2(1080.0,1920.0) + ft) - 0.5) * uGrain;
   col = mix(col, uFlashCol, uFlash);
   col *= (1.0 - uFade);
-  gl_FragColor = vec4(pow(max(col, 0.0), vec3(1.0/2.2)), 1.0);
+  vec3 o = pow(max(col, 0.0), vec3(1.0/2.2));
+  o += (hash21(uv*vec2(1080.0,1920.0) + ft) - 0.5) * uGrain * 0.55;   // grão depois do gamma: não levanta o preto
+  gl_FragColor = vec4(o, 1.0);
 }`;
 
 export class Stage {

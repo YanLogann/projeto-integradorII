@@ -122,6 +122,9 @@ export async function renderMix(base = './') {
   [0, 0.2, 0.4, 0.6, 0.8, 1.0].forEach((d, i) => X.zap(g, T.reveal + d, { peak: 0.16, f0: 3000 - i * 250 }));
   for (let i = 0; i < 16; i++) X.pluck(g, T.reveal + 0.5 + i * 0.25, [69, 72, 76, 81][i % 4] + (i > 7 ? 12 : 0), { peak: 0.06 });
   for (let b = 0; b < 10; b++) { X.kick(g, T.reveal + 0.5 + b * BEAT, { peak: 0.5 }); X.bass(g, T.reveal + 0.5 + b * BEAT, 33, 0.3, { peak: 0.28 }); }
+  // assinatura sonora da marca (brand book, Motion e som): acorde A5·E6·A6·E7 com reverb longo + escala descendente, uma nota por letra
+  [880, 1318.5, 1760, 2637].forEach((f) => X.osc(g, 'sine', f, T.reveal + 0.12, 2.8, { peak: 0.07, a: 0.01, d: 2.6, rel: 0.4, rv: 0.9 }));
+  [1318.5, 1174.7, 1046.5, 880, 783.99, 659.25, 587.33].forEach((f, i) => X.osc(g, 'sine', f, T.reveal + 0.2 + i * 0.085, 0.9, { peak: 0.07, a: 0.004, d: 0.8, rel: 0.2, rv: 0.6 }));
   X.impact(g, T.tagline, { gain: 0.9, len: 1.2 }); X.glitch(g, T.tagline + 0.7, 0.22, { peak: 0.1 });
   X.ui(g, T.cta, 'ok', { peak: 0.18 }); X.ui(g, T.cta + 0.12, 'shim', { peak: 0.1 });
 

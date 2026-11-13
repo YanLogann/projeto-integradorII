@@ -35,7 +35,7 @@ export function createS6(ctx) {
   // feixes volumétricos atrás do logo
   const beams = [[-2.6, 0.5], [2.6, -0.5], [0, 0.0], [-1.2, 0.25], [1.4, -0.25]].map(([x, r], i) => { const b = beam({ color: i % 2 ? BRAND.violetHi : BRAND.violet, length: 22, r0: 0.2, r1: 2.6 + (i === 2 ? 1.5 : 0), opacity: 0.3, seed: i }); b.position.set(x, 9, -3 - i * 0.2); b.rotation.z = r * 0.35; scene.add(b); return b; });
   const halo = glowSprite(BRAND.violet, 14, 0.0); halo.position.set(0, 0.55, -1.2); scene.add(halo);
-  const dotGlow = glowSprite(BRAND.lime, 0.75, 0.0); // posição do ponto: logo à direita, na linha de base
+  const dotGlow = glowSprite(BRAND.lime, 0.6, 0.0); // posição do ponto: logo à direita, na linha de base
   { const m = (full.width); /* ponto fica em x = (pad + w + d*0.62) */ }
   scene.add(dotGlow);
   // pings (anéis do ponto lima) — grafismo "estar no radar"
@@ -75,7 +75,7 @@ export function createS6(ctx) {
       beams.forEach((b, i) => { b.userData.update(t); b.material.uniforms.uO.value = (0.004 + 0.03 * easeOutCubic(remap(t, REV - 0.3, REV + 1.0))) * (0.85 + 0.15 * Math.sin(t * 2 + i)); });
       halo.material.opacity = 0.05 * easeOutCubic(remap(t, REV - 0.4, REV + 0.8)); halo.scale.setScalar(14 + Math.sin(t * 1.4) * 0.6);
       dotGlow.material.opacity = 0.9 * rv * (0.7 + 0.3 * Math.sin(t * 5));
-      pings.forEach((p, i) => { const ph = ((t - REV) * 0.5 + i / 3) % 1; const on = t > REV + 0.25; p.scale.setScalar(0.1 + ph * 1.5); p.material.opacity = on ? Math.pow(1 - ph, 1.8) * 0.85 : 0; });
+      pings.forEach((p, i) => { const ph = ((t - REV) * 0.5 + i / 3) % 1; const on = t > REV + 0.25; p.scale.setScalar(0.1 + ph * 1.0); p.material.opacity = on ? Math.pow(1 - ph, 1.8) * 0.85 : 0; });
     },
     draw2d(g, t) {
       const e = pulse(t, REV, 0.5); if (e < 0.02) return;

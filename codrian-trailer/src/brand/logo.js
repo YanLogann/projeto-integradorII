@@ -1,26 +1,21 @@
-// Logotipo Codrian reconstruído pela especificação do brand book (Pacote do Yan, seção 3):
-// palavra "codrian" minúscula, DM Sans 700, tracking -0.045em, ponto lima de 0.2em na linha de base. Sem caixa alta, sem sombra, sem contorno.
-// Se o vetor oficial for colocado em assets/brand/logo.svg, basta trocar drawLogo por drawImage (ver README).
+// Logotipo oficial Codrian desenhado a partir das curvas do brand book (src/brand/logo-paths.js). Sem redigitar o nome, sem sombra/contorno.
+// Negativo (principal): letras ink, ponto lime.
 import { BRAND } from '../config.js';
+import { LOGO_VIEWBOX, LOGO_PATH, LOGO_DOT } from './logo-paths.js';
 
-export function measureLogo(size) {
-  const c = document.createElement('canvas').getContext('2d');
-  c.font = `700 ${size}px "DM Sans"`; c.letterSpacing = `${-0.045 * size}px`;
-  const w = c.measureText('codrian').width; const m = c.measureText('codrian');
-  return { w, dot: 0.2 * size, total: w + 0.2 * size * 1.0 + 0.045 * size, asc: m.actualBoundingBoxAscent, desc: m.actualBoundingBoxDescent };
-}
-/** Desenha o logo com a base de texto em (x, baseY). */
+const [VX, , VW] = LOGO_VIEWBOX; const PATH = new Path2D(LOGO_PATH);
+export function measureLogo(size) { const s = size / 1000; return { w: VW * s, dot: LOGO_DOT.r * 2 * s, total: VW * s }; }
+/** Desenha o logo com a linha de base em baseY e a borda esquerda em x. size = 1em (em unidades de 1/1000). */
 export function drawLogo(g, x, baseY, size, { ink = BRAND.ink, dot = BRAND.lime, dotOnly = false, textOnly = false } = {}) {
-  g.save(); g.font = `700 ${size}px "DM Sans"`; g.letterSpacing = `${-0.045 * size}px`; g.textBaseline = 'alphabetic';
-  const w = g.measureText('codrian').width;
-  if (!dotOnly) { g.fillStyle = ink; g.fillText('codrian', x, baseY); }
-  if (!textOnly) { const d = 0.2 * size; g.fillStyle = dot; g.beginPath(); g.arc(x + w + d * 0.62, baseY - d / 2, d / 2, 0, Math.PI * 2); g.fill(); }
+  const s = size / 1000; g.save(); g.translate(x - VX * s, baseY); g.scale(s, s);
+  if (!dotOnly) { g.fillStyle = ink; g.fill(PATH); }
+  if (!textOnly) { g.fillStyle = dot; g.beginPath(); g.arc(LOGO_DOT.cx, LOGO_DOT.cy, LOGO_DOT.r, 0, Math.PI * 2); g.fill(); }
   g.restore();
 }
 export function logoCanvas(size = 320, opts = {}) {
   const m = measureLogo(size), pad = size * 0.3, c = document.createElement('canvas');
-  c.width = Math.ceil(m.total + pad * 2); c.height = Math.ceil(size * 1.1 + pad * 2);
-  drawLogo(c.getContext('2d'), pad, pad + size * 0.82, size, opts); return c;
+  c.width = Math.ceil(m.total + pad * 2); c.height = Math.ceil(size * 1.05 + pad * 2);
+  drawLogo(c.getContext('2d'), pad, pad + size * 0.8, size, opts); return c;
 }
 /** Amostra pontos (em unidades de mundo, centrados) onde o canvas tem alfa, para as partículas formarem o logo. */
 export function sampleTargets(canvas, worldWidth, maxPts = 14000, step = 2) {

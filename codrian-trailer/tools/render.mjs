@@ -52,7 +52,8 @@ try {
     for (const t of String(stills).split(',').map(Number)) { const t0 = Date.now(); await shot(page, t, path.join(dir, `t${t.toFixed(2)}.png`)); console.log(`still t=${t} (${Date.now() - t0}ms)`); }
   } else {
     let [a, b] = String(arg('frames', `0-${TOTAL - 1}`)).split('-').map(Number); if (b === undefined || isNaN(b)) b = a;
-    rmSync(framesDir, { recursive: true, force: true }); mkdirSync(framesDir, { recursive: true });
+    const patch = process.argv.includes('--patch');   // --patch: re-renderiza só o intervalo e reencoda o vídeo inteiro com os frames já existentes
+    if (!patch) rmSync(framesDir, { recursive: true, force: true }); mkdirSync(framesDir, { recursive: true });
     const pages = await Promise.all(Array.from({ length: workers }, openPage));
     let next = a, done = 0; const t0 = Date.now();
     await Promise.all(pages.map(async (page) => {
@@ -73,6 +74,7 @@ try {
       } else console.log('AVISO: motor de áudio indisponível; MP4 sairá mudo.');
     }
     mkdirSync(path.dirname(outFile), { recursive: true });
+    if (patch) a = 0;
     const args = ['-y', '-framerate', String(FPS), '-start_number', String(a), '-i', path.join(framesDir, 'f%05d.jpg')];
     if (audioPath) args.push('-ss', String(a / FPS), '-i', audioPath);
     args.push('-c:v', 'libx264', '-preset', 'slow', '-crf', '16', '-pix_fmt', 'yuv420p', '-profile:v', 'high', '-movflags', '+faststart', '-r', String(FPS));
