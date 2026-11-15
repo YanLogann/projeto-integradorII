@@ -5,7 +5,7 @@
 export const MODEL = 'eleven_v3'; // v3 aceita tags de emoção entre colchetes
 
 export const VOICES = {
-  detetive: { id: 'jkiD8IhCU1i2V7VvmNwi', name: 'Randel - Deep Epic', settings: { stability: 0.5, similarity_boost: 0.8, use_speaker_boost: true } },
+  detetive: { id: 'MZgw9H58206lPCPSJ70K', name: 'Rodrigo Ishikawa', settings: { stability: 0.5, similarity_boost: 0.8, use_speaker_boost: true } },
   vitima:   { id: '6PhbMr9YjdeOaTNz9y24', name: 'Davi Leão - Natural', settings: { stability: 0.5, similarity_boost: 0.8, use_speaker_boost: true } },
 };
 

@@ -67,5 +67,6 @@ function takeFor(voz) {
   });
 }
 
-takeFor('detetive');
-takeFor('vitima');
+// node scripts/gen-voices.mjs [detetive|vitima]  (sem argumento = todas)
+const only = process.argv.slice(2);
+for (const v of ['detetive', 'vitima']) if (!only.length || only.includes(v)) takeFor(v);
