@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <title>CODRIAN — O Cliente Foi Roubado</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="viewport">
+    <div id="stage">
+      <div id="bg"></div>
+      <canvas id="fx-back" width="1080" height="1920"></canvas>
+      <!-- cenas são inseridas aqui pelos scripts de src/scenes -->
+      <canvas id="fx-front" width="1080" height="1920"></canvas>
+      <div id="hud"></div>
+      <div id="captions"></div>
+      <div id="overlay"></div>
+      <div id="glitch"><i></i><b></b></div>
+      <div id="vignette"></div>
+      <canvas id="grain" width="270" height="480"></canvas>
+    </div>
+  </div>
+
+  <script src="../node_modules/gsap/dist/gsap.min.js"></script>
+  <script src="data/cues.js"></script>
+  <script src="core.js"></script>
+  <script src="fx-canvas.js"></script>
+  <script src="scenes/01-crime.js"></script>
+  <script src="scenes/02-dossie.js"></script>
+  <script src="scenes/03-depoimento.js"></script>
+  <script src="scenes/04-pista.js"></script>
+  <script src="scenes/05-concorrente.js"></script>
+  <script src="scenes/06-twist.js"></script>
+  <script src="scenes/07-entregue.js"></script>
+  <script src="scenes/08-arma.js"></script>
+  <script src="scenes/09-landing.js"></script>
+  <script src="scenes/10-encerrado.js"></script>
+  <script src="scenes/11-cta.js"></script>
+  <script src="hud.js"></script>
+  <script src="captions.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

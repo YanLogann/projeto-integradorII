@@ -1,0 +1,22 @@
+{
+  "name": "codrian-o-cliente-foi-roubado",
+  "version": "1.0.0",
+  "description": "Vídeo publicitário 45s vertical (CODRIAN) em Frame Motion 2D com GSAP",
+  "scripts": {
+    "vozes": "node scripts/gen-voices.mjs",
+    "trilha": "node scripts/gen-music.mjs",
+    "sfx": "node scripts/gen-sfx.mjs",
+    "cues": "node scripts/build-cues.mjs",
+    "mix": "node scripts/mix-audio.mjs",
+    "stills": "node scripts/render.mjs --stills 2,6.6,13,19.5,22.9,27.8,31.3,35,39.6,43.6",
+    "draft": "npm run cues && npm run mix && node scripts/render.mjs --draft && ffmpeg -y -loglevel error -i out/video-draft-mudo.mp4 -i out/audio-mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 160k -shortest -movflags +faststart out/CODRIAN_o-cliente-foi-roubado_DRAFT.mp4",
+    "final": "npm run cues && npm run mix && node scripts/render.mjs --final && ffmpeg -y -loglevel error -i out/video-final.mp4 -i out/audio-mix.wav -map 0:v -map 1:a -c:v copy -c:a aac -b:a 256k -shortest -movflags +faststart out/CODRIAN_o-cliente-foi-roubado_FINAL.mp4"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gsap": "^3.13.0"
+  },
+  "type": "module"
+}
