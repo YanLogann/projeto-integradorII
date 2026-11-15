@@ -1,0 +1,15 @@
+<!doctype html><html><head><meta charset="utf-8"><title>CODRIAN DOOMSDAY</title>
+<style>
+@font-face{font-family:"DM Sans";font-weight:400;src:url(../assets/fonts/DMSans-400.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:500;src:url(../assets/fonts/DMSans-500.woff2) format("woff2")}
+@font-face{font-family:"DM Sans";font-weight:700;src:url(../assets/fonts/DMSans-700.woff2) format("woff2")}
+@font-face{font-family:"Silkscreen";font-weight:400;src:url(../assets/fonts/Silkscreen-400.woff2) format("woff2")}
+html,body{margin:0;background:#000;overflow:hidden}canvas#out{display:block;width:1080px;height:1920px}
+</style></head><body><canvas id="out"></canvas>
+<script src="data.js"></script><script src="core.js"></script><script src="shaders.js"></script><script src="fx.js"></script><script src="shots.js"></script>
+<script>
+window.FPS = 30;
+window.ready = (async () => { await Promise.all(['400 20px "DM Sans"','500 20px "DM Sans"','700 20px "DM Sans"','400 20px Silkscreen'].map(f => document.fonts.load(f))); return true; })();
+window.render = (frame) => { const t = frame / FPS; ENGINE.renderFrame(t, 1 / FPS, getShot, FX.subtitles); return t; };
+window.renderT = (t) => { ENGINE.renderFrame(t, 1 / FPS, getShot, FX.subtitles); return t; };
+</script></body></html>

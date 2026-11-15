@@ -1,0 +1,10 @@
+frames/
+stills*/
+*_sheet*.jpg
+fix_sheet.jpg
+test_sheet.jpg
+render_final.log
+audio/mix_pre.wav
+audio/mix_final.wav
+audio/tts_test/
+out/
