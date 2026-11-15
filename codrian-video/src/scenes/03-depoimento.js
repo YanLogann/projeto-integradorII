@@ -1,7 +1,7 @@
-// CENA 3 (8.0 → 11.0s) — Depoimento: arquivo de áudio + conversa no direct que some.
+// CENA 3 (8.0 → 11.95s) — Depoimento: arquivo de áudio + conversa no direct que some.
 (() => {
   const { TL, el, scene, fx, wt, rng } = K;
-  const S = scene('s-depo', 8.0, 11.0, { push: .07 });
+  const S = scene('s-depo', 8.0, 11.95, { push: .07 });
   const t0 = 8.0;
 
   const back = S.layer('', 20);
@@ -17,7 +17,7 @@
   bars.forEach(b => Object.assign(b.style, { flex: 1, height: '8px', background: 'var(--verde)', borderRadius: '6px', boxShadow: '0 0 14px rgba(34,229,139,.7)' }));
   const words = window.CUES.depoimento.words;
   const r = rng(33);
-  for (let t = t0; t < 11; t += 1 / 12) {
+  for (let t = t0; t < 11.95; t += 1 / 12) {
     const active = words.some(w => t >= w.s - .03 && t <= w.e + .03);
     bars.forEach((b, i) => {
       const h = active ? 20 + r() * 170 * Math.sin((i / bars.length) * Math.PI) : 8 + r() * 6;

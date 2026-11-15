@@ -1,8 +1,8 @@
-// CENA 4 (11.0 → 17.2s) — Pista em câmera de segurança: busca, perfil sem site, 4 segundos, saiu.
+// CENA 4 (11.95 → 17.2s) — Pista em câmera de segurança: busca, perfil sem site, 4 segundos, saiu.
 (() => {
   const { TL, el, scene, fx, wt } = K;
-  const S = scene('s-pista', 11.0, 17.2, { push: .12 });
-  const t0 = 11.0;
+  const S = scene('s-pista', 11.95, 17.2, { push: .12 });
+  const t0 = 11.95;
 
   const back = S.layer('', 30);
   el('div', 'abs', null, back).style.cssText = 'inset:0;background:radial-gradient(60% 45% at 50% 45%, rgba(123,44,255,.28), transparent 70%), #05030b';

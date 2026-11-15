@@ -5,7 +5,7 @@ Vídeo publicitário em **Frame Motion 2D** (HTML/SVG/Canvas + GSAP), renderizad
 ## Estrutura
 ```
 scripts/roteiro.mjs      falas, vozes e tempo de entrada de cada fala
-scripts/gen-voices.mjs   TTS ElevenLabs (com timestamps por caractere)
+scripts/gen-voices.mjs   TTS ElevenLabs v3 (tags de emoção) — narrador em UMA tomada contínua, recortada por fala
 scripts/gen-music.mjs    trilha ElevenLabs Music com seções cronometradas aos cortes
 scripts/gen-sfx.mjs      efeitos sonoros ElevenLabs
 scripts/build-cues.mjs   timestamps → src/data/cues.js (legendas palavra a palavra)
@@ -24,15 +24,15 @@ npm run final    # 1080x1920 · 30fps → out/CODRIAN_o-cliente-foi-roubado_FINA
 npm run stills   # quadros de conferência em out/stills
 ```
 Pré-visualização ao vivo: abra `src/index.html` no navegador (clique para tocar o áudio de `out/audio-mix.wav`).
-Mudou uma fala? `node scripts/gen-voices.mjs --force <cue>` e depois `npm run draft` — cenas e legendas se reposicionam sozinhas pelos timestamps.
+Mudou uma fala? Edite `scripts/roteiro.mjs`, rode `npm run vozes` (regera a tomada inteira do narrador) e `npm run draft` — cenas e legendas se reposicionam pelos timestamps.
 
 ## Mapa de cenas
 | Tempo | Cena | Fala |
 |---|---|---|
 | 0–4.6 | Cena do crime (fita, sirenes, título) | Caso 047. Um cliente desapareceu. |
 | 4.6–8 | Dossiê da vítima | A vítima: Marcos. Doze anos de mercado. |
-| 8–11 | Depoimento + direct | (Marcos) Ele pediu orçamento no direct… e sumiu. |
-| 11–17.2 | CCTV: busca → perfil → 4s → SAIU | Pesquisou no Google… quatro segundos… e saiu. |
+| 8–11.95 | Depoimento + direct | (Marcos) Ele pediu orçamento no direct… e sumiu. |
+| 11.95–17.2 | CCTV: busca → perfil → 4s → SAIU | Pesquisou no Google… quatro segundos… e saiu. |
 | 17.2–21.2 | Quadro de evidências | Seis minutos depois, fechou com o concorrente. |
 | 21.2–24 | Virada (preto) | Mas ninguém roubou esse cliente. |
 | 24–29 | "Ele foi entregue" + 3 falhas | …sem site, sem prova, sem caminho. |
