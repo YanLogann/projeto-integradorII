@@ -1,0 +1,1035 @@
+{
+  "fps": 30,
+  "voices": {
+    "masculina": {
+      "label": "Masculina firme — Márcio Duarte",
+      "voiceId": "cXmaMIwfUQ3FpdM3KmoB",
+      "total": 28,
+      "track": "/voice/masculina/full.wav",
+      "scenes": [
+        {
+          "id": "gancho",
+          "start": 0,
+          "end": 2,
+          "audio": "/voice/masculina/gancho.mp3",
+          "audioOffset": 0.15,
+          "audioDuration": 1.228,
+          "words": [
+            {
+              "w": "Só",
+              "start": 0.15,
+              "end": 0.39
+            },
+            {
+              "w": "no",
+              "start": 0.47,
+              "end": 0.55
+            },
+            {
+              "w": "Instagram?",
+              "start": 0.57,
+              "end": 1.228
+            }
+          ]
+        },
+        {
+          "id": "dor",
+          "start": 2,
+          "end": 7,
+          "audio": "/voice/masculina/dor.mp3",
+          "audioOffset": 2.15,
+          "audioDuration": 4.754,
+          "words": [
+            {
+              "w": "Seu",
+              "start": 2.15,
+              "end": 2.31
+            },
+            {
+              "w": "cliente",
+              "start": 2.39,
+              "end": 2.79
+            },
+            {
+              "w": "te",
+              "start": 2.87,
+              "end": 2.95
+            },
+            {
+              "w": "procura",
+              "start": 3.03,
+              "end": 3.35
+            },
+            {
+              "w": "no",
+              "start": 3.43,
+              "end": 3.51
+            },
+            {
+              "w": "Google",
+              "start": 3.59,
+              "end": 3.99
+            },
+            {
+              "w": "e",
+              "start": 4.07,
+              "end": 4.15
+            },
+            {
+              "w": "não",
+              "start": 4.19,
+              "end": 4.31
+            },
+            {
+              "w": "acha",
+              "start": 4.39,
+              "end": 4.71
+            },
+            {
+              "w": "nada.",
+              "start": 4.79,
+              "end": 5.55
+            },
+            {
+              "w": "Só",
+              "start": 5.59,
+              "end": 5.71
+            },
+            {
+              "w": "o",
+              "start": 5.75,
+              "end": 5.83
+            },
+            {
+              "w": "concorrente.",
+              "start": 5.85,
+              "end": 6.558
+            }
+          ]
+        },
+        {
+          "id": "virada",
+          "start": 7,
+          "end": 17,
+          "audio": "/voice/masculina/virada.mp3",
+          "audioOffset": 7.15,
+          "audioDuration": 8.594,
+          "words": [
+            {
+              "w": "A",
+              "start": 7.15,
+              "end": 7.31
+            },
+            {
+              "w": "Codrian",
+              "start": 7.43,
+              "end": 7.79
+            },
+            {
+              "w": "transforma",
+              "start": 7.87,
+              "end": 8.39
+            },
+            {
+              "w": "seu",
+              "start": 8.43,
+              "end": 8.59
+            },
+            {
+              "w": "perfil",
+              "start": 8.79,
+              "end": 8.99
+            },
+            {
+              "w": "num",
+              "start": 9.11,
+              "end": 9.23
+            },
+            {
+              "w": "site",
+              "start": 9.31,
+              "end": 9.63
+            },
+            {
+              "w": "completo:",
+              "start": 9.71,
+              "end": 10.777
+            },
+            {
+              "w": "cardápio,",
+              "start": 10.883,
+              "end": 11.39
+            },
+            {
+              "w": "endereço,",
+              "start": 11.47,
+              "end": 12.23
+            },
+            {
+              "w": "avaliações",
+              "start": 12.27,
+              "end": 13.15
+            },
+            {
+              "w": "e",
+              "start": 13.23,
+              "end": 13.27
+            },
+            {
+              "w": "um",
+              "start": 13.31,
+              "end": 13.39
+            },
+            {
+              "w": "botão",
+              "start": 13.51,
+              "end": 13.79
+            },
+            {
+              "w": "direto",
+              "start": 13.99,
+              "end": 14.27
+            },
+            {
+              "w": "pro",
+              "start": 14.35,
+              "end": 14.51
+            },
+            {
+              "w": "seu",
+              "start": 14.59,
+              "end": 14.75
+            },
+            {
+              "w": "WhatsApp.",
+              "start": 14.77,
+              "end": 15.408
+            }
+          ]
+        },
+        {
+          "id": "serie",
+          "start": 17,
+          "end": 23,
+          "audio": "/voice/masculina/serie.mp3",
+          "audioOffset": 17.15,
+          "audioDuration": 4.362,
+          "words": [
+            {
+              "w": "Olha",
+              "start": 17.15,
+              "end": 17.39
+            },
+            {
+              "w": "quem",
+              "start": 17.43,
+              "end": 17.55
+            },
+            {
+              "w": "saiu",
+              "start": 17.63,
+              "end": 18.03
+            },
+            {
+              "w": "só",
+              "start": 18.11,
+              "end": 18.27
+            },
+            {
+              "w": "do",
+              "start": 18.31,
+              "end": 18.35
+            },
+            {
+              "w": "Instagram",
+              "start": 18.43,
+              "end": 19.07
+            },
+            {
+              "w": "e",
+              "start": 19.15,
+              "end": 19.23
+            },
+            {
+              "w": "passou",
+              "start": 19.35,
+              "end": 19.55
+            },
+            {
+              "w": "a",
+              "start": 19.603,
+              "end": 19.657
+            },
+            {
+              "w": "ser",
+              "start": 19.71,
+              "end": 19.79
+            },
+            {
+              "w": "encontrado",
+              "start": 19.87,
+              "end": 20.43
+            },
+            {
+              "w": "no",
+              "start": 20.51,
+              "end": 20.59
+            },
+            {
+              "w": "Google.",
+              "start": 20.95,
+              "end": 21.47
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "start": 23,
+          "end": 28,
+          "audio": "/voice/masculina/cta.mp3",
+          "audioOffset": 23.15,
+          "audioDuration": 4.519,
+          "words": [
+            {
+              "w": "Segue",
+              "start": 23.15,
+              "end": 23.47
+            },
+            {
+              "w": "a",
+              "start": 23.55,
+              "end": 23.63
+            },
+            {
+              "w": "Codrian.",
+              "start": 23.71,
+              "end": 24.59
+            },
+            {
+              "w": "Seu",
+              "start": 24.67,
+              "end": 24.83
+            },
+            {
+              "w": "próximo",
+              "start": 24.91,
+              "end": 25.23
+            },
+            {
+              "w": "cliente",
+              "start": 25.31,
+              "end": 25.79
+            },
+            {
+              "w": "tá",
+              "start": 25.87,
+              "end": 25.95
+            },
+            {
+              "w": "te",
+              "start": 26.03,
+              "end": 26.11
+            },
+            {
+              "w": "procurando",
+              "start": 26.19,
+              "end": 26.67
+            },
+            {
+              "w": "agora.",
+              "start": 26.69,
+              "end": 27.359
+            }
+          ]
+        }
+      ]
+    },
+    "feminina": {
+      "label": "Feminina clara — Christine",
+      "voiceId": "TOXnXBKJSHqTwwqoWW0D",
+      "total": 28.016,
+      "track": "/voice/feminina/full.wav",
+      "scenes": [
+        {
+          "id": "gancho",
+          "start": 0,
+          "end": 2,
+          "audio": "/voice/feminina/gancho.mp3",
+          "audioOffset": 0.15,
+          "audioDuration": 1.228,
+          "words": [
+            {
+              "w": "Só",
+              "start": 0.15,
+              "end": 0.39
+            },
+            {
+              "w": "no",
+              "start": 0.47,
+              "end": 0.51
+            },
+            {
+              "w": "Instagram?",
+              "start": 0.53,
+              "end": 1.166
+            }
+          ]
+        },
+        {
+          "id": "dor",
+          "start": 2,
+          "end": 7.016,
+          "audio": "/voice/feminina/dor.mp3",
+          "audioOffset": 2.15,
+          "audioDuration": 5.068,
+          "words": [
+            {
+              "w": "Seu",
+              "start": 2.15,
+              "end": 2.39
+            },
+            {
+              "w": "cliente",
+              "start": 2.59,
+              "end": 2.79
+            },
+            {
+              "w": "te",
+              "start": 2.87,
+              "end": 2.95
+            },
+            {
+              "w": "procura",
+              "start": 3.03,
+              "end": 3.35
+            },
+            {
+              "w": "no",
+              "start": 3.39,
+              "end": 3.43
+            },
+            {
+              "w": "Google",
+              "start": 3.59,
+              "end": 4.07
+            },
+            {
+              "w": "e",
+              "start": 4.11,
+              "end": 4.15
+            },
+            {
+              "w": "não",
+              "start": 4.23,
+              "end": 4.31
+            },
+            {
+              "w": "acha",
+              "start": 4.39,
+              "end": 4.71
+            },
+            {
+              "w": "nada.",
+              "start": 4.79,
+              "end": 5.63
+            },
+            {
+              "w": "Só",
+              "start": 5.67,
+              "end": 5.79
+            },
+            {
+              "w": "o",
+              "start": 5.83,
+              "end": 5.91
+            },
+            {
+              "w": "concorrente.",
+              "start": 5.93,
+              "end": 6.666
+            }
+          ]
+        },
+        {
+          "id": "virada",
+          "start": 7.016,
+          "end": 17.016,
+          "audio": "/voice/feminina/virada.mp3",
+          "audioOffset": 7.166,
+          "audioDuration": 9.247,
+          "words": [
+            {
+              "w": "A",
+              "start": 7.166,
+              "end": 7.246
+            },
+            {
+              "w": "Codrian",
+              "start": 7.326,
+              "end": 7.886
+            },
+            {
+              "w": "transforma",
+              "start": 7.966,
+              "end": 8.486
+            },
+            {
+              "w": "seu",
+              "start": 8.526,
+              "end": 8.686
+            },
+            {
+              "w": "perfil",
+              "start": 8.926,
+              "end": 9.166
+            },
+            {
+              "w": "num",
+              "start": 9.286,
+              "end": 9.406
+            },
+            {
+              "w": "site",
+              "start": 9.606,
+              "end": 9.806
+            },
+            {
+              "w": "completo:",
+              "start": 9.886,
+              "end": 10.966
+            },
+            {
+              "w": "cardápio,",
+              "start": 11.006,
+              "end": 11.806
+            },
+            {
+              "w": "endereço,",
+              "start": 11.886,
+              "end": 12.659
+            },
+            {
+              "w": "avaliações",
+              "start": 12.713,
+              "end": 13.726
+            },
+            {
+              "w": "e",
+              "start": 13.806,
+              "end": 13.833
+            },
+            {
+              "w": "um",
+              "start": 13.859,
+              "end": 13.886
+            },
+            {
+              "w": "botão",
+              "start": 13.966,
+              "end": 14.366
+            },
+            {
+              "w": "direto",
+              "start": 14.566,
+              "end": 14.926
+            },
+            {
+              "w": "pro",
+              "start": 15.006,
+              "end": 15.086
+            },
+            {
+              "w": "seu",
+              "start": 15.126,
+              "end": 15.246
+            },
+            {
+              "w": "WhatsApp.",
+              "start": 15.266,
+              "end": 15.812
+            }
+          ]
+        },
+        {
+          "id": "serie",
+          "start": 17.016,
+          "end": 23.016,
+          "audio": "/voice/feminina/serie.mp3",
+          "audioOffset": 17.166,
+          "audioDuration": 4.754,
+          "words": [
+            {
+              "w": "Olha",
+              "start": 17.166,
+              "end": 17.486
+            },
+            {
+              "w": "quem",
+              "start": 17.566,
+              "end": 17.726
+            },
+            {
+              "w": "saiu",
+              "start": 17.806,
+              "end": 18.206
+            },
+            {
+              "w": "só",
+              "start": 18.286,
+              "end": 18.526
+            },
+            {
+              "w": "do",
+              "start": 18.566,
+              "end": 18.606
+            },
+            {
+              "w": "Instagram",
+              "start": 18.686,
+              "end": 19.326
+            },
+            {
+              "w": "e",
+              "start": 19.406,
+              "end": 19.486
+            },
+            {
+              "w": "passou",
+              "start": 19.566,
+              "end": 19.806
+            },
+            {
+              "w": "a",
+              "start": 19.846,
+              "end": 19.886
+            },
+            {
+              "w": "ser",
+              "start": 19.966,
+              "end": 20.046
+            },
+            {
+              "w": "encontrado",
+              "start": 20.126,
+              "end": 20.686
+            },
+            {
+              "w": "no",
+              "start": 20.806,
+              "end": 20.926
+            },
+            {
+              "w": "Google.",
+              "start": 20.946,
+              "end": 21.395
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "start": 23.016,
+          "end": 28.016,
+          "audio": "/voice/feminina/cta.mp3",
+          "audioOffset": 23.166,
+          "audioDuration": 4.049,
+          "words": [
+            {
+              "w": "Segue",
+              "start": 23.166,
+              "end": 23.486
+            },
+            {
+              "w": "a",
+              "start": 23.526,
+              "end": 23.566
+            },
+            {
+              "w": "Codrian.",
+              "start": 23.646,
+              "end": 24.446
+            },
+            {
+              "w": "Seu",
+              "start": 24.526,
+              "end": 24.646
+            },
+            {
+              "w": "próximo",
+              "start": 24.686,
+              "end": 25.006
+            },
+            {
+              "w": "cliente",
+              "start": 25.086,
+              "end": 25.566
+            },
+            {
+              "w": "tá",
+              "start": 25.646,
+              "end": 25.726
+            },
+            {
+              "w": "te",
+              "start": 25.806,
+              "end": 25.886
+            },
+            {
+              "w": "procurando",
+              "start": 25.966,
+              "end": 26.366
+            },
+            {
+              "w": "agora.",
+              "start": 26.386,
+              "end": 26.961
+            }
+          ]
+        }
+      ]
+    },
+    "jovem": {
+      "label": "Jovem — Davi Leão",
+      "voiceId": "6PhbMr9YjdeOaTNz9y24",
+      "total": 28,
+      "track": "/voice/jovem/full.wav",
+      "scenes": [
+        {
+          "id": "gancho",
+          "start": 0,
+          "end": 2,
+          "audio": "/voice/jovem/gancho.mp3",
+          "audioOffset": 0.15,
+          "audioDuration": 1.071,
+          "words": [
+            {
+              "w": "Só",
+              "start": 0.15,
+              "end": 0.39
+            },
+            {
+              "w": "no",
+              "start": 0.43,
+              "end": 0.47
+            },
+            {
+              "w": "Instagram?",
+              "start": 0.49,
+              "end": 1.023
+            }
+          ]
+        },
+        {
+          "id": "dor",
+          "start": 2,
+          "end": 7,
+          "audio": "/voice/jovem/dor.mp3",
+          "audioOffset": 2.15,
+          "audioDuration": 4.519,
+          "words": [
+            {
+              "w": "Seu",
+              "start": 2.15,
+              "end": 2.31
+            },
+            {
+              "w": "cliente",
+              "start": 2.39,
+              "end": 2.71
+            },
+            {
+              "w": "te",
+              "start": 2.75,
+              "end": 2.79
+            },
+            {
+              "w": "procura",
+              "start": 2.87,
+              "end": 3.19
+            },
+            {
+              "w": "no",
+              "start": 3.27,
+              "end": 3.35
+            },
+            {
+              "w": "Google",
+              "start": 3.43,
+              "end": 3.75
+            },
+            {
+              "w": "e",
+              "start": 3.79,
+              "end": 3.83
+            },
+            {
+              "w": "não",
+              "start": 3.91,
+              "end": 3.99
+            },
+            {
+              "w": "acha",
+              "start": 4.07,
+              "end": 4.39
+            },
+            {
+              "w": "nada.",
+              "start": 4.47,
+              "end": 5.23
+            },
+            {
+              "w": "Só",
+              "start": 5.27,
+              "end": 5.377
+            },
+            {
+              "w": "o",
+              "start": 5.403,
+              "end": 5.43
+            },
+            {
+              "w": "concorrente.",
+              "start": 5.45,
+              "end": 6.073
+            }
+          ]
+        },
+        {
+          "id": "virada",
+          "start": 7,
+          "end": 17,
+          "audio": "/voice/jovem/virada.mp3",
+          "audioOffset": 7.15,
+          "audioDuration": 7.811,
+          "words": [
+            {
+              "w": "A",
+              "start": 7.15,
+              "end": 7.23
+            },
+            {
+              "w": "Codrian",
+              "start": 7.31,
+              "end": 7.71
+            },
+            {
+              "w": "transforma",
+              "start": 7.91,
+              "end": 8.15
+            },
+            {
+              "w": "seu",
+              "start": 8.19,
+              "end": 8.35
+            },
+            {
+              "w": "perfil",
+              "start": 8.55,
+              "end": 8.75
+            },
+            {
+              "w": "num",
+              "start": 8.83,
+              "end": 8.91
+            },
+            {
+              "w": "site",
+              "start": 9.07,
+              "end": 9.23
+            },
+            {
+              "w": "completo:",
+              "start": 9.31,
+              "end": 10.19
+            },
+            {
+              "w": "cardápio,",
+              "start": 10.35,
+              "end": 10.91
+            },
+            {
+              "w": "endereço,",
+              "start": 10.99,
+              "end": 11.79
+            },
+            {
+              "w": "avaliações",
+              "start": 11.87,
+              "end": 12.75
+            },
+            {
+              "w": "e",
+              "start": 12.79,
+              "end": 12.83
+            },
+            {
+              "w": "um",
+              "start": 12.87,
+              "end": 12.91
+            },
+            {
+              "w": "botão",
+              "start": 12.99,
+              "end": 13.23
+            },
+            {
+              "w": "direto",
+              "start": 13.39,
+              "end": 13.71
+            },
+            {
+              "w": "pro",
+              "start": 13.79,
+              "end": 13.87
+            },
+            {
+              "w": "seu",
+              "start": 13.91,
+              "end": 13.99
+            },
+            {
+              "w": "WhatsApp.",
+              "start": 14.01,
+              "end": 14.49
+            }
+          ]
+        },
+        {
+          "id": "serie",
+          "start": 17,
+          "end": 23,
+          "audio": "/voice/jovem/serie.mp3",
+          "audioOffset": 17.15,
+          "audioDuration": 3.971,
+          "words": [
+            {
+              "w": "Olha",
+              "start": 17.15,
+              "end": 17.39
+            },
+            {
+              "w": "quem",
+              "start": 17.443,
+              "end": 17.55
+            },
+            {
+              "w": "saiu",
+              "start": 17.59,
+              "end": 17.95
+            },
+            {
+              "w": "só",
+              "start": 18.03,
+              "end": 18.19
+            },
+            {
+              "w": "do",
+              "start": 18.23,
+              "end": 18.27
+            },
+            {
+              "w": "Instagram",
+              "start": 18.59,
+              "end": 18.91
+            },
+            {
+              "w": "e",
+              "start": 18.95,
+              "end": 18.99
+            },
+            {
+              "w": "passou",
+              "start": 19.07,
+              "end": 19.31
+            },
+            {
+              "w": "a",
+              "start": 19.35,
+              "end": 19.39
+            },
+            {
+              "w": "ser",
+              "start": 19.47,
+              "end": 19.55
+            },
+            {
+              "w": "encontrado",
+              "start": 19.59,
+              "end": 20.11
+            },
+            {
+              "w": "no",
+              "start": 20.19,
+              "end": 20.27
+            },
+            {
+              "w": "Google.",
+              "start": 20.29,
+              "end": 20.703
+            }
+          ]
+        },
+        {
+          "id": "cta",
+          "start": 23,
+          "end": 28,
+          "audio": "/voice/jovem/cta.mp3",
+          "audioOffset": 23.15,
+          "audioDuration": 3.788,
+          "words": [
+            {
+              "w": "Segue",
+              "start": 23.15,
+              "end": 23.39
+            },
+            {
+              "w": "a",
+              "start": 23.47,
+              "end": 23.55
+            },
+            {
+              "w": "Codrian.",
+              "start": 23.71,
+              "end": 24.35
+            },
+            {
+              "w": "Seu",
+              "start": 24.43,
+              "end": 24.55
+            },
+            {
+              "w": "próximo",
+              "start": 24.59,
+              "end": 24.91
+            },
+            {
+              "w": "cliente",
+              "start": 24.99,
+              "end": 25.39
+            },
+            {
+              "w": "tá",
+              "start": 25.47,
+              "end": 25.55
+            },
+            {
+              "w": "te",
+              "start": 25.59,
+              "end": 25.63
+            },
+            {
+              "w": "procurando",
+              "start": 25.71,
+              "end": 26.19
+            },
+            {
+              "w": "agora.",
+              "start": 26.21,
+              "end": 26.719
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "default": "masculina"
+}

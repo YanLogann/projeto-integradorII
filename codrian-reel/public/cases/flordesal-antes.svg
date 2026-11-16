@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="448" height="600" viewBox="0 0 448 600">
+<rect width="448" height="600" fill="#000"/>
+<circle cx="70" cy="76" r="44" fill="#b98d6a" stroke="#e8605b" stroke-width="5"/>
+<text x="132" y="68" font-family="Arial" font-weight="700" font-size="24" fill="#fff">atelie.flordesal</text>
+<text x="132" y="100" font-family="Arial" font-size="19" fill="#999">pedidos por DM</text>
+<rect x="12" y="150" width="136" height="136" fill="#d9c3a5"/><rect x="156" y="150" width="136" height="136" fill="#b98d6a"/><rect x="300" y="150" width="136" height="136" fill="#e9dccb"/><rect x="12" y="294" width="136" height="136" fill="#a5b09a"/><rect x="156" y="294" width="136" height="136" fill="#cfa98a"/><rect x="300" y="294" width="136" height="136" fill="#efe6da"/>
+<rect x="12" y="450" width="424" height="120" rx="12" fill="#151515"/>
+<text x="224" y="520" text-anchor="middle" font-family="Arial" font-size="22" fill="#777">só Instagram · sem site</text>
+</svg>

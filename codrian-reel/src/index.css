@@ -1,0 +1,55 @@
+@import '@fontsource-variable/archivo/wdth.css';
+
+:root {
+  --bg: #0b0b0c;
+  --ink: #f5f3ee;
+  --muted: #a3a09a;
+  --line: #2a2a2d;
+  --panel: #161618;
+  --red: #ff3b2f;
+  --brand: #d2ff3c;      /* acento Codrian (provisório) */
+  --brand-ink: #0b0b0c;
+  --wa: #25d366;
+  --paper: #fbfaf7;
+  --paper-ink: #151515;
+  --font: 'Archivo Variable', system-ui, sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body, #root { height: 100%; background: #000; overflow: hidden; }
+body { font-family: var(--font); color: var(--ink); -webkit-font-smoothing: antialiased; }
+
+.viewport { position: fixed; inset: 0; display: grid; place-items: center; }
+.stage {
+  position: absolute; left: 50%; top: 50%;
+  width: 1080px; height: 1920px;
+  transform-origin: center;
+  background: var(--bg);
+  overflow: hidden;
+}
+.scene { position: absolute; inset: 0; }
+.safe {
+  position: absolute; left: 72px; right: 72px; top: 250px; bottom: 400px;
+}
+.condensed { font-stretch: 72%; }
+.debug-safe { position: absolute; left: 0; right: 0; pointer-events: none; background: repeating-linear-gradient(45deg, #ff3b2f33 0 12px, transparent 12px 24px); }
+
+/* legenda */
+.captions {
+  position: absolute; left: 72px; right: 72px; bottom: 420px; height: 210px;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.cap-line {
+  font-weight: 800; font-size: 66px; line-height: 1.08; letter-spacing: -0.01em;
+  text-align: center; padding: 14px 28px 18px; border-radius: 22px;
+  background: rgba(11, 11, 12, 0.86);
+  max-width: 100%;
+}
+.cap-word { color: var(--ink); }
+.cap-word.on { color: var(--brand); }
+
+/* controles do preview (fora do palco) */
+.controls {
+  position: fixed; left: 12px; bottom: 12px; z-index: 10; display: flex; gap: 8px; align-items: center;
+  font: 14px system-ui; color: #ddd; background: #000c; padding: 8px 10px; border-radius: 10px;
+}
+.controls button, .controls select { font: inherit; padding: 4px 10px; }

@@ -1,0 +1,33 @@
+{
+  "name": "codrian-reel",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "voice": "NODE_USE_ENV_PROXY=1 node --no-warnings scripts/gen-voice.mjs",
+    "voice:force": "NODE_USE_ENV_PROXY=1 node --no-warnings scripts/gen-voice.mjs --force",
+    "cases": "node scripts/gen-cases.mjs",
+    "render:preview": "node scripts/render.mjs --voice=all --quality=low --mode=frames",
+    "render": "node scripts/render.mjs --quality=high --mode=frames",
+    "render:record": "node scripts/render.mjs --quality=high --mode=record"
+  },
+  "dependencies": {
+    "@fontsource-variable/archivo": "^5.3.0",
+    "motion": "^14.14.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "oxlint": "^1.90.0",
+    "typescript": "~7.0.2",
+    "vite": "^8.3.6"
+  }
+}
