@@ -42,9 +42,10 @@ async function preparePage(page, voice) {
   await page.evaluate(async () => {
     await document.fonts.ready
     await Promise.all(
-      ['navalha', 'pettoca', 'flordesal'].flatMap((s) => ['antes', 'depois'].map((k) => {
-        const img = new Image(); img.src = `/cases/${s}-${k}.svg`; return img.decode().catch(() => {})
-      })),
+      [
+        ...['navalha', 'pettoca', 'flordesal'].flatMap((s) => ['antes', 'depois'].map((k) => `/cases/${s}-${k}.svg`)),
+        '/brand/fundo-rede-story.jpg', '/brand/codrian-avatar-redondo.svg',
+      ].map((src) => { const img = new Image(); img.src = src; return img.decode().catch(() => {}) }),
     )
   })
 }

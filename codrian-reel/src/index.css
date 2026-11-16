@@ -1,53 +1,61 @@
-@import '@fontsource-variable/archivo/wdth.css';
+/* Fontes e cores da ID visual Codrian (artefato "Codrian - ID Visual") */
+@font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-400.woff2') format('woff2'); font-weight: 400; font-display: block; }
+@font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-500.woff2') format('woff2'); font-weight: 500; font-display: block; }
+@font-face { font-family: 'DM Sans'; src: url('./fonts/DMSans-700.woff2') format('woff2'); font-weight: 700; font-display: block; }
+@font-face { font-family: 'Silkscreen'; src: url('./fonts/Silkscreen-400.woff2') format('woff2'); font-weight: 400; font-display: block; }
 
 :root {
-  --bg: #0b0b0c;
-  --ink: #f5f3ee;
-  --muted: #a3a09a;
-  --line: #2a2a2d;
-  --panel: #161618;
-  --red: #ff3b2f;
-  --brand: #d2ff3c;      /* acento Codrian (provisório) */
-  --brand-ink: #0b0b0c;
-  --wa: #25d366;
-  --paper: #fbfaf7;
-  --paper-ink: #151515;
-  --font: 'Archivo Variable', system-ui, sans-serif;
+  /* marca */
+  --void: #100c1c;
+  --deep: #271942;
+  --violet: #6938e8;
+  --violet-hi: #8b6cff;
+  --lime: #b7ff4a;        /* a faísca: um elemento por cena */
+  --ink: #f4f1ff;
+  --mist: #cfc6ee;
+  --muted: #8e83b8;
+  --line: #8b6cff40;
+  /* fora da marca, só onde o roteiro pede */
+  --red: #ff4d4d;         /* "SÓ" do gancho e etiqueta do concorrente */
+  --wa: #25d366;          /* botão do WhatsApp (é a cor do WhatsApp) */
+  --paper: #ffffff;       /* página de busca e site do cliente */
+  --paper-ink: #1b1726;
+  --ease-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --font: 'DM Sans', system-ui, sans-serif;
+  --pixel: 'Silkscreen', ui-monospace, monospace;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body, #root { height: 100%; background: #000; overflow: hidden; }
 body { font-family: var(--font); color: var(--ink); -webkit-font-smoothing: antialiased; }
 
-.viewport { position: fixed; inset: 0; display: grid; place-items: center; }
+.viewport { position: fixed; inset: 0; }
 .stage {
   position: absolute; left: 50%; top: 50%;
   width: 1080px; height: 1920px;
   transform-origin: center;
-  background: var(--bg);
+  background: var(--void);
   overflow: hidden;
 }
 .scene { position: absolute; inset: 0; }
-.safe {
-  position: absolute; left: 72px; right: 72px; top: 250px; bottom: 400px;
-}
-.condensed { font-stretch: 72%; }
-.debug-safe { position: absolute; left: 0; right: 0; pointer-events: none; background: repeating-linear-gradient(45deg, #ff3b2f33 0 12px, transparent 12px 24px); }
+.safe { position: absolute; left: 72px; right: 72px; top: 250px; bottom: 400px; }
+.title { font-weight: 700; letter-spacing: -0.045em; line-height: 1.02; }
+.pixel { font-family: var(--pixel); letter-spacing: 0.08em; text-transform: uppercase; }
+.debug-safe { position: absolute; left: 0; right: 0; pointer-events: none; background: repeating-linear-gradient(45deg, #ff4d4d33 0 12px, transparent 12px 24px); }
 
-/* legenda */
+/* legenda: palavra por palavra, palavra falada em lima (padrão do vídeo de apresentação) */
 .captions {
   position: absolute; left: 72px; right: 72px; bottom: 420px; height: 210px;
   display: flex; align-items: flex-end; justify-content: center;
 }
 .cap-line {
-  font-weight: 800; font-size: 66px; line-height: 1.08; letter-spacing: -0.01em;
-  text-align: center; padding: 14px 28px 18px; border-radius: 22px;
-  background: rgba(11, 11, 12, 0.86);
+  font-weight: 700; font-size: 66px; line-height: 1.1; letter-spacing: -0.02em;
+  text-align: center; padding: 14px 30px 20px; border-radius: 26px;
+  background: rgba(16, 12, 28, 0.9); border: 2px solid var(--line);
   max-width: 100%;
 }
 .cap-word { color: var(--ink); }
-.cap-word.on { color: var(--brand); }
+.cap-word.on { color: var(--lime); }
 
-/* controles do preview (fora do palco) */
 .controls {
   position: fixed; left: 12px; bottom: 12px; z-index: 10; display: flex; gap: 8px; align-items: center;
   font: 14px system-ui; color: #ddd; background: #000c; padding: 8px 10px; border-radius: 10px;

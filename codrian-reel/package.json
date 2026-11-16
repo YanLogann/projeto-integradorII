@@ -16,7 +16,6 @@
     "render:record": "node scripts/render.mjs --quality=high --mode=record"
   },
   "dependencies": {
-    "@fontsource-variable/archivo": "^5.3.0",
     "motion": "^14.14.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"

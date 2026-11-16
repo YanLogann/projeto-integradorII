@@ -57,14 +57,11 @@ export function Virada({ sc }: { sc: SceneTiming }) {
   return (
     <div className="scene">
       <div className="safe" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 10 }}>
-        <motion.div
-          className="condensed"
-          style={{ opacity: labelOp, fontSize: 64, fontWeight: 900, letterSpacing: '-0.01em', height: 84, marginBottom: 14 }}
-        >
-          PERFIL <span style={{ color: 'var(--brand)' }}>→ SITE</span>
+        <motion.div className="pixel" style={{ opacity: labelOp, fontSize: 40, color: 'var(--mist)', height: 70, marginBottom: 14, marginTop: 8 }}>
+          do perfil ao site
         </motion.div>
 
-        <motion.div style={{ ...frame, position: 'relative', width: 840, height: 920 }}>
+        <motion.div style={{ ...frame, position: 'relative', width: 840, height: 920, borderRadius: 44, boxShadow: '0 0 80px 0 rgba(105,56,232,0.55)' }}>
           {/* ---------- PERFIL (antes) */}
           <motion.div
             style={{ ...igStyle, position: 'absolute', inset: 0, borderRadius: 44, background: '#000', border: '3px solid var(--line)', overflow: 'hidden', padding: 36 }}
@@ -106,7 +103,7 @@ export function Virada({ sc }: { sc: SceneTiming }) {
 
             <div style={{ padding: '26px 40px 0', display: 'flex', flexDirection: 'column', gap: 22 }}>
               <motion.div style={hero}>
-                <div style={{ fontSize: 60, fontWeight: 900, lineHeight: 1.0, letterSpacing: '-0.025em' }} className="condensed">{COPY.virada.heroTitle}</div>
+                <div className="title" style={{ fontSize: 60, lineHeight: 1.0 }} >{COPY.virada.heroTitle}</div>
                 <div style={{ fontSize: 30, color: '#55534d', marginTop: 10 }}>{COPY.virada.heroSub}</div>
               </motion.div>
 

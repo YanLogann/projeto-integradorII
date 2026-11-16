@@ -1,9 +1,11 @@
 // FONTE ÚNICA do roteiro. Textos na tela, narração e vozes saem daqui.
 // gen-voice.mjs importa este arquivo (Node 22+ roda .ts com type-stripping).
 
+// ID visual: artefato "Codrian - ID Visual" (logo, cores, fontes, motion)
 export const BRAND = {
   name: 'Codrian',
-  handle: '@codrian', // TODO: confirmar o @ real da Codrian
+  handle: '@codrian_ofc',
+  signature: ['Sites que colocam', 'sua empresa no mapa.'],
 }
 
 // Loja fictícia usada na demonstração
@@ -32,17 +34,17 @@ export const SCENES: SceneScript[] = [
   {
     id: 'dor',
     minDuration: 5,
-    narration: 'Seu cliente te procura no Google e não acha nada. Só o concorrente.',
+    narration: 'Seu cliente te procura no Google e não vê uma apresentação da sua empresa. Só a do concorrente.',
   },
   {
     id: 'virada',
-    minDuration: 10,
+    minDuration: 9,
     narration:
       'A Codrian transforma seu perfil num site completo: cardápio, endereço, avaliações e um botão direto pro seu WhatsApp.',
   },
   {
     id: 'serie',
-    minDuration: 6,
+    minDuration: 5.4,
     narration: 'Olha quem saiu só do Instagram e passou a ser encontrado no Google.',
   },
   {
@@ -57,8 +59,13 @@ export const COPY = {
   gancho: { pre: 'SÓ', post: 'NO INSTAGRAM?' },
   dor: {
     query: STORE.name,
-    empty: 'Nenhum resultado para',
-    emptyHint: 'Verifique a ortografia ou tente outras palavras.',
+    results: [
+      { site: 'instagram.com › docelima.confeitaria', title: 'Doce Lima (@docelima.confeitaria) • Instagram', snippet: '48 posts · 1.240 seguidores' },
+      { site: 'guiadobairro.com.br › campinas', title: 'Doce Lima Confeitaria – Campinas, SP', snippet: 'Telefone e horário não informados.' },
+    ],
+    missingTitle: 'Nenhuma apresentação da empresa',
+    missing: ['Sem site', 'sem cardápio', 'sem fotos dos produtos'],
+    rivalHas: ['Site', 'Cardápio', 'Fotos', 'WhatsApp'],
   },
   virada: {
     heroTitle: 'Bolos que viram memória.',
@@ -75,15 +82,15 @@ export const COPY = {
     whatsapp: 'Pedir no WhatsApp',
   },
   serie: {
-    title: 'ANTES → DEPOIS',
+    title: ['Antes', 'depois'],
     cases: [
-      { name: 'Barbearia Navalha', before: '/cases/navalha-antes.svg', after: '/cases/navalha-depois.svg', result: '+38 agendamentos/mês' },
-      { name: 'Pet Toca', before: '/cases/pettoca-antes.svg', after: '/cases/pettoca-depois.svg', result: '1º no Google do bairro' },
-      { name: 'Ateliê Flor de Sal', before: '/cases/flordesal-antes.svg', after: '/cases/flordesal-depois.svg', result: '3× mais pedidos' },
+      { name: 'Barbearia Navalha', before: '/cases/navalha-antes.svg', after: '/cases/navalha-depois.svg', result: 'Agenda online + WhatsApp' },
+      { name: 'Pet Toca', before: '/cases/pettoca-antes.svg', after: '/cases/pettoca-depois.svg', result: 'Serviços, preços e mapa' },
+      { name: 'Ateliê Flor de Sal', before: '/cases/flordesal-antes.svg', after: '/cases/flordesal-depois.svg', result: 'Catálogo com pedido no WhatsApp' },
     ],
-    disclaimer: 'Casos ilustrativos',
+    disclaimer: 'CASOS ILUSTRATIVOS',
   },
-  cta: { follow: 'Seguir', line: 'Seu site sai do perfil.' },
+  cta: { follow: 'Seguir', following: 'Seguindo' },
 }
 
 // Vozes para comparação (biblioteca ElevenLabs, sotaque brasileiro)

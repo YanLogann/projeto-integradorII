@@ -79,30 +79,35 @@ function probeDuration(file) {
   return parseFloat(out.toString())
 }
 
-/** fim real da fala no mp3: início do último trecho de silêncio que vai até o fim */
-function detectSpeechEnd(file, dur) {
-  // silencedetect escreve no stderr
+/** trechos de silêncio do mp3 [início, fim] (ffmpeg silencedetect, no stderr) */
+function detectSilences(file, dur) {
   const err = spawnSync('ffmpeg', ['-v', 'info', '-i', file, '-af', 'silencedetect=n=-35dB:d=0.08', '-f', 'null', '-']).stderr.toString()
   const starts = [...err.matchAll(/silence_start: ([\d.]+)/g)].map((m) => +m[1])
   const ends = [...err.matchAll(/silence_end: ([\d.]+)/g)].map((m) => +m[1])
-  // silêncio final = um silence_start sem silence_end depois dele
-  const last = starts.at(-1)
-  return last !== undefined && (ends.length < starts.length || ends.at(-1) >= dur - 0.1) ? last : dur
+  return starts.map((s0, i) => [s0, ends[i] ?? dur])
+}
+/** fim real da fala: início do silêncio que vai até o fim do arquivo */
+function speechEndFrom(silences, dur) {
+  const last = silences.at(-1)
+  return last && last[1] >= dur - 0.1 ? last[0] : dur
 }
 
 /**
- * O alinhamento "with-timestamps" estica a ÚLTIMA palavra (medido: até 0,5s de atraso
- * vs. o áudio). Ancoramos ela logo após a penúltima e terminamos no fim real da fala.
+ * O alinhamento "with-timestamps" estica a palavra que fecha frase (medido: 0,4–0,5s de atraso
+ * contra a transcrição do áudio). Para cada palavra com pontuação final, se um silêncio real começa
+ * antes do fim que o alinhamento diz, ancoramos a palavra logo após a anterior e terminamos no silêncio.
  */
-function fixTail(words, speechEnd) {
-  if (!words.length) return words
+function fixStretched(words, silences, speechEnd) {
   const out = words.map((w) => ({ ...w }))
-  const last = out.at(-1)
-  const prevEnd = out.at(-2)?.end ?? 0
-  if (last.end > speechEnd + 0.05) {
-    last.start = Math.min(last.start, prevEnd + 0.02)
-    last.end = Math.max(last.start + 0.1, speechEnd)
-  }
+  out.forEach((w, i) => {
+    const isLast = i === out.length - 1
+    if (!isLast && !/[.?!:]$/.test(w.w)) return
+    const prevEnd = out[i - 1]?.end ?? 0
+    const sil = isLast ? [speechEnd] : silences.find(([s0]) => s0 > prevEnd + 0.1 && s0 < w.end - 0.05)
+    if (!sil || w.end <= sil[0] + 0.05) return
+    w.start = Math.min(w.start, prevEnd + 0.02)
+    w.end = Math.max(w.start + 0.1, sil[0])
+  })
   return out
 }
 
@@ -132,8 +137,9 @@ for (const key of voiceKeys) {
       await fs.writeFile(align, JSON.stringify(words))
     }
     const audioDur = probeDuration(mp3)
-    const speechEnd = detectSpeechEnd(mp3, audioDur)
-    words = fixTail(words, speechEnd)
+    const silences = detectSilences(mp3, audioDur)
+    const speechEnd = speechEndFrom(silences, audioDur)
+    words = fixStretched(words, silences, speechEnd)
     const duration = Math.max(sc.minDuration, TTS.lead + speechEnd + TTS.tail)
     scenes.push({
       id: sc.id,

@@ -4,7 +4,7 @@
     "masculina": {
       "label": "Masculina firme — Márcio Duarte",
       "voiceId": "cXmaMIwfUQ3FpdM3KmoB",
-      "total": 28,
+      "total": 27.709,
       "track": "/voice/masculina/full.wav",
       "scenes": [
         {
@@ -35,10 +35,10 @@
         {
           "id": "dor",
           "start": 2,
-          "end": 7,
+          "end": 8.309,
           "audio": "/voice/masculina/dor.mp3",
           "audioOffset": 2.15,
-          "audioDuration": 4.754,
+          "audioDuration": 6.191,
           "words": [
             {
               "w": "Seu",
@@ -48,297 +48,322 @@
             {
               "w": "cliente",
               "start": 2.39,
-              "end": 2.79
+              "end": 2.71
             },
             {
               "w": "te",
-              "start": 2.87,
-              "end": 2.95
+              "start": 2.79,
+              "end": 2.87
             },
             {
               "w": "procura",
-              "start": 3.03,
-              "end": 3.35
+              "start": 2.99,
+              "end": 3.27
             },
             {
               "w": "no",
-              "start": 3.43,
+              "start": 3.35,
               "end": 3.51
             },
             {
               "w": "Google",
-              "start": 3.59,
+              "start": 3.75,
               "end": 3.99
             },
             {
               "w": "e",
-              "start": 4.07,
-              "end": 4.15
+              "start": 4.03,
+              "end": 4.07
             },
             {
               "w": "não",
-              "start": 4.19,
-              "end": 4.31
+              "start": 4.15,
+              "end": 4.39
             },
             {
-              "w": "acha",
-              "start": 4.39,
+              "w": "vê",
+              "start": 4.47,
+              "end": 4.63
+            },
+            {
+              "w": "uma",
+              "start": 4.67,
               "end": 4.71
             },
             {
-              "w": "nada.",
+              "w": "apresentação",
               "start": 4.79,
-              "end": 5.55
+              "end": 5.51
+            },
+            {
+              "w": "da",
+              "start": 5.59,
+              "end": 5.67
+            },
+            {
+              "w": "sua",
+              "start": 5.697,
+              "end": 5.75
+            },
+            {
+              "w": "empresa.",
+              "start": 5.77,
+              "end": 6.351
             },
             {
               "w": "Só",
-              "start": 5.59,
-              "end": 5.71
+              "start": 6.79,
+              "end": 6.95
             },
             {
-              "w": "o",
-              "start": 5.75,
-              "end": 5.83
+              "w": "a",
+              "start": 7.03,
+              "end": 7.07
+            },
+            {
+              "w": "do",
+              "start": 7.11,
+              "end": 7.19
             },
             {
               "w": "concorrente.",
-              "start": 5.85,
-              "end": 6.558
+              "start": 7.21,
+              "end": 7.959
             }
           ]
         },
         {
           "id": "virada",
-          "start": 7,
-          "end": 17,
+          "start": 8.309,
+          "end": 17.309,
           "audio": "/voice/masculina/virada.mp3",
-          "audioOffset": 7.15,
+          "audioOffset": 8.459,
           "audioDuration": 8.594,
           "words": [
             {
               "w": "A",
-              "start": 7.15,
-              "end": 7.31
+              "start": 8.459,
+              "end": 8.619
             },
             {
               "w": "Codrian",
-              "start": 7.43,
-              "end": 7.79
+              "start": 8.739,
+              "end": 9.099
             },
             {
               "w": "transforma",
-              "start": 7.87,
-              "end": 8.39
+              "start": 9.179,
+              "end": 9.699
             },
             {
               "w": "seu",
-              "start": 8.43,
-              "end": 8.59
+              "start": 9.739,
+              "end": 9.899
             },
             {
               "w": "perfil",
-              "start": 8.79,
-              "end": 8.99
+              "start": 10.099,
+              "end": 10.299
             },
             {
               "w": "num",
-              "start": 9.11,
-              "end": 9.23
+              "start": 10.419,
+              "end": 10.539
             },
             {
               "w": "site",
-              "start": 9.31,
-              "end": 9.63
+              "start": 10.619,
+              "end": 10.939
             },
             {
               "w": "completo:",
-              "start": 9.71,
-              "end": 10.777
+              "start": 10.959,
+              "end": 11.724
             },
             {
               "w": "cardápio,",
-              "start": 10.883,
-              "end": 11.39
+              "start": 12.192,
+              "end": 12.699
             },
             {
               "w": "endereço,",
-              "start": 11.47,
-              "end": 12.23
+              "start": 12.779,
+              "end": 13.539
             },
             {
               "w": "avaliações",
-              "start": 12.27,
-              "end": 13.15
+              "start": 13.579,
+              "end": 14.459
             },
             {
               "w": "e",
-              "start": 13.23,
-              "end": 13.27
+              "start": 14.539,
+              "end": 14.579
             },
             {
               "w": "um",
-              "start": 13.31,
-              "end": 13.39
+              "start": 14.619,
+              "end": 14.699
             },
             {
               "w": "botão",
-              "start": 13.51,
-              "end": 13.79
+              "start": 14.819,
+              "end": 15.099
             },
             {
               "w": "direto",
-              "start": 13.99,
-              "end": 14.27
+              "start": 15.299,
+              "end": 15.579
             },
             {
               "w": "pro",
-              "start": 14.35,
-              "end": 14.51
+              "start": 15.659,
+              "end": 15.819
             },
             {
               "w": "seu",
-              "start": 14.59,
-              "end": 14.75
+              "start": 15.899,
+              "end": 16.059
             },
             {
               "w": "WhatsApp.",
-              "start": 14.77,
-              "end": 15.408
+              "start": 16.079,
+              "end": 16.717
             }
           ]
         },
         {
           "id": "serie",
-          "start": 17,
-          "end": 23,
+          "start": 17.309,
+          "end": 22.709,
           "audio": "/voice/masculina/serie.mp3",
-          "audioOffset": 17.15,
+          "audioOffset": 17.459,
           "audioDuration": 4.362,
           "words": [
             {
               "w": "Olha",
-              "start": 17.15,
-              "end": 17.39
+              "start": 17.459,
+              "end": 17.699
             },
             {
               "w": "quem",
-              "start": 17.43,
-              "end": 17.55
+              "start": 17.739,
+              "end": 17.859
             },
             {
               "w": "saiu",
-              "start": 17.63,
-              "end": 18.03
+              "start": 17.939,
+              "end": 18.339
             },
             {
               "w": "só",
-              "start": 18.11,
-              "end": 18.27
+              "start": 18.419,
+              "end": 18.579
             },
             {
               "w": "do",
-              "start": 18.31,
-              "end": 18.35
+              "start": 18.619,
+              "end": 18.659
             },
             {
               "w": "Instagram",
-              "start": 18.43,
-              "end": 19.07
+              "start": 18.739,
+              "end": 19.379
             },
             {
               "w": "e",
-              "start": 19.15,
-              "end": 19.23
+              "start": 19.459,
+              "end": 19.539
             },
             {
               "w": "passou",
-              "start": 19.35,
-              "end": 19.55
+              "start": 19.659,
+              "end": 19.859
             },
             {
               "w": "a",
-              "start": 19.603,
-              "end": 19.657
+              "start": 19.912,
+              "end": 19.966
             },
             {
               "w": "ser",
-              "start": 19.71,
-              "end": 19.79
+              "start": 20.019,
+              "end": 20.099
             },
             {
               "w": "encontrado",
-              "start": 19.87,
-              "end": 20.43
+              "start": 20.179,
+              "end": 20.739
             },
             {
               "w": "no",
-              "start": 20.51,
-              "end": 20.59
+              "start": 20.819,
+              "end": 20.899
             },
             {
               "w": "Google.",
-              "start": 20.95,
-              "end": 21.47
+              "start": 21.259,
+              "end": 21.779
             }
           ]
         },
         {
           "id": "cta",
-          "start": 23,
-          "end": 28,
+          "start": 22.709,
+          "end": 27.709,
           "audio": "/voice/masculina/cta.mp3",
-          "audioOffset": 23.15,
+          "audioOffset": 22.859,
           "audioDuration": 4.519,
           "words": [
             {
               "w": "Segue",
-              "start": 23.15,
-              "end": 23.47
+              "start": 22.859,
+              "end": 23.179
             },
             {
               "w": "a",
-              "start": 23.55,
-              "end": 23.63
+              "start": 23.259,
+              "end": 23.339
             },
             {
               "w": "Codrian.",
-              "start": 23.71,
-              "end": 24.59
+              "start": 23.359,
+              "end": 23.969
             },
             {
               "w": "Seu",
-              "start": 24.67,
-              "end": 24.83
+              "start": 24.379,
+              "end": 24.539
             },
             {
               "w": "próximo",
-              "start": 24.91,
-              "end": 25.23
+              "start": 24.619,
+              "end": 24.939
             },
             {
               "w": "cliente",
-              "start": 25.31,
-              "end": 25.79
+              "start": 25.019,
+              "end": 25.499
             },
             {
               "w": "tá",
-              "start": 25.87,
-              "end": 25.95
+              "start": 25.579,
+              "end": 25.659
             },
             {
               "w": "te",
-              "start": 26.03,
-              "end": 26.11
+              "start": 25.739,
+              "end": 25.819
             },
             {
               "w": "procurando",
-              "start": 26.19,
-              "end": 26.67
+              "start": 25.899,
+              "end": 26.379
             },
             {
               "w": "agora.",
-              "start": 26.69,
-              "end": 27.359
+              "start": 26.399,
+              "end": 27.068
             }
           ]
         }
@@ -347,7 +372,7 @@
     "feminina": {
       "label": "Feminina clara — Christine",
       "voiceId": "TOXnXBKJSHqTwwqoWW0D",
-      "total": 28.016,
+      "total": 28.159,
       "track": "/voice/feminina/full.wav",
       "scenes": [
         {
@@ -378,310 +403,335 @@
         {
           "id": "dor",
           "start": 2,
-          "end": 7.016,
+          "end": 8.614,
           "audio": "/voice/feminina/dor.mp3",
           "audioOffset": 2.15,
-          "audioDuration": 5.068,
+          "audioDuration": 6.609,
           "words": [
             {
               "w": "Seu",
               "start": 2.15,
-              "end": 2.39
+              "end": 2.35
             },
             {
               "w": "cliente",
-              "start": 2.59,
+              "start": 2.39,
               "end": 2.79
             },
             {
               "w": "te",
-              "start": 2.87,
-              "end": 2.95
+              "start": 2.83,
+              "end": 2.87
             },
             {
               "w": "procura",
-              "start": 3.03,
-              "end": 3.35
+              "start": 2.99,
+              "end": 3.27
             },
             {
               "w": "no",
-              "start": 3.39,
-              "end": 3.43
+              "start": 3.35,
+              "end": 3.51
             },
             {
               "w": "Google",
-              "start": 3.59,
-              "end": 4.07
+              "start": 3.75,
+              "end": 3.99
             },
             {
               "w": "e",
-              "start": 4.11,
+              "start": 4.07,
               "end": 4.15
             },
             {
               "w": "não",
-              "start": 4.23,
-              "end": 4.31
+              "start": 4.19,
+              "end": 4.39
             },
             {
-              "w": "acha",
-              "start": 4.39,
-              "end": 4.71
+              "w": "vê",
+              "start": 4.51,
+              "end": 4.63
             },
             {
-              "w": "nada.",
+              "w": "uma",
               "start": 4.79,
-              "end": 5.63
+              "end": 4.95
+            },
+            {
+              "w": "apresentação",
+              "start": 5.03,
+              "end": 5.67
+            },
+            {
+              "w": "da",
+              "start": 5.75,
+              "end": 5.83
+            },
+            {
+              "w": "sua",
+              "start": 5.87,
+              "end": 5.95
+            },
+            {
+              "w": "empresa.",
+              "start": 5.97,
+              "end": 6.07
             },
             {
               "w": "Só",
-              "start": 5.67,
-              "end": 5.79
+              "start": 7.11,
+              "end": 7.27
             },
             {
-              "w": "o",
-              "start": 5.83,
-              "end": 5.91
+              "w": "a",
+              "start": 7.31,
+              "end": 7.35
+            },
+            {
+              "w": "do",
+              "start": 7.43,
+              "end": 7.51
             },
             {
               "w": "concorrente.",
-              "start": 5.93,
-              "end": 6.666
+              "start": 7.53,
+              "end": 8.264
             }
           ]
         },
         {
           "id": "virada",
-          "start": 7.016,
-          "end": 17.016,
+          "start": 8.614,
+          "end": 17.759,
           "audio": "/voice/feminina/virada.mp3",
-          "audioOffset": 7.166,
+          "audioOffset": 8.764,
           "audioDuration": 9.247,
           "words": [
             {
               "w": "A",
-              "start": 7.166,
-              "end": 7.246
+              "start": 8.764,
+              "end": 8.844
             },
             {
               "w": "Codrian",
-              "start": 7.326,
-              "end": 7.886
+              "start": 8.924,
+              "end": 9.484
             },
             {
               "w": "transforma",
-              "start": 7.966,
-              "end": 8.486
+              "start": 9.564,
+              "end": 10.084
             },
             {
               "w": "seu",
-              "start": 8.526,
-              "end": 8.686
+              "start": 10.124,
+              "end": 10.284
             },
             {
               "w": "perfil",
-              "start": 8.926,
-              "end": 9.166
+              "start": 10.524,
+              "end": 10.764
             },
             {
               "w": "num",
-              "start": 9.286,
-              "end": 9.406
+              "start": 10.884,
+              "end": 11.004
             },
             {
               "w": "site",
-              "start": 9.606,
-              "end": 9.806
+              "start": 11.204,
+              "end": 11.404
             },
             {
               "w": "completo:",
-              "start": 9.886,
-              "end": 10.966
+              "start": 11.424,
+              "end": 11.639
             },
             {
               "w": "cardápio,",
-              "start": 11.006,
-              "end": 11.806
+              "start": 12.604,
+              "end": 13.404
             },
             {
               "w": "endereço,",
-              "start": 11.886,
-              "end": 12.659
+              "start": 13.484,
+              "end": 14.257
             },
             {
               "w": "avaliações",
-              "start": 12.713,
-              "end": 13.726
+              "start": 14.311,
+              "end": 15.324
             },
             {
               "w": "e",
-              "start": 13.806,
-              "end": 13.833
+              "start": 15.404,
+              "end": 15.431
             },
             {
               "w": "um",
-              "start": 13.859,
-              "end": 13.886
+              "start": 15.457,
+              "end": 15.484
             },
             {
               "w": "botão",
-              "start": 13.966,
-              "end": 14.366
+              "start": 15.564,
+              "end": 15.964
             },
             {
               "w": "direto",
-              "start": 14.566,
-              "end": 14.926
+              "start": 16.164,
+              "end": 16.524
             },
             {
               "w": "pro",
-              "start": 15.006,
-              "end": 15.086
+              "start": 16.604,
+              "end": 16.684
             },
             {
               "w": "seu",
-              "start": 15.126,
-              "end": 15.246
+              "start": 16.724,
+              "end": 16.844
             },
             {
               "w": "WhatsApp.",
-              "start": 15.266,
-              "end": 15.812
+              "start": 16.864,
+              "end": 17.409
             }
           ]
         },
         {
           "id": "serie",
-          "start": 17.016,
-          "end": 23.016,
+          "start": 17.759,
+          "end": 23.159,
           "audio": "/voice/feminina/serie.mp3",
-          "audioOffset": 17.166,
+          "audioOffset": 17.909,
           "audioDuration": 4.754,
           "words": [
             {
               "w": "Olha",
-              "start": 17.166,
-              "end": 17.486
+              "start": 17.909,
+              "end": 18.229
             },
             {
               "w": "quem",
-              "start": 17.566,
-              "end": 17.726
+              "start": 18.309,
+              "end": 18.469
             },
             {
               "w": "saiu",
-              "start": 17.806,
-              "end": 18.206
+              "start": 18.549,
+              "end": 18.949
             },
             {
               "w": "só",
-              "start": 18.286,
-              "end": 18.526
+              "start": 19.029,
+              "end": 19.269
             },
             {
               "w": "do",
-              "start": 18.566,
-              "end": 18.606
+              "start": 19.309,
+              "end": 19.349
             },
             {
               "w": "Instagram",
-              "start": 18.686,
-              "end": 19.326
+              "start": 19.429,
+              "end": 20.069
             },
             {
               "w": "e",
-              "start": 19.406,
-              "end": 19.486
+              "start": 20.149,
+              "end": 20.229
             },
             {
               "w": "passou",
-              "start": 19.566,
-              "end": 19.806
+              "start": 20.309,
+              "end": 20.549
             },
             {
               "w": "a",
-              "start": 19.846,
-              "end": 19.886
+              "start": 20.589,
+              "end": 20.629
             },
             {
               "w": "ser",
-              "start": 19.966,
-              "end": 20.046
+              "start": 20.709,
+              "end": 20.789
             },
             {
               "w": "encontrado",
-              "start": 20.126,
-              "end": 20.686
+              "start": 20.869,
+              "end": 21.429
             },
             {
               "w": "no",
-              "start": 20.806,
-              "end": 20.926
+              "start": 21.549,
+              "end": 21.669
             },
             {
               "w": "Google.",
-              "start": 20.946,
-              "end": 21.395
+              "start": 21.689,
+              "end": 22.138
             }
           ]
         },
         {
           "id": "cta",
-          "start": 23.016,
-          "end": 28.016,
+          "start": 23.159,
+          "end": 28.159,
           "audio": "/voice/feminina/cta.mp3",
-          "audioOffset": 23.166,
+          "audioOffset": 23.309,
           "audioDuration": 4.049,
           "words": [
             {
               "w": "Segue",
-              "start": 23.166,
-              "end": 23.486
+              "start": 23.309,
+              "end": 23.629
             },
             {
               "w": "a",
-              "start": 23.526,
-              "end": 23.566
+              "start": 23.669,
+              "end": 23.709
             },
             {
               "w": "Codrian.",
-              "start": 23.646,
-              "end": 24.446
+              "start": 23.729,
+              "end": 24.281
             },
             {
               "w": "Seu",
-              "start": 24.526,
-              "end": 24.646
+              "start": 24.669,
+              "end": 24.789
             },
             {
               "w": "próximo",
-              "start": 24.686,
-              "end": 25.006
+              "start": 24.829,
+              "end": 25.149
             },
             {
               "w": "cliente",
-              "start": 25.086,
-              "end": 25.566
+              "start": 25.229,
+              "end": 25.709
             },
             {
               "w": "tá",
-              "start": 25.646,
-              "end": 25.726
+              "start": 25.789,
+              "end": 25.869
             },
             {
               "w": "te",
-              "start": 25.806,
-              "end": 25.886
+              "start": 25.949,
+              "end": 26.029
             },
             {
               "w": "procurando",
-              "start": 25.966,
-              "end": 26.366
+              "start": 26.109,
+              "end": 26.509
             },
             {
               "w": "agora.",
-              "start": 26.386,
-              "end": 26.961
+              "start": 26.529,
+              "end": 27.104
             }
           ]
         }
@@ -690,7 +740,7 @@
     "jovem": {
       "label": "Jovem — Davi Leão",
       "voiceId": "6PhbMr9YjdeOaTNz9y24",
-      "total": 28,
+      "total": 27.277,
       "track": "/voice/jovem/full.wav",
       "scenes": [
         {
@@ -721,15 +771,15 @@
         {
           "id": "dor",
           "start": 2,
-          "end": 7,
+          "end": 7.877,
           "audio": "/voice/jovem/dor.mp3",
           "audioOffset": 2.15,
-          "audioDuration": 4.519,
+          "audioDuration": 5.878,
           "words": [
             {
               "w": "Seu",
               "start": 2.15,
-              "end": 2.31
+              "end": 2.35
             },
             {
               "w": "cliente",
@@ -738,293 +788,318 @@
             },
             {
               "w": "te",
-              "start": 2.75,
-              "end": 2.79
+              "start": 2.79,
+              "end": 2.87
             },
             {
               "w": "procura",
-              "start": 2.87,
+              "start": 2.95,
               "end": 3.19
             },
             {
               "w": "no",
               "start": 3.27,
-              "end": 3.35
+              "end": 3.43
             },
             {
               "w": "Google",
-              "start": 3.43,
-              "end": 3.75
+              "start": 3.67,
+              "end": 3.91
             },
             {
               "w": "e",
-              "start": 3.79,
-              "end": 3.83
-            },
-            {
-              "w": "não",
-              "start": 3.91,
+              "start": 3.95,
               "end": 3.99
             },
             {
-              "w": "acha",
-              "start": 4.07,
-              "end": 4.39
+              "w": "não",
+              "start": 4.03,
+              "end": 4.15
             },
             {
-              "w": "nada.",
-              "start": 4.47,
-              "end": 5.23
+              "w": "vê",
+              "start": 4.23,
+              "end": 4.47
+            },
+            {
+              "w": "uma",
+              "start": 4.55,
+              "end": 4.71
+            },
+            {
+              "w": "apresentação",
+              "start": 4.79,
+              "end": 5.35
+            },
+            {
+              "w": "da",
+              "start": 5.43,
+              "end": 5.51
+            },
+            {
+              "w": "sua",
+              "start": 5.537,
+              "end": 5.59
+            },
+            {
+              "w": "empresa.",
+              "start": 5.61,
+              "end": 6.031
             },
             {
               "w": "Só",
-              "start": 5.27,
-              "end": 5.377
+              "start": 6.55,
+              "end": 6.71
             },
             {
-              "w": "o",
-              "start": 5.403,
-              "end": 5.43
+              "w": "a",
+              "start": 6.75,
+              "end": 6.79
+            },
+            {
+              "w": "do",
+              "start": 6.83,
+              "end": 6.87
             },
             {
               "w": "concorrente.",
-              "start": 5.45,
-              "end": 6.073
+              "start": 6.89,
+              "end": 7.527
             }
           ]
         },
         {
           "id": "virada",
-          "start": 7,
-          "end": 17,
+          "start": 7.877,
+          "end": 16.877,
           "audio": "/voice/jovem/virada.mp3",
-          "audioOffset": 7.15,
+          "audioOffset": 8.027,
           "audioDuration": 7.811,
           "words": [
             {
               "w": "A",
-              "start": 7.15,
-              "end": 7.23
+              "start": 8.027,
+              "end": 8.107
             },
             {
               "w": "Codrian",
-              "start": 7.31,
-              "end": 7.71
+              "start": 8.187,
+              "end": 8.587
             },
             {
               "w": "transforma",
-              "start": 7.91,
-              "end": 8.15
+              "start": 8.787,
+              "end": 9.027
             },
             {
               "w": "seu",
-              "start": 8.19,
-              "end": 8.35
+              "start": 9.067,
+              "end": 9.227
             },
             {
               "w": "perfil",
-              "start": 8.55,
-              "end": 8.75
+              "start": 9.427,
+              "end": 9.627
             },
             {
               "w": "num",
-              "start": 8.83,
-              "end": 8.91
+              "start": 9.707,
+              "end": 9.787
             },
             {
               "w": "site",
-              "start": 9.07,
-              "end": 9.23
+              "start": 9.947,
+              "end": 10.107
             },
             {
               "w": "completo:",
-              "start": 9.31,
-              "end": 10.19
+              "start": 10.127,
+              "end": 10.361
             },
             {
               "w": "cardápio,",
-              "start": 10.35,
-              "end": 10.91
+              "start": 11.227,
+              "end": 11.787
             },
             {
               "w": "endereço,",
-              "start": 10.99,
-              "end": 11.79
+              "start": 11.867,
+              "end": 12.667
             },
             {
               "w": "avaliações",
-              "start": 11.87,
-              "end": 12.75
+              "start": 12.747,
+              "end": 13.627
             },
             {
               "w": "e",
-              "start": 12.79,
-              "end": 12.83
+              "start": 13.667,
+              "end": 13.707
             },
             {
               "w": "um",
-              "start": 12.87,
-              "end": 12.91
+              "start": 13.747,
+              "end": 13.787
             },
             {
               "w": "botão",
-              "start": 12.99,
-              "end": 13.23
+              "start": 13.867,
+              "end": 14.107
             },
             {
               "w": "direto",
-              "start": 13.39,
-              "end": 13.71
+              "start": 14.267,
+              "end": 14.587
             },
             {
               "w": "pro",
-              "start": 13.79,
-              "end": 13.87
+              "start": 14.667,
+              "end": 14.747
             },
             {
               "w": "seu",
-              "start": 13.91,
-              "end": 13.99
+              "start": 14.787,
+              "end": 14.867
             },
             {
               "w": "WhatsApp.",
-              "start": 14.01,
-              "end": 14.49
+              "start": 14.887,
+              "end": 15.367
             }
           ]
         },
         {
           "id": "serie",
-          "start": 17,
-          "end": 23,
+          "start": 16.877,
+          "end": 22.277,
           "audio": "/voice/jovem/serie.mp3",
-          "audioOffset": 17.15,
+          "audioOffset": 17.027,
           "audioDuration": 3.971,
           "words": [
             {
               "w": "Olha",
-              "start": 17.15,
-              "end": 17.39
+              "start": 17.027,
+              "end": 17.267
             },
             {
               "w": "quem",
-              "start": 17.443,
-              "end": 17.55
+              "start": 17.32,
+              "end": 17.427
             },
             {
               "w": "saiu",
-              "start": 17.59,
-              "end": 17.95
+              "start": 17.467,
+              "end": 17.827
             },
             {
               "w": "só",
-              "start": 18.03,
-              "end": 18.19
+              "start": 17.907,
+              "end": 18.067
             },
             {
               "w": "do",
-              "start": 18.23,
-              "end": 18.27
+              "start": 18.107,
+              "end": 18.147
             },
             {
               "w": "Instagram",
-              "start": 18.59,
-              "end": 18.91
+              "start": 18.467,
+              "end": 18.787
             },
             {
               "w": "e",
-              "start": 18.95,
-              "end": 18.99
+              "start": 18.827,
+              "end": 18.867
             },
             {
               "w": "passou",
-              "start": 19.07,
-              "end": 19.31
+              "start": 18.947,
+              "end": 19.187
             },
             {
               "w": "a",
-              "start": 19.35,
-              "end": 19.39
+              "start": 19.227,
+              "end": 19.267
             },
             {
               "w": "ser",
-              "start": 19.47,
-              "end": 19.55
+              "start": 19.347,
+              "end": 19.427
             },
             {
               "w": "encontrado",
-              "start": 19.59,
-              "end": 20.11
+              "start": 19.467,
+              "end": 19.987
             },
             {
               "w": "no",
-              "start": 20.19,
-              "end": 20.27
+              "start": 20.067,
+              "end": 20.147
             },
             {
               "w": "Google.",
-              "start": 20.29,
-              "end": 20.703
+              "start": 20.167,
+              "end": 20.581
             }
           ]
         },
         {
           "id": "cta",
-          "start": 23,
-          "end": 28,
+          "start": 22.277,
+          "end": 27.277,
           "audio": "/voice/jovem/cta.mp3",
-          "audioOffset": 23.15,
+          "audioOffset": 22.427,
           "audioDuration": 3.788,
           "words": [
             {
               "w": "Segue",
-              "start": 23.15,
-              "end": 23.39
+              "start": 22.427,
+              "end": 22.667
             },
             {
               "w": "a",
-              "start": 23.47,
-              "end": 23.55
+              "start": 22.747,
+              "end": 22.827
             },
             {
               "w": "Codrian.",
-              "start": 23.71,
-              "end": 24.35
+              "start": 22.847,
+              "end": 23.387
             },
             {
               "w": "Seu",
-              "start": 24.43,
-              "end": 24.55
+              "start": 23.707,
+              "end": 23.827
             },
             {
               "w": "próximo",
-              "start": 24.59,
-              "end": 24.91
+              "start": 23.867,
+              "end": 24.187
             },
             {
               "w": "cliente",
-              "start": 24.99,
-              "end": 25.39
+              "start": 24.267,
+              "end": 24.667
             },
             {
               "w": "tá",
-              "start": 25.47,
-              "end": 25.55
+              "start": 24.747,
+              "end": 24.827
             },
             {
               "w": "te",
-              "start": 25.59,
-              "end": 25.63
+              "start": 24.867,
+              "end": 24.907
             },
             {
               "w": "procurando",
-              "start": 25.71,
-              "end": 26.19
+              "start": 24.987,
+              "end": 25.467
             },
             {
               "w": "agora.",
-              "start": 26.21,
-              "end": 26.719
+              "start": 25.487,
+              "end": 25.996
             }
           ]
         }

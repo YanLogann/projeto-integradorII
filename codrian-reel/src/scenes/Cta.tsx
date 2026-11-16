@@ -2,6 +2,8 @@ import { motion, useTransform, type MotionValue } from 'motion/react'
 import { easeOut, useLocal, useTween } from '../clock'
 import { cue, type SceneTiming } from '../timeline'
 import { BRAND, COPY } from '../script'
+import { LogoBirth } from '../brand/Logo'
+import { Kinetic, LineUp } from '../Kinetic'
 
 function useEnter(l: MotionValue<number>, at: number, dy = 40) {
   const op = useTween(l, at, 0.22, 0, 1)
@@ -12,55 +14,60 @@ function useEnter(l: MotionValue<number>, at: number, dy = 40) {
 export function Cta({ sc }: { sc: SceneTiming }) {
   const l = useLocal(sc.start)
   const D = sc.end - sc.start
-  const tTap = Math.min(D - 0.9, Math.max(2.6, cue(sc, 'agora', 0, 3.6) + 0.1))
+  const tBtn = 1.9
+  const tPulse = tBtn + 0.45
+  const tTap = Math.min(D - 0.8, Math.max(tPulse + 1, cue(sc, 'agora', 0, 3.6) + 0.1))
 
-  const logo = useEnter(l, 0)
-  const handle = useEnter(l, 0.08)
-  const btnIn = useEnter(l, 0.16, 60)
-  const line = useEnter(l, 0.3)
+  const bgOp = useTween(l, 0, 0.5, 0, 1)
+  const row = useEnter(l, 1.7)
+  const btnIn = useEnter(l, tBtn, 60)
 
-  // pulso até o toque; toque = scale 0.96 (100ms) e volta; vira "Seguindo"
+  // pulso do botão até o toque; toque = 0.95 por 100ms e volta; vira "Seguindo"
   const period = 1.0
   const pulse = useTransform(l, (t) => {
-    if (t < 0.6) return 1
+    if (t < tPulse) return 1
     if (t >= tTap) {
       const p = t - tTap
       if (p < 0.1) return 1 - 0.05 * (p / 0.1)
       return 0.95 + 0.05 * easeOut(Math.min(1, (p - 0.1) / 0.25))
     }
-    const ph = ((t - 0.6) % period) / period
-    return 1 + 0.06 * Math.sin(Math.PI * Math.min(1, ph / 0.4))
+    const ph = ((t - tPulse) % period) / period
+    return 1 + 0.05 * Math.sin(Math.PI * Math.min(1, ph / 0.4))
   })
-  const ringPh = useTransform(l, (t) => (t < 0.6 || t >= tTap ? -1 : ((t - 0.6) % period) / period))
-  const ringScale = useTransform(ringPh, (p) => (p < 0 ? 1 : 1 + 0.18 * easeOut(Math.min(1, p / 0.7))))
+  const ringPh = useTransform(l, (t) => (t < tPulse || t >= tTap ? -1 : ((t - tPulse) % period) / period))
+  const ringScale = useTransform(ringPh, (p) => (p < 0 ? 1 : 1 + 0.16 * easeOut(Math.min(1, p / 0.7))))
   const ringOp = useTransform(ringPh, (p) => (p < 0 ? 0 : 0.6 * (1 - Math.min(1, p / 0.7))))
   const followed = useTransform(l, (t) => (t >= tTap + 0.08 ? 1 : 0))
   const notFollowed = useTransform(followed, (f) => 1 - f)
 
   return (
     <div className="scene">
-      <div className="safe" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', paddingBottom: 280, gap: 0 }}>
-        <motion.div style={{ ...logo, display: 'flex', alignItems: 'center', gap: 28 }}>
-          <div style={{ width: 150, height: 150, borderRadius: 40, background: 'var(--brand)', display: 'grid', placeItems: 'center', color: 'var(--brand-ink)', fontWeight: 900, fontSize: 112, lineHeight: 1 }} className="condensed">C</div>
-          <div className="condensed" style={{ fontSize: 168, fontWeight: 900, letterSpacing: '-0.03em', lineHeight: 1 }}>{BRAND.name}</div>
-        </motion.div>
-        <motion.div style={{ ...handle, fontSize: 76, fontWeight: 700, color: 'var(--brand)', marginTop: 26 }}>{BRAND.handle}</motion.div>
+      <motion.img src="/brand/fundo-rede-story.jpg" width={1080} height={1920} style={{ position: 'absolute', inset: 0, opacity: bgOp }} />
+      <div className="safe" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: 150 }}>
+        <LogoBirth l={l} at={0.05} width={760} />
 
-        <motion.div style={{ ...btnIn, position: 'relative', marginTop: 70 }}>
-          <motion.div style={{ position: 'absolute', inset: 0, borderRadius: 999, border: '6px solid var(--brand)', opacity: ringOp, transform: useTransform(ringScale, (s) => `scale(${s}, ${1 + (s - 1) * 2.5})`) }} />
+        <div style={{ textAlign: 'center', fontSize: 58, lineHeight: 1.12, letterSpacing: '-0.03em', marginTop: 6 }}>
+          <LineUp l={l} at={1.05} style={{ color: 'var(--mist)', fontWeight: 500 }}>{BRAND.signature[0]}</LineUp>
+          <LineUp l={l} at={1.35} style={{ color: 'var(--ink)', fontWeight: 700 }}>{BRAND.signature[1]}</LineUp>
+        </div>
+
+        <motion.div style={{ ...row, display: 'flex', alignItems: 'center', gap: 24, marginTop: 70 }}>
+          <img src="/brand/codrian-avatar-redondo.svg" width={112} height={112} style={{ borderRadius: '50%', border: '2px solid var(--line)' }} />
+          <Kinetic text={BRAND.handle} l={l} at={1.72} stagger={0.025} className="title" style={{ fontSize: 64, letterSpacing: '-0.03em' }} />
+        </motion.div>
+
+        <motion.div style={{ ...btnIn, position: 'relative', marginTop: 40 }}>
+          <motion.div style={{ position: 'absolute', inset: 0, borderRadius: 999, border: '6px solid var(--lime)', opacity: ringOp, transform: useTransform(ringScale, (s) => `scale(${s}, ${1 + (s - 1) * 2.5})`) }} />
           <motion.div
             style={{
               transform: useTransform(pulse, (s) => `scale(${s})`),
-              width: 640, height: 150, borderRadius: 999, position: 'relative',
-              display: 'grid', placeItems: 'center', fontSize: 66, fontWeight: 800,
+              width: 600, height: 140, borderRadius: 999, position: 'relative', fontSize: 60, fontWeight: 700, letterSpacing: '-0.02em',
             }}
           >
-            <motion.div style={{ opacity: notFollowed, position: 'absolute', inset: 0, borderRadius: 999, background: 'var(--brand)', color: 'var(--brand-ink)', display: 'grid', placeItems: 'center' }}>{COPY.cta.follow}</motion.div>
-            <motion.div style={{ opacity: followed, position: 'absolute', inset: 0, borderRadius: 999, border: '4px solid #55534d', color: 'var(--ink)', display: 'grid', placeItems: 'center' }}>Seguindo ✓</motion.div>
+            <motion.div style={{ opacity: notFollowed, position: 'absolute', inset: 0, borderRadius: 999, background: 'var(--lime)', color: 'var(--void)', display: 'grid', placeItems: 'center', boxShadow: '0 0 32px 0 rgba(183,255,74,0.45)' }}>{COPY.cta.follow}</motion.div>
+            <motion.div style={{ opacity: followed, position: 'absolute', inset: 0, borderRadius: 999, border: '4px solid var(--mist)', color: 'var(--ink)', display: 'grid', placeItems: 'center', background: 'var(--void)' }}>{COPY.cta.following} ✓</motion.div>
           </motion.div>
         </motion.div>
-
-        <motion.div style={{ ...line, fontSize: 48, color: 'var(--muted)', marginTop: 54, fontWeight: 500 }}>{COPY.cta.line}</motion.div>
       </div>
     </div>
   )
