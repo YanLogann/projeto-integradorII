@@ -95,6 +95,7 @@ export const COPY = {
 
 // Vozes para comparação (biblioteca ElevenLabs, sotaque brasileiro)
 export const VOICES = {
+  rodrigo: { id: 'MZgw9H58206lPCPSJ70K', label: 'Rodrigo Ishikawa (voz clonada)' },
   masculina: { id: 'cXmaMIwfUQ3FpdM3KmoB', label: 'Masculina firme — Márcio Duarte' },
   feminina: { id: 'TOXnXBKJSHqTwwqoWW0D', label: 'Feminina clara — Christine' },
   jovem: { id: '6PhbMr9YjdeOaTNz9y24', label: 'Jovem — Davi Leão' },
