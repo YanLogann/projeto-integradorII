@@ -42,19 +42,18 @@ body { font-family: var(--font); color: var(--ink); -webkit-font-smoothing: anti
 .pixel { font-family: var(--pixel); letter-spacing: 0.08em; text-transform: uppercase; }
 .debug-safe { position: absolute; left: 0; right: 0; pointer-events: none; background: repeating-linear-gradient(45deg, #ff4d4d33 0 12px, transparent 12px 24px); }
 
-/* legenda: palavra por palavra, palavra falada em lima (padrão do vídeo de apresentação) */
+/* legenda (estilo @codrian_ofc): sem caixa, bold, centralizada, palavra-chave em violeta claro */
 .captions {
-  position: absolute; left: 72px; right: 72px; bottom: 420px; height: 210px;
+  position: absolute; left: 90px; right: 90px; bottom: 470px; height: 200px;
   display: flex; align-items: flex-end; justify-content: center;
 }
 .cap-line {
-  font-weight: 700; font-size: 66px; line-height: 1.1; letter-spacing: -0.02em;
-  text-align: center; padding: 14px 30px 20px; border-radius: 26px;
-  background: rgba(16, 12, 28, 0.9); border: 2px solid var(--line);
-  max-width: 100%;
+  font-weight: 700; font-size: 50px; line-height: 1.2; letter-spacing: -0.02em;
+  text-align: center; text-wrap: balance; max-width: 100%;
+  color: var(--ink); text-shadow: 0 2px 22px rgba(10, 6, 25, 0.9), 0 0 2px rgba(10, 6, 25, 0.6);
 }
-.cap-word { color: var(--ink); }
-.cap-word.on { color: var(--lime); }
+.cap-word { display: inline-block; }
+.cap-word.key { color: #9d86ff; }
 
 .controls {
   position: fixed; left: 12px; bottom: 12px; z-index: 10; display: flex; gap: 8px; align-items: center;

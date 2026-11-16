@@ -27,30 +27,36 @@ export interface SceneScript {
   minDuration: number
   /** texto narrado — também vira a legenda queimada */
   narration: string
+  /** palavras destacadas em violeta na legenda (estilo dos Reels @codrian_ofc) */
+  keywords?: string[]
 }
 
 export const SCENES: SceneScript[] = [
-  { id: 'gancho', minDuration: 2, narration: 'Só no Instagram?' },
+  { id: 'gancho', minDuration: 2, narration: 'Só no Instagram?', keywords: ['Instagram'] },
   {
     id: 'dor',
     minDuration: 5,
     narration: 'Seu cliente te procura no Google e não vê uma apresentação da sua empresa. Só a do concorrente.',
+    keywords: ['apresentação', 'concorrente'],
   },
   {
     id: 'virada',
     minDuration: 9,
     narration:
       'A Codrian transforma seu perfil num site completo: cardápio, endereço, avaliações e um botão direto pro seu WhatsApp.',
+    keywords: ['site', 'completo', 'WhatsApp'],
   },
   {
     id: 'serie',
     minDuration: 5.4,
     narration: 'Olha quem saiu só do Instagram e passou a ser encontrado no Google.',
+    keywords: ['encontrado'],
   },
   {
     id: 'cta',
     minDuration: 5,
     narration: 'Segue a Codrian. Seu próximo cliente tá te procurando agora.',
+    keywords: ['Codrian', 'procurando'],
   },
 ]
 
