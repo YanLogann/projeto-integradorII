@@ -24,7 +24,7 @@ function CaseCard({ c, l, tIn, tOut, first }: { c: Case; l: MotionValue<number>;
   const clip = useTransform(r, (v) => `inset(0 ${v}% 0 0 round 24px)`)
   const chipOp = useTween(l, tIn + 0.8, 0.2, 0, 1)
   return (
-    <motion.div style={{ position: 'absolute', inset: 0, transform: useTransform(x, (v) => `translateX(${v}px)`) }}>
+    <motion.div style={{ position: 'absolute', inset: 0, transform: useTransform(x, (v) => `perspective(2000px) translateX(${v}px) rotateY(${(-v / 1080) * 28}deg)`) }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: 22 }}>
         <div style={{ fontSize: 54, fontWeight: 700, letterSpacing: '-0.035em' }}>{c.name}</div>
       </div>

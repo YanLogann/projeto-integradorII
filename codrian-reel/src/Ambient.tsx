@@ -70,18 +70,31 @@ export function Phone({ children, width = 500, height = 1040, virtualWidth = 840
 }
 
 /** cidade em linhas violeta (prédios em fio), com aproximação lenta da câmera */
-export function CityWire({ l, opacity = 1, push = 0.04 }: { l: MotionValue<number>; opacity?: number; push?: number }) {
+export function CityWire({ l, opacity = 1, push = 0.04, riseAt }: { l: MotionValue<number>; opacity?: number; push?: number; riseAt?: number }) {
   const transform = useTransform(l, (t) => `scale(${1 + push * t})`)
   return (
     <motion.svg width={1080} height={1920} viewBox="0 0 1080 1920" style={{ position: 'absolute', inset: 0, opacity, transform, transformOrigin: '50% 60%' }}>
-      {BUILDINGS.map((b, i) => (
-        <g key={i} stroke="#7b5cff" strokeWidth={b.w > 150 ? 2.5 : 2} fill="#140c30" fillOpacity={0.55} strokeOpacity={b.o}>
-          <path d={`M${b.x} ${b.y} h${b.w} v${b.h} h${-b.w} Z`} />
-          <path d={`M${b.x} ${b.y} l${b.d} ${-b.d * 0.6} h${b.w} l${-b.d} ${b.d * 0.6}`} fill="#1d1245" />
-          <path d={`M${b.x + b.w} ${b.y} l${b.d} ${-b.d * 0.6} v${b.h} l${-b.d} ${b.d * 0.6}`} fill="#100a26" />
-        </g>
-      ))}
+      {BUILDINGS.map((b, i) => <Building key={i} b={b} l={l} riseAt={riseAt} />)}
     </motion.svg>
+  )
+}
+
+/** cada prédio sobe do chão em sequência (do centro para fora), curva exponencial */
+function Building({ b, l, riseAt }: { b: (typeof BUILDINGS)[number]; l: MotionValue<number>; riseAt?: number }) {
+  const delay = Math.abs(b.x + b.w / 2 - 540) / 1400 + (1 - b.o) * 0.25
+  const transform = useTransform(l, (t) => {
+    if (riseAt === undefined) return 'none'
+    const p = Math.min(1, Math.max(0, (t - riseAt - delay) / 0.7))
+    const e = p >= 1 ? 1 : 1 - Math.pow(2, -10 * p)
+    return `scaleY(${0.001 + 0.999 * e})`
+  })
+  return (
+    <motion.g stroke="#7b5cff" strokeWidth={b.w > 150 ? 2.5 : 2} fill="#140c30" fillOpacity={0.55} strokeOpacity={b.o}
+      style={{ transform, transformBox: 'fill-box', transformOrigin: '50% 100%' }}>
+      <path d={`M${b.x} ${b.y} h${b.w} v${b.h} h${-b.w} Z`} />
+      <path d={`M${b.x} ${b.y} l${b.d} ${-b.d * 0.6} h${b.w} l${-b.d} ${b.d * 0.6}`} fill="#1d1245" />
+      <path d={`M${b.x + b.w} ${b.y} l${b.d} ${-b.d * 0.6} v${b.h} l${-b.d} ${b.d * 0.6}`} fill="#100a26" />
+    </motion.g>
   )
 }
 

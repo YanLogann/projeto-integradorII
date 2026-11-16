@@ -3,6 +3,8 @@ import { easeOut, useLocal, useTween } from '../clock'
 import { cue, type SceneTiming } from '../timeline'
 import { BRAND, COPY } from '../script'
 import { LogoBirth } from '../brand/Logo'
+import { Dust } from '../motionKit'
+import type { MotionValue } from 'motion/react'
 
 /** fechamento no estilo dos Reels: fundo escuro, anéis finos, logo com reflexo, linha lilás pequena */
 export function Cta({ sc }: { sc: SceneTiming }) {
@@ -34,15 +36,14 @@ export function Cta({ sc }: { sc: SceneTiming }) {
   const ringOp = useTransform(ringPh, (p) => (p < 0 ? 0 : 0.7 * (1 - Math.min(1, p / 0.7))))
   const followed = useTransform(l, (t) => (t >= tTap + 0.08 ? 1 : 0))
   const notFollowed = useTransform(followed, (f) => 1 - f)
-  const ringsRot = useTransform(l, (t) => `scale(${1 + 0.03 * t})`)
+  const ringsRot = 'none'
 
   return (
     <div className="scene" style={{ background: 'radial-gradient(60% 40% at 50% 40%, #241653 0%, #120c2a 55%, #0a0716 100%)' }}>
       <motion.svg width={1080} height={1920} style={{ position: 'absolute', inset: 0, transform: ringsRot, transformOrigin: '540px 720px' }}>
-        {[260, 380, 520].map((r, i) => (
-          <circle key={r} cx={540} cy={720} r={r} fill="none" stroke="#8b6cff" strokeOpacity={0.22 - i * 0.05} strokeWidth={2} />
-        ))}
+        {[0, 1, 2].map((i) => <PingRing key={i} l={l} i={i} />)}
       </motion.svg>
+      <Dust l={l} at={0.5} />
       <div style={{ position: 'absolute', left: 0, right: 0, top: 560, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <LogoBirth l={l} at={0.05} width={720} />
         {/* reflexo no chão, como no fechamento dos Reels */}
@@ -62,4 +63,13 @@ export function Cta({ sc }: { sc: SceneTiming }) {
       </motion.div>
     </div>
   )
+}
+
+/** anéis finos que se abrem a partir da logo, em loop lento (ping da marca) */
+function PingRing({ l, i }: { l: MotionValue<number>; i: number }) {
+  const period = 2.4
+  const ph = useTransform(l, (t) => (t < 0.5 ? -1 : (((t - 0.5) / period + i / 3) % 1)))
+  const r = useTransform(ph, (p) => (p < 0 ? 0 : 180 + 420 * p))
+  const op = useTransform(ph, (p) => (p < 0 ? 0 : 0.35 * Math.sin(Math.PI * p)))
+  return <motion.circle cx={540} cy={720} r={r} fill="none" stroke="#9d86ff" strokeWidth={2} style={{ opacity: op }} />
 }

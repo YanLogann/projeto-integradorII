@@ -1,8 +1,9 @@
 import { motion, useTransform, type MotionValue } from 'motion/react'
-import { easeOut, useLocal, useTween } from '../clock'
+import { easeOut, useLocal, useTween, useSpringAt } from '../clock'
 import { cue, type SceneTiming } from '../timeline'
 import { COPY, STORE } from '../script'
 import { Ambient, Phone } from '../Ambient'
+import { usePhoneMotion, Tap } from '../motionKit'
 
 function useEnter(l: MotionValue<number>, at: number, dy = 50) {
   const op = useTween(l, at, 0.22, 0, 1)
@@ -22,8 +23,10 @@ export function Virada({ sc }: { sc: SceneTiming }) {
   const tBtn = Math.max(tRev + 0.3, cue(sc, 'botão', 0, 6.3) - 0.08)
   const tPulse = Math.max(tBtn + 0.4, cue(sc, 'whatsapp', 0, 7.8))
 
-  const phoneY = useTween(l, 0, 0.45, 80, 0)
+  // celular vivo; câmera aproxima quando o site se completa
+  const phoneT = usePhoneMotion(l, [{ at: tMenu, to: 1.05 }])
   const phoneOp = useTween(l, 0, 0.25, 0, 1)
+  const tTap = tPulse - 0.05
 
   // perfil sai com blur; site revela de cima pra baixo
   const igOp = useTween(l, T, 0.3, 1, 0)
@@ -43,14 +46,17 @@ export function Virada({ sc }: { sc: SceneTiming }) {
 
   const period = 1.1
   const phase = useTransform(l, (t) => (t < tPulse ? -1 : ((t - tPulse) % period) / period))
-  const btnScale = useTransform(phase, (p) => (p < 0 ? 1 : 1 + 0.05 * Math.sin(Math.PI * Math.min(1, p / 0.4))))
+  const btnScale = useTransform([phase, l] as const, ([p, t]: number[]) => {
+    const press = t >= tTap && t < tTap + 0.25 ? 1 - 0.05 * Math.sin(Math.PI * ((t - tTap) / 0.25)) : 1
+    return press * (p < 0 ? 1 : 1 + 0.05 * Math.sin(Math.PI * Math.min(1, p / 0.4)))
+  })
   const ringScale = useTransform(phase, (p) => (p < 0 ? 1 : 1 + 0.2 * easeOut(Math.min(1, p / 0.7))))
   const ringOp = useTransform(phase, (p) => (p < 0 ? 0 : 0.6 * (1 - Math.min(1, p / 0.7))))
 
   return (
     <div className="scene">
       <Ambient l={l} horizon={1150} />
-      <motion.div style={{ position: 'absolute', left: 290, top: 250, opacity: phoneOp, transform: useTransform(phoneY, (y) => `translateY(${y}px)`) }}>
+      <motion.div style={{ position: 'absolute', left: 290, top: 250, opacity: phoneOp, transform: phoneT }}>
         <Phone width={500} height={1020} screenBg="#000">
           {/* PERFIL (antes) */}
           <motion.div style={{ opacity: igOp, filter: useTransform(igBlur, (b) => `blur(${b}px)`), position: 'absolute', inset: 0, background: '#000', color: '#fff', padding: '120px 30px 0' }}>
@@ -86,21 +92,17 @@ export function Virada({ sc }: { sc: SceneTiming }) {
               </motion.div>
               <motion.div style={menu}>
                 <SectionTitle>Cardápio</SectionTitle>
-                {COPY.virada.menu.map((m) => (
-                  <div key={m.item} style={{ display: 'flex', justifyContent: 'space-between', fontSize: 38, padding: '10px 0', borderBottom: '2px solid #ebe9e3' }}>
-                    <span>{m.item}</span><b>{m.price}</b>
-                  </div>
-                ))}
+                {COPY.virada.menu.map((m, i) => <MenuRow key={m.item} l={l} at={tMenu + 0.12 + i * 0.07} item={m.item} price={m.price} />)}
               </motion.div>
               <motion.div style={{ ...addr, display: 'flex', gap: 24, alignItems: 'center' }}>
-                <MapThumb />
+                <MapThumb l={l} at={tAddr + 0.15} />
                 <div>
                   <SectionTitle>Como chegar</SectionTitle>
                   <div style={{ fontSize: 36 }}>{COPY.virada.address}</div>
                 </div>
               </motion.div>
               <motion.div style={rev}>
-                <SectionTitle>Avaliações <span style={{ color: '#f5a400' }}>★ {COPY.virada.rating}</span></SectionTitle>
+                <SectionTitle>Avaliações <Stars l={l} at={tRev + 0.15} /> {COPY.virada.rating}</SectionTitle>
                 <div style={{ fontSize: 36, fontStyle: 'italic', color: '#3c3c3c' }}>{COPY.virada.review}</div>
               </motion.div>
             </div>
@@ -111,6 +113,7 @@ export function Virada({ sc }: { sc: SceneTiming }) {
               </motion.div>
             </motion.div>
           </motion.div>
+          <Tap l={l} at={tTap} x={420} y={1636} size={170} color="#ffffff" />
         </Phone>
       </motion.div>
       <motion.div style={{ position: 'absolute', left: 540 - 500, top: 760 - 500, width: 1000, height: 1000, borderRadius: '50%', background: 'radial-gradient(circle, rgba(157,134,255,0.0) 40%, rgba(157,134,255,0.9) 62%, rgba(157,134,255,0) 70%)', opacity: flashOp, transform: flashScale }} />
@@ -121,14 +124,39 @@ export function Virada({ sc }: { sc: SceneTiming }) {
 function SectionTitle({ children }: { children: React.ReactNode }) {
   return <div style={{ fontSize: 30, fontWeight: 700, letterSpacing: '0.08em', textTransform: 'uppercase', color: '#7a776f', marginBottom: 8 }}>{children}</div>
 }
-function MapThumb() {
+function MenuRow({ l, at, item, price }: { l: MotionValue<number>; at: number; item: string; price: string }) {
+  const s = useEnter(l, at, 24)
   return (
-    <svg width="150" height="124" viewBox="0 0 120 100" style={{ borderRadius: 18, flex: 'none' }}>
+    <motion.div style={{ ...s, display: 'flex', justifyContent: 'space-between', fontSize: 38, padding: '10px 0', borderBottom: '2px solid #ebe9e3' }}>
+      <span>{item}</span><b>{price}</b>
+    </motion.div>
+  )
+}
+
+/** pin cai no mapa com spring curta */
+function MapThumb({ l, at }: { l: MotionValue<number>; at: number }) {
+  const y = useSpringAt(l, at, -60, 0, { stiffness: 420, damping: 16 })
+  const op = useTween(l, at, 0.12, 0, 1)
+  return (
+    <svg width="150" height="124" viewBox="0 0 120 100" style={{ borderRadius: 18, flex: 'none', overflow: 'hidden' }}>
       <rect width="120" height="100" fill="#e3efe0" />
       <path d="M0 62 L120 40 M38 0 L58 100 M0 20 L120 88" stroke="#fff" strokeWidth="9" />
-      <path d="M60 22c-10 0-17 7-17 16 0 13 17 30 17 30s17-17 17-30c0-9-7-16-17-16z" fill="#6938e8" />
-      <circle cx="60" cy="38" r="6" fill="#fff" />
+      <motion.g style={{ y, opacity: op }}>
+        <path d="M60 22c-10 0-17 7-17 16 0 13 17 30 17 30s17-17 17-30c0-9-7-16-17-16z" fill="#6938e8" />
+        <circle cx="60" cy="38" r="6" fill="#fff" />
+      </motion.g>
     </svg>
+  )
+}
+
+/** estrelas acendem uma a uma */
+function Stars({ l, at }: { l: MotionValue<number>; at: number }) {
+  return (
+    <span>
+      {[0, 1, 2, 3, 4].map((i) => (
+        <motion.span key={i} style={{ color: useTransform(l, (t) => (t >= at + i * 0.07 ? '#f5a400' : '#d6d3cb')) }}>★</motion.span>
+      ))}
+    </span>
   )
 }
 function WaIcon() {

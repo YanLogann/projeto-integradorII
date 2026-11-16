@@ -3,6 +3,7 @@ import { useLocal, useTween } from '../clock'
 import { cue, type SceneTiming } from '../timeline'
 import { COPY, STORE } from '../script'
 import { Ambient, Phone } from '../Ambient'
+import { usePhoneMotion, Tap, Pop } from '../motionKit'
 
 const ty = (v: any) => useTransform(v, (y: number) => `translateY(${y}px)`)
 const THUMBS = ['#e9b8a8', '#f2d27a', '#c7a07a']
@@ -20,8 +21,8 @@ export function Dor({ sc }: { sc: SceneTiming }) {
   const typed = useTransform(l, (t) => q.slice(0, Math.max(0, Math.floor((t - typeStart) / perChar))))
   const caret = useTransform(l, (t) => (t < typeEnd + 0.1 || Math.floor(t * 2.4) % 2 === 0 ? 1 : 0))
 
-  // celular entra subindo do chão
-  const phoneY = useTween(l, 0, 0.45, 80, 0)
+  // celular entra em 3D e fica "respirando"; câmera aproxima quando o concorrente aparece
+  const phoneT = usePhoneMotion(l, [{ at: tRival, to: 1.06 }])
   const phoneOp = useTween(l, 0, 0.25, 0, 1)
   const res = [useTween(l, tRes, 0.22, 0, 1), useTween(l, tRes + 0.07, 0.22, 0, 1)]
   const resY = [useTween(l, tRes, 0.32, 24, 0), useTween(l, tRes + 0.07, 0.32, 24, 0)]
@@ -36,7 +37,7 @@ export function Dor({ sc }: { sc: SceneTiming }) {
   return (
     <div className="scene">
       <Ambient l={l} horizon={1150} />
-      <motion.div style={{ position: 'absolute', left: 290, top: 250, opacity: phoneOp, transform: ty(phoneY) }}>
+      <motion.div style={{ position: 'absolute', left: 290, top: 250, opacity: phoneOp, transform: phoneT }}>
         <Phone width={500} height={1020}>
           <div style={{ padding: '120px 44px 0', color: '#1b1726', fontFamily: 'var(--font)' }}>
             <div style={{ height: 116, borderRadius: 58, border: '3px solid #dcdae3', display: 'flex', alignItems: 'center', gap: 22, padding: '0 38px', boxShadow: '0 6px 24px #0000000f' }}>
@@ -77,7 +78,7 @@ export function Dor({ sc }: { sc: SceneTiming }) {
               <span style={{ color: '#6b6878' }}>({STORE.competitorReviews})</span>
             </div>
             <div style={{ display: 'flex', gap: 14, marginTop: 22 }}>
-              {THUMBS.map((c, i) => <div key={i} style={{ flex: 1, height: 160, borderRadius: 22, background: c }} />)}
+              {THUMBS.map((c, i) => <Pop key={i} l={l} at={tRival + 0.3 + i * 0.07} style={{ flex: 1, height: 160, borderRadius: 22, background: c }}>{null}</Pop>)}
             </div>
             <div style={{ display: 'flex', gap: 12, marginTop: 22, flexWrap: 'wrap' }}>
               {COPY.dor.rivalHas.map((b) => (
@@ -85,6 +86,8 @@ export function Dor({ sc }: { sc: SceneTiming }) {
               ))}
             </div>
           </motion.div>
+          <Tap l={l} at={0.12} x={420} y={176} size={150} />
+          <Tap l={l} at={tRival + 0.85} x={150} y={1642} size={150} />
         </Phone>
       </motion.div>
     </div>

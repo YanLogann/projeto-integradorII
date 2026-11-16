@@ -4,6 +4,7 @@ import { cue, type SceneTiming } from '../timeline'
 import { COPY } from '../script'
 import { Kinetic, easeExpo } from '../Kinetic'
 import { Ambient, CityWire } from '../Ambient'
+import { LightStreak } from '../motionKit'
 
 export function Gancho({ sc }: { sc: SceneTiming }) {
   const l = useLocal(sc.start)
@@ -27,7 +28,8 @@ export function Gancho({ sc }: { sc: SceneTiming }) {
   return (
     <div className="scene">
       <Ambient l={l} floor={false} glowY="45%" />
-      <CityWire l={l} opacity={0.55} />
+      <CityWire l={l} opacity={0.55} riseAt={0} />
+      <LightStreak l={l} at={0.02} dur={0.75} />
       <div className="safe" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', paddingBottom: 60 }}>
         <motion.div
           className="title"
