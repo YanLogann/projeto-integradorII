@@ -148,6 +148,8 @@ for (const key of voiceKeys) {
       audio: `/voice/${key}/${sc.id}.mp3`,
       audioOffset: round(t + TTS.lead),
       audioDuration: round(audioDur),
+      // corte: logo após o fim real da fala (o mp3 pode trazer estalos no silêncio final)
+      audioCut: round(Math.min(audioDur, speechEnd + 0.12)),
       words: words.map((w) => ({ w: w.w, start: round(t + TTS.lead + w.start), end: round(t + TTS.lead + w.end) })),
     })
     console.log(`  ${sc.id.padEnd(7)} fala ${speechEnd.toFixed(2)}s -> cena ${t.toFixed(2)}–${(t + duration).toFixed(2)}s`)
@@ -157,7 +159,10 @@ for (const key of voiceKeys) {
   // trilha única (preview no navegador + render)
   const full = path.join(dir, 'full.wav')
   const inputs = scenes.flatMap((s) => ['-i', path.join(root, 'public', s.audio)])
-  const filters = scenes.map((s, i) => `[${i}]adelay=${Math.round(s.audioOffset * 1000)}:all=1[a${i}]`).join(';')
+  // cada fala: corta após o fim real, fade-in de 10ms e fade-out de 80ms (sem cliques nas emendas)
+  const filters = scenes
+    .map((s, i) => `[${i}]atrim=0:${s.audioCut},afade=t=in:d=0.01,afade=t=out:st=${Math.max(0, s.audioCut - 0.08)}:d=0.08,adelay=${Math.round(s.audioOffset * 1000)}:all=1[a${i}]`)
+    .join(';')
   const mix = `${filters};${scenes.map((_, i) => `[a${i}]`).join('')}amix=inputs=${scenes.length}:normalize=0,apad,atrim=0:${round(t)}[out]`
   execFileSync('ffmpeg', ['-y', '-v', 'error', ...inputs, '-filter_complex', mix, '-map', '[out]', '-ar', '48000', full])
 

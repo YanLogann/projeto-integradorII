@@ -6,7 +6,7 @@ import { LogoBirth } from '../brand/Logo'
 import { Dust } from '../motionKit'
 import type { MotionValue } from 'motion/react'
 
-/** fechamento no estilo dos Reels: fundo escuro, anéis finos, logo com reflexo, linha lilás pequena */
+/** fechamento no estilo dos Reels: fundo escuro, anéis finos, logo, anéis finos, linha lilás pequena */
 export function Cta({ sc }: { sc: SceneTiming }) {
   const l = useLocal(sc.start)
   const D = sc.end - sc.start
@@ -46,10 +46,6 @@ export function Cta({ sc }: { sc: SceneTiming }) {
       <Dust l={l} at={0.5} />
       <div style={{ position: 'absolute', left: 0, right: 0, top: 560, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         <LogoBirth l={l} at={0.05} width={720} />
-        {/* reflexo no chão, como no fechamento dos Reels */}
-        <div style={{ transform: 'scaleY(-1)', opacity: 0.22, filter: 'blur(5px)', marginTop: -110, WebkitMaskImage: 'linear-gradient(to top, #000 0%, transparent 55%)', maskImage: 'linear-gradient(to top, #000 0%, transparent 55%)' }}>
-          <LogoBirth l={l} at={0.05} width={720} />
-        </div>
       </div>
       <motion.div style={{ position: 'absolute', left: 0, right: 0, top: 900, textAlign: 'center', fontSize: 44, fontWeight: 500, color: 'var(--mist)', opacity: handleOp, transform: useTransform(handleY, (y) => `translateY(${y}px)`) }}>
         {BRAND.handle}
