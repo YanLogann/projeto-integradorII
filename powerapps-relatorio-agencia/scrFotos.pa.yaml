@@ -1,0 +1,87 @@
+# Tela 2: fotos (lista vem de FotosDefinicao, nada aqui precisa mudar quando você definir as fotos)
+Screens:
+  scrFotos:
+    Properties:
+      Fill: =RGBA(245, 246, 248, 1)
+    Children:
+      - lblTitulo2:
+          Control: Label@2.5.1
+          Properties:
+            Text: ="Fotos - Agência " & varAgencia
+            X: =20
+            Y: =20
+            Width: =Parent.Width - 40
+            Height: =50
+            Size: =20
+            FontWeight: =FontWeight.Bold
+      - galFotos:
+          Control: Gallery@2.15.0
+          Variant: Vertical
+          Properties:
+            Items: =Sort(colFotos, Ordem)
+            X: =20
+            Y: =80
+            Width: =Parent.Width - 40
+            Height: =Parent.Height - 180
+            TemplateSize: =260
+          Children:
+            - lblFotoTitulo:
+                Control: Label@2.5.1
+                Properties:
+                  Text: =ThisItem.Titulo & If(ThisItem.Obrigatoria, " *", "")
+                  X: =0
+                  Y: =5
+                  Width: =Parent.TemplateWidth
+                  Height: =30
+                  FontWeight: =FontWeight.Semibold
+            - imgFoto:
+                Control: Image@2.2.3
+                Properties:
+                  Image: =ThisItem.Foto
+                  X: =0
+                  Y: =40
+                  Width: =200
+                  Height: =200
+                  BorderThickness: =1
+            - addFoto:
+                Control: AddMedia@2.2.1
+                Properties:
+                  ChangePictureText: ="Trocar foto"
+                  X: =210
+                  Y: =40
+                  Width: =150
+                  Height: =50
+                  OnChange: =Patch(colFotos, ThisItem, {Foto: Self.Media})
+            - btnRemoverFoto:
+                Control: Classic/Button@2.2.0
+                Properties:
+                  Text: ="Remover"
+                  X: =210
+                  Y: =100
+                  Width: =150
+                  Height: =40
+                  Visible: =!IsBlank(ThisItem.Foto)
+                  OnSelect: =Patch(colFotos, ThisItem, {Foto: Blank()})
+      - btnVoltar2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            Text: ="Voltar"
+            X: =20
+            Y: =Parent.Height - 80
+            Width: =(Parent.Width - 60) / 2
+            Height: =50
+            OnSelect: =Back()
+      - btnProximo2:
+          Control: Classic/Button@2.2.0
+          Properties:
+            Text: ="Próximo"
+            X: =40 + (Parent.Width - 60) / 2
+            Y: =Parent.Height - 80
+            Width: =(Parent.Width - 60) / 2
+            Height: =50
+            OnSelect: |-
+              =If(
+                  CountRows(Filter(colFotos, Obrigatoria && IsBlank(Foto))) > 0,
+                  Notify("Faltam fotos obrigatórias: " & Concat(Filter(colFotos, Obrigatoria && IsBlank(Foto)), Titulo, ", "), NotificationType.Error),
+                  Navigate(scrAssinatura, ScreenTransition.Cover)
+              )

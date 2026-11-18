@@ -1,0 +1,100 @@
+# Tela 3 (última): responsável por assinar + assinatura
+Screens:
+  scrAssinatura:
+    Properties:
+      Fill: =RGBA(245, 246, 248, 1)
+    Children:
+      - lblTitulo3:
+          Control: Label@2.5.1
+          Properties:
+            Text: ="Assinatura - Agência " & varAgencia
+            X: =20
+            Y: =20
+            Width: =Parent.Width - 40
+            Height: =50
+            Size: =20
+            FontWeight: =FontWeight.Bold
+      - lblAssinante:
+          Control: Label@2.5.1
+          Properties:
+            Text: ="Nome do responsável que assina"
+            X: =20
+            Y: =90
+            Width: =Parent.Width - 40
+            Height: =30
+      - txtAssinante:
+          Control: Classic/TextInput@2.3.2
+          Properties:
+            Default: =""
+            HintText: ="Nome completo"
+            X: =20
+            Y: =120
+            Width: =Parent.Width - 40
+            Height: =45
+      - lblAssinaturaInfo:
+          Control: Label@2.5.1
+          Properties:
+            Text: ="Assine no quadro abaixo"
+            X: =20
+            Y: =180
+            Width: =Parent.Width - 40
+            Height: =30
+      - penAssinatura:
+          Control: PenInput@2.0.1
+          Properties:
+            Mode: =PenMode.Draw
+            ShowControls: =false
+            X: =20
+            Y: =210
+            Width: =Parent.Width - 40
+            Height: =250
+            BorderThickness: =2
+      - btnLimpar:
+          Control: Classic/Button@2.2.0
+          Properties:
+            Text: ="Limpar assinatura"
+            X: =20
+            Y: =470
+            Width: =200
+            Height: =40
+            OnSelect: =Reset(penAssinatura)
+      - btnVoltar3:
+          Control: Classic/Button@2.2.0
+          Properties:
+            Text: ="Voltar"
+            X: =20
+            Y: =Parent.Height - 80
+            Width: =(Parent.Width - 60) / 2
+            Height: =50
+            OnSelect: =Back()
+      - btnFinalizar:
+          Control: Classic/Button@2.2.0
+          Properties:
+            Text: ="Finalizar"
+            X: =40 + (Parent.Width - 60) / 2
+            Y: =Parent.Height - 80
+            Width: =(Parent.Width - 60) / 2
+            Height: =50
+            OnSelect: |-
+              =If(
+                  IsBlank(Trim(txtAssinante.Text)),
+                  Notify("Informe o nome do responsável.", NotificationType.Error),
+                  IsBlank(penAssinatura.Image),
+                  Notify("A assinatura é obrigatória.", NotificationType.Error),
+                  // PENDENTE: destino dos dados ainda não definido (ver README).
+                  // Exemplo com fluxo do Power Automate:
+                  // FluxoSalvarRelatorio.Run(
+                  //     varAgencia,
+                  //     varRelator.DisplayName,
+                  //     varRelator.Mail,
+                  //     txtAssinante.Text,
+                  //     JSON(penAssinatura.Image, JSONFormat.IncludeBinaryData),
+                  //     JSON(colFotos, JSONFormat.IncludeBinaryData)
+                  // );
+                  Notify("Relatório da agência " & varAgencia & " concluído.", NotificationType.Success);
+                  Reset(txtAssinante);
+                  Reset(penAssinatura);
+                  Reset(ddAgencia);
+                  ClearCollect(colFotos, AddColumns(FotosDefinicao, Foto, Blank()));
+                  Navigate(scrDados, ScreenTransition.UnCover)
+              )

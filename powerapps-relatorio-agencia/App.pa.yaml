@@ -1,0 +1,21 @@
+# App: Relatório de Agência
+# Cole as fórmulas abaixo em App > Formulas (fórmulas nomeadas) e App > OnStart.
+App:
+  Properties:
+    Formulas: |-
+      =// Agências 2 a 36, sem a 28
+      Agencias = Filter(Sequence(35, 2), Value <> 28);
+
+      // DEFINIÇÃO DAS FOTOS: edite só esta tabela quando decidir quais e quantas são.
+      FotosDefinicao = Table(
+          {Ordem: 1, Titulo: "Foto 1 - (definir)", Obrigatoria: true},
+          {Ordem: 2, Titulo: "Foto 2 - (definir)", Obrigatoria: true},
+          {Ordem: 3, Titulo: "Foto 3 - (definir)", Obrigatoria: false}
+      );
+    OnStart: |-
+      =ClearCollect(
+          colFotos,
+          AddColumns(FotosDefinicao, Foto, Blank())
+      );
+      Set(varAgencia, Blank());
+      Set(varRelator, Blank())
