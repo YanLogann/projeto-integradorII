@@ -7,7 +7,8 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "record": "node scripts/record.mjs"
+    "record": "node scripts/record.mjs",
+    "audio": "node scripts/audio.mjs"
   },
   "dependencies": {
     "motion": "^14.14.0",

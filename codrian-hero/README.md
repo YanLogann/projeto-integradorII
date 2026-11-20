@@ -29,6 +29,20 @@ O export é quadro a quadro (determinístico), então não perde frame como uma 
 Leva ~2–4 min. Para gravar a tela manualmente, abra `/?record` numa janela exatamente 1080x1920
 (DevTools → dispositivo customizado).
 
+## Locução e efeitos (ElevenLabs)
+
+Depois do `npm run record`:
+
+```bash
+ELEVENLABS_API_KEY=sua_chave npm run audio -- <VOICE_ID>
+```
+
+Gera cada fala separada e encaixa no início da legenda correspondente (acelera até 1,2x se
+não couber), adiciona efeitos (whoosh da luz, impacto, notificação, revelação do logo) e uma
+base ambiente que abaixa sozinha quando há fala. Normaliza em -14 LUFS (padrão do Instagram).
+Saída: `out/codrian-reels-com-audio.mp4` e `out/codrian-previa-com-audio.mp4`.
+Falas e efeitos ficam em `scripts/audio.mjs`. A chave precisa da permissão **Text to Speech** e **Sound Effects**.
+
 ## Roteiro (15s)
 
 | Tempo   | O que acontece                                                                 |
