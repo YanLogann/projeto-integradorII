@@ -1,7 +1,7 @@
 import React from 'react';
 import {AbsoluteFill, useCurrentFrame} from 'remotion';
 import * as THREE from 'three';
-import {C, T, DURATION, outExpo, outCubic, ramp, clamp01} from './brand';
+import {C, T, DURATION, outExpo, outCubic, inOut, ramp, clamp01} from './brand';
 import {LETTERS, VIEWBOX, DOT} from './logoPaths';
 import {camAt, FOV, HERO_TOP} from './City';
 
@@ -13,7 +13,7 @@ type Cap = {from: number; to: number; lines: string[]; accent: string[]};
 export const CAPTIONS: Cap[] = [
   {from: 2, to: 86, lines: ['Alguém procurou', 'o que você vende.'], accent: ['procurou']},
   {from: 92, to: 222, lines: ['Achou três empresas', 'perto. Nenhuma', 'era a sua.'], accent: ['Nenhuma']},
-  {from: 232, to: 326, lines: ['Sem site, você', 'não aparece', 'no mapa.'], accent: ['mapa.']},
+  {from: 232, to: 326, lines: ['Sem site, quem', 'te procura não', 'te encontra.'], accent: ['encontra.']},
   {from: 336, to: 458, lines: ['A Codrian cria', 'o site da sua', 'empresa.'], accent: ['site']},
   {from: 476, to: 562, lines: ['Quem procura,', 'encontra você.'], accent: ['você.']},
 ];
@@ -87,27 +87,30 @@ const LOGO_H = VB[3] * S;
 const Logo: React.FC<{frame: number}> = ({frame}) => {
   const start = T.declare + 8;
   if (frame < start - 2) return null;
-  const pr = projectDot(frame);
-  // posição do ponto do logo dentro da caixa
+  // logo fixo e centralizado: nada segue a câmera, então não há corte nem vai e volta
   const dotX = (DOT.cx - VB[0]) * S;
   const dotY = (DOT.cy - VB[1]) * S;
-  const left = pr.x - dotX;
-  const top = pr.y - dotY;
+  const left = (W - LOGO_W) / 2;
+  const top = 760;
   const gone = ramp(frame, T.loopStart, T.loopStart + 18);
   const n = LETTERS.length;
-  // raio do ponto: do ponto 3D ao ponto do logo
-  const r3d = 0.16 * pr.pxPerUnit;
+  // o ponto sai do prédio (posição 3D projetada no quadro de início) e desliza até o lugar dele no logo
+  const pr0 = projectDot(start);
+  const r3d = 0.16 * pr0.pxPerUnit;
   const rLogo = DOT.r * S;
-  const shrink = outExpo(ramp(frame, start, start + 24));
-  const r = r3d + (rLogo - r3d) * shrink;
-  const dotGone = ramp(frame, DURATION - 40, DURATION - 20);
+  const glide = inOut(ramp(frame, start, start + 18));
+  const dx = pr0.x - left + (dotX - (pr0.x - left)) * glide;
+  const dy = pr0.y - top + (dotY - (pr0.y - top)) * glide;
+  const r = r3d + (rLogo - r3d) * outExpo(ramp(frame, start, start + 20));
+  const dotGone = ramp(frame, DURATION - 40, DURATION - 22);
+  const rings = frame > start + 18 && frame < T.loopStart + 10 ? [0, 1, 2] : [];
   return (
     <div style={{position: 'absolute', left, top, width: LOGO_W, height: LOGO_H}}>
       <svg width={LOGO_W} height={LOGO_H} viewBox={VIEWBOX} style={{overflow: 'visible'}}>
         {LETTERS.map((d, i) => {
           // direita para a esquerda, a partir do ponto: 85 ms entre letras, 950 ms cada
           const order = n - 1 - i;
-          const s0 = start + 6 + order * 2.55;
+          const s0 = start + 14 + order * 2.55;
           const p = outExpo(ramp(frame, s0, s0 + 28.5));
           const back = outExpo(ramp(frame, T.loopStart + (n - 1 - order) * 1.6, T.loopStart + (n - 1 - order) * 1.6 + 14));
           const vis = p * (1 - back);
@@ -127,8 +130,8 @@ const Logo: React.FC<{frame: number}> = ({frame}) => {
       <div
         style={{
           position: 'absolute',
-          left: dotX - r,
-          top: dotY - r,
+          left: dx - r,
+          top: dy - r,
           width: r * 2,
           height: r * 2,
           borderRadius: '50%',
@@ -137,9 +140,28 @@ const Logo: React.FC<{frame: number}> = ({frame}) => {
           opacity: (frame < start ? 0 : 1) * (1 - dotGone),
         }}
       />
+      {rings.map((k) => {
+        const u = (((frame - start - 18) / 45 + k / 3) % 1 + 1) % 1;
+        const R = rLogo + u * 150;
+        return (
+          <div
+            key={k}
+            style={{
+              position: 'absolute',
+              left: dotX - R,
+              top: dotY - R,
+              width: R * 2,
+              height: R * 2,
+              borderRadius: '50%',
+              border: `3px solid ${k === 0 ? C.lime : C.violetHi}`,
+              opacity: (1 - u) * (k === 0 ? 0.8 : 0.5) * (1 - gone),
+            }}
+          />
+        );
+      })}
       {/* assinatura em duas linhas */}
       {['Sites que colocam', 'sua empresa no mapa.'].map((ln, i) => {
-        const s0 = start + 34 + i * 18;
+        const s0 = start + 40 + i * 18;
         const p = outCubic(ramp(frame, s0, s0 + 25.5));
         return (
           <div
@@ -229,7 +251,7 @@ const PingLabel: React.FC<{frame: number}> = ({frame}) => {
         whiteSpace: 'nowrap',
       }}
     >
-      {frame >= T.impact ? 'Sua empresa' : 'Sem site, sem radar'}
+      Sua empresa
     </div>
   );
 };

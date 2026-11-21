@@ -107,8 +107,8 @@ const camKeys: {f: number; p: [number, number, number]; t: [number, number, numb
   {f: 440, p: [1.6, 5.0, 3.2], t: [0, 3.3, 0]},
   {f: 500, p: [4.5, 8, 6.5], t: [0, 2.8, 0]},
   {f: 575, p: [0.4, 12.5, 1.4], t: [0, 3.35, 0]},
-  {f: 640, p: [-0.75, 11.6, 1.0], t: [-1.05, 3.35, 0]},
-  {f: 705, p: [-0.85, 11.1, 0.9], t: [-1.1, 3.35, 0]},
+  {f: 640, p: [0.33, 12.0, 1.2], t: [0, 3.35, 0]},
+  {f: 705, p: [0.28, 11.6, 1.05], t: [0, 3.35, 0]},
   {f: 760, p: [6, 13, 12], t: [0, 2, 0]},
 ];
 
@@ -269,7 +269,7 @@ export const City: React.FC = () => {
     // anéis contínuos de alcance depois do impacto
     for (let k = 0; k < 3; k++) {
       const u = (((e - 30) / 54 + k / 3) % 1 + 1) % 1;
-      if (e > 30) rings.push({s: 0.5 + u * 6, o: (1 - u) * 0.55 * loopFade, col: k === 0 ? C.lime : C.violetHi});
+      if (e > 30) rings.push({s: 0.5 + u * 6, o: (1 - u) * 0.55 * loopFade * (1 - ramp(frame, T.declare, T.declare + 20)), col: k === 0 ? C.lime : C.violetHi});
     }
   } else if (frame > T.voidEnd) {
     const u = ((frame - T.voidEnd) / 34) % 1;
