@@ -28,14 +28,15 @@ const MODEL = process.env.ELEVEN_MODEL ?? "eleven_multilingual_v2";
 const DURATION = 15.5; // 15s de cena + 0,5s parado (igual ao record.mjs)
 
 // ---- roteiro: cada fala começa junto com a legenda e precisa caber até `end`
+// "Codriã" (e não "Codrian") força a pronúncia certa: co-dri-ÃN.
 const LINES = [
-  { at: 0.2, end: 2.85, text: "O que tem dentro de um site que vende?" },
-  { at: 3.0, end: 5.9, text: "Cada camada é pensada pra prender quem chega." },
+  { at: 0.2, end: 2.85, text: "Sabe o que tem dentro de um site que vende?" },
+  { at: 3.0, end: 5.9, text: "Cada pedacinho tá ali por um motivo." },
   { at: 6.3, end: 7.1, text: "Rápido." },
   { at: 7.15, end: 7.95, text: "Bonito." },
-  { at: 8.0, end: 9.6, text: "Vendendo!" },
-  { at: 10.4, end: 13.0, text: "E o seu cliente chama direto no WhatsApp." },
-  { at: 13.25, end: 15.4, text: "Codrian. Sites que vendem." },
+  { at: 8.0, end: 9.6, text: "E vendendo!" },
+  { at: 10.4, end: 13.0, text: "Aí o cliente te chama direto no WhatsApp." },
+  { at: 13.25, end: 15.4, text: "Codriã. A gente faz site que vende." },
 ];
 
 // ---- efeitos (ElevenLabs Sound Effects), volume em dB
