@@ -1,5 +1,7 @@
 CODRIAN x GTA 6 — NARRAÇÃO (voz do Yan, ElevenLabs)
-Vídeo: codrian-no-radar.mp4 · 1080x1920 · 30 fps · 32,0 s · sem áudio
+Vídeo: codrian-no-radar-reels.mp4 · 1080x1920 · 30 fps · 32,0 s · com áudio
+A versão com áudio já usa a voz "Yan v1" do ElevenLabs nestes tempos exatos.
+Versão sem áudio (para regravar a voz): codrian-no-radar-sem-audio.mp4
 Tempos em segundos (s), no formato início–fim. Os tempos de início batem com eventos da imagem;
 o fim é o limite: se a fala sair mais curta, deixe o silêncio, não estique.
 
@@ -7,40 +9,40 @@ o fim é o limite: se a fala sair mais curta, deixe o silêncio, não estique.
 CENA 1 · 0,0–4,0 · Sobrevoo da cidade ao pôr do sol + minimapa
 Na tela: "GTA 6 chegou no radar de todo mundo."
 ------------------------------------------------------------------
-[0,3–3,6]  O mundo inteiro tá de olho no GTA 6.
+[0,30–2,26]  O mundo inteiro tá de olho no GTA 6.
 
 ==================================================================
 CENA 2 · 4,0–9,0 · Câmera desce até a padaria apagada (fora do minimapa)
 Na tela (a partir de 6,75): "E o seu negócio?"
 ------------------------------------------------------------------
-[4,4–6,4]  Mas se o cliente não te acha, ele acha o concorrente.
-[6,8–8,2]  E o seu negócio?
+[3,95–6,49]  Mas se o cliente não te acha, ele acha o concorrente.
+[6,80–7,52]  E o seu negócio?
            (pausa curta antes; a frase cai junto com o texto e o zoom da câmera em 7,25)
-[8,2–10,4] silêncio: o logo está caindo; deixe o impacto respirar
+[7,5–10,4] silêncio: o logo está caindo; deixe o impacto respirar
 
 ==================================================================
 CENA 3 · 9,0–15,0 · O "c." cai (impacto em 10,4), a cor muda, a loja acende
 Na tela (a partir de 11,2): "Codrian. Estar no radar."
 Ponto lima no minimapa em 12,6 e etiqueta "SUA EMPRESA" em 13,0
 ------------------------------------------------------------------
-[11,2–12,8] Codrian. Estar no radar.
-[13,0–14,8] A gente coloca o seu negócio no mapa.
+[11,20–12,34] Codrian. Estar no radar.
+[13,00–14,95] A gente coloca o seu negócio no mapa.
 
 ==================================================================
 CENA 4 · 15,0–24,0 · Órbita no celular; o site se monta na tela
 Na tela, linha a linha: "Seu site." (16,0) "Seu radar." (16,6) "Seus clientes." (17,2)
 Na tela do celular: estrelas 18,0 · mapa 18,6 · botão "Chame no WhatsApp" 19,3
 ------------------------------------------------------------------
-[16,0–18,2] Seu site. Seu radar. Seus clientes.
-[18,6–23,4] Com endereço no mapa, avaliações no Google e um botão direto pro seu WhatsApp.
+[16,00–17,90] Seu site. Seu radar. Seus clientes.
+[18,60–22,63] Com endereço no mapa, avaliações no Google e um botão direto pro seu WhatsApp.
 
 ==================================================================
 CENA 5 · 24,0–32,0 · Câmera recua, pontos lima acendem pela cidade, logo final
 Logo nasce do ponto em 29,35 · @codrian_ofc sobe em 30,75
 ------------------------------------------------------------------
-[24,4–27,8] O GTA 6 já chegou. O seu site não precisa esperar.
-[29,4–30,2] Codrian.
-[30,6–31,8] Chame no WhatsApp.
+[24,40–27,29] O GTA 6 já chegou. O seu site não precisa esperar.
+[29,40–30,27] Codrian.
+[30,60–31,47] Chame no WhatsApp.
 
 ==================================================================
 TEXTO CORRIDO (para colar no ElevenLabs de uma vez)

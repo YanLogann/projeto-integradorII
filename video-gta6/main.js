@@ -44,7 +44,7 @@ const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, preserveDraw
 renderer.setPixelRatio(1);
 renderer.setSize(W, H, false);
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
-renderer.toneMappingExposure = 1.0;
+renderer.toneMappingExposure = 0.72;
 renderer.outputColorSpace = THREE.SRGBColorSpace;
 
 const scene = new THREE.Scene();
@@ -52,7 +52,7 @@ const camera = new THREE.PerspectiveCamera(58, W / H, 0.5, 5000);
 
 const composer = new EffectComposer(renderer, new THREE.WebGLRenderTarget(W, H, { type: THREE.HalfFloatType, samples: 4 }));
 composer.addPass(new RenderPass(scene, camera));
-const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), 0.7, 0.5, 0.86);
+const bloom = new UnrealBloomPass(new THREE.Vector2(W / 2, H / 2), 0.5, 0.45, 0.9);
 composer.addPass(bloom);
 composer.addPass(new OutputPass());
 
@@ -791,7 +791,7 @@ function renderFrame(t, frame) {
   U.uWaveR.value = t < T_IMPACT ? -100 : lerp(0, 1100, inOut(wk) * 0.6 + wk * 0.4);
   U.uGlobal.value = smooth(T_IMPACT + 2.6, T_IMPACT + 3.2, t);
   U.uSky.value = smooth(T_IMPACT + 0.3, T_IMPACT + 2.2, t);
-  bloom.strength = 0.7 + (t > 15 && t < 24 ? -0.15 : 0);
+  bloom.strength = 0.5 + (t > 15 && t < 24 ? -0.12 : 0);
 
   // logo: cai do céu
   if (t < 9.0) { logo.visible = false; }
