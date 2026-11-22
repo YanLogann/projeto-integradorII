@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>CODRIAN — O Cemitério dos Clientes</title>
+<style>
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-400-normal.woff2) format('woff2');font-weight:400}
+@font-face{font-family:Anton;src:url(node_modules/@fontsource/anton/files/anton-latin-ext-400-normal.woff2) format('woff2');font-weight:400;unicode-range:U+0100-024F}
+@font-face{font-family:Inter;src:url(node_modules/@fontsource/inter/files/inter-latin-800-normal.woff2) format('woff2');font-weight:800}
+@font-face{font-family:Inter;src:url(node_modules/@fontsource/inter/files/inter-latin-700-normal.woff2) format('woff2');font-weight:700}
+@font-face{font-family:Inter;src:url(node_modules/@fontsource/inter/files/inter-latin-400-normal.woff2) format('woff2');font-weight:400}
+html,body{margin:0;background:#050407;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;color:#ddd;font:14px Inter,sans-serif}
+canvas{height:88vh;aspect-ratio:9/16;background:#000;display:block}
+#ui{margin-top:8px;display:flex;gap:8px;align-items:center} input[type=range]{width:40vh}
+body.render #ui{display:none} body.render canvas{height:auto}
+</style></head>
+<body>
+<canvas id="c"></canvas>
+<div id="ui"><button id="play">▶ Play</button><input id="seek" type="range" min="0" max="34.5" step="0.01" value="0"><span id="tc">0.00s</span></div>
+<script src="src/vo-data.js"></script>
+<script src="src/lib/core.js"></script><script src="src/lib/paper.js"></script><script src="src/lib/chars.js"></script><script src="src/lib/fx.js"></script>
+<script src="src/timeline.js"></script>
+<script src="src/scenes/shop.js"></script><script src="src/scenes/lp.js"></script>
+<script src="src/scenes/s1.js"></script><script src="src/scenes/s2.js"></script><script src="src/scenes/s3.js"></script>
+<script src="src/scenes/s4.js"></script><script src="src/scenes/s5.js"></script><script src="src/scenes/s6.js"></script>
+<script src="src/main.js"></script>
+<script>
+(async () => {
+  const q = new URLSearchParams(location.search), render = q.has('render');
+  if (render) document.body.classList.add('render');
+  await CD.init(document.getElementById('c'), parseFloat(q.get('scale') || (render ? '0.5' : '0.5')));
+  if (render) return;
+  // Pré-visualização ao vivo sincronizada com o áudio mixado (out/mix.m4a)
+  const audio = new Audio('out/mix.m4a'), seek = document.getElementById('seek'), tc = document.getElementById('tc'), btn = document.getElementById('play');
+  let playing = false, t0 = 0, start = 0;
+  const now = () => playing ? (audio.readyState > 2 && !audio.paused ? audio.currentTime : (performance.now() - start) / 1000 + t0) : +seek.value;
+  btn.onclick = () => { playing = !playing; btn.textContent = playing ? '❚❚ Pause' : '▶ Play';
+    if (playing) { t0 = +seek.value; start = performance.now(); audio.currentTime = t0; audio.play().catch(() => {}); } else audio.pause(); };
+  seek.oninput = () => { if (playing) btn.click(); };
+  const loop = () => { const t = now(); if (playing) { seek.value = t; if (t >= CD.DUR) btn.click(); } CD.render(t); tc.textContent = t.toFixed(2) + 's'; requestAnimationFrame(loop); };
+  loop();
+})();
+</script>
+</body></html>

@@ -1,0 +1,45 @@
+{
+ "text": "Pare de perder oportunidades. Comece a ser encontrado.",
+ "words": [
+  {
+   "w": "Pare",
+   "s": 0,
+   "e": 0.29
+  },
+  {
+   "w": "de",
+   "s": 0.337,
+   "e": 0.406
+  },
+  {
+   "w": "perder",
+   "s": 0.464,
+   "e": 0.778
+  },
+  {
+   "w": "oportunidades.",
+   "s": 0.824,
+   "e": 1.776
+  },
+  {
+   "w": "Comece",
+   "s": 1.927,
+   "e": 2.357
+  },
+  {
+   "w": "a",
+   "s": 2.38,
+   "e": 2.403
+  },
+  {
+   "w": "ser",
+   "s": 2.461,
+   "e": 2.624
+  },
+  {
+   "w": "encontrado.",
+   "s": 2.67,
+   "e": 3.669
+  }
+ ]
+}

@@ -1,0 +1,115 @@
+{
+ "text": "Mas existe uma maneira de mudar essa história: uma página que apresenta sua empresa, valoriza seus serviços e transforma visitas em oportunidades.",
+ "words": [
+  {
+   "w": "Mas",
+   "s": 0,
+   "e": 0.186
+  },
+  {
+   "w": "existe",
+   "s": 0.255,
+   "e": 0.522
+  },
+  {
+   "w": "uma",
+   "s": 0.557,
+   "e": 0.639
+  },
+  {
+   "w": "maneira",
+   "s": 0.685,
+   "e": 0.987
+  },
+  {
+   "w": "de",
+   "s": 1.022,
+   "e": 1.091
+  },
+  {
+   "w": "mudar",
+   "s": 1.126,
+   "e": 1.44
+  },
+  {
+   "w": "essa",
+   "s": 1.486,
+   "e": 1.602
+  },
+  {
+   "w": "história:",
+   "s": 1.625,
+   "e": 2.241
+  },
+  {
+   "w": "uma",
+   "s": 2.485,
+   "e": 2.647
+  },
+  {
+   "w": "página",
+   "s": 2.705,
+   "e": 3.077
+  },
+  {
+   "w": "que",
+   "s": 3.123,
+   "e": 3.204
+  },
+  {
+   "w": "apresenta",
+   "s": 3.228,
+   "e": 3.704
+  },
+  {
+   "w": "sua",
+   "s": 3.738,
+   "e": 3.866
+  },
+  {
+   "w": "empresa,",
+   "s": 3.889,
+   "e": 4.47
+  },
+  {
+   "w": "valoriza",
+   "s": 4.621,
+   "e": 5.039
+  },
+  {
+   "w": "seus",
+   "s": 5.085,
+   "e": 5.224
+  },
+  {
+   "w": "serviços",
+   "s": 5.248,
+   "e": 5.817
+  },
+  {
+   "w": "e",
+   "s": 5.921,
+   "e": 6.026
+  },
+  {
+   "w": "transforma",
+   "s": 6.072,
+   "e": 6.525
+  },
+  {
+   "w": "visitas",
+   "s": 6.56,
+   "e": 7.012
+  },
+  {
+   "w": "em",
+   "s": 7.07,
+   "e": 7.14
+  },
+  {
+   "w": "oportunidades.",
+   "s": 7.21,
+   "e": 8.313
+  }
+ ]
+}
