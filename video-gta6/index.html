@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Codrian no radar</title>
+<style>
+  @font-face { font-family: "DM Sans"; src: url("assets/DMSans-500.woff2") format("woff2"); font-weight: 500; }
+  @font-face { font-family: "DM Sans"; src: url("assets/DMSans-700.woff2") format("woff2"); font-weight: 700; }
+  @font-face { font-family: "Silkscreen"; src: url("assets/Silkscreen-400.woff2") format("woff2"); font-weight: 400; }
+  :root {
+    --void: #100c1c; --deep: #271942; --violet: #6938e8; --violet-hi: #8b6cff;
+    --lime: #b7ff4a; --ink: #f4f1ff; --mist: #cfc6ee; --muted: #8e83b8; --line: #8b6cff40;
+  }
+  html, body { margin: 0; padding: 0; background: var(--void); overflow: hidden; }
+  #stage { position: relative; width: 1080px; height: 1920px; overflow: hidden; background: var(--void); }
+  #gl { position: absolute; inset: 0; width: 1080px; height: 1920px; }
+  .layer { position: absolute; inset: 0; pointer-events: none; }
+  #vignette { background: radial-gradient(ellipse 75% 60% at 50% 50%, rgba(16,12,28,0) 45%, rgba(16,12,28,.78) 100%); }
+  #grain { opacity: .07; mix-blend-mode: overlay; width: 1080px; height: 1920px; image-rendering: pixelated; }
+  #scrim { opacity: 0; }
+  #hud { position: absolute; left: 90px; top: 280px; width: 340px; height: 400px; }
+  #hud canvas { width: 340px; height: 400px; }
+  .title {
+    position: absolute; left: 90px; width: 900px; margin: 0;
+    font-family: "DM Sans", system-ui, sans-serif; font-weight: 700; letter-spacing: -0.045em;
+    color: var(--ink); line-height: 1.02;
+  }
+  .title .ln { display: block; will-change: transform, filter, opacity; }
+  .accent { color: var(--violet-hi); }
+  #beams { opacity: 0; }
+  #beams i { position: absolute; top: -200px; height: 2400px; transform: skewX(-18deg);
+    background: linear-gradient(90deg, rgba(139,108,255,0) 0%, rgba(139,108,255,.32) 50%, rgba(139,108,255,0) 100%);
+    filter: blur(18px); }
+  #flash { background: radial-gradient(circle at 50% 50%, rgba(220,255,170,1) 0%, rgba(183,255,74,.6) 40%, rgba(183,255,74,0) 75%); opacity: 0; }
+  #end { opacity: 0; background: var(--void); }
+  #end .glow { position: absolute; left: 50%; top: 50%; width: 1500px; height: 1500px; margin: -750px 0 0 -750px;
+    background: radial-gradient(circle, rgba(105,56,232,.9) 0%, rgba(105,56,232,0) 62%); mix-blend-mode: screen; opacity: .55; }
+  #end svg { position: absolute; left: 140px; width: 800px; top: 740px; overflow: visible; }
+  #handle { position: absolute; left: 0; width: 1080px; top: 1110px; text-align: center;
+    font-family: "DM Sans", system-ui, sans-serif; font-weight: 500; font-size: 52px; letter-spacing: -0.01em; color: var(--mist); opacity: 0; }
+  #rings { position: absolute; inset: 0; }
+</style>
+</head>
+<body>
+<div id="stage">
+  <canvas id="gl" width="1080" height="1920"></canvas>
+  <div id="scrim" class="layer"></div>
+  <div id="vignette" class="layer"></div>
+  <div id="hud"><canvas id="hudc" width="680" height="800"></canvas></div>
+  <h1 class="title" id="t1" style="font-size:104px; top:880px"><span class="ln">GTA 6 chegou no</span><span class="ln"><span class="accent">radar</span> de todo</span><span class="ln">mundo.</span></h1>
+  <h1 class="title" id="t2" style="font-size:150px; top:1250px"><span class="ln">E o seu</span><span class="ln"><span class="accent">negócio?</span></span></h1>
+  <h1 class="title" id="t3" style="font-size:124px; top:1250px"><span class="ln">Codrian.</span><span class="ln">Estar no</span><span class="ln"><span class="accent">radar.</span></span></h1>
+  <h1 class="title" id="t4" style="font-size:100px; top:1340px"><span class="ln">Seu site.</span><span class="ln">Seu <span class="accent">radar.</span></span><span class="ln">Seus clientes.</span></h1>
+  <div id="beams" class="layer"><i style="left:120px;width:160px"></i><i style="left:420px;width:280px"></i><i style="left:820px;width:120px"></i></div>
+  <div id="flash" class="layer"></div>
+  <div id="end" class="layer">
+    <div class="glow"></div>
+    <svg id="logo" viewBox="-466 -1236 4725 1752"></svg>
+    <div id="handle">@codrian_ofc</div>
+  </div>
+  <canvas id="grain" class="layer" width="540" height="960"></canvas>
+</div>
+<script type="importmap">{ "imports": { "three": "./node_modules/three/build/three.module.js", "three/addons/": "./node_modules/three/examples/jsm/" } }</script>
+<script type="module" src="main.js"></script>
+</body>
+</html>
