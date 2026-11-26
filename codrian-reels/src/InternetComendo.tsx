@@ -6,7 +6,7 @@ import { buildCity, buildDebris, buildParticles, CityRow, DebrisLayer, ParticleL
 import { DigitalStructure, Hero, HERO_SIGN, LimeLink, linePath } from "./Hero";
 import { Mouth, SuctionCurves } from "./Mouth";
 import { C, H, MX, MY, T, W } from "./theme";
-import { Caption, KineticText } from "./Typo";
+import { KineticText } from "./Typo";
 import { eIn, eInOut, eOut, map, prog, shake } from "./util";
 import { WM_PATHS, WM_VIEWBOX } from "./wordmark";
 
@@ -246,10 +246,10 @@ export const InternetComendo: React.FC = () => {
         out={T.s3 - 8}
         outMode="suck"
         lines={[
-          { size: 104, words: [{ t: "E", at: 66 }, { t: "ELA", at: 69 }, { t: "NÃO", at: 73 }] },
-          { size: 172, words: [{ t: "ESPERA", at: 80 }] },
-          { size: 104, words: [{ t: "VOCÊ", at: 100 }, { t: "ESTAR", at: 105 }] },
-          { size: 126, words: [{ t: "PREPARADO.", at: 112, color: C.violetHi }] },
+          { size: 104, words: [{ t: "E", at: 71 }, { t: "ELA", at: 73 }, { t: "NÃO", at: 77 }] },
+          { size: 172, words: [{ t: "ESPERA", at: 82 }] },
+          { size: 104, words: [{ t: "VOCÊ", at: 93 }, { t: "ESTAR", at: 98 }] },
+          { size: 126, words: [{ t: "PREPARADO.", at: 104, color: C.violetHi }] },
         ]}
       />
       <KineticText
@@ -261,8 +261,8 @@ export const InternetComendo: React.FC = () => {
         outMode="fade"
         lines={[
           { size: 110, words: [{ t: "MAS", at: 260 }, { t: "QUEM", at: 264 }, { t: "SE", at: 268 }] },
-          { size: 160, words: [{ t: "CONECTA,", at: 272, color: C.lime }] },
-          { size: 172, words: [{ t: "RESISTE.", at: 306 }] },
+          { size: 160, words: [{ t: "CONECTA,", at: 278, color: C.lime }] },
+          { size: 172, words: [{ t: "RESISTE.", at: 297 }] },
         ]}
       />
       <KineticText
@@ -273,8 +273,8 @@ export const InternetComendo: React.FC = () => {
         out={T.s5 - 6}
         outMode="fade"
         lines={[
-          { size: 132, words: [{ t: "QUEM", at: 397 }, { t: "EVOLUI,", at: 403, color: C.lime }] },
-          { size: 100, words: [{ t: "SE", at: 420 }, { t: "TRANSFORMA.", at: 424 }] },
+          { size: 118, words: [{ t: "QUEM", at: 400 }, { t: "RESISTE", at: 405 }] },
+          { size: 118, words: [{ t: "É", at: 417 }, { t: "QUEM", at: 420 }, { t: "INOVA.", at: 426, color: C.lime }] },
         ]}
       />
       <KineticText
@@ -304,13 +304,14 @@ export const InternetComendo: React.FC = () => {
         </div>
       )}
 
-      {/* legenda queimada da fala de abertura */}
-      <Caption f={f} text="A internet está comendo a sua empresa." from={2} to={64} y={1452} />
 
       {/* ---------- áudio ---------- */}
       <Audio src={staticFile("audio/sfx_drone.mp3")} volume={(i) => map(i, [0, 20, T.connect - 2, T.connect, T.pulse, T.pulse + 6, T.s5, 630, 660], [0, 0.55, 0.55, 0, 0, 0.5, 0.5, 0.3, 0])} />
-      <Sequence from={4}>
+      <Sequence from={0}>
         <Audio src={staticFile("audio/vo1.mp3")} volume={1} />
+      </Sequence>
+      <Sequence from={66}>
+        <Audio src={staticFile("audio/vo2.mp3")} volume={1} />
       </Sequence>
       <Sequence from={5}>
         <Audio src={staticFile("audio/sfx_hit.mp3")} volume={0.9} />
@@ -325,13 +326,13 @@ export const InternetComendo: React.FC = () => {
         <Audio src={staticFile("audio/sfx_pulse.mp3")} volume={0.9} />
       </Sequence>
       <Sequence from={T.pulse}>
-        <Audio src={staticFile("audio/vo2.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo3.mp3")} volume={1} />
       </Sequence>
       <Sequence from={T.explode - 8}>
         <Audio src={staticFile("audio/sfx_rise.mp3")} volume={0.6} />
       </Sequence>
       <Sequence from={395}>
-        <Audio src={staticFile("audio/vo3.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo4.mp3")} volume={1} />
       </Sequence>
       <Sequence from={T.pin + 6}>
         <Audio src={staticFile("audio/sfx_pulse.mp3")} volume={0.45} />
@@ -343,7 +344,7 @@ export const InternetComendo: React.FC = () => {
         <Audio src={staticFile("audio/sfx_logo.mp3")} volume={0.8} />
       </Sequence>
       <Sequence from={505}>
-        <Audio src={staticFile("audio/vo4.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo5.mp3")} volume={1} />
       </Sequence>
     </AbsoluteFill>
   );

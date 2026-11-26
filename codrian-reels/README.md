@@ -17,4 +17,4 @@ Em ambientes sem o Chrome do Remotion, use `--browser-executable=/caminho/do/chr
 | `src/City.tsx` | Fachadas, fragmentação, detritos, partículas e a física de sucção, com congelamento e explosão |
 | `src/Hero.tsx` | A empresa que resiste, o hipercubo (a estrutura digital) e as linhas neon |
 | `src/Typo.tsx` | Tipografia cinética e legenda queimada |
-| `public/audio/` | Locução (ElevenLabs, voz "Miguel") e SFX gerados |
+| `public/audio/` | Locução (ElevenLabs, voz "Rodrigo Ishikawa") e SFX gerados |
