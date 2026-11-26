@@ -1,0 +1,22 @@
+{
+  "name": "codrian-reels",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "studio": "remotion studio",
+    "render": "remotion render InternetComendo out/internet-comendo.mp4",
+    "master": "ffmpeg -y -i out/internet-comendo.mp4 -c:v copy -af \"alimiter=limit=0.7:level=false,loudnorm=I=-14:TP=-1.5:LRA=11\" -ar 48000 -c:a aac -b:a 256k -movflags +faststart out/codrian-internet-comendo-reels.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.242",
+    "@remotion/google-fonts": "^4.0.242",
+    "@remotion/noise": "^4.0.242",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "remotion": "^4.0.242"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "typescript": "^5.6.3"
+  }
+}
