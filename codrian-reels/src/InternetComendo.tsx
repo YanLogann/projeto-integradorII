@@ -19,7 +19,7 @@ const camScale = [1.16, 1.05, 1.09, 1.12, 1.15, 1.06, 1.0, 0.97];
 const camFocusY = [900, 880, 820, 1180, 1260, 1300, 1100, 960];
 const camDrift = [60, 0, -20, -10, 0, 0, 0, 0];
 
-const HITS: [number, number][] = [[6, 20], [45, 10], [118, 9], [T.connect, 7], [T.pulse, 16], [T.pin, 6], [484, 12]];
+const HITS: [number, number][] = [[10, 20], [45, 10], [118, 9], [T.connect, 7], [T.pulse, 16], [T.pin, 6], [484, 12]];
 
 const camera = (f: number, depth: number) => {
   const s = map(f, camKeys, camScale);
@@ -78,7 +78,7 @@ export const InternetComendo: React.FC = () => {
 
   // flashes
   const flash = Math.max(
-    map(f, [6, 7, 12], [0, 0.55, 0]),
+    map(f, [10, 11, 16], [0, 0.55, 0]),
     map(f, [T.connect, T.connect + 1, T.connect + 6], [0, 0.25, 0]),
     map(f, [T.pulse, T.pulse + 1, T.pulse + 10], [0, 0.4, 0]),
     map(f, [T.s5 + 14, T.s5 + 15, T.s5 + 20], [0, 0.45, 0])
@@ -233,9 +233,9 @@ export const InternetComendo: React.FC = () => {
         out={T.s2 - 4}
         outMode="suck"
         lines={[
-          { size: 150, words: [{ t: "A", at: 4 }, { t: "INTERNET", at: 6 }] },
-          { size: 150, words: [{ t: "ESTÁ", at: 13 }, { t: "COM", at: 16 }] },
-          { size: 230, words: [{ t: "FOME.", at: 21, color: C.violetHi }] },
+          { size: 150, words: [{ t: "A", at: 1 }, { t: "INTERNET", at: 10 }] },
+          { size: 150, words: [{ t: "ESTÁ", at: 22 }, { t: "COM", at: 29 }] },
+          { size: 230, words: [{ t: "FOME.", at: 36, color: C.violetHi }] },
         ]}
       />
       <KineticText
@@ -246,10 +246,10 @@ export const InternetComendo: React.FC = () => {
         out={T.s3 - 8}
         outMode="suck"
         lines={[
-          { size: 104, words: [{ t: "E", at: 71 }, { t: "ELA", at: 73 }, { t: "NÃO", at: 77 }] },
-          { size: 172, words: [{ t: "ESPERA", at: 82 }] },
-          { size: 104, words: [{ t: "VOCÊ", at: 93 }, { t: "ESTAR", at: 98 }] },
-          { size: 126, words: [{ t: "PREPARADO.", at: 104, color: C.violetHi }] },
+          { size: 104, words: [{ t: "E", at: 63 }, { t: "ELA", at: 65 }, { t: "NÃO", at: 72 }] },
+          { size: 172, words: [{ t: "ESPERA", at: 80 }] },
+          { size: 104, words: [{ t: "VOCÊ", at: 89 }, { t: "ESTAR", at: 100 }] },
+          { size: 126, words: [{ t: "PREPARADO.", at: 107, color: C.violetHi }] },
         ]}
       />
       <KineticText
@@ -260,9 +260,9 @@ export const InternetComendo: React.FC = () => {
         out={T.s4 + 30}
         outMode="fade"
         lines={[
-          { size: 110, words: [{ t: "MAS", at: 260 }, { t: "QUEM", at: 264 }, { t: "SE", at: 268 }] },
-          { size: 160, words: [{ t: "CONECTA,", at: 278, color: C.lime }] },
-          { size: 172, words: [{ t: "RESISTE.", at: 297 }] },
+          { size: 110, words: [{ t: "MAS", at: 258 }, { t: "QUEM", at: 265 }, { t: "SE", at: 271 }] },
+          { size: 160, words: [{ t: "CONECTA,", at: 276, color: C.lime }] },
+          { size: 172, words: [{ t: "RESISTE.", at: 308 }] },
         ]}
       />
       <KineticText
@@ -273,8 +273,8 @@ export const InternetComendo: React.FC = () => {
         out={T.s5 - 6}
         outMode="fade"
         lines={[
-          { size: 118, words: [{ t: "QUEM", at: 400 }, { t: "RESISTE", at: 405 }] },
-          { size: 118, words: [{ t: "É", at: 417 }, { t: "QUEM", at: 420 }, { t: "INOVA.", at: 426, color: C.lime }] },
+          { size: 118, words: [{ t: "QUEM", at: 393 }, { t: "RESISTE", at: 398 }] },
+          { size: 118, words: [{ t: "É", at: 421 }, { t: "QUEM", at: 425 }, { t: "INOVA.", at: 431, color: C.lime }] },
         ]}
       />
       <KineticText
@@ -283,7 +283,7 @@ export const InternetComendo: React.FC = () => {
         y={985}
         align="center"
         out={T.end + 20}
-        lines={[{ size: 66, tracking: 1, words: [{ t: "SUA", at: 533 }, { t: "EMPRESA", at: 537 }, { t: "NO", at: 544 }, { t: "MAPA.", at: 548, color: C.lime }] }]}
+        lines={[{ size: 66, tracking: 1, words: [{ t: "SUA", at: 529 }, { t: "EMPRESA", at: 541 }, { t: "NO", at: 549 }, { t: "MAPA.", at: 553, color: C.lime }] }]}
       />
       {f >= 566 && (
         <div
@@ -310,10 +310,10 @@ export const InternetComendo: React.FC = () => {
       <Sequence from={0}>
         <Audio src={staticFile("audio/vo1.mp3")} volume={1} />
       </Sequence>
-      <Sequence from={66}>
+      <Sequence from={62}>
         <Audio src={staticFile("audio/vo2.mp3")} volume={1} />
       </Sequence>
-      <Sequence from={5}>
+      <Sequence from={9}>
         <Audio src={staticFile("audio/sfx_hit.mp3")} volume={0.9} />
       </Sequence>
       <Sequence from={40} durationInFrames={T.connect - 40}>
@@ -331,7 +331,7 @@ export const InternetComendo: React.FC = () => {
       <Sequence from={T.explode - 8}>
         <Audio src={staticFile("audio/sfx_rise.mp3")} volume={0.6} />
       </Sequence>
-      <Sequence from={395}>
+      <Sequence from={392}>
         <Audio src={staticFile("audio/vo4.mp3")} volume={1} />
       </Sequence>
       <Sequence from={T.pin + 6}>
@@ -343,7 +343,7 @@ export const InternetComendo: React.FC = () => {
       <Sequence from={T.s5 + 20}>
         <Audio src={staticFile("audio/sfx_logo.mp3")} volume={0.8} />
       </Sequence>
-      <Sequence from={505}>
+      <Sequence from={503}>
         <Audio src={staticFile("audio/vo5.mp3")} volume={1} />
       </Sequence>
     </AbsoluteFill>
