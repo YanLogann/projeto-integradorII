@@ -56,7 +56,15 @@ const NET = [
   { d: `M975,1370 C1040,1300 1080,1220 1140,1150`, start: T.network + 22 },
 ];
 
-export const InternetComendo: React.FC = () => {
+// janelas de fala: trilha e efeitos abaixam enquanto a voz fala
+const VO_WIN: [number, number][] = [[0, 54], [62, 130], [258, 332], [392, 450], [503, 570]];
+const duck = (g: number) => {
+  let d = 1;
+  for (const [a, b] of VO_WIN) d = Math.min(d, map(g, [a - 4, a, b, b + 6], [1, 0.16, 0.16, 1]));
+  return d;
+};
+
+export const InternetComendo: React.FC<{ noVo?: boolean }> = ({ noVo = false }) => {
   const f = useCurrentFrame();
   const city = useMemo(buildCity, []);
   const debris = useMemo(buildDebris, []);
@@ -306,45 +314,45 @@ export const InternetComendo: React.FC = () => {
 
 
       {/* ---------- áudio ---------- */}
-      <Audio src={staticFile("audio/sfx_drone.mp3")} volume={(i) => map(i, [0, 20, T.connect - 2, T.connect, T.pulse, T.pulse + 6, T.s5, 630, 660], [0, 0.55, 0.55, 0, 0, 0.5, 0.5, 0.3, 0])} />
+      <Audio src={staticFile("audio/sfx_drone.mp3")} volume={(i) => duck(i) * map(i, [0, 20, T.connect - 2, T.connect, T.pulse, T.pulse + 6, T.s5, 630, 660], [0, 0.5, 0.5, 0, 0, 0.45, 0.45, 0.3, 0])} />
       <Sequence from={0}>
-        <Audio src={staticFile("audio/vo1.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo1.mp3")} volume={noVo ? 0 : 1} />
       </Sequence>
       <Sequence from={62}>
-        <Audio src={staticFile("audio/vo2.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo2.mp3")} volume={noVo ? 0 : 1} />
       </Sequence>
       <Sequence from={9}>
-        <Audio src={staticFile("audio/sfx_hit.mp3")} volume={0.9} />
+        <Audio src={staticFile("audio/sfx_hit.mp3")} volume={(i) => 0.5 * duck(i + 9)} />
       </Sequence>
       <Sequence from={40} durationInFrames={T.connect - 40}>
-        <Audio src={staticFile("audio/sfx_suction.mp3")} volume={(i) => map(i, [0, 10, 130], [0, 0.7, 0.5])} />
+        <Audio src={staticFile("audio/sfx_suction.mp3")} volume={(i) => duck(i + 40) * map(i, [0, 10, 130], [0, 0.6, 0.45])} />
       </Sequence>
       <Sequence from={150} durationInFrames={T.connect - 150}>
-        <Audio src={staticFile("audio/sfx_suction.mp3")} volume={(i) => map(i, [0, 10], [0, 0.6])} />
+        <Audio src={staticFile("audio/sfx_suction.mp3")} volume={(i) => duck(i + 150) * map(i, [0, 10], [0, 0.5])} />
       </Sequence>
       <Sequence from={T.pulse}>
-        <Audio src={staticFile("audio/sfx_pulse.mp3")} volume={0.9} />
+        <Audio src={staticFile("audio/sfx_pulse.mp3")} volume={0.25} />
       </Sequence>
       <Sequence from={T.pulse}>
-        <Audio src={staticFile("audio/vo3.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo3.mp3")} volume={noVo ? 0 : 1} />
       </Sequence>
       <Sequence from={T.explode - 8}>
-        <Audio src={staticFile("audio/sfx_rise.mp3")} volume={0.6} />
+        <Audio src={staticFile("audio/sfx_rise.mp3")} volume={(i) => 0.5 * duck(i + T.explode - 8)} />
       </Sequence>
       <Sequence from={392}>
-        <Audio src={staticFile("audio/vo4.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo4.mp3")} volume={noVo ? 0 : 1} />
       </Sequence>
       <Sequence from={T.pin + 6}>
-        <Audio src={staticFile("audio/sfx_pulse.mp3")} volume={0.45} />
+        <Audio src={staticFile("audio/sfx_pulse.mp3")} volume={0.3} />
       </Sequence>
-      <Sequence from={T.s5 + 12}>
-        <Audio src={staticFile("audio/sfx_hit.mp3")} volume={0.7} />
+      <Sequence from={T.s5 + 4}>
+        <Audio src={staticFile("audio/sfx_hit.mp3")} volume={(i) => 0.45 * duck(i + T.s5 + 4)} />
       </Sequence>
       <Sequence from={T.s5 + 20}>
-        <Audio src={staticFile("audio/sfx_logo.mp3")} volume={0.8} />
+        <Audio src={staticFile("audio/sfx_logo.mp3")} volume={(i) => 0.4 * duck(i + T.s5 + 20)} />
       </Sequence>
       <Sequence from={503}>
-        <Audio src={staticFile("audio/vo5.mp3")} volume={1} />
+        <Audio src={staticFile("audio/vo5.mp3")} volume={noVo ? 0 : 1} />
       </Sequence>
     </AbsoluteFill>
   );
