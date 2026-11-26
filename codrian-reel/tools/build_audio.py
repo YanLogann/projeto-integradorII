@@ -11,20 +11,25 @@ DUR = 27.5
 rng = np.random.default_rng(7)
 
 # ---------- schedule (seconds) ----------
-VO_AT = {"hook": 0.15, "zero": 2.45, "grid": 4.3, "type": 6.65, "color": 9.85,
-         "photo": 12.75, "ready": 18.45, "cta": 23.0}
+VO_AT = {"hook": 0.12, "zero": 2.3, "grid": 4.75, "type": 6.45, "color": 10.15,
+         "photo": 12.5, "ready": 18.1, "cta": 22.25}
 STAGES = {
-    "hookEnd": 2.05,      # hard cut to black
-    "blackEnd": 2.35,
-    "grid": 4.05, "type": 6.45, "color": 9.6, "photo": 12.55,
-    "pullback": 17.55, "reveal": 18.35, "cta": 22.7, "end": DUR,
+    "hookEnd": 2.0,       # hard cut to black
+    "blackEnd": 2.25,
+    "grid": 4.45, "type": 6.3, "color": 9.95, "photo": 12.3,
+    "pullback": 17.2, "reveal": 17.95, "cta": 22.0, "end": DUR,
 }
-GRID_LINES = [4.2 + i * 0.2 for i in range(8)]
-TYPE_ITEMS = [6.75, 7.25, 7.85, 8.45]          # brand, headline, sub, nav
-COLOR_ITEMS = [9.9, 10.3, 10.7, 11.15]          # bg, cards, headline tint, accent ignite
-PHOTO_SNAP = 13.55
-BUTTON_IN = 15.35
-PULSES = [15.95, 16.75, 17.55]
+_al = json.load(open("tools/vo_alignment.json"))
+def word_at(key, word):
+    d = _al[key]; txt = "".join(d["chars"]); i = txt.index(word)
+    return VO_AT[key] + d["start"][i]
+G, T, Co, P = STAGES["grid"], STAGES["type"], STAGES["color"], STAGES["photo"]
+GRID_LINES = [round(G + 0.15 + i * 0.2, 3) for i in range(8)]
+TYPE_ITEMS = [T + 0.3, T + 0.8, T + 1.4, T + 2.0]   # brand, headline, sub, nav/cards
+COLOR_ITEMS = [Co + 0.3, Co + 0.7, Co + 1.1, Co + 1.55]  # bg, cards, headline tint, accent ignite
+PHOTO_SNAP = round(word_at("photo", "foto") + 0.25, 3)
+BUTTON_IN = round(word_at("photo", "botão") - 0.05, 3)
+PULSES = [round(BUTTON_IN + 0.6 + i * 0.75, 3) for i in range(3)]
 
 SFX = (
     [("whoosh", t, 0.9) for t in [STAGES["grid"] - 0.1, STAGES["type"] - 0.1, STAGES["color"] - 0.1,
@@ -115,7 +120,7 @@ def place(buf, sig, at, gain=1.0):
     if i < N: buf[i:j] += gain * sig[: j - i]
 
 for k, at in VO_AT.items():
-    place(vo, load(f"public/audio/vo/{k}.mp3"), at)
+    place(vo, load(f"public/audio/vo/{k}.wav"), at)
 for name, at, g in SFX:
     place(sfx, GEN[name](), at, g)
 

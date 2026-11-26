@@ -30,18 +30,18 @@ export type ReelProps = {draft: boolean};
 
 // ---------- camera ----------
 type Cam = {t: number; fx: number; fy: number; s: number; rx: number; ry: number; sy: number};
+// Zoom levels keep every letter inside a >=40px margin (site is 900 wide; text spans x 60..860).
 const K: Cam[] = [
-  {t: 4.05, fx: 450, fy: 900, s: 0.92, rx: 22, ry: -14, sy: 960},
-  {t: 6.3, fx: 450, fy: 960, s: 1.04, rx: 12, ry: -6, sy: 960},
-  {t: 7.1, fx: 400, fy: 500, s: 1.5, rx: 4, ry: 7, sy: 960},
-  {t: 9.4, fx: 410, fy: 490, s: 1.58, rx: 2, ry: 3, sy: 960},
-  {t: 10.25, fx: 450, fy: 780, s: 1.08, rx: -9, ry: 12, sy: 960},
-  {t: 12.4, fx: 450, fy: 820, s: 1.14, rx: -6, ry: 5, sy: 960},
-  {t: 13.25, fx: 450, fy: 1260, s: 1.25, rx: 7, ry: -5, sy: 960},
-  {t: 15.3, fx: 450, fy: 1290, s: 1.25, rx: 4, ry: -2, sy: 960},
-  {t: 17.55, fx: 450, fy: 1300, s: 1.3, rx: 3, ry: -1, sy: 960},
-  {t: 18.7, fx: 450, fy: 975, s: 0.6, rx: 2, ry: -9, sy: 1190},
-  {t: 22.7, fx: 450, fy: 975, s: 0.62, rx: 4, ry: 8, sy: 1180},
+  {t: S.grid, fx: 450, fy: 940, s: 0.78, rx: 20, ry: -12, sy: 960},
+  {t: S.type - 0.1, fx: 450, fy: 960, s: 0.88, rx: 11, ry: -5, sy: 960},
+  {t: S.type + 0.7, fx: 450, fy: 860, s: 1.12, rx: 4, ry: 3, sy: 960},
+  {t: S.color - 0.15, fx: 450, fy: 870, s: 1.16, rx: 2, ry: 2, sy: 960},
+  {t: S.color + 0.7, fx: 450, fy: 975, s: 0.92, rx: -8, ry: 9, sy: 960},
+  {t: S.photo - 0.15, fx: 450, fy: 975, s: 0.96, rx: -5, ry: 4, sy: 960},
+  {t: S.photo + 0.75, fx: 450, fy: 1548, s: 1.2, rx: 5, ry: -3, sy: 960},
+  {t: S.pullback, fx: 450, fy: 1548, s: 1.24, rx: 3, ry: -1, sy: 960},
+  {t: S.reveal + 0.35, fx: 450, fy: 975, s: 0.6, rx: 2, ry: -9, sy: 1190},
+  {t: S.cta, fx: 450, fy: 975, s: 0.62, rx: 4, ry: 8, sy: 1180},
 ];
 const camAt = (t: number): Cam => {
   if (t <= K[0].t) return K[0];
@@ -178,7 +178,7 @@ const Site: React.FC<{t: number; frame: number}> = ({t}) => {
         ))}
       </div>
       {/* typography */}
-      <div style={layer(45, contentBlur, {fontFamily: SANS, color: C.ink})}>
+      <div style={layer(45, contentBlur, {fontFamily: SANS, color: C.ink, opacity: 1 - ramp(t, S.photo, S.photo + 0.45) * (1 - ramp(t, S.reveal - 0.1, S.reveal + 0.4))})}>
         {/* nav */}
         <div style={{position: 'absolute', left: 60, top: 60, width: 780, height: 90, display: 'flex', alignItems: 'center', justifyContent: 'space-between'}}>
           <div style={{fontSize: 40, fontWeight: 800, letterSpacing: '-0.03em', opacity: typeP(0),
@@ -319,9 +319,9 @@ const Tagline: React.FC<{t: number}> = ({t}) => {
     <AbsoluteFill style={{padding: '210px 72px 0', fontFamily: SANS, opacity: 1 - out,
       transform: `translateY(${-out * 80}px)`}}>
       <Word t={t} at={w[0].s}><div style={{fontFamily: PIXEL, color: C.lime, fontSize: 34, letterSpacing: '0.08em', marginBottom: 24}}>PRONTO.</div></Word>
-      <div style={{fontWeight: 800, fontSize: 100, lineHeight: 0.98, letterSpacing: '-0.05em', color: C.ink}}>
+      <div style={{fontWeight: 800, fontSize: 90, lineHeight: 1, letterSpacing: '-0.05em', color: C.ink}}>
         <div>{[1, 2, 3].map(i => <React.Fragment key={i}><Word t={t} at={w[i].s}>{w[i].w}</Word>{' '}</React.Fragment>)}</div>
-        <div>{[4, 5, 6, 7].map(i => <React.Fragment key={i}><Word t={t} at={w[i].s} color={i === 7 ? C.lime : undefined}>{w[i].w}</Word>{' '}</React.Fragment>)}</div>
+        <div>{[4, 5, 6].map(i => <React.Fragment key={i}><Word t={t} at={w[i].s} color={i === 6 ? C.lime : undefined}>{w[i].w}</Word>{' '}</React.Fragment>)}</div>
       </div>
     </AbsoluteFill>
   );
@@ -331,11 +331,11 @@ const CTA: React.FC<{t: number}> = ({t}) => {
   if (t < S.cta) return null;
   const w = tl.words.cta;
   const handle = ramp(t, S.cta + 0.35, S.cta + 0.9);
-  const drift = mix(1.04, 1, ramp(t, S.cta, S.end, Easing.out(Easing.quad)));
+  const drift = mix(1.02, 1, ramp(t, S.cta, S.end, Easing.out(Easing.quad)));
   return (
     <AbsoluteFill style={{justifyContent: 'center', alignItems: 'center', fontFamily: SANS, textAlign: 'center',
       transform: `scale(${drift}) translateY(-60px)`}}>
-      <div style={{fontWeight: 800, fontSize: 132, letterSpacing: '-0.055em', color: C.ink, lineHeight: 1}}>
+      <div style={{fontWeight: 800, fontSize: 118, letterSpacing: '-0.055em', color: C.ink, lineHeight: 1}}>
         {[0, 1, 2].map(i => <React.Fragment key={i}><Word t={t} at={w[i].s} color={i === 2 ? C.lime : undefined}>{w[i].w}</Word>{' '}</React.Fragment>)}
       </div>
       <div style={{fontWeight: 500, fontSize: 60, letterSpacing: '-0.02em', color: C.mist, marginTop: 36, lineHeight: 1.15, maxWidth: 900}}>
